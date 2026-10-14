@@ -54,7 +54,16 @@ export function GlobalSearch() {
   const shortcut = /Mac|iPhone|iPad/.test(navigator.platform) ? '⌘ K' : 'Ctrl K'
   const entries = useMemo(
     () => createSearchIndex(store),
-    [store.activities, store.role, store.person, store.business],
+    [
+      store.activities,
+      store.role,
+      store.person,
+      store.business,
+      store.members,
+      store.registrations,
+      store.brands,
+      store.requests,
+    ],
   )
   const areas = getSearchAreas(store.role)
   const results = useMemo(() => findSearchResults(entries, query), [entries, query])

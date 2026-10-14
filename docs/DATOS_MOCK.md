@@ -47,7 +47,7 @@ El contacto jurídico de la portada y el del servicio de asesoría publican corr
 
 - `src/data/mock-db.ts` importa y congela recursivamente la base. Expone referencias, utilidades y versión del dataset.
 - `src/data/fixtures.ts` adapta esos registros a las pantallas existentes. No debe contener una segunda colección de datos de negocio.
-- `src/lib/mock-backend.ts` crea copias de la base y escribe los cambios relacionados juntos en `localStorage`, bajo `afeb:mock:afeb-observed-2026-10-14-v1:backend:v1`. `src/lib/store.tsx` conecta React y sincroniza las pestañas. Los antiguos datos ficticios usan otro prefijo y dejan de alimentar esta versión.
+- `src/lib/mock-backend.ts` crea copias de la base y escribe los cambios relacionados juntos en `localStorage`, bajo `afeb:mock:afeb-observed-2026-10-14-v1:backend:v2`. `src/lib/store.tsx` conecta React y sincroniza las pestañas. Los antiguos datos ficticios usan otro prefijo y dejan de alimentar esta versión.
 - `src/lib/mock-rules.ts` reúne la regla local de inscripción. Exige estado abierto, fechas y tarifa comprobadas, y aplica el plazo con reloj fijo **14/10/2026**. Un cupo desconocido permanece desconocido. Estas son reglas del borrador, no una afirmación sobre el backend actual.
 - El buscador y las fichas leen las mismas entidades. Perfil e inscripciones comparten el estado local.
 - **Restablecer demo** recupera la base observada en el snapshot local y elimina las claves antiguas migradas de esta versión. No altera el JSON ni la web privada.
@@ -80,3 +80,11 @@ npm run build
 El control automático verifica IDs únicos, procedencia, relaciones entre tablas, propietarios de archivos, años derivados y los casos observados que no deben corregirse silenciosamente.
 
 Los escenarios también se pueden preparar desde `/demo`; el funcionamiento del mini backend y los controles de presentación están en `DEMO.md`.
+
+## Fase 1: relaciones del overlay local
+
+La base observada no cambia. `lib/mock-types.ts` define `members`, `invitations`, `registrations`, solicitudes discriminadas por tipo y preferencias de licitaciones. Los nuevos datos son entradas del usuario marcadas `local-simulation`; campos no introducidos permanecen `null`. `lib/mock-selectors.ts` proyecta los datos de origen y los overlays para equipo, directorio, búsqueda y participación.
+
+Una inscripción se relaciona con persona, actividad, empresa (si se conoce) e invitación. Las ocurrencias originales sin IDs de persona/empresa verificadas no se fusionan por nombre. La empresa externa permanece como texto y FK nulo. `simulationRole` nunca sustituye el rol original observado.
+
+La actualización a v2 migra datos de v1 sin inferir campos ausentes ni reconstruir invitaciones a partir del texto de una solicitud antigua. Restablecer elimina también los restos del formato anterior. Consultar [pruebas completas de fase 1](PROBAR_FASE_1.md).

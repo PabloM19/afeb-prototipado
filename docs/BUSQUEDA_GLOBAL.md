@@ -42,3 +42,7 @@ Al conectar un backend, sustituir la creación del índice local por un servicio
 La comprobación funcional y de tamaños se recoge en `VERIFICACION.md`.
 
 Las capturas anteriores documentan el diseño del buscador antes de sustituir los datos ficticios por la base observada.
+
+## Ampliación de fase 1
+
+Se indexan las personas locales, marcas observadas/locales y participaciones visibles. Los resultados de marca abren la pestaña Marcas. Las participaciones originales sin identidad verificada abren su ocurrencia; las locales abren la ficha de persona. En vista Gestor se buscan también los datos de solicitudes con enlace a su detalle. Los cambios de miembros, inscripciones y marcas regeneran el índice sin recargar.

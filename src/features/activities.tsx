@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams, useNavigate } from 'react-router-dom'
 import {
   Ticket,
   ArrowUpRight,
@@ -37,15 +37,11 @@ import {
   DemoNotice,
   downloadDemo,
 } from '@/components/shared'
-import { activityCategories, formatDate, participations, resolveActivityId } from '@/data/fixtures'
-import {
-  referenceIds,
-  displayValue,
-  getMockFiles,
-  initialsFor,
-  simulationDate,
-} from '@/data/mock-db'
+import { activityCategories, formatDate, resolveActivityId } from '@/data/fixtures'
+import { referenceIds, displayValue, getMockFiles, mockDb, simulationDate } from '@/data/mock-db'
 import { canRegisterInMock } from '@/lib/mock-rules'
+import { getDemoParticipations, getCompanyTeam } from '@/lib/mock-selectors'
+import { localAction } from '@/lib/local-action'
 import { useStore } from '@/lib/store'
 export function Activities() {
   const { activities, role } = useStore()
@@ -186,21 +182,9 @@ export function EventDetail() {
     )
   const isRegistered = store.registered.includes(activity.id)
   const isOpen = canRegisterInMock(activity)
-  const sourceParticipants = participations.filter((p) => p.activityId === activity.id)
-  const people = [
-    ...sourceParticipants.map((p) => ({ ...p, path: `/detalles-equipo?participation=${p.id}` })),
-    ...(isRegistered
-      ? [
-          {
-            id: 'local-review-registration',
-            name: store.person.name,
-            company: store.business.name,
-            initials: initialsFor(store.person.name),
-            path: '/perfil',
-          },
-        ]
-      : []),
-  ].filter((p) => p.name.toLocaleLowerCase().includes(peopleSearch.toLocaleLowerCase()))
+  const people = getDemoParticipations(store)
+    .filter((p) => p.activityId === activity.id)
+    .filter((p) => p.name.toLocaleLowerCase().includes(peopleSearch.toLocaleLowerCase()))
   const price = (amount: number | null) =>
     amount === 0 ? 'Gratuito' : amount === null ? 'No verificado' : `${amount} €`
   const files = getMockFiles(activity.fileIds)
@@ -336,6 +320,27 @@ export function EventDetail() {
               de inscritos del portal.
             </p>
           </section>
+          <section className="detail-section">
+            <h2>Invitaciones locales</h2>
+            {store.invitations
+              .filter((i) => i.activityId === activity.id)
+              .map((i) => (
+                <div className="invitation-row" key={i.id}>
+                  <div>
+                    <strong>{i.invitee.name}</strong>
+                    <p>{i.invitee.email}</p>
+                  </div>
+                  <Status>{i.status}</Status>
+                  <Link className="text-link" to={`/invitaciones/${i.id}`}>
+                    Ver invitación
+                    <ArrowUpRight size={15} />
+                  </Link>
+                </div>
+              ))}
+            {!store.invitations.some((i) => i.activityId === activity.id) && (
+              <p className="muted">No hay invitaciones locales para esta actividad.</p>
+            )}
+          </section>
         </div>
         <aside className="booking-panel">
           <Status>{isRegistered ? 'Inscripción local confirmada' : activity.state}</Status>
@@ -446,7 +451,7 @@ export function EventDetail() {
           <Button
             disabled={!accepted}
             onClick={() => {
-              store.register(activity.id)
+              if (!localAction(() => store.register(activity.id)).ok) return
               setConfirm(false)
               toast.success('Inscripción local confirmada')
             }}
@@ -471,7 +476,7 @@ export function EventDetail() {
             </Button>
             <Button
               onClick={() => {
-                store.cancel(activity.id)
+                if (!localAction(() => store.cancel(activity.id)).ok) return
                 setCancel(false)
                 toast.success('Inscripción local cancelada')
               }}
@@ -486,76 +491,114 @@ export function EventDetail() {
 }
 
 export function Invite() {
-  const [params] = useSearchParams()
-  const store = useStore()
-  const activity = store.activities.find((x) => x.id === resolveActivityId(params.get('id')))
-  const [values, setValues] = useState<Record<string, string>>({ company: store.business.name })
-  const [accept, setAccept] = useState(false)
-  const [sent, setSent] = useState(false)
-  if (!activity) return <EmptyState title="Actividad no encontrada en la base" />
+  const [params] = useSearchParams(),
+    store = useStore(),
+    navigate = useNavigate()
+  const activity = store.activities.find((a) => a.id === resolveActivityId(params.get('id')))
+  const [selected, setSelected] = useState('new'),
+    [sameCompany, setSameCompany] = useState(true)
+  const [values, setValues] = useState<Record<string, string>>({ company: store.business.name }),
+    [accept, setAccept] = useState(false)
+  const members = getCompanyTeam(store, mockDb.account.companyId)
+  if (!activity) return <EmptyState title="Actividad no encontrada" />
+  const allowed = canRegisterInMock(activity)
   return (
     <>
       <BackLink to={`/detalles-evento?id=${activity.id}`} label="Volver a la actividad" />
-      <PageHeading
-        title="Las buenas conversaciones se comparten."
-        description={`Invita a un profesional a «${activity.title}».`}
-      />
+      <PageHeading title="Invita a una nueva conversación" description={activity.title} />
       <div className="form-page">
-        {sent ? (
-          <EmptyState
-            title="Invitación preparada"
-            description="Se ha registrado la solicitud en la demo. No se ha enviado ningún correo."
-            action={
-              <Button
-                onClick={() => {
-                  setSent(false)
-                  setValues({ company: store.business.name })
-                }}
-              >
-                Invitar a otra persona
-              </Button>
-            }
-          />
-        ) : (
-          <form
-            onSubmit={(e) => {
-              e.preventDefault()
-              if (!canRegisterInMock(activity))
-                return toast.error('La actividad no admite invitaciones')
-              store.addRequest(`Invitación: ${values.email} · ${activity.title}`, activity.id)
-              setSent(true)
+        <h2>Persona invitada</h2>
+        <label className="field">
+          <span>Seleccionar persona del equipo</span>
+          <select
+            aria-label="Seleccionar persona del equipo"
+            value={selected}
+            onChange={(e) => {
+              const id = e.target.value
+              setSelected(id)
+              const p = members.find((p) => p.id === id)
+              setSameCompany(true)
+              setValues(
+                p
+                  ? {
+                      name: p.name,
+                      email: p.email,
+                      position: p.position,
+                      company: store.business.name,
+                    }
+                  : { company: store.business.name },
+              )
             }}
           >
-            <h2>Datos de la persona invitada</h2>
-            <FormFields
-              fields={[
-                { name: 'email', label: 'Email', type: 'email', required: true, wide: true },
-                { name: 'name', label: 'Nombre y apellidos', required: true },
-                { name: 'position', label: 'Cargo', required: true },
-                { name: 'company', label: 'Empresa', required: true, wide: true },
-              ]}
-              values={values}
-              setValues={setValues}
-            />
+            <option value="new">Nueva persona</option>
+            {members.map((p) => (
+              <option key={p.id} value={p.id}>
+                {p.name} · {p.email || 'Email no verificado'}
+              </option>
+            ))}
+          </select>
+        </label>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault()
+            const result = localAction(() =>
+              store.createInvitation({
+                activityId: activity.id,
+                personId: selected === 'new' ? undefined : selected,
+                name: values.name,
+                email: values.email,
+                position: values.position,
+                company: values.company,
+                companyId: sameCompany ? mockDb.account.companyId : null,
+              }),
+            )
+            if (result.ok) {
+              toast.success('Invitación local preparada')
+              navigate(`/invitaciones/${result.value}`)
+            }
+          }}
+        >
+          <FormFields
+            fields={[
+              { name: 'email', label: 'Email', type: 'email', required: true, wide: true },
+              { name: 'name', label: 'Nombre y apellidos', required: true },
+              { name: 'position', label: 'Cargo', required: true },
+              { name: 'company', label: 'Empresa', required: true, wide: true },
+            ]}
+            values={values}
+            setValues={setValues}
+          />
+          {selected === 'new' && (
             <label className="checkbox-label">
-              <Checkbox checked={accept} onCheckedChange={(x) => setAccept(x === true)} />
+              <Checkbox checked={sameCompany} onCheckedChange={(v) => setSameCompany(v === true)} />
               <span>
-                Confirmo la invitación y asumo, si corresponde, el coste de la inscripción (
-                {activity.price} € de ejemplo).
+                Pertenece a mi empresa en esta simulación. Si es externo, su empresa queda como
+                texto sin un ID inventado.
               </span>
             </label>
-            <DemoNotice />
-            <div className="form-actions">
-              <Button variant="outline" asChild>
-                <Link to={`/detalles-evento?id=${activity.id}`}>Cancelar</Link>
-              </Button>
-              <Button disabled={!accept || activity.state !== 'Abierta'} type="submit">
-                Preparar invitación
-                <ArrowUpRight size={16} />
-              </Button>
-            </div>
-          </form>
-        )}
+          )}
+          <label className="checkbox-label">
+            <Checkbox checked={accept} onCheckedChange={(v) => setAccept(v === true)} />
+            <span>
+              Entiendo que es una invitación local, sin correo ni cobro. La regla de coste está por
+              confirmar con AFEB.
+            </span>
+          </label>
+          <DemoNotice>
+            Los datos se conservarán en la invitación y en la ficha local de persona. La aceptación
+            se simula explícitamente desde su detalle.
+          </DemoNotice>
+          <div className="form-actions">
+            <Button type="submit" disabled={!accept || !allowed}>
+              Preparar invitación
+            </Button>
+          </div>
+          {!allowed && (
+            <p role="status">
+              Esta actividad no admite invitaciones por estado, plazo, cupo o datos incompletos.
+            </p>
+          )}
+        </form>
       </div>
     </>
   )

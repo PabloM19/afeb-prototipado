@@ -77,7 +77,11 @@ export function AppShell() {
       '/otras-acciones-licitaciones': 'Licitaciones',
       '/detalles-equipo': 'Contacto',
     }[location.pathname] ||
-    'Portal del socio'
+    (location.pathname.startsWith('/invitaciones/')
+      ? 'Invitación local'
+      : location.pathname.startsWith('/solicitudes/')
+        ? 'Detalle de solicitud'
+        : 'Portal del socio')
   const nav = (
     <>
       <Link

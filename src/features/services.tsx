@@ -15,6 +15,7 @@ import {
 } from '@/components/shared'
 import { providers, companies } from '@/data/fixtures'
 import { mockDb } from '@/data/mock-db'
+import { localAction } from '@/lib/local-action'
 import { useStore } from '@/lib/store'
 export function Providers() {
   const [params] = useSearchParams()
@@ -132,7 +133,7 @@ export function Groups() {
   )
 }
 export function Cobranding() {
-  const { addRequest } = useStore()
+  const store = useStore()
   const [selected, setSelected] = useState<string[]>([])
   const [values, setValues] = useState<Record<string, string>>({})
   const [search, setSearch] = useState('')
@@ -151,9 +152,17 @@ export function Cobranding() {
           onSubmit={(e) => {
             e.preventDefault()
             if (!selected.length) return toast.error('Selecciona al menos una empresa')
-            addRequest(
-              `Cobranding: ${values.type} · ${selected.join(', ')} · ${values.description}`,
+            const result = localAction(() =>
+              store.createRequest({
+                kind: 'collaboration',
+                payload: {
+                  companyIds: selected,
+                  collaborationType: values.type,
+                  description: values.description,
+                },
+              }),
             )
+            if (!result.ok) return
             setSent(true)
             toast.success('Propuesta guardada en la demo')
           }}
@@ -190,15 +199,13 @@ export function Cobranding() {
                   .map((c) => (
                     <label key={c.id}>
                       <Checkbox
-                        checked={selected.includes(c.name)}
+                        checked={selected.includes(c.id)}
                         disabled={
                           selected.length === mockDb.auditedForms.collaboration.maxCompanies &&
-                          !selected.includes(c.name)
+                          !selected.includes(c.id)
                         }
                         onCheckedChange={(v) =>
-                          setSelected(
-                            v ? [...selected, c.name] : selected.filter((x) => x !== c.name),
-                          )
+                          setSelected(v ? [...selected, c.id] : selected.filter((x) => x !== c.id))
                         }
                       />
                       <div>
@@ -260,41 +267,52 @@ export function Cobranding() {
   )
 }
 export function Tenders() {
-  const { addRequest } = useStore()
-  const [daily, setDaily] = useState<boolean | null>(null)
-  const [personal, setPersonal] = useState<boolean | null>(null)
-  const [categories, setCategories] = useState<string[]>([])
-  const [values, setValues] = useState<Record<string, string>>({})
+  const store = useStore(),
+    [daily, setDaily] = useState(store.tenderPreferences.daily),
+    [personal, setPersonal] = useState(store.tenderPreferences.personalized)
+  const [values, setValues] = useState<Record<string, string>>({
+    interests: store.tenderPreferences.interests,
+    comments: store.tenderPreferences.comments,
+  })
+  useEffect(() => {
+    setDaily(store.tenderPreferences.daily)
+    setPersonal(store.tenderPreferences.personalized)
+    setValues({
+      interests: store.tenderPreferences.interests,
+      comments: store.tenderPreferences.comments,
+    })
+  }, [store.tenderPreferences.updatedAt])
   return (
     <>
       <BackLink to="/eventos" label="Actividades y servicios" />
       <PageHeading
-        eyebrow="Nuevas oportunidades para tu empresa"
+        eyebrow="Nuevas oportunidades"
         title="Licitaciones"
-        description="Cuéntanos qué oportunidades te interesan y personaliza tus preferencias."
+        description="Guarda tus intereses y recupera tus preferencias al volver."
       />
       <div className="service-form-grid">
         <form
           className="form-page"
           onSubmit={(e) => {
             e.preventDefault()
-            if (daily === null || personal === null)
-              return toast.error('Elige ambas preferencias para esta solicitud local')
-            if (personal && !values.comments?.trim())
-              return toast.error('Indica tus intereses en los comentarios')
-            addRequest(
-              `Licitaciones: diaria ${daily ? 'sí' : 'no'} · personalizada ${personal ? 'sí' : 'no'} · ${categories.join(', ')} · ${values.comments || ''}`,
+            const result = localAction(() =>
+              store.saveTenderPreferences({
+                daily,
+                personalized: personal,
+                categoryIds: [],
+                interests: values.interests ?? '',
+                comments: values.comments ?? '',
+                updatedAt: null,
+              }),
             )
-            toast.success('Preferencias registradas en la demo', {
-              description: 'No se genera una suscripción ni un cobro.',
-            })
+            if (result.ok) toast.success('Preferencias y solicitud guardadas en local')
           }}
         >
           <h2>La información que te interesa</h2>
           <label className="preference-row">
             <div>
               <strong>Newsletter general diaria</strong>
-              <span>Un resumen de oportunidades de licitación.</span>
+              <span>Elección para la simulación local.</span>
             </div>
             <Checkbox
               checked={daily ?? 'indeterminate'}
@@ -305,8 +323,8 @@ export function Tenders() {
             <div>
               <strong>Modalidad personalizada</strong>
               <span>
-                Información según tus categorías ·{' '}
-                {mockDb.auditedForms.tenders.personalizedMonthlyPrice} €/mes de referencia.
+                {mockDb.auditedForms.tenders.personalizedMonthlyPrice} €/mes de referencia auditada,
+                sin contratación.
               </span>
             </div>
             <Checkbox
@@ -314,39 +332,28 @@ export function Tenders() {
               onCheckedChange={(v) => setPersonal(v === true)}
             />
           </label>
-          {personal && (
-            <>
-              <h3 className="subsection-title">Categorías de interés</h3>
-              <p className="form-hint">
-                Las opciones del formulario original no se han recogido. Puedes anotarlas en los
-                comentarios para simular la solicitud.
-              </p>
-              <div className="category-checks">
-                {(mockDb.auditedForms.tenders.categoryOptions ?? []).map((c: string) => (
-                  <label key={c}>
-                    <Checkbox
-                      checked={categories.includes(c)}
-                      onCheckedChange={(v) =>
-                        setCategories(v ? [...categories, c] : categories.filter((x) => x !== c))
-                      }
-                    />
-                    <span>{c}</span>
-                  </label>
-                ))}
-              </div>
-            </>
-          )}
           <FormFields
             fields={[
+              {
+                name: 'interests',
+                label: 'Intereses de la modalidad personalizada',
+                type: 'textarea',
+                required: personal === true,
+                wide: true,
+                placeholder: 'Indica tus intereses para esta solicitud local…',
+              },
               { name: 'comments', label: 'Comentarios adicionales', type: 'textarea', wide: true },
             ]}
             values={values}
             setValues={setValues}
           />
+          <p className="form-hint">
+            El catálogo específico de categorías no se verificó. Tus intereses se conservan como
+            texto, sin crear categorías ficticias.
+          </p>
           <DemoNotice>
-            Preferencias originales no verificadas: elige las opciones para esta solicitud local.
-            Tarifa observada en la auditoría, pendiente de confirmar. Guardar aquí no contrata el
-            servicio.
+            Guardar conserva las preferencias y crea una solicitud estructurada de seguimiento. No
+            suscribe newsletters ni cobra el servicio.
           </DemoNotice>
           <div className="form-actions">
             <Button type="submit">
@@ -354,18 +361,19 @@ export function Tenders() {
               <Check size={16} />
             </Button>
           </div>
+          {store.tenderPreferences.updatedAt && (
+            <Link className="text-link" to="/demo">
+              Consultar solicitud en el Centro de demos
+              <ArrowUpRight size={16} />
+            </Link>
+          )}
         </form>
         <aside className="service-aside">
           <Mail size={28} />
-          <h2>
-            La oportunidad
-            <br />
-            adecuada, más cerca.
-          </h2>
-          <p>Recibe información relevante para las especialidades de tu empresa.</p>
+          <h2>La oportunidad adecuada, más cerca.</h2>
+          <p>Tus opciones permanecen al volver al formulario o recargar.</p>
           <span>
-            La búsqueda automatizada de licitaciones y la producción de newsletters no están
-            incluidas en esta base.
+            Las categorías oficiales, producción de newsletters y contratación siguen pendientes.
           </span>
         </aside>
       </div>

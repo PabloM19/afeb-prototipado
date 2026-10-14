@@ -21,9 +21,11 @@ Seguir las fases de [HOJA_DE_RUTA_AFEB.md](HOJA_DE_RUTA_AFEB.md), manteniendo su
 
 Los prompts siguientes son plantillas por dominio; su numeración no sustituye ese orden ni autoriza integración o despliegue.
 
-## Prompt para el siguiente bloque del mock
+## Estado y siguiente bloque del mock
 
-> Lee docs/HOJA_DE_RUTA_AFEB.md, docs/DATOS_MOCK.md, docs/DEMO.md y el código actual. Completa E-09, M-04, V-12, V-13 y S-03 en el mini backend local: registros de miembro e invitación con IDs, datos introducidos conservados, relaciones de empresa/actividad/persona y payload por tipo de solicitud. Reutiliza mock-db.json como fuente factual y conserva valores desconocidos. No asignar roles reales no comprobados ni introducir registros plausibles en la base. Las reglas de aceptación no confirmadas deben quedar identificadas como propuestas de simulación. Mantén el estilo y los recorridos existentes. Comprueba recarga, sincronización entre pestañas, duplicados y restablecimiento, y demuestra el ciclo de invitación hacia una inscripción local. No conectar el portal privado ni Zoho, enviar correos o desplegar. Actualiza los IDs afectados y los límites reales de la hoja de ruta y ejecuta las comprobaciones pertinentes.
+La fase 1 está implementada y verificada; leer `docs/PROBAR_FASE_1.md`. Reutilizar los registros y comandos tipados de `lib/mock-types.ts`, `lib/mock-backend.ts` y los selectores compartidos de `lib/mock-selectors.ts`. No volver a convertir personas/invitaciones en nombres/asuntos sueltos.
+
+> Lee docs/HOJA_DE_RUTA_AFEB.md y docs/PROBAR_FASE_1.md. Continúa con la fase 2, escogiendo un conjunto acotado de IDs de campos/operaciones de socio y empresa. Conserva los flujos de miembros, invitaciones, solicitudes y participación ya implementados y la migración backend:v2. Reutiliza la base factual, los overlays y los componentes existentes; no completar datos desconocidos con contenido plausible ni conceder roles reales desde formularios. Prueba recarga, relaciones, reset y las vistas afectadas y actualiza los IDs concretos de la hoja de ruta.
 
 Cada prompt debe abarcar un dominio y dejar el proyecto compilando. Añadir criterios de aceptación concretos. No mezclar integración Zoho, rediseño y despliegue en una sola tarea.
 

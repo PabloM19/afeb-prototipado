@@ -41,6 +41,7 @@ import {
   resolveReportId,
   formatDate,
 } from '@/data/fixtures'
+import { localAction } from '@/lib/local-action'
 import { useStore } from '@/lib/store'
 import { displayValue, referenceIds, mockDb } from '@/data/mock-db'
 export function Reports() {
@@ -427,7 +428,13 @@ export function Regulations() {
           <form
             onSubmit={(e) => {
               e.preventDefault()
-              store.addRequest(`Asesoría: ${values.details}`)
+              const result = localAction(() =>
+                store.createRequest({
+                  kind: 'advice',
+                  payload: { details: values.details, serviceId: legalService.id },
+                }),
+              )
+              if (!result.ok) return
               setOpen(false)
               setValues({})
               toast.success('Solicitud de asesoría guardada localmente', {

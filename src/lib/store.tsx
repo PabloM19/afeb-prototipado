@@ -2,22 +2,30 @@ import { createContext, useContext, useEffect, useState, useSyncExternalStore } 
 import type { ReactNode } from 'react'
 import type { Activity, Role } from '@/data/fixtures'
 import { createMockBackend } from '@/lib/mock-backend'
-import type { DemoState, Person, Business, RequestStatus } from '@/lib/mock-backend'
+import { getCompanyTeam } from '@/lib/mock-selectors'
+import { mockDb } from '@/data/mock-db'
+import type { DemoState, Person, Business } from '@/lib/mock-backend'
 
+type Backend = ReturnType<typeof createMockBackend>
 type Store = DemoState & {
-  reset: () => void
-  setRole: (r: Role) => void
-  setPerson: (p: Person) => void
-  setBusiness: (b: Business) => void
-  setPreferences: (p: (boolean | null)[]) => void
-  register: (id: string) => void
-  cancel: (id: string) => void
-  setActivities: (a: Activity[]) => void
-  addRequest: (subject: string, activityId?: string | null) => void
-  updateRequest: (id: string, status: RequestStatus) => void
+  team: string[]
+  reset: Backend['reset']
+  setRole: (role: Role) => void
+  setPerson: (person: Person) => void
+  setBusiness: (business: Business) => void
+  setPreferences: (prefs: (boolean | null)[]) => void
+  setActivities: (activities: Activity[]) => void
   setBrands: (brands: string[]) => void
-  setTeam: (team: string[]) => void
-  loadScenario: (id: string) => void
+  register: Backend['register']
+  cancel: Backend['cancel']
+  addMember: Backend['addMember']
+  createInvitation: Backend['createInvitation']
+  respondInvitation: Backend['respondInvitation']
+  createRequest: Backend['createRequest']
+  updateRequest: Backend['updateRequest']
+  followRequest: Backend['followRequest']
+  saveTenderPreferences: Backend['saveTenderPreferences']
+  loadScenario: Backend['loadScenario']
 }
 const Context = createContext<Store | null>(null)
 export function StoreProvider({ children }: { children: ReactNode }) {
@@ -38,6 +46,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     <Context.Provider
       value={{
         ...state,
+        team: getCompanyTeam(state, mockDb.account.companyId).map((p) => p.name),
         reset: backend.reset,
         setRole: (role) => backend.patch('role', role),
         setPerson: (person) => backend.patch('person', person),
@@ -46,10 +55,14 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         setActivities: (activities) => backend.patch('activities', activities),
         register: backend.register,
         cancel: backend.cancel,
-        addRequest: backend.addRequest,
+        addMember: backend.addMember,
+        createInvitation: backend.createInvitation,
+        respondInvitation: backend.respondInvitation,
+        createRequest: backend.createRequest,
+        followRequest: backend.followRequest,
+        saveTenderPreferences: backend.saveTenderPreferences,
         updateRequest: backend.updateRequest,
         setBrands: (brands) => backend.patch('brands', brands),
-        setTeam: (team) => backend.patch('team', team),
         loadScenario: backend.loadScenario,
       }}
     >

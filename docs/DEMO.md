@@ -24,9 +24,9 @@ Cargar un recorrido sustituye los cambios locales. La interfaz lo indica antes d
 
 `src/lib/mock-backend.ts` contiene el repositorio y los comandos; es independiente de React. `StoreProvider` se suscribe a sus snapshots y conserva la interfaz usada por las pantallas.
 
-Los cambios relacionados se escriben juntos en una sola clave `afeb:mock:<datasetId>:backend:v1`: perfil, empresa, preferencias, actividades, inscripciones, solicitudes, marcas, equipo, rol y recorrido activo. La escritura se completa antes de notificar a la UI. Los snapshots publicados se congelan; los comandos crean una nueva versión.
+Los cambios relacionados se escriben juntos en una sola clave `afeb:mock:<datasetId>:backend:v2`: perfil, empresa, preferencias, actividades, personas locales, invitaciones, registros de participación, solicitudes, marcas, rol y recorrido activo. La escritura se completa antes de notificar a la UI. Los snapshots publicados se congelan; los comandos crean una nueva versión.
 
-Inscribir/cancelar son idempotentes, comprueban las reglas locales y actualizan registro y contador en la misma operación. Las solicitudes tienen ID local, autor de revisión, fecha técnica de creación, estado y, en invitaciones, referencia de actividad. Los registros importados permanecen intactos.
+Inscribir/cancelar son idempotentes, comprueban las reglas locales y actualizan registro y contador en la misma operación. Las solicitudes tienen payload por tipo, referencias, responsable, comentarios e historial. Las invitaciones conservan destinatario, actividad y coste pendiente, y su aceptación explícita crea una inscripción local. Los registros importados permanecen intactos.
 
 El evento `storage` sincroniza pestañas del mismo origen. Una nueva versión de la página recupera el estado persistido. Las claves del formato anterior se migran para conservar los cambios de una presentación existente.
 
@@ -41,3 +41,5 @@ npm run build
 ```
 
 No añadir datos de negocio plausibles para hacer la presentación: se utilizan los registros verificados y las entradas de simulación que escriba el presentador. Véase `DATOS_MOCK.md` para cobertura y datos desconocidos.
+
+La fase 1 está implementada: [guía de comprobación](PROBAR_FASE_1.md). Desde Datos del mock también puedes abrir las personas e invitaciones creadas en la demo.

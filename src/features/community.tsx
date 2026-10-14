@@ -34,13 +34,11 @@ import {
   ActivityRow,
 } from '@/components/shared'
 import type { Field } from '@/components/shared'
-import {
-  companies,
-  allCompanies,
-  participations,
-  companyCategories,
-  contacts,
-} from '@/data/fixtures'
+import { companies, allCompanies, companyCategories, contacts } from '@/data/fixtures'
+import { getDemoContacts, getDemoParticipations, getCompanyTeam } from '@/lib/mock-selectors'
+import { ParticipationList } from '@/components/participation-list'
+import { localAction } from '@/lib/local-action'
+import type { Role } from '@/data/fixtures'
 import { useStore } from '@/lib/store'
 import { mockDb, displayValue, initialsFor } from '@/data/mock-db'
 const personFields: Field[] = [
@@ -55,6 +53,7 @@ const personFields: Field[] = [
     label: 'Departamento',
   },
   { name: 'phone', label: 'Teléfono', type: 'tel' },
+  { name: 'phone2', label: 'Segundo teléfono', type: 'tel' },
   { name: 'linkedin', label: 'LinkedIn', type: 'url' },
 ]
 const businessFields: Field[] = [
@@ -156,12 +155,9 @@ export function Companies() {
 export function Directory() {
   const [search, setSearch] = useState('')
   const [department, setDepartment] = useState('Todos los departamentos')
-  const { role, person, business } = useStore()
-  const directoryContacts = contacts.map((p) =>
-    p.id === mockDb.account.personId
-      ? { ...p, ...person, initials: initialsFor(person.name), company: business.name }
-      : p,
-  )
+  const store = useStore()
+  const { role } = store
+  const directoryContacts = getDemoContacts(store)
   const items = directoryContacts.filter(
     (p) =>
       (department === 'Todos los departamentos' || department === p.department) &&
@@ -223,8 +219,8 @@ export function Directory() {
       </div>
       {items.length === 0 && <EmptyState />}
       <DemoNotice>
-        Muestra de contactos observados en el portal. No representa el directorio completo; los
-        campos no recogidos quedan sin verificar.
+        Datos observados y personas introducidas en la simulación. No es el directorio completo; los
+        campos desconocidos permanecen sin verificar.
       </DemoNotice>
     </>
   )
@@ -232,18 +228,9 @@ export function Directory() {
 export function ContactDetail() {
   const [params] = useSearchParams()
   const store = useStore()
-  const observedPerson = params.get('participation')
-    ? participations.find((x) => x.id === params.get('participation'))
-    : contacts.find((x) => x.id === params.get('id'))
-  const person =
-    observedPerson?.id === mockDb.account.personId
-      ? {
-          ...observedPerson,
-          ...store.person,
-          initials: initialsFor(store.person.name),
-          company: store.business.name,
-        }
-      : observedPerson
+  const person = params.get('participation')
+    ? getDemoParticipations(store).find((p) => p.id === params.get('participation'))
+    : getDemoContacts(store).find((p) => p.id === params.get('id'))
   if (!person) return <EmptyState title="Contacto no encontrado" />
   return (
     <>
@@ -275,6 +262,30 @@ export function ContactDetail() {
             <dd>Permisos pendientes de validar</dd>
           </div>
         </dl>
+        {!params.get('participation') && (
+          <>
+            <dl className="data-grid">
+              {getDemoContacts(store)
+                .filter((p) => p.id === person.id)
+                .flatMap((p) => [
+                  ['Cargo', p.position],
+                  ['Nivel', p.level],
+                  ['Teléfono', p.phone],
+                  ['Segundo teléfono', p.phone2],
+                  ['LinkedIn', p.linkedin],
+                  ['Rol real observado', p.sourceRole],
+                  ['Rol de simulación', p.simulationRole],
+                ])
+                .map(([k, v]) => (
+                  <div key={k}>
+                    <dt>{k}</dt>
+                    <dd>{displayValue(v)}</dd>
+                  </div>
+                ))}
+            </dl>
+            <ParticipationList personId={person.id} />
+          </>
+        )}
         <DemoNotice>
           La ficha utiliza los campos observados. Una inscripción no se vincula a una persona del
           CRM sin un identificador verificado.
@@ -337,6 +348,7 @@ export function Profile() {
               {[
                 ['Email', store.person.email],
                 ['Teléfono', store.person.phone],
+                ['Segundo teléfono', store.person.phone2],
                 ['Cargo', store.person.position],
                 ['Departamento', store.person.department],
                 ['Nivel de dirección', store.person.level],
@@ -444,6 +456,11 @@ export function CompanyDetail({ own = false }: { own?: boolean }) {
   const [brandValues, setBrandValues] = useState<Record<string, string>>({})
   const [teamValues, setTeamValues] = useState<Record<string, string>>({})
   const [deleteBrand, setDeleteBrand] = useState('')
+  const [companyTab, setCompanyTab] = useState(params.get('tab') || 'datos')
+  const requestedTab = params.get('tab')
+  useEffect(() => {
+    setCompanyTab(requestedTab || 'datos')
+  }, [requestedTab])
   if (!company) return <EmptyState title="Empresa no encontrada" />
   const name = own ? store.business.name : company.name
   return (
@@ -481,7 +498,7 @@ export function CompanyDetail({ own = false }: { own?: boolean }) {
         </div>
         <span className="small-label">Muestra observada · 14/10/2026</span>
       </div>
-      <Tabs defaultValue="datos">
+      <Tabs className="company-detail-tabs" value={companyTab} onValueChange={setCompanyTab}>
         <TabsList>
           <TabsTrigger value="datos">Información</TabsTrigger>
           <TabsTrigger value="marcas">Marcas</TabsTrigger>
@@ -608,25 +625,23 @@ export function CompanyDetail({ own = false }: { own?: boolean }) {
                 </Button>
               )}
             </div>
-            {(own
-              ? store.team
-              : contacts.filter((c) => c.company === company.name).map((c) => c.name)
-            ).map((member) => (
-              <div className="team-row" key={member}>
-                <Avatar
-                  initials={member
-                    .split(' ')
-                    .map((x) => x[0])
-                    .slice(0, 2)
-                    .join('')}
-                />
+            {getCompanyTeam(store, company.id).map((member) => (
+              <div className="team-row" key={member.id}>
+                <Avatar initials={member.initials} />
                 <div>
-                  <strong>{member}</strong>
-                  <p>{name}</p>
+                  <Link className="text-link" to={`/detalles-equipo?id=${member.id}`}>
+                    {member.name}
+                    <ArrowUpRight size={15} />
+                  </Link>
+                  <p>
+                    {displayValue(member.position)} · {member.company}
+                  </p>
+                  <p className="form-hint">{member.email || 'Email no verificado'}</p>
                 </div>
                 <span className="small-label">
-                  {contacts.find((p) => p.name === member && p.companyId === company.id)
-                    ?.sourceRole || 'Rol no verificado'}
+                  {member.simulationRole
+                    ? `${member.simulationRole} · simulación`
+                    : member.sourceRole || 'Rol no verificado'}
                 </span>
               </div>
             ))}
@@ -646,12 +661,7 @@ export function CompanyDetail({ own = false }: { own?: boolean }) {
           <TabsContent value="participacion">
             <div className="content-panel">
               <h2>Tu empresa participa</h2>
-              {store.activities
-                .filter((a) => store.registered.includes(a.id))
-                .map((a) => (
-                  <ActivityRow key={a.id} activity={a} />
-                ))}
-              {store.registered.length === 0 && <EmptyState title="Sin inscripciones" />}
+              <ParticipationList companyId={company.id} />
               <Link className="text-link" to="/eventos">
                 Descubrir nuevas actividades
                 <ArrowUpRight size={16} />
@@ -707,19 +717,25 @@ export function CompanyDetail({ own = false }: { own?: boolean }) {
           <DialogHeader>
             <DialogTitle>Añadir persona al equipo</DialogTitle>
             <DialogDescription>
-              Prepara la invitación para una persona de tu empresa. No se envían correos.
+              Guarda una persona en el equipo, directorio y fichas de esta demo. El rol solo es de
+              simulación; no se crean accesos reales.
             </DialogDescription>
           </DialogHeader>
           <form
             onSubmit={(e) => {
               e.preventDefault()
-              if (store.team.some((p) => p.toLowerCase() === teamValues.name.trim().toLowerCase()))
-                return toast.error('Ya existe una persona con ese nombre')
-              store.setTeam([...store.team, teamValues.name.trim()])
-              store.addRequest(`Invitación al equipo: ${teamValues.email}`)
+              const result = localAction(() =>
+                store.addMember({
+                  ...teamValues,
+                  name: teamValues.name,
+                  email: teamValues.email,
+                  role: teamValues.role as Role,
+                }),
+              )
+              if (!result.ok) return
               setTeamOpen(false)
               setTeamValues({})
-              toast.success('Persona añadida a la demo')
+              toast.success('Persona guardada con todos sus datos')
             }}
           >
             <FormFields
@@ -740,7 +756,7 @@ export function CompanyDetail({ own = false }: { own?: boolean }) {
               El servidor deberá validar la pertenencia y autorizar el rol propuesto.
             </p>
             <div className="form-actions">
-              <Button type="submit">Preparar invitación</Button>
+              <Button type="submit">Guardar persona</Button>
             </div>
           </form>
         </DialogContent>

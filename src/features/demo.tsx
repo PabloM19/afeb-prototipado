@@ -22,15 +22,12 @@ import {
   DialogTitle,
   DialogDescription,
 } from '@/components/ui/dialog'
-import { PageHeading, SearchInput, FilterSelect, EmptyState, Status } from '@/components/shared'
+import { PageHeading, SearchInput, FilterSelect, EmptyState } from '@/components/shared'
 import { allCompanies, allReports, documents, providers, formatDate } from '@/data/fixtures'
 import { mockDb, displayValue } from '@/data/mock-db'
-import {
-  createInitialDemoState,
-  demoRoles,
-  requestStatuses,
-  type RequestStatus,
-} from '@/lib/mock-backend'
+import { createInitialDemoState, demoRoles } from '@/lib/mock-backend'
+import { getDemoContacts } from '@/lib/mock-selectors'
+import { RequestList } from '@/components/request-list'
 import { useStore } from '@/lib/store'
 
 const scenarioCopy: Record<string, { description: string; action: string }> = {
@@ -80,6 +77,8 @@ export default function DemoCenter() {
     { label: 'Informes y normativa', count: allReports.length, icon: FileText },
     { label: 'Documentos', count: documents.length, icon: Files },
     { label: 'Colaboradores', count: providers.length, icon: Handshake },
+    { label: 'Personas', count: getDemoContacts(store).length, icon: Database },
+    { label: 'Invitaciones', count: store.invitations.length, icon: CalendarDays },
   ]
   const records =
     {
@@ -135,6 +134,24 @@ export default function DemoCenter() {
         path: `/colaboradores?buscar=${encodeURIComponent(p.title)}&tipo=${p.type}`,
         source: mockDb.providers.find((x) => x.id === p.id)!.source.sourceIds,
       })),
+      Personas: getDemoContacts(store).map((p) => ({
+        id: p.id,
+        title: p.name,
+        category: p.company,
+        status: p.position || 'Cargo no verificado',
+        changed: p.origin === 'local-simulation',
+        path: `/detalles-equipo?id=${p.id}`,
+        source: [],
+      })),
+      Invitaciones: store.invitations.map((i) => ({
+        id: i.id,
+        title: i.invitee.name,
+        category: store.activities.find((a) => a.id === i.activityId)?.title ?? '',
+        status: i.status,
+        changed: true,
+        path: `/invitaciones/${i.id}`,
+        source: [],
+      })),
     }[area] ?? []
   const filtered = records.filter((r) =>
     `${r.title} ${r.category}`.toLocaleLowerCase().includes(search.toLocaleLowerCase()),
@@ -188,7 +205,7 @@ export default function DemoCenter() {
           <dl>
             <div>
               <dt>Inscripciones locales</dt>
-              <dd>{store.registered.length}</dd>
+              <dd>{store.registrations.filter((r) => r.status === 'Confirmada').length}</dd>
             </div>
             <div>
               <dt>Actividades modificadas</dt>
@@ -300,8 +317,9 @@ export default function DemoCenter() {
           </div>
           {filtered.length === 0 && <EmptyState />}
           <p className="demo-section-note">
-            Empresas incluye 8 socios verificados, AFEB y la cuenta de pruebas. Los contactos y
-            participantes son muestras. Los 39 archivos son metadatos; sus originales no están
+            Empresas incluye 8 socios verificados, AFEB y la cuenta de pruebas. Personas e
+            invitaciones incluyen tus entradas de simulación; los contactos y participantes
+            originales son muestras. Los 39 archivos son metadatos; sus originales no están
             importados.
           </p>
         </TabsContent>
@@ -312,42 +330,7 @@ export default function DemoCenter() {
               Envía una asesoría, invitación o colaboración en el front. Aparecerá aquí y en Gestión
               interna, con el mismo estado.
             </p>
-            {store.requests.length ? (
-              store.requests.map((request) => (
-                <div className="demo-request" key={request.id}>
-                  <div>
-                    <strong>{request.subject}</strong>
-                    <span>
-                      {request.createdAt ? formatDate(request.createdAt) : 'Fecha no recogida'} ·
-                      Solo local
-                    </span>
-                  </div>
-                  {store.role === 'Gestor AFEB' ? (
-                    <FilterSelect
-                      value={request.status}
-                      onChange={(s) => store.updateRequest(request.id, s as RequestStatus)}
-                      options={requestStatuses}
-                      label={`Estado de ${request.subject}`}
-                    />
-                  ) : (
-                    <Status>{request.status}</Status>
-                  )}
-                </div>
-              ))
-            ) : (
-              <EmptyState
-                title="Lista para recibir tus solicitudes"
-                description="Crea una desde el formulario de asesoría para enseñar el flujo completo."
-                action={
-                  <Button variant="outline" asChild>
-                    <Link to="/normativa">
-                      Probar solicitud de asesoría
-                      <ArrowUpRight size={15} />
-                    </Link>
-                  </Button>
-                }
-              />
-            )}
+            <RequestList />
           </div>
         </TabsContent>
       </Tabs>

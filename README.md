@@ -60,6 +60,10 @@ Para reiniciar, selecciona **Restablecer demo** en el menú de usuario: borra ú
 - `src/components/brand-mark.tsx` y `public/brand`: logotipo original y su presentación.
 - `docs`: mapa de la auditoría, decisiones, continuidad en Cursor y evidencias visuales.
 
+## Fase 1 implementada
+
+La primera fase de la hoja de ruta está completada para el mock: miembros con campos/ID, invitaciones y aceptación explícita, participación por persona/empresa, solicitudes estructuradas con historial, licitaciones recuperables y búsqueda ampliada. Sigue [PROBAR_FASE_1.md](docs/PROBAR_FASE_1.md) para probar el recorrido completo.
+
 ## Para continuar
 
 La [hoja de ruta completa](docs/HOJA_DE_RUTA_AFEB.md) cruza todas las pantallas y funcionalidades de la auditoría con el mock actual: qué funciona, qué falta, decisiones de AFEB y fases de trabajo. Es la referencia para planificar nuevas tareas.

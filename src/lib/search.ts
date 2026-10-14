@@ -1,13 +1,13 @@
+import { getDemoContacts, getDemoParticipations } from '@/lib/mock-selectors'
+import type { DemoState } from '@/lib/mock-types'
 import { mockDb } from '@/data/mock-db'
 import {
   companies,
-  contacts,
   documents,
   legalResources,
   legalService,
   providers,
   reports,
-  type Activity,
   type Role,
 } from '@/data/fixtures'
 
@@ -95,12 +95,7 @@ export type SearchEntry = {
   keywords?: string
   isArea?: boolean
 }
-export type SearchContext = {
-  activities: Activity[]
-  role: Role
-  person: { name: string; position: string; department: string }
-  business: { name: string; category: string; city: string }
-}
+export type SearchContext = DemoState
 
 export function normalizeSearch(value: string) {
   return value
@@ -146,7 +141,7 @@ export function createSearchIndex(context: SearchContext): SearchEntry[] {
         path: `/detalles-evento?id=${item.id}`,
         keywords: `${item.place} ${item.date}`,
       })),
-    ...contacts.map((item) => ({
+    ...getDemoContacts(context).map((item) => ({
       id: `person-${item.id}`,
       area: 'people' as const,
       title: item.id === mockDb.account.personId ? context.person.name : item.name,
@@ -157,6 +152,60 @@ export function createSearchIndex(context: SearchContext): SearchEntry[] {
           : `${item.company} · ${item.department}`,
       path: `/detalles-equipo?id=${item.id}`,
     })),
+    ...getDemoParticipations(context)
+      .filter((p) =>
+        context.activities.some(
+          (a) =>
+            a.id === p.activityId && (a.state !== 'Borrador' || context.role === 'Gestor AFEB'),
+        ),
+      )
+      .map((p) => ({
+        id: `participation-${p.id}`,
+        area: 'people' as const,
+        title: p.name,
+        description: context.activities.find((a) => a.id === p.activityId)!.title,
+        meta: `${p.company} · Participante ${p.origin === 'observed' ? 'observado' : 'local'}`,
+        path: p.path,
+        keywords: p.email,
+      })),
+    ...mockDb.companies.flatMap((company) =>
+      (company.id === mockDb.account.companyId
+        ? context.brands.map((name, index) => ({ id: `local-brand-${index}`, name }))
+        : company.brands
+      )
+        .filter((b) => b.name)
+        .map((brand) => ({
+          id: `brand-${company.id}-${brand.id}`,
+          area: 'companies' as const,
+          title: brand.name!,
+          description:
+            company.id === mockDb.account.companyId ? context.business.name : company.name,
+          meta: 'Marca de empresa',
+          path:
+            company.id === mockDb.account.companyId
+              ? '/detalles-de-mi-empresa?tab=marcas'
+              : `/detalles-socio?id=${company.id}&tab=marcas`,
+        })),
+    ),
+    ...context.requests
+      .filter((r) => context.role === 'Gestor AFEB' && r.companyId === mockDb.account.companyId)
+      .map((r) => ({
+        id: `request-${r.id}`,
+        area: 'management' as const,
+        title: r.subject,
+        description:
+          r.kind === 'advice'
+            ? r.payload.details
+            : r.kind === 'collaboration'
+              ? r.payload.description
+              : r.kind === 'tenders'
+                ? `${r.payload.interests} ${r.payload.comments}`
+                : r.kind === 'legacy'
+                  ? r.payload.text
+                  : 'Seguimiento de la simulación local',
+        meta: `Solicitud local · ${r.status}`,
+        path: `/solicitudes/${r.id}`,
+      })),
     ...reports.map((item) => ({
       id: `report-${item.id}`,
       area: 'reports' as const,

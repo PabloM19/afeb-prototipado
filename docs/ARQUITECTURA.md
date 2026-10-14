@@ -20,6 +20,10 @@ Se utiliza Vite con React y TypeScript para iterar el diseño de forma rápida. 
 - El selector de roles es una herramienta de demo. Su lógica no constituye una frontera de seguridad.
 - Las fichas TXT se generan con Blob a partir de nombres observados. El calendario permanece deshabilitado sin archivo o zona verificada. Los archivos privados reales pasarán por endpoints autorizados.
 
+## Modelo local de fase 1
+
+`lib/mock-types.ts` define los registros y payloads; `lib/mock-selectors.ts` compone origen y simulación. `members` conserva campos y rol propuesto; `invitations` y `registrations` enlazan persona/empresa/actividad; `requests` incluye tipo, payload, responsable e historial. `tenderPreferences` recupera el formulario. Las vistas usan estos mismos registros; el JSON observado permanece intacto. La persistencia es `backend:v2`, con migración del snapshot v1.
+
 ## Entidades de destino
 
 `User/Person`, `Company`, `Membership`, `Brand`, `CommunicationPreference`, `Activity`, `Registration`, `Invitation`, `Report`, `ReportEdition`, `FileGrant`, `InstitutionalDocument`, `Provider`, `Benefit`, `AdviceRequest`, `CollaborationRequest`, `TenderPreference`, `AuditEvent`.

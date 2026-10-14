@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button'
 import { Activities, EventDetail, Invite } from '@/features/activities'
 import { Companies, Directory, ContactDetail, Profile, CompanyDetail } from '@/features/community'
 import { Reports, ReportDetail, Documents, Regulations } from '@/features/resources'
+import { InvitationDetail, RequestDetail } from '@/features/workflows'
 import { Providers, Groups, Cobranding, Tenders } from '@/features/services'
 const Dashboard = lazy(() => import('@/features/dashboard'))
 const DemoCenter = lazy(() => import('@/features/demo'))
@@ -57,6 +58,8 @@ export default function App() {
                 <Route path="grupos-trabajo" element={<Groups />} />
                 <Route path="otras-acciones-cobranding" element={<Cobranding />} />
                 <Route path="otras-acciones-licitaciones" element={<Tenders />} />
+                <Route path="invitaciones/:id" element={<InvitationDetail />} />
+                <Route path="solicitudes/:id" element={<RequestDetail />} />
                 <Route path="demo" element={<DemoCenter />} />
                 <Route path="gestion" element={<Management />} />
                 <Route

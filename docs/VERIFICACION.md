@@ -91,3 +91,15 @@ Evidencias actuales: [rutas](previews/mock/route-checks.json), [móvil](previews
 - Datos del mock muestra 12 actividades y 10 empresas y enlaza sus pantallas.
 - Centro de demos comprobado en 1440 px y en 320/390/768 px con sus tres pestañas, sin desbordamiento horizontal del documento. Evidencias en `previews/demo-center/`.
 - Las solicitudes generadas durante la comprobación se eliminaron mediante restablecimiento. El JSON observado permanece sin cambios.
+
+## Fase 1 cerrada: entidades y flujos conectados
+
+- `mock:flows` se amplió para comprobar todos los requisitos de la fase 1: miembros con campos/empresa/roles separados, invitaciones y estados, aceptación idempotente con FKs, bloqueo de duplicados/estado/plazo/cupo, solicitudes con payload/responsable/historial, preferencias recuperables, participación por persona/empresa y búsqueda ampliada.
+- También verifica que resolver una solicitud no acepta automáticamente la invitación, los invitados externos mantienen empresa desconocida a `null`, los guardados fallidos no publican cambios y v1 migra sin duplicar miembros ni inventar campos.
+- En navegador se probó una persona introducida expresamente para la demo con dos teléfonos y enlace: equipo → invitación HOUSER → aceptación → ficha, directorio, empresa, actividad y búsqueda. Conserva datos y participación al recargar.
+- Probados duplicado bloqueado, invitación rechazada y revocada sin asistentes adicionales, preferencias de licitaciones recuperadas, cobranding con enlaces a empresas y asesoría con detalle completo. Estado/responsable/comentarios persisten; el estado se sincroniza sin recargar en otra pestaña.
+- Restablecer elimina miembros/invitaciones/solicitudes/registro/marca de prueba y preferencias, recupera los 18 contactos observados y sigue limpio al recargar. La otra pestaña deja de mostrar la solicitud eliminada.
+- 9 vistas en 320/390/768 px: 27 controles finales sin desbordamiento horizontal del documento. Se corrigieron filas de equipo y enlace de licitaciones en 320 px. Capturas y métricas en `previews/phase1/`.
+- Guía reproducible y límites de simulación en `PROBAR_FASE_1.md`. El dataset `src/data/mock-db.json` no se ha modificado.
+
+La pestaña de verificación abierta tras la implementación cargó `/demo` sin errores ni advertencias, en SocioAdmin, con 18 personas observadas y cero invitaciones/solicitudes locales tras el reinicio.

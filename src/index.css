@@ -3852,3 +3852,163 @@ td strong {
     min-width: max-content;
   }
 }
+
+.workflow-panel {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px;
+  max-width: 1000px;
+}
+.workflow-state {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 25px;
+  color: var(--muted-foreground);
+  font-size: 14px;
+}
+.workflow-panel .quick-links {
+  margin: 24px 0;
+}
+.workflow-panel .summary-box {
+  margin: 24px 0;
+}
+.workflow-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 24px 0;
+}
+.workflow-timeline {
+  display: grid;
+  gap: 0;
+}
+.workflow-timeline article {
+  display: flex;
+  gap: 14px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+.workflow-timeline svg {
+  flex-shrink: 0;
+  color: var(--muted-foreground);
+  margin-top: 4px;
+}
+.workflow-timeline strong {
+  font-size: 15px;
+}
+.workflow-timeline p {
+  font-size: 14px;
+  color: var(--muted-foreground);
+  line-height: 1.7;
+  margin: 6px 0;
+}
+.preserve-text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.invitation-row,
+.participation-record-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+.invitation-row strong {
+  font-size: 15px;
+}
+.invitation-row p {
+  font-size: 14px;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.participation-record {
+  margin: 20px 0;
+}
+.participation-record-meta {
+  font-size: 15px;
+}
+.field select {
+  width: 100%;
+  background: var(--background);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 10px 12px;
+  font-size: 15px;
+  min-height: 42px;
+}
+.workflow-actions {
+  flex-wrap: wrap;
+}
+.workflow-panel .data-grid dd {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 700px) {
+  .workflow-panel {
+    padding: 20px;
+  }
+  .workflow-state,
+  .invitation-row {
+    flex-wrap: wrap;
+  }
+  .workflow-state {
+    align-items: flex-start;
+  }
+  .workflow-panel .quick-links {
+    grid-template-columns: 1fr;
+  }
+  .workflow-actions {
+    align-items: stretch;
+  }
+  .workflow-actions button {
+    width: 100%;
+  }
+  .workflow-timeline article > div {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+}
+
+.workflow-panel .summary-box span {
+  overflow-wrap: anywhere;
+}
+.workflow-links .text-link {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.team-row > div {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.team-row .text-link {
+  white-space: normal;
+}
+.form-page > .text-link {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 700px) {
+  .team-row {
+    flex-wrap: wrap;
+  }
+  .team-row > .small-label {
+    flex-basis: 100%;
+    padding-left: 52px;
+  }
+  .company-detail-tabs > [role='tablist'] {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+  .company-detail-tabs [role='tab'] {
+    flex-shrink: 0;
+    min-width: max-content;
+  }
+}
