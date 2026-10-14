@@ -62,6 +62,8 @@ Para reiniciar, selecciona **Restablecer demo** en el menú de usuario: borra ú
 
 ## Para continuar
 
+La [hoja de ruta completa](docs/HOJA_DE_RUTA_AFEB.md) cruza todas las pantallas y funcionalidades de la auditoría con el mock actual: qué funciona, qué falta, decisiones de AFEB y fases de trabajo. Es la referencia para planificar nuevas tareas.
+
 Lee primero [el mapa funcional](docs/ALCANCE.md), [la arquitectura](docs/ARQUITECTURA.md) y [el documento de continuidad para Cursor](docs/CURSOR.md). [Verificación](docs/VERIFICACION.md) detalla lo comprobado y las limitaciones.
 
 Esto es una base visual e interactiva de frontend. Autenticación, permisos por recurso/empresa, backend, Zoho, correo transaccional, almacenamiento privado y gestión editorial completa están pendientes. No desplegar como portal real sin implementarlos.
