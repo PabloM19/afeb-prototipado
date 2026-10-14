@@ -12,7 +12,6 @@ import {
   Layers,
   ArrowUpRight,
   Bell,
-  Search,
   ChevronsUpDown,
   Settings2,
   Menu,
@@ -37,10 +36,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { Avatar, SearchInput } from '@/components/shared'
+import { Avatar } from '@/components/shared'
 import { BrandMark } from '@/components/brand-mark'
+import { GlobalSearch } from '@/components/global-search'
 import { useStore } from '@/lib/store'
-import { companies, reports } from '@/data/fixtures'
 const navigation = [
   { label: 'Inicio', path: '/', icon: LayoutDashboard },
   { label: 'Actividades', path: '/eventos', icon: CalendarDays },
@@ -57,8 +56,6 @@ export function AppShell() {
   const location = useLocation()
   const navigate = useNavigate()
   const [mobile, setMobile] = useState(false)
-  const [search, setSearch] = useState(false)
-  const [query, setQuery] = useState('')
   const [help, setHelp] = useState(false)
   const [notifications, setNotifications] = useState(false)
   const [resetOpen, setResetOpen] = useState(false)
@@ -183,25 +180,6 @@ export function AppShell() {
       </div>
     </>
   )
-  const results = [
-    ...store.activities.map((x) => ({
-      title: x.title,
-      kind: 'Actividad',
-      path: `/detalles-evento?id=${x.id}`,
-    })),
-    ...companies.map((x) => ({
-      title: x.name,
-      kind: 'Empresa',
-      path: `/detalles-socio?id=${x.id}`,
-    })),
-    ...reports.map((x) => ({
-      title: x.title,
-      kind: 'Informe',
-      path: `/detalles-informe?id=${x.id}`,
-    })),
-  ]
-    .filter((x) => x.title.toLocaleLowerCase().includes(query.toLocaleLowerCase()))
-    .slice(0, 8)
   return (
     <div className="app-shell">
       <Dialog open={resetOpen} onOpenChange={setResetOpen}>
@@ -235,7 +213,7 @@ export function AppShell() {
         </SheetContent>
       </Sheet>
       <div className="main-column">
-        <header className="topbar">
+        <header className="topbar has-global-search">
           <div className="breadcrumb">
             <Button
               aria-label="Abrir menú"
@@ -250,16 +228,8 @@ export function AppShell() {
             <ChevronRight size={13} />
             <strong>{current}</strong>
           </div>
+          <GlobalSearch />
           <div className="topbar-actions">
-            <button
-              className="global-search"
-              aria-label="Buscar en el portal"
-              onClick={() => setSearch(true)}
-            >
-              <Search size={16} />
-              <span>Buscar en el portal</span>
-              <kbd>⌕</kbd>
-            </button>
             <span className="prototype-tag">Demo local</span>
             <button
               className="notification-button"
@@ -285,27 +255,6 @@ export function AppShell() {
           </button>
         </footer>
       </div>
-      <Dialog open={search} onOpenChange={setSearch}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Encuentra lo que necesitas</DialogTitle>
-            <DialogDescription>Actividades, empresas e informes del prototipo.</DialogDescription>
-          </DialogHeader>
-          <SearchInput value={query} onChange={setQuery} placeholder="Buscar en el portal…" />
-          <div className="search-results">
-            {results.map((x) => (
-              <Link key={x.path} to={x.path} onClick={() => setSearch(false)}>
-                <div>
-                  <small>{x.kind}</small>
-                  <strong>{x.title}</strong>
-                </div>
-                <ArrowUpRight size={17} />
-              </Link>
-            ))}
-            {results.length === 0 && <p>No encontramos resultados para «{query}».</p>}
-          </div>
-        </DialogContent>
-      </Dialog>
       <Dialog open={help} onOpenChange={setHelp}>
         <DialogContent>
           <DialogHeader>

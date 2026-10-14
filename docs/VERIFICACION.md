@@ -53,6 +53,16 @@ Las imágenes están en `docs/previews/`:
 
 Estas evidencias documentan el prototipo, no una prueba integral de accesibilidad o seguridad.
 
+## Búsqueda general por áreas
+
+La cabecera y el diálogo se revisaron a 1440, 768, 390 y 320 px. El texto del acceso permanece visible; en pantallas pequeñas se usa una segunda fila completa. El diálogo mantiene sus bordes dentro del viewport y desplaza sus resultados internamente. Capturas en `docs/previews/search/`.
+
+Se comprobaron agrupación y filtro por área, coincidencias sin tildes, múltiples palabras, estado vacío, apertura con ⌘K, recorrido con flechas, selección con Enter y cierre con Escape devolviendo el foco al acceso. Un documento abrió la tabla filtrada y otro documento sustituyó la selección dentro de la misma ruta. Un beneficio abrió su pestaña y ficha. La normativa destacó el recurso seleccionado.
+
+La vista Gestor AFEB encontró el foro en borrador; SocioAdmin obtuvo cero resultados para esa misma consulta. Las verificaciones del índice local cubrieron también normalización, metadatos, separación de áreas, exclusión de gestión y borradores según el rol, ausencia de límite global de ocho registros y descarte de accesos de área redundantes. No se observaron errores de aplicación en consola durante este recorrido. El build y el formato pasaron.
+
+Estas comprobaciones usan datos ficticios y roles de demostración. La búsqueda de texto dentro de archivos reales y la autorización de servidor siguen pendientes.
+
 ## Límites de esta revisión
 
 No hay pruebas de autenticación, permisos/API, aislamiento entre empresas, envío de correo, subida/descarga privada real, cuotas de Zoho, pagos, concurrencia de inscripciones ni restauración de copias. Son capacidades de la siguiente fase. Loading/error de API y restablecimiento por token no son alcanzables porque no existe backend. No se ha certificado WCAG ni se ha realizado un pentest. Los horarios deben normalizarse en el backend antes de producción.

@@ -4,6 +4,8 @@ Fuente: `output/pdf/auditoria_portal_afeb_2026-10-14.pdf` (13 páginas), aportad
 
 El portal de socios original no se ha modificado. Personas, empresas, cifras, fechas de actividades, programas y contactos del prototipo son ficticios. Los títulos de algunos informes y las categorías proceden del inventario funcional. La rama `main` conserva el wordmark provisional y el diseño neutro. Esta rama incorpora el logotipo publicado en la web pública de AFEB y una propuesta de paleta y tipografía, documentada en `MARCA_AFEB.md`.
 
+La búsqueda general de la cabecera encuentra contenido local de todas las áreas, presenta resultados agrupados y filtra por área. Incluye normalización de tildes y mayúsculas, teclado y navegación al recurso seleccionado. Consulta `BUSQUEDA_GLOBAL.md` para su cobertura y la futura conexión al backend.
+
 ## Pantallas y acciones
 
 | Ruta auditada                  | Estado del borrador                                                                                                                                                   | Continuación necesaria                                                                                                                                                                         |

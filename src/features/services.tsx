@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, useLocation, useSearchParams } from 'react-router-dom'
 import { ArrowUpRight, Check, ChevronDown, Handshake, Mail } from 'lucide-react'
 import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
@@ -16,8 +16,16 @@ import {
 import { providers, companies, companyCategories } from '@/data/fixtures'
 import { useStore } from '@/lib/store'
 export function Providers() {
-  const [search, setSearch] = useState('')
-  const [tab, setTab] = useState('Proveedores')
+  const [params] = useSearchParams()
+  const location = useLocation()
+  const [search, setSearch] = useState(() => params.get('buscar') || '')
+  const [tab, setTab] = useState(() =>
+    params.get('tipo') === 'Benefits' ? 'Benefits' : 'Proveedores',
+  )
+  useEffect(() => {
+    setSearch(params.get('buscar') || '')
+    setTab(params.get('tipo') === 'Benefits' ? 'Benefits' : 'Proveedores')
+  }, [params, location.key])
   const filtered = providers.filter(
     (p) =>
       p.type === tab && `${p.title} ${p.category}`.toLowerCase().includes(search.toLowerCase()),
@@ -47,7 +55,11 @@ export function Providers() {
       </div>
       <div className="providers-list">
         {filtered.map((p) => (
-          <details className="provider" key={p.title}>
+          <details
+            className="provider"
+            key={p.title}
+            open={params.get('buscar') === p.title ? true : undefined}
+          >
             <summary>
               <span className="panel-icon">
                 <Handshake size={22} />

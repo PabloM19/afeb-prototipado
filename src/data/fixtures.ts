@@ -372,6 +372,23 @@ export const documents = [
     format: 'PDF',
   },
 ]
+export const legalResources = [
+  {
+    id: 'contratos',
+    title: 'Guía de contratos con la distribución',
+    description: 'Orientación comercial y contractual',
+  },
+  {
+    id: 'envases',
+    title: 'Envases y responsabilidad ampliada',
+    description: 'Documentación ilustrativa de regulación',
+  },
+  {
+    id: 'buenas-practicas',
+    title: 'Buenas prácticas del sector',
+    description: 'Principios para unas relaciones de confianza',
+  },
+]
 export const providers = [
   {
     title: 'Estudio Legal Asociado',

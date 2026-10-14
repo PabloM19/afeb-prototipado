@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Link, useSearchParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, useLocation, useSearchParams } from 'react-router-dom'
 import {
   ArrowUpRight,
   ArrowRight,
@@ -32,7 +32,7 @@ import {
   FormFields,
   downloadDemo,
 } from '@/components/shared'
-import { reports, documents, formatDate } from '@/data/fixtures'
+import { reports, documents, legalResources, formatDate } from '@/data/fixtures'
 import { useStore } from '@/lib/store'
 export function Reports() {
   const [search, setSearch] = useState('')
@@ -221,8 +221,14 @@ export function ReportDetail() {
   )
 }
 export function Documents() {
-  const [search, setSearch] = useState('')
+  const [params] = useSearchParams()
+  const location = useLocation()
+  const [search, setSearch] = useState(() => params.get('buscar') || '')
   const [category, setCategory] = useState('Todas las categorías')
+  useEffect(() => {
+    setSearch(params.get('buscar') || '')
+    setCategory('Todas las categorías')
+  }, [params, location.key])
   const filtered = documents.filter(
     (d) =>
       (category === 'Todas las categorías' || category === d.category) &&
@@ -305,8 +311,17 @@ export function Documents() {
 }
 export function Regulations() {
   const store = useStore()
+  const [params] = useSearchParams()
+  const location = useLocation()
   const [open, setOpen] = useState(false)
   const [values, setValues] = useState<Record<string, string>>({})
+  useEffect(() => {
+    const resource = params.get('recurso')
+    if (resource)
+      document
+        .getElementById(`normativa-${resource}`)
+        ?.scrollIntoView({ block: 'center', behavior: 'instant' })
+  }, [params, location.key])
   return (
     <>
       <PageHeading
@@ -340,16 +355,17 @@ export function Regulations() {
           label="Ver documentos"
         />
         <div className="legal-resources">
-          {[
-            ['Guía de contratos con la distribución', 'Orientación comercial y contractual'],
-            ['Envases y responsabilidad ampliada', 'Documentación ilustrativa de regulación'],
-            ['Buenas prácticas del sector', 'Principios para unas relaciones de confianza'],
-          ].map(([title, desc]) => (
-            <button key={title} onClick={() => downloadDemo(title)}>
+          {legalResources.map((resource) => (
+            <button
+              key={resource.id}
+              id={`normativa-${resource.id}`}
+              className={params.get('recurso') === resource.id ? 'search-target' : undefined}
+              onClick={() => downloadDemo(resource.title)}
+            >
               <BookOpen size={22} />
               <div>
-                <h3>{title}</h3>
-                <p>{desc}</p>
+                <h3>{resource.title}</h3>
+                <p>{resource.description}</p>
               </div>
               <Download size={18} />
             </button>

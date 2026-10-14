@@ -36,13 +36,15 @@ Para reiniciar la demo, abre el menú de usuario y selecciona **Restablecer demo
 ## Estructura
 
 - `src/components/ui`: componentes de shadcn editables y versionados en el repositorio.
-- `src/components/layout`: estructura, navegación, búsqueda global, ayuda y notificaciones.
+- `src/components/layout`: estructura, navegación, ayuda y notificaciones.
+- `src/components/global-search.tsx` y `src/lib/search.ts`: búsqueda general agrupada por áreas. Ver [funcionamiento y continuidad](docs/BUSQUEDA_GLOBAL.md).
 - `src/components/shared.tsx`: cabeceras, filtros, estados, filas, formularios y diálogos reutilizables.
 - `src/features`: pantallas agrupadas por dominio funcional.
 - `src/data/fixtures.ts`: entidades y contenido ficticio, categorías y utilidades de fecha.
 - `src/lib/store.tsx`: estado de la demostración. Sustituir por servicios al implementar backend.
 - `src/index.css`: tokens neutros, composición, adaptabilidad y estados.
 - `src/styles/afeb-brand.css`: capa de marca aplicada sobre la base funcional.
+- `src/styles/global-search.css`: barra alargada y diálogo de búsqueda adaptables.
 - `src/components/brand-mark.tsx` y `public/brand`: logotipo original y su presentación.
 - `docs`: mapa de la auditoría, decisiones, continuidad en Cursor y evidencias visuales.
 

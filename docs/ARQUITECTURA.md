@@ -12,7 +12,7 @@ Se utiliza Vite con React y TypeScript para iterar el diseño de forma rápida. 
 - Componentes de producto comunes en `components/shared.tsx`. Si crecen, separar formularios, listado y descargador en módulos propios.
 - Estado mutable en `StoreProvider`, persistido bajo `afeb:`. Fixtures inmutables para compañías, contactos y recursos. Los componentes no llaman al portal actual.
 - Layout único con sidebar de escritorio, Sheet móvil, breadcrumb, búsqueda, notificaciones y ayuda. Cambiar de ruta reinicia el scroll.
-- La búsqueda global consulta actividades, empresas e informes. Los listados filtran en memoria porque la demo es acotada.
+- La búsqueda global agrupa el contenido visible de empresas, actividades, personas, informes, normativa, documentos, colaboradores y accesos al resto del portal. `components/global-search.tsx` presenta el diálogo; `lib/search.ts` construye y consulta el índice local. Ver `BUSQUEDA_GLOBAL.md`. Los listados filtran en memoria porque la demo es acotada.
 - Inter Variable instalada localmente desde npm y usada en toda la interfaz, igual que en `main`. Lucide es la única familia de iconos.
 - Base funcional en `index.css`; identidad de esta variante en `styles/afeb-brand.css`. Tailwind da soporte a los primitives de shadcn. La rama `main` conserva el diseño neutro.
 - Estilo: fondos blancos, surfaces tranquilas, texto base de 16 px y metadatos de 14–15 px. Los verdes se concentran en navegación activa, acciones, estados y bloques destacados. El logotipo se muestra sin alterar sus proporciones ni recolorear el archivo. Ver `MARCA_AFEB.md`.

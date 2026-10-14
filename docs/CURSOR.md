@@ -41,6 +41,10 @@ Cada prompt debe abarcar un dominio y dejar el proyecto compilando. Añadir crit
 
 > Completa informes, documentos, normativa y proveedores con paneles editoriales accesibles reutilizando formularios y tablas existentes. Implementa carga, categorías, versiones, fechas, destinatarios, publicar/archivar y asignación archivo-empresa. Archivos privados fuera de la biblioteca pública; servidor autoriza cada descarga. Sustituye TXT de demo solo cuando haya archivos reales autorizados. Para Mapa de la Distribución, mantener entrega manual por empresa; marcas de agua automáticas son alcance adicional. Valida con dos empresas y acceso sin sesión. No simules éxito de subidas o permisos que no estén implementados.
 
+## Prompt 6 · Búsqueda global con datos reales
+
+> Conserva el buscador implementado en components/global-search.tsx y lee docs/BUSQUEDA_GLOBAL.md. Cuando exista el backend aprobado, sustituye el índice local por un servicio común que busque en todas las áreas y devuelva grupos y contadores. Usuario, empresa y permisos se resuelven en servidor antes de obtener resultados o totales; los borradores solo deben aparecer para roles autorizados. Mantén filtros por área, coincidencia sin tildes, navegación contextual, estados vacío/carga/error y teclado. Añade paginación por área si el volumen lo exige. No indexar texto de archivos privados ni ampliar su visibilidad sin una política de acceso acordada. Verifica selección de otro recurso dentro de la misma ruta, aislamiento entre empresas, exclusión de registros restringidos y autorización independiente de descarga.
+
 ## Reglas de continuidad
 
 - No usar las credenciales reales del portal como fixture, variable frontend o documentación.
