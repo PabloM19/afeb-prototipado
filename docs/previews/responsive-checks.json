@@ -1,0 +1,620 @@
+[
+  {
+    "width": 768,
+    "path": "/",
+    "title": "Hola, Clara.",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 768,
+    "path": "/login",
+    "title": "Qué bueno verte de nuevo.",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 768,
+    "path": "/forget-password",
+    "title": "Recupera tu acceso.",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 768,
+    "path": "/perfil",
+    "title": "Mi perfil",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 768,
+    "path": "/socios",
+    "title": "Empresas asociadas",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 768,
+    "path": "/directorio",
+    "title": "Directorio",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 768,
+    "path": "/detalles-socio?id=forma",
+    "title": "Forma Hábitat",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 768,
+    "path": "/detalles-de-mi-empresa",
+    "title": "Nord Tools",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 768,
+    "path": "/detalles-equipo?id=clara",
+    "title": "Clara Martín",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 768,
+    "path": "/eventos",
+    "title": "Actividades",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 768,
+    "path": "/detalles-evento?id=encuentro",
+    "title": "El futuro se construye juntos.",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 768,
+    "path": "/detalles-evento?id=webinar",
+    "title": "Del dato a la decisión: nuevas claves del mercado",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 768,
+    "path": "/detalles-evento?id=foro",
+    "title": "Actividad no disponible",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 768,
+    "path": "/inscribir?id=encuentro",
+    "title": "Las buenas conversaciones se comparten.",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 768,
+    "path": "/grupos-trabajo",
+    "title": "Grupos de trabajo",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 768,
+    "path": "/informes",
+    "title": "Informes del sector",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 768,
+    "path": "/detalles-informe?id=ventas",
+    "title": "Evolución de ventas",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 768,
+    "path": "/detalles-informe?id=distribucion",
+    "title": "Mapa de la distribución",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 768,
+    "path": "/normativa",
+    "title": "Normativa y asesoría",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 768,
+    "path": "/documentos",
+    "title": "Documentos",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 768,
+    "path": "/colaboradores",
+    "title": "Colaboradores y beneficios",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 768,
+    "path": "/otras-acciones-cobranding",
+    "title": "Conecta una nueva idea.",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 768,
+    "path": "/otras-acciones-licitaciones",
+    "title": "Licitaciones",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 768,
+    "path": "/publicaciones",
+    "title": "Informes del sector",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 768,
+    "path": "/gestion",
+    "title": "Gestión interna",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/",
+    "title": "Hola, Clara.",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/login",
+    "title": "Qué bueno verte de nuevo.",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/forget-password",
+    "title": "Recupera tu acceso.",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/perfil",
+    "title": "Mi perfil",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/socios",
+    "title": "Empresas asociadas",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/directorio",
+    "title": "Directorio",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/detalles-socio?id=forma",
+    "title": "Forma Hábitat",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/detalles-de-mi-empresa",
+    "title": "Nord Tools",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/detalles-equipo?id=clara",
+    "title": "Clara Martín",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/eventos",
+    "title": "Actividades",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/detalles-evento?id=encuentro",
+    "title": "El futuro se construye juntos.",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/detalles-evento?id=webinar",
+    "title": "Del dato a la decisión: nuevas claves del mercado",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/detalles-evento?id=foro",
+    "title": "Actividad no disponible",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/inscribir?id=encuentro",
+    "title": "Las buenas conversaciones se comparten.",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/grupos-trabajo",
+    "title": "Grupos de trabajo",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/informes",
+    "title": "Informes del sector",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/detalles-informe?id=ventas",
+    "title": "Evolución de ventas",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/detalles-informe?id=distribucion",
+    "title": "Mapa de la distribución",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/normativa",
+    "title": "Normativa y asesoría",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/documentos",
+    "title": "Documentos",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/colaboradores",
+    "title": "Colaboradores y beneficios",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/otras-acciones-cobranding",
+    "title": "Conecta una nueva idea.",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/otras-acciones-licitaciones",
+    "title": "Licitaciones",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/publicaciones",
+    "title": "Informes del sector",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/gestion",
+    "title": "Gestión interna",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 320,
+    "path": "/",
+    "title": "Hola, Clara.",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 320,
+    "path": "/login",
+    "title": "Qué bueno verte de nuevo.",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 320,
+    "path": "/forget-password",
+    "title": "Recupera tu acceso.",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 320,
+    "path": "/perfil",
+    "title": "Mi perfil",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 320,
+    "path": "/socios",
+    "title": "Empresas asociadas",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 320,
+    "path": "/directorio",
+    "title": "Directorio",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 320,
+    "path": "/detalles-socio?id=forma",
+    "title": "Forma Hábitat",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 320,
+    "path": "/detalles-de-mi-empresa",
+    "title": "Nord Tools",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 320,
+    "path": "/detalles-equipo?id=clara",
+    "title": "Clara Martín",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 320,
+    "path": "/eventos",
+    "title": "Actividades",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 320,
+    "path": "/detalles-evento?id=encuentro",
+    "title": "El futuro se construye juntos.",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 320,
+    "path": "/detalles-evento?id=webinar",
+    "title": "Del dato a la decisión: nuevas claves del mercado",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 320,
+    "path": "/detalles-evento?id=foro",
+    "title": "Actividad no disponible",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 320,
+    "path": "/inscribir?id=encuentro",
+    "title": "Las buenas conversaciones se comparten.",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 320,
+    "path": "/grupos-trabajo",
+    "title": "Grupos de trabajo",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 320,
+    "path": "/informes",
+    "title": "Informes del sector",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 320,
+    "path": "/detalles-informe?id=ventas",
+    "title": "Evolución de ventas",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 320,
+    "path": "/detalles-informe?id=distribucion",
+    "title": "Mapa de la distribución",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 320,
+    "path": "/normativa",
+    "title": "Normativa y asesoría",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 320,
+    "path": "/documentos",
+    "title": "Documentos",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 320,
+    "path": "/colaboradores",
+    "title": "Colaboradores y beneficios",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 320,
+    "path": "/otras-acciones-cobranding",
+    "title": "Conecta una nueva idea.",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 320,
+    "path": "/otras-acciones-licitaciones",
+    "title": "Licitaciones",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 320,
+    "path": "/publicaciones",
+    "title": "Informes del sector",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 320,
+    "path": "/gestion",
+    "title": "Gestión interna",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": []
+  },
+  {
+    "width": 390,
+    "path": "/gestion",
+    "role": "Gestor AFEB",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": [],
+    "tableScroll": 680
+  },
+  {
+    "width": 320,
+    "path": "/gestion",
+    "role": "Gestor AFEB",
+    "ok": true,
+    "overflow": false,
+    "smallTextBelow14px": [],
+    "tableScroll": 680
+  }
+]
