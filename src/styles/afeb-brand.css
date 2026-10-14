@@ -1,0 +1,421 @@
+@import '@fontsource/barlow-condensed/600.css';
+@import '@fontsource/barlow-condensed/700.css';
+
+/* Brand candidate from the supplied analysis. Keep the functional layout in index.css. */
+:root {
+  --brand-lime: #80c342;
+  --brand-green: #1e742e;
+  --brand-dark: #13452e;
+  --brand-surface: #f4f6f2;
+  --font-display: 'Barlow Condensed', sans-serif;
+  --foreground: #3b3b3b;
+  --card-foreground: #3b3b3b;
+  --popover-foreground: #3b3b3b;
+  --primary: var(--brand-green);
+  --primary-foreground: #fff;
+  --secondary: var(--brand-surface);
+  --secondary-foreground: var(--brand-dark);
+  --muted: var(--brand-surface);
+  --muted-foreground: #5c665f;
+  --accent: #eaf2e4;
+  --accent-foreground: var(--brand-dark);
+  --border: #e2e7df;
+  --ring: var(--brand-green);
+  --radius: 0.625rem;
+}
+
+::selection {
+  background: #d4e9c4;
+  color: var(--brand-dark);
+}
+
+button:focus-visible,
+a:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline-color: var(--brand-green);
+}
+
+.afeb-logo {
+  display: block;
+  width: 196px;
+  height: 146px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.brand {
+  flex-shrink: 0;
+  align-items: center;
+  padding: 0;
+}
+
+.brand-caption {
+  color: var(--brand-dark);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+.sidebar,
+.mobile-sidebar {
+  background: var(--brand-surface);
+}
+
+.sidebar {
+  padding-top: 20px;
+}
+
+.workspace {
+  flex-shrink: 0;
+  margin-top: 20px;
+  border-color: var(--border);
+}
+
+.company-mark {
+  background: #eaf2e4;
+  color: var(--brand-dark);
+}
+
+.nav-item:hover {
+  background: #e6eedf;
+  color: var(--brand-dark);
+}
+
+.nav-item.active {
+  background: var(--brand-dark);
+  color: #fff;
+}
+
+.nav-item.active > svg {
+  color: var(--brand-lime);
+}
+
+.nav-count {
+  background: #e4eddd;
+  color: var(--brand-dark);
+}
+
+.active .nav-count {
+  background: #315f3c;
+  color: #fff;
+}
+
+.help-card {
+  background: #e5efde;
+  color: var(--brand-dark);
+}
+
+.help-card p {
+  color: #4b604f;
+}
+
+.user-switch div > span {
+  color: #5c665f;
+}
+
+.topbar {
+  border-top: 3px solid var(--brand-lime);
+}
+
+.notification-button span,
+.skip-link {
+  background: var(--brand-green);
+}
+
+h1,
+.welcome h1,
+.page-heading h1,
+.detail-heading h1,
+.feature-event h2,
+.market-panel h2,
+.activity-banner h2,
+.advice-banner h2,
+.report-feature-copy h2,
+.service-aside h2,
+.auth-form h2,
+.report-cover > div {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+h1,
+.market-panel h2,
+.activity-banner h2,
+.advice-banner h2,
+.report-feature-copy h2,
+.service-aside h2,
+.auth-form h2 {
+  color: var(--brand-dark);
+}
+
+.welcome h1,
+.page-heading h1 {
+  font-size: 40px;
+}
+
+.greeting-dot {
+  color: var(--brand-green);
+}
+
+.eyebrow {
+  color: var(--brand-green);
+  font-weight: 600;
+}
+
+.stat > strong,
+.market-value,
+.banner-date,
+.management-summary strong {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--brand-dark);
+}
+
+.stat > strong {
+  font-size: 36px;
+}
+
+.stat-top svg,
+.panel-icon,
+.quick-links > a > svg:first-child,
+.advice-icon,
+.management-summary svg,
+.service-aside > svg {
+  color: var(--brand-green);
+}
+
+.feature-event,
+.report-cover,
+.auth-story {
+  background: var(--brand-dark);
+}
+
+.feature-event,
+.market-panel,
+.activity-banner,
+.advice-banner {
+  border-radius: 12px;
+}
+
+.feature-event h2 {
+  font-size: 40px;
+  color: #fff;
+}
+
+.feature-event-top,
+.feature-category,
+.feature-event p,
+.feature-event-meta,
+.feature-event-footer,
+.report-cover > span,
+.auth-story p,
+.auth-story > span,
+.auth-story .eyebrow {
+  color: #e2eddd;
+}
+
+.live-dot {
+  background: var(--brand-lime);
+}
+
+.feature-cta {
+  background: var(--brand-lime);
+  color: var(--brand-dark);
+}
+
+.feature-cta:hover {
+  background: #93d453;
+}
+
+.feature-event-footer,
+.report-cover > span:last-child {
+  border-color: #476e52;
+}
+
+.avatar-stack .avatar {
+  border-color: var(--brand-dark);
+  background: #315f3c;
+  color: #fff;
+}
+
+.graphic-square {
+  border-color: #75a467;
+}
+
+.square-two {
+  border-color: var(--brand-lime);
+}
+
+.square-three {
+  border-color: #4c8055;
+}
+
+.graphic-caption {
+  color: #c3dab8;
+}
+
+.market-panel,
+.activity-banner,
+.advice-banner,
+.service-aside {
+  background: var(--brand-surface);
+}
+
+.market-heading,
+.market-panel > p,
+.market-value small,
+.chart-disclaimer,
+.activity-banner p,
+.banner-date span,
+.advice-banner p,
+.service-aside p,
+.service-aside > span {
+  color: #5c665f;
+}
+
+.market-value small {
+  font-family: var(--font-sans);
+  letter-spacing: 0;
+}
+
+.panel-icon,
+.date-box {
+  background: #e8f0e1;
+}
+
+.date-box,
+.date-box > span,
+.text-link,
+.market-link,
+.back-link:hover,
+.recovery-link {
+  color: var(--brand-green);
+}
+
+.text-link:hover,
+.market-link:hover {
+  color: var(--brand-dark);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.agenda-callout,
+.summary-box {
+  background: #edf5e7;
+}
+
+.agenda-callout-icon,
+.agenda-callout strong {
+  color: var(--brand-dark);
+}
+
+.agenda-callout p,
+.summary-box p,
+.summary-box > span {
+  color: #5c665f;
+}
+
+.status-open {
+  color: var(--brand-dark);
+  border-color: #c9dfbd;
+  background: #edf5e7;
+}
+
+.status-open > span {
+  background: var(--brand-green);
+}
+
+[data-slot='tabs-trigger'][data-state='active'] {
+  color: var(--brand-green) !important;
+}
+
+[data-slot='tabs-trigger'][data-state='active']:after {
+  background: var(--brand-green);
+}
+
+.activity-row:hover,
+.company-card:hover,
+.person-card:hover,
+.report-card:hover,
+.provider:hover {
+  border-color: #aac79c;
+}
+
+.booking-panel {
+  border-top: 3px solid var(--brand-green);
+}
+
+.auth-story h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.015em;
+}
+
+.auth-brand {
+  display: inline-flex;
+  width: fit-content;
+  padding: 10px 14px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.auth-brand .afeb-logo {
+  width: 232px;
+  height: 174px;
+}
+
+.auth-mobile-brand {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .mobile-sidebar .brand {
+    align-items: center;
+  }
+
+  .mobile-sidebar .workspace {
+    margin-top: 20px;
+  }
+
+  .welcome h1,
+  .page-heading h1 {
+    font-size: 36px;
+  }
+
+  .feature-event h2 {
+    font-size: 36px;
+  }
+
+  .stat > strong {
+    font-size: 30px;
+  }
+
+  .auth-form {
+    gap: 20px;
+    justify-content: flex-start;
+  }
+
+  .auth-mobile-brand {
+    display: block;
+    align-self: center;
+    margin-top: -10px;
+  }
+
+  .auth-form > .back-link {
+    margin-bottom: 0;
+  }
+
+  .auth-form > div {
+    margin: 8px auto 24px;
+  }
+
+  .auth-form > .form-hint {
+    margin-top: auto;
+  }
+}

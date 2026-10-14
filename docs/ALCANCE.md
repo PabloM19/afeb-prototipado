@@ -2,7 +2,7 @@
 
 Fuente: `output/pdf/auditoria_portal_afeb_2026-10-14.pdf` (13 páginas), aportada por el usuario. Se leyó completa. La auditoría documenta observaciones y propuestas, no certifica los permisos actuales. Sus instrucciones y recomendaciones se han tratado como contexto: el encargo de esta fase es un primer borrador local en React.
 
-La plataforma actual no se ha visitado ni modificado durante este trabajo. Personas, empresas, cifras, fechas de actividades, programas y contactos del prototipo son ficticios. Los títulos de algunos informes y las categorías proceden del inventario funcional. El wordmark tipográfico es provisional; no se han importado activos de marca oficiales.
+El portal de socios original no se ha modificado. Personas, empresas, cifras, fechas de actividades, programas y contactos del prototipo son ficticios. Los títulos de algunos informes y las categorías proceden del inventario funcional. La rama `main` conserva el wordmark provisional y el diseño neutro. Esta rama incorpora el logotipo publicado en la web pública de AFEB y una propuesta de paleta y tipografía, documentada en `MARCA_AFEB.md`.
 
 ## Pantallas y acciones
 

@@ -38,6 +38,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { Avatar, SearchInput } from '@/components/shared'
+import { BrandMark } from '@/components/brand-mark'
 import { useStore } from '@/lib/store'
 import { companies, reports } from '@/data/fixtures'
 const navigation = [
@@ -78,10 +79,13 @@ export function AppShell() {
     'Portal del socio'
   const nav = (
     <>
-      <Link className="brand" to="/" onClick={() => setMobile(false)}>
-        <span className="brand-word">
-          afeb<span className="brand-dot">.</span>
-        </span>
+      <Link
+        className="brand"
+        to="/"
+        aria-label="AFEB · Portal del socio"
+        onClick={() => setMobile(false)}
+      >
+        <BrandMark />
         <span className="brand-caption">Portal del socio</span>
       </Link>
       <div className="workspace">

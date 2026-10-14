@@ -148,7 +148,7 @@ export default function Dashboard() {
                 <CartesianGrid vertical={false} stroke="#e7e7e7" strokeDasharray="3 4" />
                 <XAxis
                   dataKey="month"
-                  tick={{ fontSize: 14, fill: '#737373' }}
+                  tick={{ fontSize: 14, fill: 'var(--muted-foreground)' }}
                   axisLine={false}
                   tickLine={false}
                 />
@@ -161,10 +161,10 @@ export default function Dashboard() {
                   isAnimationActive={false}
                   type="monotone"
                   dataKey="value"
-                  stroke="#222"
+                  stroke="var(--brand-green)"
                   strokeWidth={2}
-                  fill="#000"
-                  fillOpacity={0.035}
+                  fill="var(--brand-lime)"
+                  fillOpacity={0.16}
                 />
               </AreaChart>
             </ResponsiveContainer>

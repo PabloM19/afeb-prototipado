@@ -4,6 +4,7 @@ import { ArrowRight, Eye, EyeOff, ArrowLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { DemoNotice } from '@/components/shared'
+import { BrandMark } from '@/components/brand-mark'
 export default function Auth({ recovery = false }: { recovery?: boolean }) {
   const navigate = useNavigate()
   const [show, setShow] = useState(false)
@@ -11,8 +12,8 @@ export default function Auth({ recovery = false }: { recovery?: boolean }) {
   return (
     <div className="auth-layout">
       <section className="auth-story">
-        <Link to="/" className="brand-word">
-          afeb.
+        <Link to="/" className="auth-brand" aria-label="AFEB · Volver al portal">
+          <BrandMark />
         </Link>
         <div>
           <span className="eyebrow">El portal de nuestra comunidad</span>
@@ -28,6 +29,9 @@ export default function Auth({ recovery = false }: { recovery?: boolean }) {
         <span>Asociación de Fabricantes de Bricolaje y Ferretería</span>
       </section>
       <section className="auth-form">
+        <Link to="/" className="auth-mobile-brand" aria-label="AFEB · Volver al portal">
+          <BrandMark />
+        </Link>
         <Link className="back-link" to="/">
           <ArrowLeft size={16} />
           Volver al portal

@@ -1,6 +1,8 @@
 # AFEB · Portal del socio
 
-Primer borrador de rediseño en **React + TypeScript + Vite**, con **shadcn/ui, Radix UI, Tailwind CSS 4, Lucide e Inter Variable**. Diseño minimalista en blanco, negro y gris. Implementación local basada en la auditoría del 14 de octubre de 2026.
+Primer borrador de rediseño en **React + TypeScript + Vite**, con **shadcn/ui, Radix UI, Tailwind CSS 4, Lucide e Inter Variable**. Esta rama incluye una variante con la identidad AFEB: logotipo completo, verdes corporativos propuestos y titulares Barlow Condensed. Implementación local basada en la auditoría del 14 de octubre de 2026.
+
+La versión neutra está guardada en `main`. La variante de marca está en `codex/afeb-brand`. Consulta [la aplicación de marca y la comparación](docs/MARCA_AFEB.md).
 
 ## Arranque
 
@@ -40,6 +42,8 @@ Para reiniciar la demo, abre el menú de usuario y selecciona **Restablecer demo
 - `src/data/fixtures.ts`: entidades y contenido ficticio, categorías y utilidades de fecha.
 - `src/lib/store.tsx`: estado de la demostración. Sustituir por servicios al implementar backend.
 - `src/index.css`: tokens neutros, composición, adaptabilidad y estados.
+- `src/styles/afeb-brand.css`: capa de marca aplicada sobre la base funcional.
+- `src/components/brand-mark.tsx` y `public/brand`: logotipo original y su presentación.
 - `docs`: mapa de la auditoría, decisiones, continuidad en Cursor y evidencias visuales.
 
 ## Para continuar

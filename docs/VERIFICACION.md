@@ -39,6 +39,10 @@ También se revisó la vista de Gestor AFEB en `/gestion` y el detalle del borra
 
 ## Evidencias
 
+La variante `codex/afeb-brand` se volvió a recorrer en 25 rutas y variantes a 1440, 768, 390 y 320 px: 100 comprobaciones sin desbordamiento de página, imágenes rotas ni textos de contenido por debajo de 14 px. También se comprobó la gestión con rol Gestor AFEB en escritorio y dos anchos móviles, y la apertura/cierre de menú móvil y diálogo de inscripción. No se confirmó ninguna inscripción durante esta revisión de marca.
+
+Las capturas de marca y la referencia neutra están en `docs/previews/brand/`. Las dos capturas de inicio de escritorio usan 1440 × 1040. La verificación se realizó sobre el servidor de desarrollo; `npm run build` y `npm run format:check` pasaron. Los pares de texto de botones y paneles verdes revisados tienen contraste de al menos 5,1:1; esto no constituye una certificación integral de accesibilidad.
+
 Las imágenes están en `docs/previews/`:
 
 - `inicio-desktop.png` y `inicio-mobile.png`.
