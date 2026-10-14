@@ -1,13 +1,9 @@
-@import '@fontsource/barlow-condensed/600.css';
-@import '@fontsource/barlow-condensed/700.css';
-
 /* Brand candidate from the supplied analysis. Keep the functional layout in index.css. */
 :root {
   --brand-lime: #80c342;
   --brand-green: #1e742e;
   --brand-dark: #13452e;
   --brand-surface: #f4f6f2;
-  --font-display: 'Barlow Condensed', sans-serif;
   --foreground: #3b3b3b;
   --card-foreground: #3b3b3b;
   --popover-foreground: #3b3b3b;
@@ -38,8 +34,8 @@ summary:focus-visible {
 
 .afeb-logo {
   display: block;
-  width: 196px;
-  height: 146px;
+  width: 126px;
+  height: 96px;
   object-fit: cover;
   object-position: center;
 }
@@ -54,7 +50,7 @@ summary:focus-visible {
   color: var(--brand-dark);
   font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   margin-top: 5px;
 }
@@ -126,23 +122,6 @@ summary:focus-visible {
 }
 
 h1,
-.welcome h1,
-.page-heading h1,
-.detail-heading h1,
-.feature-event h2,
-.market-panel h2,
-.activity-banner h2,
-.advice-banner h2,
-.report-feature-copy h2,
-.service-aside h2,
-.auth-form h2,
-.report-cover > div {
-  font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: -0.015em;
-}
-
-h1,
 .market-panel h2,
 .activity-banner h2,
 .advice-banner h2,
@@ -150,11 +129,6 @@ h1,
 .service-aside h2,
 .auth-form h2 {
   color: var(--brand-dark);
-}
-
-.welcome h1,
-.page-heading h1 {
-  font-size: 40px;
 }
 
 .greeting-dot {
@@ -170,14 +144,7 @@ h1,
 .market-value,
 .banner-date,
 .management-summary strong {
-  font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.015em;
   color: var(--brand-dark);
-}
-
-.stat > strong {
-  font-size: 36px;
 }
 
 .stat-top svg,
@@ -203,7 +170,6 @@ h1,
 }
 
 .feature-event h2 {
-  font-size: 40px;
   color: #fff;
 }
 
@@ -351,23 +317,20 @@ h1,
 }
 
 .auth-story h1 {
-  font-family: var(--font-display);
-  font-weight: 600;
   color: #fff;
-  letter-spacing: -0.015em;
 }
 
 .auth-brand {
   display: inline-flex;
   width: fit-content;
-  padding: 10px 14px;
+  padding: 8px 10px;
   background: #fff;
   border-radius: 8px;
 }
 
 .auth-brand .afeb-logo {
-  width: 232px;
-  height: 174px;
+  width: 128px;
+  height: 98px;
 }
 
 .auth-mobile-brand {
@@ -383,19 +346,6 @@ h1,
     margin-top: 20px;
   }
 
-  .welcome h1,
-  .page-heading h1 {
-    font-size: 36px;
-  }
-
-  .feature-event h2 {
-    font-size: 36px;
-  }
-
-  .stat > strong {
-    font-size: 30px;
-  }
-
   .auth-form {
     gap: 20px;
     justify-content: flex-start;
@@ -405,6 +355,11 @@ h1,
     display: block;
     align-self: center;
     margin-top: -10px;
+  }
+
+  .auth-mobile-brand .afeb-logo {
+    width: 112px;
+    height: 85px;
   }
 
   .auth-form > .back-link {

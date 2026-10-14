@@ -6,17 +6,18 @@ La variante usa el análisis visual aportado por el usuario como referencia, no 
 
 ## Sistema aplicado
 
-| Elemento                      | Aplicación                                                                            |
-| ----------------------------- | ------------------------------------------------------------------------------------- |
-| Verde luminoso `#80C342`      | Acentos, indicador de marca y CTA sobre verde profundo; texto oscuro sobre el relleno |
-| Verde institucional `#1E742E` | Botones principales, enlaces, pestañas activas, estados, foco y gráfico               |
-| Verde profundo `#13452E`      | Actividad destacada, navegación activa, portadas de informe y titulares               |
-| Superficie `#F4F6F2`          | Sidebar y bloques informativos suaves                                                 |
-| Blanco y grises               | Fondo, tablas, formularios, tarjetas y texto de lectura                               |
-| Barlow Condensed 600–700      | Titulares y cifras destacadas; alternativa propuesta, no fuente oficial verificada    |
-| Inter Variable                | Lectura, navegación y controles; se conserva la escala de legibilidad de 14–16 px     |
+| Elemento                      | Aplicación                                                                                          |
+| ----------------------------- | --------------------------------------------------------------------------------------------------- |
+| Verde luminoso `#80C342`      | Acentos, indicador de marca y CTA sobre verde profundo; texto oscuro sobre el relleno               |
+| Verde institucional `#1E742E` | Botones principales, enlaces, pestañas activas, estados, foco y gráfico                             |
+| Verde profundo `#13452E`      | Actividad destacada, navegación activa, portadas de informe y titulares                             |
+| Superficie `#F4F6F2`          | Sidebar y bloques informativos suaves                                                               |
+| Blanco y grises               | Fondo, tablas, formularios, tarjetas y texto de lectura                                             |
+| Inter Variable                | Tipografía de toda la interfaz, igual que en `main`; titulares y cifras mantienen su jerarquía base |
 
 Los HEX proceden del análisis y siguen siendo aproximados. El logo conserva el color de su archivo original, sin recolorearlo. Se incluye el tejado, las siglas y el descriptor completo en sidebar, menú móvil y pantallas de acceso.
+
+Para que la marca acompañe al contenido sin dominarlo, el archivo completo se muestra a 126 × 96 px en la navegación, 128 × 98 px en acceso de escritorio y 112 × 85 px en acceso móvil.
 
 ## Archivos
 
@@ -42,10 +43,11 @@ La base funcional y los datos ficticios son los mismos en las dos variantes. La 
 ## Capturas y comprobación
 
 - [Inicio neutro, 1440 × 1040](previews/brand/neutro-desktop.jpg).
-- [Inicio AFEB, 1440 × 1040](previews/brand/inicio-desktop.jpg).
-- [Acceso en escritorio](previews/brand/acceso-desktop.jpg) y [acceso móvil](previews/brand/acceso-mobile.jpg).
-- [Inicio móvil](previews/brand/inicio-mobile.jpg), [menú móvil](previews/brand/menu-mobile.jpg) e [informes](previews/brand/informes-desktop.jpg).
+- [Inicio AFEB, tipografía y logotipo ajustados, 1440 × 1040](previews/brand/inicio-desktop.jpg).
+- [Acceso en escritorio, logotipo ajustado](previews/brand/acceso-desktop.jpg).
 
-Se revisaron las 25 rutas y variantes en 1440, 768, 390 y 320 px. No se observaron desbordamientos horizontales de página, imágenes rotas ni textos de contenido por debajo de 14 px. Se comprobaron además las vistas de gestión con rol Gestor AFEB. Los resultados están en `previews/brand/route-checks.json`.
+Las demás capturas móviles y de subpáginas, junto con `route-checks.json`, pertenecen a la revisión visual anterior al ajuste de tipografía y tamaño de marca.
+
+En la revisión anterior se recorrieron las 25 rutas y variantes en 1440, 768, 390 y 320 px. No se observaron desbordamientos horizontales de página, imágenes rotas ni textos de contenido por debajo de 14 px. Se comprobaron además las vistas de gestión con rol Gestor AFEB. Los resultados están en `previews/brand/route-checks.json`.
 
 Las combinaciones de texto revisadas —blanco sobre verde institucional, verde profundo sobre verde luminoso y texto secundario sobre superficie suave— superan 5,1:1. El verde luminoso se reserva para rellenos y detalles; los textos sobre fondo claro usan los tonos oscuros.

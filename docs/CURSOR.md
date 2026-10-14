@@ -4,7 +4,7 @@
 
 Este repositorio contiene el primer borrador del portal del socio AFEB. No comenzar otra aplicación ni reemplazar el sistema visual: extender esta base. Revisar `README.md`, `docs/ALCANCE.md`, `docs/ARQUITECTURA.md` y la auditoría original en `output/pdf/auditoria_portal_afeb_2026-10-14.pdf` antes de ampliar el alcance.
 
-Stack: React 19, TypeScript, Vite 7, Tailwind 4, shadcn/ui, Radix, Lucide, React Router, Sonner y Recharts. `main` conserva el diseño neutro; `codex/afeb-brand` aplica el logo completo, verdes y Barlow Condensed según `MARCA_AFEB.md`. Inter Variable se mantiene en lectura y controles. Layout común, módulos por dominio y datos ficticios separados. Persistencia demo en `StoreProvider`; ningún backend o credencial real. `/publicaciones` redirige a `/informes`, `/detalles-equipo` es propuesta, grupos vacíos e informe por empresa sin archivo asignado.
+Stack: React 19, TypeScript, Vite 7, Tailwind 4, shadcn/ui, Radix, Lucide, React Router, Sonner y Recharts. `main` conserva el diseño neutro; `codex/afeb-brand` aplica el logotipo completo, los verdes y la tipografía Inter de `main`, según `MARCA_AFEB.md`. Layout común, módulos por dominio y datos ficticios separados. Persistencia demo en `StoreProvider`; ningún backend o credencial real. `/publicaciones` redirige a `/informes`, `/detalles-equipo` es propuesta, grupos vacíos e informe por empresa sin archivo asignado.
 
 El punto de entrada para revisar el diseño es `npm run dev`. `npm run build` verifica tipos y bundle. Los roles se prueban desde el menú de usuario; `Gestor AFEB` habilita el panel editorial de muestra. Restablecer la demo vuelve a los fixtures originales.
 

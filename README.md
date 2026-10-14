@@ -1,6 +1,6 @@
 # AFEB · Portal del socio
 
-Primer borrador de rediseño en **React + TypeScript + Vite**, con **shadcn/ui, Radix UI, Tailwind CSS 4, Lucide e Inter Variable**. Esta rama incluye una variante con la identidad AFEB: logotipo completo, verdes corporativos propuestos y titulares Barlow Condensed. Implementación local basada en la auditoría del 14 de octubre de 2026.
+Primer borrador de rediseño en **React + TypeScript + Vite**, con **shadcn/ui, Radix UI, Tailwind CSS 4, Lucide e Inter Variable**. Esta rama incluye una variante con la identidad AFEB: logotipo completo, verdes corporativos propuestos y la misma tipografía Inter de `main`. Implementación local basada en la auditoría del 14 de octubre de 2026.
 
 La versión neutra está guardada en `main`. La variante de marca está en `codex/afeb-brand`. Consulta [la aplicación de marca y la comparación](docs/MARCA_AFEB.md).
 
