@@ -3,6 +3,7 @@ import {
   contacts,
   documents,
   legalResources,
+  legalService,
   providers,
   reports,
   type Activity,
@@ -158,6 +159,7 @@ export function createSearchIndex(context: SearchContext): SearchEntry[] {
       title: item.title,
       description: item.description,
       meta: `${item.category} · ${item.edition}`,
+      keywords: item.files.map((file) => file.filename).join(' '),
       path: `/detalles-informe?id=${item.id}`,
     })),
     ...documents.map((item) => ({
@@ -168,6 +170,15 @@ export function createSearchIndex(context: SearchContext): SearchEntry[] {
       meta: `${item.subcategory} · ${item.year} · ${item.format}`,
       path: `/documentos?buscar=${encodeURIComponent(item.title)}`,
     })),
+    {
+      id: legalService.id,
+      area: 'regulations',
+      title: legalService.title,
+      description: legalService.description,
+      meta: 'Servicio observado',
+      path: '/normativa',
+      keywords: legalService.contactEmail,
+    },
     ...legalResources.map((item) => ({
       id: `regulation-${item.id}`,
       area: 'regulations' as const,

@@ -28,6 +28,7 @@ import {
   DemoNotice,
   FormFields,
 } from '@/components/shared'
+import { displayValue } from '@/data/mock-db'
 import { useStore } from '@/lib/store'
 import { activityCategories, formatDate } from '@/data/fixtures'
 import type { Activity } from '@/data/fixtures'
@@ -57,31 +58,48 @@ export default function Management() {
     setValues(
       activity
         ? {
-            ...activity,
-            price: String(activity.price),
-            capacity: String(activity.capacity),
-            attendees: String(activity.attendees),
+            title: activity.title,
+            category: activity.category,
+            date: activity.date,
+            end: activity.end,
+            deadline: activity.deadline,
+            place: activity.place,
+            mode: activity.mode,
+            state: activity.state,
+            description: activity.description,
+            price: activity.price === null ? '' : String(activity.price),
+            capacity: activity.capacity === null ? '' : String(activity.capacity),
+            attendees: activity.attendees === null ? '' : String(activity.attendees),
           }
         : {
             state: 'Borrador',
-            mode: 'Webinar',
-            price: '0',
-            capacity: '100',
-            category: 'Formación / Webinars',
+            mode: '',
+            price: '',
+            capacity: '',
+            category: '',
+            title: '',
+            date: '',
+            end: '',
+            deadline: '',
+            place: '',
+            description: '',
           },
     )
   }
   const save = () => {
-    if (!Number.isFinite(Number(values.price)) || Number(values.price) < 0)
+    if (values.price && (!Number.isFinite(Number(values.price)) || Number(values.price) < 0))
       return toast.error('La tarifa debe ser un número mayor o igual a cero')
-    if (!Number.isInteger(Number(values.capacity)) || Number(values.capacity) < 1)
+    if (
+      values.capacity &&
+      (!Number.isInteger(Number(values.capacity)) || Number(values.capacity) < 1)
+    )
       return toast.error('El cupo debe ser un entero positivo')
     const old = store.activities.find((a) => a.id === editing)
-    if (new Date(values.end) <= new Date(values.date))
+    if (values.end && values.date && new Date(values.end) <= new Date(values.date))
       return toast.error('El final debe ser posterior al inicio')
-    if (values.deadline > values.date.slice(0, 10))
+    if (values.deadline && values.date && values.deadline > values.date.slice(0, 10))
       return toast.error('El cierre de inscripción no puede ser posterior al inicio')
-    if (Number(values.capacity) < (old?.attendees || 0))
+    if (values.capacity && Number(values.capacity) < (old?.attendees || 0))
       return toast.error('El cupo no puede ser inferior al número de inscritos')
     const activity: Activity = {
       id: old?.id || `demo-${Date.now()}`,
@@ -93,10 +111,19 @@ export default function Management() {
       place: values.place,
       mode: values.mode,
       state: values.state as Activity['state'],
-      price: Number(values.price),
-      capacity: Number(values.capacity),
-      attendees: old?.attendees || 0,
+      price: values.price === '' ? null : Number(values.price),
+      capacity: values.capacity === '' ? null : Number(values.capacity),
+      attendees: old ? old.attendees : 0,
       description: values.description,
+      address: old?.address ?? '',
+      sourceState: old?.sourceState ?? '',
+      secondPrice: old?.secondPrice ?? null,
+      nonMemberPrice: old?.nonMemberPrice ?? null,
+      timezone: old?.timezone ?? null,
+      fileIds: old?.fileIds ?? [],
+      qualityNotes: old?.qualityNotes ?? [],
+      participantSample: old?.participantSample ?? 'local',
+      isLocalOverride: true,
     }
     store.setActivities(
       old
@@ -174,7 +201,7 @@ export default function Management() {
                       <Status>{a.state}</Status>
                     </td>
                     <td>
-                      {a.attendees} / {a.capacity}
+                      {displayValue(a.attendees)} / {displayValue(a.capacity)}
                     </td>
                     <td>
                       <div className="table-actions">
@@ -196,11 +223,20 @@ export default function Management() {
                             variant="outline"
                             size="sm"
                             onClick={() => {
-                              if (!a.title || !a.place || a.date >= a.end)
+                              if (
+                                !a.title ||
+                                !a.date ||
+                                !a.end ||
+                                !a.deadline ||
+                                a.price === null ||
+                                a.date >= a.end
+                              )
                                 return toast.error('Revisa los datos antes de publicar')
                               store.setActivities(
                                 store.activities.map((x) =>
-                                  x.id === a.id ? { ...x, state: 'Abierta' } : x,
+                                  x.id === a.id
+                                    ? { ...x, state: 'Abierta', isLocalOverride: true }
+                                    : x,
                                 ),
                               )
                               toast.success('Publicada en el catálogo local')
@@ -307,24 +343,34 @@ export default function Management() {
                   name: 'category',
                   label: 'Categoría',
                   options: activityCategories.slice(1),
-                  required: true,
                 },
                 {
                   name: 'mode',
                   label: 'Formato',
                   options: ['Webinar', 'Presencial'],
-                  required: true,
                 },
-                { name: 'date', label: 'Inicio', type: 'datetime-local', required: true },
-                { name: 'end', label: 'Final', type: 'datetime-local', required: true },
-                { name: 'deadline', label: 'Cierre de inscripción', type: 'date', required: true },
-                { name: 'place', label: 'Lugar o enlace de sesión', required: true },
-                { name: 'price', label: 'Tarifa socio (€)', type: 'number', required: true },
-                { name: 'capacity', label: 'Cupo de personas', type: 'number', required: true },
+                { name: 'date', label: 'Inicio', type: 'datetime-local' },
+                { name: 'end', label: 'Final', type: 'datetime-local' },
+                { name: 'deadline', label: 'Cierre de inscripción', type: 'date' },
+                { name: 'place', label: 'Lugar o enlace de sesión' },
+                {
+                  name: 'price',
+                  label: 'Tarifa socio (€) · vacío = no verificado',
+                  type: 'number',
+                },
+                { name: 'capacity', label: 'Cupo · vacío = no verificado', type: 'number' },
                 {
                   name: 'state',
                   label: 'Estado',
-                  options: ['Borrador', 'Abierta', 'Cerrada', 'Finalizada'],
+                  options: [
+                    'Borrador',
+                    'Abierta',
+                    'Cerrada',
+                    'Completa',
+                    'Finalizada',
+                    'Consulta',
+                    'Sin verificar',
+                  ],
                   required: true,
                 },
                 {
@@ -332,7 +378,6 @@ export default function Management() {
                   label: 'Descripción',
                   type: 'textarea',
                   wide: true,
-                  required: true,
                 },
               ]}
               values={values}

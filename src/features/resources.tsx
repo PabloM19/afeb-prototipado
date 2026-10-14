@@ -32,9 +32,19 @@ import {
   FormFields,
   downloadDemo,
 } from '@/components/shared'
-import { reports, documents, legalResources, formatDate } from '@/data/fixtures'
+import {
+  reports,
+  allReports,
+  documents,
+  legalResources,
+  legalService,
+  resolveReportId,
+  formatDate,
+} from '@/data/fixtures'
 import { useStore } from '@/lib/store'
+import { displayValue, referenceIds, mockDb } from '@/data/mock-db'
 export function Reports() {
+  const featured = reports.find((r) => r.id === referenceIds.featuredReportId)!
   const [search, setSearch] = useState('')
   const [category, setCategory] = useState('Todos')
   const filtered = reports.filter(
@@ -58,21 +68,24 @@ export function Reports() {
             del sector.
           </div>
           <span>
-            03 / 2026 <ArrowUpRight size={32} />
+            {featured.edition} <ArrowUpRight size={32} />
           </span>
         </div>
         <div className="report-feature-copy">
-          <span className="eyebrow">El último pulso del mercado</span>
-          <h2>Evolución de ventas</h2>
+          <span className="eyebrow">Archivo observado en el portal</span>
+          <h2>{featured.title}</h2>
           <p>
-            Consulta las tendencias del tercer trimestre y encuentra las claves para orientar tus
-            próximos pasos.
+            {featured.files.length} archivos observados. Último archivo de la lista:{' '}
+            {featured.files[0]?.filename}.
           </p>
           <span className="report-metadata">
-            <CalendarDays size={15} />8 octubre 2026<span>·</span>Exclusivo socios
+            <CalendarDays size={15} />
+            {formatDate(featured.date)}
+            <span>·</span>
+            {featured.accessLabel}
           </span>
           <Button asChild>
-            <Link to="/detalles-informe?id=ventas">
+            <Link to={`/detalles-informe?id=${featured.id}`}>
               Consultar informe
               <ArrowUpRight size={16} />
             </Link>
@@ -106,9 +119,17 @@ export function Reports() {
             <div className="report-card-footer">
               <span>
                 <LockKeyhole size={14} />
-                Exclusivo socios
+                {displayValue(r.accessLabel)}
               </span>
-              <span>{r.personal ? 'Edición por empresa' : 'Sin coste para socios'}</span>
+              <span>
+                {r.personal
+                  ? 'Edición por empresa'
+                  : r.price === 0
+                    ? 'Gratuito'
+                    : r.price === null
+                      ? 'Tarifa no verificada'
+                      : `${r.price} €`}
+              </span>
             </div>
           </Link>
         ))}
@@ -119,77 +140,82 @@ export function Reports() {
 }
 export function ReportDetail() {
   const [params] = useSearchParams()
-  const report = reports.find((r) => r.id === params.get('id')) || reports[0]
-  const [year, setYear] = useState('2026')
+  const report = allReports.find((r) => r.id === resolveReportId(params.get('id')))
+  const [year, setYear] = useState('Todos')
   const store = useStore()
+  if (!report) return <EmptyState title="Informe no encontrado" />
+  const years = [...new Set(report.files.flatMap((f) => f.years))].sort().reverse()
+  const files = report.files.filter((f) => year === 'Todos' || f.years.includes(year))
   return (
     <>
-      <BackLink to="/informes" label="Todos los informes" />
+      <BackLink
+        to={report.category === 'Normativa' ? '/normativa' : '/informes'}
+        label="Volver al catálogo"
+      />
       <div className="detail-heading">
-        <span className="eyebrow">{report.category} / Observatorio AFEB</span>
+        <span className="eyebrow">{report.sourceCategory}</span>
         <h1>{report.title}</h1>
-        <p>{report.description}</p>
+        <p>{report.description || 'Descripción no recogida en la muestra.'}</p>
       </div>
       <div className="detail-grid">
         <div>
           <section className="detail-section">
-            <h2>Una visión que aporta contexto</h2>
-            <p>
-              {report.description} Este espacio reúne las ediciones disponibles y su histórico para
-              que puedas consultar la evolución del sector.
-            </p>
+            <h2>Información del recurso</h2>
             <div className="resource-facts">
               <span>
                 <LockKeyhole size={17} />
-                Exclusivo para socios AFEB
+                {displayValue(report.accessLabel)}
               </span>
               <span>
                 <CalendarDays size={17} />
-                Actualizado el {formatDate(report.date)}
+                Fecha del catálogo: {formatDate(report.date)}
               </span>
             </div>
           </section>
           <section className="detail-section">
-            <SectionHeading title="Archivo de informes" />
-            <FilterSelect
-              value={year}
-              onChange={setYear}
-              options={['2026', '2025', '2024', '2023', '2022', '2021', '2020', '2019']}
-              label="Año"
-            />
+            <SectionHeading title="Archivos observados" />
+            {years.length > 0 && (
+              <FilterSelect
+                value={year}
+                onChange={setYear}
+                options={['Todos', ...years]}
+                label="Año del nombre de archivo"
+              />
+            )}
             {report.personal ? (
               <div className="summary-box">
                 <strong>Informe individual por empresa</strong>
                 <p>
-                  La entrega de «{report.title}» se asigna a cada empresa. En esta demo no hay un
-                  archivo personalizado de {store.business.name}.
+                  La fuente indica entrega con marca de agua por empresa. No se ha observado un
+                  archivo asignado a {store.business.name}.
                 </p>
-                <span>La generación automática de marcas de agua queda fuera de esta base.</span>
               </div>
             ) : (
-              ['3.er trimestre', '2.º trimestre', '1.er trimestre'].map((edition, i) => (
+              files.map((file) => (
                 <button
                   className="file-row"
-                  key={edition}
-                  onClick={() => downloadDemo(`${report.title} — ${edition} ${year}`)}
+                  key={file.id}
+                  onClick={() => downloadDemo(file.filename)}
                 >
-                  <span className="file-icon">TXT</span>
+                  <span className="file-icon">{file.format ?? '—'}</span>
                   <div>
-                    <strong>
-                      {report.title} · {edition} {year}
-                    </strong>
-                    <p>
-                      Ejemplo de archivo histórico
-                      {year === '2026' && i === 0 ? ' · Última edición' : ''}
-                    </p>
+                    <strong>{file.filename}</strong>
+                    <p>Nombre observado · Ficha de prueba TXT</p>
                   </div>
                   <Download size={19} />
                 </button>
               ))
             )}
+            {!report.personal && files.length === 0 && (
+              <EmptyState
+                title="Sin archivos recogidos"
+                description="La muestra no incluye el contenido de este recurso."
+              />
+            )}
             <DemoNotice>
-              El histórico es ilustrativo. Las descargas generan un TXT de ejemplo; los PDF reales
-              se servirán con autorización de backend.
+              Los nombres proceden del portal. No se han importado los archivos originales; la
+              descarga crea una ficha TXT de prueba. Los años se deducen únicamente del nombre del
+              archivo.
             </DemoNotice>
           </section>
         </div>
@@ -197,21 +223,26 @@ export function ReportDetail() {
           <span className="panel-icon">
             <FileText size={20} />
           </span>
-          <h2>Conocimiento que suma.</h2>
+          <h2>{report.title}</h2>
           <p>{report.edition}</p>
           <div className="booking-price">
-            Incluido<span>En tu condición de socio</span>
+            {report.price === 0
+              ? 'Gratuito'
+              : report.price === null
+                ? 'Tarifa no verificada'
+                : `${report.price} €`}
+            <span>{displayValue(report.accessLabel)}</span>
           </div>
           <Button
-            disabled={report.personal}
-            onClick={() => downloadDemo(`${report.title} — ${report.edition}`)}
+            disabled={report.personal || report.files.length === 0}
+            onClick={() => downloadDemo(report.files[0].filename)}
           >
             <Download size={16} />
-            {report.personal ? 'Pendiente de asignación' : 'Descargar ejemplo'}
+            {report.personal ? 'Sin archivo asignado' : 'Descargar ficha TXT'}
           </Button>
           <Button variant="outline" asChild>
             <Link to="/normativa">
-              ¿Necesitas orientación?
+              Consultar normativa
               <ArrowUpRight size={16} />
             </Link>
           </Button>
@@ -281,7 +312,7 @@ export function Documents() {
                   </div>
                 </td>
                 <td>{d.category}</td>
-                <td>{d.year}</td>
+                <td>{displayValue(d.year)}</td>
                 <td>
                   <span className="format-badge">{d.format}</span>
                 </td>
@@ -301,10 +332,10 @@ export function Documents() {
         </table>
       </div>
       {filtered.length === 0 && <EmptyState />}
-      <div className="table-summary">{filtered.length} documentos de ejemplo</div>
+      <div className="table-summary">{filtered.length} documentos recogidos</div>
       <DemoNotice>
-        Los archivos de esta demo son TXT ilustrativos. La política de acceso a los documentos
-        institucionales debe confirmarse.
+        Las descargas crean fichas TXT de los nombres observados; no contienen los documentos
+        originales. La política de acceso a los documentos institucionales debe confirmarse.
       </DemoNotice>
     </>
   )
@@ -335,12 +366,13 @@ export function Regulations() {
         </div>
         <div>
           <span className="eyebrow">Asesoría para socios</span>
-          <h2>
-            Un poco de claridad.
-            <br />
-            Un gran paso adelante.
-          </h2>
-          <p>Cuéntanos tus dudas sobre contratos con la distribución y solicita orientación.</p>
+          <h2>{legalService.title}</h2>
+          <p>{legalService.description}</p>
+          <p>
+            Contacto observado:{' '}
+            {mockDb.people.find((p) => p.id === legalService.contactPersonId)?.name} ·{' '}
+            {legalService.contactEmail}
+          </p>
         </div>
         <Button onClick={() => setOpen(true)}>
           Solicitar asesoría
@@ -356,25 +388,25 @@ export function Regulations() {
         />
         <div className="legal-resources">
           {legalResources.map((resource) => (
-            <button
+            <Link
+              to={`/detalles-informe?id=${resource.reportId}`}
               key={resource.id}
               id={`normativa-${resource.id}`}
               className={params.get('recurso') === resource.id ? 'search-target' : undefined}
-              onClick={() => downloadDemo(resource.title)}
             >
               <BookOpen size={22} />
               <div>
                 <h3>{resource.title}</h3>
                 <p>{resource.description}</p>
               </div>
-              <Download size={18} />
-            </button>
+              <ArrowUpRight size={18} />
+            </Link>
           ))}
         </div>
       </section>
       <section className="detail-section">
         <SectionHeading
-          title="Webinars de normativa"
+          title="Webinars de normativa recogidos"
           description="Aprende con expertos y consulta los materiales de las sesiones."
         />
         {store.activities

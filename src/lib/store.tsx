@@ -2,6 +2,13 @@ import { createContext, useContext, useState } from 'react'
 import type { ReactNode } from 'react'
 import { activities as initialActivities } from '@/data/fixtures'
 import type { Activity, Role } from '@/data/fixtures'
+import {
+  currentSourcePerson,
+  currentSourceCompany,
+  mockDb,
+  mockStoragePrefix,
+} from '@/data/mock-db'
+import { canRegisterInMock } from '@/lib/mock-rules'
 type Person = {
   name: string
   position: string
@@ -34,8 +41,8 @@ type Store = {
   setPerson: (p: Person) => void
   business: Business
   setBusiness: (b: Business) => void
-  preferences: boolean[]
-  setPreferences: (p: boolean[]) => void
+  preferences: (boolean | null)[]
+  setPreferences: (p: (boolean | null)[]) => void
   registered: string[]
   register: (id: string) => void
   cancel: (id: string) => void
@@ -50,64 +57,74 @@ type Store = {
 }
 const Context = createContext<Store | null>(null)
 function useLocal<T>(key: string, initial: T) {
+  const storageKey = `${mockStoragePrefix}${key}`
   const [value, setValue] = useState<T>(() => {
     try {
-      return JSON.parse(localStorage.getItem(key) || 'null') ?? initial
+      return JSON.parse(localStorage.getItem(storageKey) || 'null') ?? structuredClone(initial)
     } catch {
-      return initial
+      return structuredClone(initial)
     }
   })
   return [
     value,
     (next: T) => {
       setValue(next)
-      localStorage.setItem(key, JSON.stringify(next))
+      localStorage.setItem(storageKey, JSON.stringify(next))
     },
   ] as const
 }
 export function StoreProvider({ children }: { children: ReactNode }) {
-  const [role, setRole] = useLocal<Role>('afeb:role', 'SocioAdmin')
-  const [person, setPerson] = useLocal('afeb:person', {
-    name: 'Clara Martín',
-    position: 'Directora comercial',
-    email: 'clara@nord.example',
-    phone: '+34 930 000 000',
-    linkedin: '',
-    department: 'Comercial',
-    level: 'Dirección',
+  const [role, setRole] = useLocal<Role>('role', 'SocioAdmin')
+  const [person, setPerson] = useLocal('person', {
+    name: currentSourcePerson.name,
+    position: currentSourcePerson.position ?? '',
+    email: currentSourcePerson.email ?? '',
+    phone: currentSourcePerson.phone ?? '',
+    linkedin: currentSourcePerson.linkedin ?? '',
+    department: currentSourcePerson.department ?? '',
+    level: currentSourcePerson.level ?? '',
   })
-  const [business, setBusiness] = useLocal('afeb:business', {
-    name: 'Nord Tools',
-    tax: 'B00000000',
-    address: 'Calle del Taller, 24',
-    city: 'Barcelona',
-    country: 'España',
-    email: 'hola@nord.example',
-    phone: '+34 930 000 000',
-    employees: '50–100',
-    revenue: '10–25 M€',
-    market: 'Profesional y doméstico',
-    export: 'Sí',
-    category: 'Herramientas',
-    website: 'https://nord.example',
+  const [business, setBusiness] = useLocal('business', {
+    name: currentSourceCompany.name,
+    tax: currentSourceCompany.taxId ?? '',
+    address: currentSourceCompany.address ?? '',
+    city: currentSourceCompany.location ?? '',
+    country: currentSourceCompany.country ?? '',
+    email: currentSourceCompany.email ?? '',
+    phone: currentSourceCompany.phone ?? '',
+    employees: currentSourceCompany.employees ?? '',
+    revenue: currentSourceCompany.revenue ?? '',
+    market: currentSourceCompany.market ?? '',
+    export: currentSourceCompany.export ?? '',
+    category: currentSourceCompany.category ?? '',
+    website: currentSourceCompany.website ?? '',
   })
-  const [preferences, setPreferences] = useLocal('afeb:preferences', [true, true, false, true])
-  const [registered, setRegistered] = useLocal<string[]>('afeb:registered', ['webinar'])
-  const [activities, setActivities] = useLocal<Activity[]>('afeb:activities', initialActivities)
-  const [requests, setRequests] = useLocal<string[]>('afeb:requests', [])
-  const [brands, setBrands] = useLocal<string[]>('afeb:brands', ['Nord Tools', 'Nord Professional'])
-  const [team, setTeam] = useLocal<string[]>('afeb:team', [
-    'Clara Martín',
-    'Marcos Vidal',
-    'Laura Soler',
-    'Javier Ruiz',
-  ])
+  const [preferences, setPreferences] = useLocal<(boolean | null)[]>(
+    'preferences',
+    mockDb.account.communicationPreferences,
+  )
+  const [registered, setRegistered] = useLocal<string[]>(
+    'registered',
+    mockDb.account.initialRegisteredActivityIds,
+  )
+  const [activities, setActivities] = useLocal<Activity[]>('activities', initialActivities)
+  const [requests, setRequests] = useLocal<string[]>('requests', [])
+  const [brands, setBrands] = useLocal<string[]>(
+    'brands',
+    currentSourceCompany.brands.map((b) => b.name).filter((name): name is string => name !== null),
+  )
+  const [team, setTeam] = useLocal<string[]>(
+    'team',
+    mockDb.people
+      .filter((p) => new Set<string>(currentSourceCompany.memberPersonIds).has(p.id))
+      .map((p) => p.name),
+  )
   return (
     <Context.Provider
       value={{
         reset: () => {
           Object.keys(localStorage)
-            .filter((key) => key.startsWith('afeb:'))
+            .filter((key) => key.startsWith(mockStoragePrefix))
             .forEach((key) => localStorage.removeItem(key))
           window.location.assign('/')
         },
@@ -121,10 +138,20 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         setPreferences,
         registered,
         register: (id) => {
+          const activity = activities.find((a) => a.id === id)
+          if (!activity || !canRegisterInMock(activity)) return
           if (!registered.includes(id)) {
             setRegistered([...registered, id])
             setActivities(
-              activities.map((a) => (a.id === id ? { ...a, attendees: a.attendees + 1 } : a)),
+              activities.map((a) =>
+                a.id === id
+                  ? {
+                      ...a,
+                      attendees: a.attendees === null ? null : a.attendees + 1,
+                      isLocalOverride: true,
+                    }
+                  : a,
+              ),
             )
           }
         },
@@ -133,7 +160,13 @@ export function StoreProvider({ children }: { children: ReactNode }) {
             setRegistered(registered.filter((x) => x !== id))
             setActivities(
               activities.map((a) =>
-                a.id === id ? { ...a, attendees: Math.max(0, a.attendees - 1) } : a,
+                a.id === id
+                  ? {
+                      ...a,
+                      attendees: a.attendees === null ? null : Math.max(0, a.attendees - 1),
+                      isLocalOverride: true,
+                    }
+                  : a,
               ),
             )
           }

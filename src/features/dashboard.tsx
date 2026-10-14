@@ -11,28 +11,22 @@ import {
   Plus,
   Check,
 } from 'lucide-react'
-import {
-  ResponsiveContainer,
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-} from 'recharts'
 import { Button } from '@/components/ui/button'
-import { ActivityRow, Avatar, SectionHeading, Stat } from '@/components/shared'
+import { ActivityRow, Avatar, SectionHeading, Stat, EmptyState } from '@/components/shared'
 import { useStore } from '@/lib/store'
-const chart = [
-  { month: 'Abr', value: 95 },
-  { month: 'May', value: 102 },
-  { month: 'Jun', value: 99 },
-  { month: 'Jul', value: 110 },
-  { month: 'Ago', value: 106 },
-  { month: 'Sep', value: 116 },
-]
+import { companies, reports, allReports, participations, formatDate } from '@/data/fixtures'
+import { referenceIds, simulationDate, displayValue } from '@/data/mock-db'
+
 export default function Dashboard() {
-  const { person, registered, activities, business, team } = useStore()
+  const { person, registered, activities, business, team, role } = useStore()
+  const featured =
+    activities.find(
+      (a) =>
+        a.id === referenceIds.featuredActivityId &&
+        (a.state !== 'Borrador' || role === 'Gestor AFEB'),
+    ) ?? activities.find((a) => a.state === 'Abierta')
+  const sales = allReports.find((r) => r.id === referenceIds.featuredReportId)!
+  const sample = participations.filter((p) => p.activityId === featured?.id)
   return (
     <>
       <div className="welcome">
@@ -46,134 +40,131 @@ export default function Dashboard() {
         </div>
         <span className="today">
           <CalendarDays size={16} />
-          Miércoles, 14 de octubre de 2026
+          {formatDate(simulationDate, {
+            weekday: 'long',
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+          })}
         </span>
       </div>
       <div className="stats-grid">
         <Stat
           label="Tu agenda"
           value={String(registered.length).padStart(2, '0')}
-          note="Actividades en las que estás inscrita"
+          note="Inscripciones de esta simulación"
           icon={<CalendarDays size={18} />}
         />
         <Stat
           label="Nuestra comunidad"
-          value="08"
-          note="Empresas de ejemplo para explorar"
+          value={String(companies.length).padStart(2, '0')}
+          note="Empresas recogidas en la muestra"
           icon={<Building2 size={18} />}
         />
         <Stat
           label="Conocimiento compartido"
-          value="04"
-          note="Informes disponibles en la demo"
+          value={String(reports.length).padStart(2, '0')}
+          note="Informes del catálogo recogido"
           icon={<FileText size={18} />}
         />
         <Stat
           label="Tu equipo"
           value={String(team.length).padStart(2, '0')}
-          note={`${business.name} · Empresa asociada`}
+          note={`${business.name} · Datos del mock`}
           icon={<UsersRound size={18} />}
         />
       </div>
       <div className="dashboard-main-grid">
-        <section className="feature-event">
-          <div className="feature-event-top">
-            <span>
-              <span className="live-dot" />
-              Próximo encuentro
-            </span>
-            <span>22.10.2026</span>
-          </div>
-          <div className="feature-event-content">
-            <span className="feature-category">Encuentros con distribución</span>
-            <h2>
-              El futuro se
-              <br />
-              construye juntos.
-            </h2>
-            <p>Conecta, comparte y descubre nuevas oportunidades para tu empresa.</p>
-            <div className="feature-event-meta">
+        {featured ? (
+          <section className="feature-event">
+            <div className="feature-event-top">
               <span>
-                <CalendarDays size={15} />
-                22 octubre · 09:30 h
+                <span className="live-dot" />
+                Actividad del catálogo
               </span>
-              <span>Barcelona · Presencial</span>
+              <span>
+                {formatDate(featured.date, { day: '2-digit', month: '2-digit', year: 'numeric' })}
+              </span>
             </div>
-            <Button asChild className="feature-cta">
-              <Link to="/detalles-evento?id=encuentro">
-                Descubrir el encuentro
-                <ArrowUpRight size={17} />
-              </Link>
-            </Button>
-          </div>
-          <div className="event-graphic" aria-hidden="true">
-            <div className="graphic-square square-one" />
-            <div className="graphic-square square-two" />
-            <div className="graphic-square square-three" />
-            <div className="graphic-caption">Perspectivas que conectan.</div>
-          </div>
-          <div className="feature-event-footer">
-            <div className="avatar-stack">
-              <Avatar initials="ER" size="small" />
-              <Avatar initials="PT" size="small" />
-              <Avatar initials="MV" size="small" />
+            <div className="feature-event-content">
+              <span className="feature-category">{displayValue(featured.category)}</span>
+              <h2>{featured.title}</h2>
+              <p className="source-excerpt">{displayValue(featured.description)}</p>
+              <div className="feature-event-meta">
+                <span>
+                  <CalendarDays size={15} />
+                  {formatDate(featured.date, {
+                    day: 'numeric',
+                    month: 'long',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                  })}
+                </span>
+                <span>
+                  {displayValue(featured.place)} · {displayValue(featured.mode)}
+                </span>
+              </div>
+              <Button asChild className="feature-cta">
+                <Link to={`/detalles-evento?id=${featured.id}`}>
+                  Ver actividad
+                  <ArrowUpRight size={17} />
+                </Link>
+              </Button>
             </div>
-            <span>42 profesionales ya se han sumado</span>
-            <ArrowUpRight size={17} />
-          </div>
-        </section>
+            <div className="event-graphic" aria-hidden="true">
+              <div className="graphic-square square-one" />
+              <div className="graphic-square square-two" />
+              <div className="graphic-square square-three" />
+              <div className="graphic-caption">Perspectivas que conectan.</div>
+            </div>
+            <div className="feature-event-footer">
+              <div className="avatar-stack">
+                {sample.slice(0, 3).map((p) => (
+                  <Avatar key={p.id} initials={p.initials} size="small" />
+                ))}
+              </div>
+              <span>
+                {featured.attendees === null
+                  ? 'Asistentes no recogidos en esta muestra'
+                  : `${featured.attendees} inscripciones recogidas en el mock`}
+              </span>
+              <ArrowUpRight size={17} />
+            </div>
+          </section>
+        ) : (
+          <EmptyState title="Sin actividad destacada" />
+        )}
         <section className="market-panel">
           <div className="market-heading">
             <span className="panel-icon">
               <TrendingUp size={18} />
             </span>
             <span>La perspectiva del sector</span>
-            <Link to="/detalles-informe?id=ventas" aria-label="Ver informe de ventas">
+            <Link to={`/detalles-informe?id=${sales.id}`} aria-label="Ver informe de ventas">
               <ArrowUpRight size={19} />
             </Link>
           </div>
-          <h2>
-            Una mirada a lo
-            <br />
-            que viene.
-          </h2>
-          <p>Evolución de ventas · 3.er trimestre</p>
+          <h2>{sales.title}</h2>
+          <p>{sales.accessLabel}</p>
           <div className="market-value">
-            +8,4<span>%</span>
-            <small>Variación ilustrativa</small>
+            {sales.files.length}
+            <small>Archivos observados en su ficha</small>
           </div>
-          <div className="chart">
-            <ResponsiveContainer width="100%" height={132}>
-              <AreaChart data={chart} margin={{ top: 10, right: 4, left: -30, bottom: 0 }}>
-                <CartesianGrid vertical={false} stroke="#e7e7e7" strokeDasharray="3 4" />
-                <XAxis
-                  dataKey="month"
-                  tick={{ fontSize: 14, fill: 'var(--muted-foreground)' }}
-                  axisLine={false}
-                  tickLine={false}
-                />
-                <YAxis hide domain={[80, 125]} />
-                <Tooltip
-                  contentStyle={{ border: '1px solid #ddd', borderRadius: 8, fontSize: 14 }}
-                  formatter={(v) => [v, 'Índice (demo)']}
-                />
-                <Area
-                  isAnimationActive={false}
-                  type="monotone"
-                  dataKey="value"
-                  stroke="var(--brand-green)"
-                  strokeWidth={2}
-                  fill="var(--brand-lime)"
-                  fillOpacity={0.16}
-                />
-              </AreaChart>
-            </ResponsiveContainer>
-          </div>
-          <Link className="market-link" to="/detalles-informe?id=ventas">
-            Explorar el informe
+          <ul className="source-file-list">
+            {sales.files.slice(0, 3).map((file) => (
+              <li key={file.id}>
+                <FileText size={16} />
+                <span>{file.filename}</span>
+              </li>
+            ))}
+          </ul>
+          <Link className="market-link" to={`/detalles-informe?id=${sales.id}`}>
+            Explorar el archivo
             <ArrowRight size={16} />
           </Link>
-          <span className="chart-disclaimer">Datos de ejemplo, sin valor estadístico.</span>
+          <span className="chart-disclaimer">
+            No se ha recogido una serie estadística para el gráfico.
+          </span>
         </section>
       </div>
       <div className="dashboard-bottom-grid">
@@ -185,8 +176,8 @@ export default function Dashboard() {
           />
           <div className="agenda-list">
             {activities
-              .filter((a) => a.state === 'Abierta')
-              .slice(1, 3)
+              .filter((a) => a.state === 'Abierta' && a.id !== featured?.id)
+              .slice(0, 2)
               .map((activity) => (
                 <ActivityRow activity={activity} key={activity.id} compact />
               ))}
@@ -198,10 +189,10 @@ export default function Dashboard() {
             <div>
               <strong>
                 {registered.length
-                  ? 'Tu próxima cita está confirmada'
+                  ? 'Tu inscripción local está confirmada'
                   : 'Tu próxima cita empieza aquí'}
               </strong>
-              <p>Consulta tus inscripciones y los detalles de cada actividad.</p>
+              <p>Consulta las inscripciones que prepares en esta simulación.</p>
             </div>
             <ChevronRight size={18} />
           </Link>
@@ -209,20 +200,19 @@ export default function Dashboard() {
         <section>
           <SectionHeading title="Tu comunidad, más cerca" href="/socios" label="Explorar" />
           <div className="community-list">
-            {[
-              ['FH', 'Forma Hábitat', 'Decoración · Valencia'],
-              ['TG', 'Terra Garden', 'Jardinería · Madrid'],
-              ['FP', 'Fix Pro', 'Fijación · Bilbao'],
-            ].map(([initials, name, desc], i) => (
+            {companies.slice(0, 3).map((company) => (
               <Link
-                to={`/detalles-socio?id=${['forma', 'terra', 'fix'][i]}`}
+                to={`/detalles-socio?id=${company.id}`}
                 className="community-row"
-                key={name}
+                key={company.id}
               >
-                <span className="company-logo">{initials}</span>
+                <span className="company-logo">{company.initials}</span>
                 <div>
-                  <strong>{name}</strong>
-                  <p>{desc}</p>
+                  <strong>{company.name}</strong>
+                  <p>
+                    {[company.category, company.location].filter(Boolean).join(' · ') ||
+                      'Datos de ficha no recogidos'}
+                  </p>
                 </div>
                 <ArrowUpRight size={17} />
               </Link>

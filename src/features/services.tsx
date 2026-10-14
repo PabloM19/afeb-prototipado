@@ -13,7 +13,8 @@ import {
   FormFields,
   BackLink,
 } from '@/components/shared'
-import { providers, companies, companyCategories } from '@/data/fixtures'
+import { providers, companies } from '@/data/fixtures'
+import { mockDb } from '@/data/mock-db'
 import { useStore } from '@/lib/store'
 export function Providers() {
   const [params] = useSearchParams()
@@ -44,7 +45,7 @@ export function Providers() {
             <TabsTrigger value="Benefits">Beneficios para socios</TabsTrigger>
           </TabsList>
         </Tabs>
-        <span className="small-label">Catálogo de demostración</span>
+        <span className="small-label">Catálogo observado</span>
       </div>
       <div className="filter-bar">
         <SearchInput
@@ -72,19 +73,24 @@ export function Providers() {
             </summary>
             <div className="provider-content">
               <p>{p.description}</p>
-              <div className="benefit">
-                <Check size={17} />
-                <span>{p.benefit}</span>
-              </div>
-              <a
-                className="text-link"
-                href={`mailto:servicios@afeb.example?subject=${encodeURIComponent(p.title)}`}
-              >
-                Pedir más información
-                <ArrowUpRight size={16} />
-              </a>
+              {p.benefit && (
+                <div className="benefit">
+                  <Check size={17} />
+                  <span>{p.benefit}</span>
+                </div>
+              )}
+              {p.contactEmail && (
+                <a
+                  className="text-link"
+                  href={`mailto:${p.contactEmail}?subject=${encodeURIComponent(p.title)}`}
+                >
+                  Pedir más información
+                  <ArrowUpRight size={16} />
+                </a>
+              )}
               <p className="form-hint">
-                Ficha y contacto de ejemplo; condiciones pendientes de validación.
+                Información recogida del portal el 14/10/2026.{' '}
+                {p.contactEmail ? '' : 'Contacto no recogido.'}
               </p>
             </div>
           </details>
@@ -173,7 +179,9 @@ export function Cobranding() {
             <>
               <div className="section-heading">
                 <h2>1. Elige con quién conectar</h2>
-                <span className="small-label">{selected.length} / 5 empresas</span>
+                <span className="small-label">
+                  {selected.length} / {mockDb.auditedForms.collaboration.maxCompanies} empresas
+                </span>
               </div>
               <SearchInput value={search} onChange={setSearch} placeholder="Buscar empresa…" />
               <div className="company-picker">
@@ -183,7 +191,10 @@ export function Cobranding() {
                     <label key={c.id}>
                       <Checkbox
                         checked={selected.includes(c.name)}
-                        disabled={selected.length === 5 && !selected.includes(c.name)}
+                        disabled={
+                          selected.length === mockDb.auditedForms.collaboration.maxCompanies &&
+                          !selected.includes(c.name)
+                        }
                         onCheckedChange={(v) =>
                           setSelected(
                             v ? [...selected, c.name] : selected.filter((x) => x !== c.name),
@@ -203,14 +214,7 @@ export function Cobranding() {
                   {
                     name: 'type',
                     label: 'Tipo de colaboración',
-                    options: [
-                      'Comercial',
-                      'Exportación',
-                      'Marketing',
-                      'Punto de venta',
-                      'Desarrollo de producto',
-                      'Otras',
-                    ],
+                    options: mockDb.auditedForms.collaboration.types,
                     required: true,
                     wide: true,
                   },
@@ -257,8 +261,8 @@ export function Cobranding() {
 }
 export function Tenders() {
   const { addRequest } = useStore()
-  const [daily, setDaily] = useState(true)
-  const [personal, setPersonal] = useState(false)
+  const [daily, setDaily] = useState<boolean | null>(null)
+  const [personal, setPersonal] = useState<boolean | null>(null)
   const [categories, setCategories] = useState<string[]>([])
   const [values, setValues] = useState<Record<string, string>>({})
   return (
@@ -274,7 +278,10 @@ export function Tenders() {
           className="form-page"
           onSubmit={(e) => {
             e.preventDefault()
-            if (personal && !categories.length) return toast.error('Elige al menos una categoría')
+            if (daily === null || personal === null)
+              return toast.error('Elige ambas preferencias para esta solicitud local')
+            if (personal && !values.comments?.trim())
+              return toast.error('Indica tus intereses en los comentarios')
             addRequest(
               `Licitaciones: diaria ${daily ? 'sí' : 'no'} · personalizada ${personal ? 'sí' : 'no'} · ${categories.join(', ')} · ${values.comments || ''}`,
             )
@@ -289,20 +296,33 @@ export function Tenders() {
               <strong>Newsletter general diaria</strong>
               <span>Un resumen de oportunidades de licitación.</span>
             </div>
-            <Checkbox checked={daily} onCheckedChange={(v) => setDaily(v === true)} />
+            <Checkbox
+              checked={daily ?? 'indeterminate'}
+              onCheckedChange={(v) => setDaily(v === true)}
+            />
           </label>
           <label className="preference-row">
             <div>
               <strong>Modalidad personalizada</strong>
-              <span>Información según tus categorías · 90 €/mes de referencia.</span>
+              <span>
+                Información según tus categorías ·{' '}
+                {mockDb.auditedForms.tenders.personalizedMonthlyPrice} €/mes de referencia.
+              </span>
             </div>
-            <Checkbox checked={personal} onCheckedChange={(v) => setPersonal(v === true)} />
+            <Checkbox
+              checked={personal ?? 'indeterminate'}
+              onCheckedChange={(v) => setPersonal(v === true)}
+            />
           </label>
           {personal && (
             <>
-              <h3 className="subsection-title">Selecciona tus categorías</h3>
+              <h3 className="subsection-title">Categorías de interés</h3>
+              <p className="form-hint">
+                Las opciones del formulario original no se han recogido. Puedes anotarlas en los
+                comentarios para simular la solicitud.
+              </p>
               <div className="category-checks">
-                {companyCategories.slice(1).map((c) => (
+                {(mockDb.auditedForms.tenders.categoryOptions ?? []).map((c: string) => (
                   <label key={c}>
                     <Checkbox
                       checked={categories.includes(c)}
@@ -324,6 +344,7 @@ export function Tenders() {
             setValues={setValues}
           />
           <DemoNotice>
+            Preferencias originales no verificadas: elige las opciones para esta solicitud local.
             Tarifa observada en la auditoría, pendiente de confirmar. Guardar aquí no contrata el
             servicio.
           </DemoNotice>

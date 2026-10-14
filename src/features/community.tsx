@@ -34,20 +34,25 @@ import {
   ActivityRow,
 } from '@/components/shared'
 import type { Field } from '@/components/shared'
-import { companies, companyCategories, contacts } from '@/data/fixtures'
+import {
+  companies,
+  allCompanies,
+  participations,
+  companyCategories,
+  contacts,
+} from '@/data/fixtures'
 import { useStore } from '@/lib/store'
+import { mockDb, displayValue, initialsFor } from '@/data/mock-db'
 const personFields: Field[] = [
   { name: 'name', label: 'Nombre y apellidos', required: true },
   { name: 'position', label: 'Cargo', required: true },
   {
     name: 'level',
     label: 'Nivel de dirección',
-    options: ['Dirección', 'Responsable', 'Técnico', 'Otro'],
   },
   {
     name: 'department',
     label: 'Departamento',
-    options: ['Comercial', 'Marketing', 'Exportación', 'Operaciones', 'Dirección', 'Otro'],
   },
   { name: 'phone', label: 'Teléfono', type: 'tel' },
   { name: 'linkedin', label: 'LinkedIn', type: 'url' },
@@ -65,17 +70,14 @@ const businessFields: Field[] = [
   {
     name: 'employees',
     label: 'Empleados',
-    options: ['1–10', '10–50', '50–100', '100–250', 'Más de 250'],
   },
   {
     name: 'revenue',
     label: 'Facturación total',
-    options: ['Menos de 1 M€', '1–10 M€', '10–25 M€', 'Más de 25 M€'],
   },
   {
     name: 'market',
     label: 'Mercado',
-    options: ['Profesional', 'Doméstico', 'Profesional y doméstico'],
   },
   { name: 'export', label: 'Exportación', options: ['Sí', 'No'] },
 ]
@@ -110,7 +112,7 @@ export function Companies() {
           <br />
           <strong>Conectamos a los profesionales que hacen avanzar el sector.</strong>
         </p>
-        <span>{companies.length} empresas de ejemplo</span>
+        <span>{companies.length} empresas recogidas</span>
       </div>
       <div className="filter-bar">
         <SearchInput
@@ -133,12 +135,16 @@ export function Companies() {
             <div className="company-card-footer">
               <span>
                 <MapPin size={14} />
-                {company.location}
+                {displayValue(company.location)}
               </span>
-              <span>{company.members} profesionales</span>
+              <span>
+                {company.members
+                  ? `${company.members} contactos en la muestra`
+                  : 'Contactos no recogidos'}
+              </span>
             </div>
             {role === 'Gestor AFEB' && (
-              <span className="admin-tag">Socio · Registro de demostración</span>
+              <span className="admin-tag">Socio AFEB · Fuente verificada</span>
             )}
           </Link>
         ))}
@@ -175,11 +181,7 @@ export function Directory() {
           onChange={setDepartment}
           options={[
             'Todos los departamentos',
-            'Comercial',
-            'Exportación',
-            'Marketing',
-            'Dirección',
-            'Operaciones',
+            ...new Set(contacts.map((p) => p.department).filter(Boolean)),
           ]}
         />
       </div>
@@ -193,12 +195,14 @@ export function Directory() {
             <h2>{p.name}</h2>
             <p>{p.position}</p>
             <strong className="person-company">{p.company}</strong>
-            <a className="contact-email" href={`mailto:${p.email}`}>
-              <Mail size={15} />
-              {p.email}
-            </a>
+            {p.email && (
+              <a className="contact-email" href={`mailto:${p.email}`}>
+                <Mail size={15} />
+                {p.email}
+              </a>
+            )}
             <div className="person-card-footer">
-              <span>Visible para socios</span>
+              <span>Contacto recogido</span>
               <Link className="text-link" to={`/detalles-equipo?id=${p.id}`}>
                 Ver contacto
                 <ArrowUpRight size={16} />
@@ -214,15 +218,18 @@ export function Directory() {
       </div>
       {items.length === 0 && <EmptyState />}
       <DemoNotice>
-        Personas y contactos ficticios. La visibilidad definitiva del directorio debe validarse con
-        AFEB.
+        Muestra de contactos observados en el portal. No representa el directorio completo; los
+        campos no recogidos quedan sin verificar.
       </DemoNotice>
     </>
   )
 }
 export function ContactDetail() {
   const [params] = useSearchParams()
-  const person = contacts.find((x) => x.id === params.get('id')) || contacts[0]
+  const person = params.get('participation')
+    ? participations.find((x) => x.id === params.get('participation'))
+    : contacts.find((x) => x.id === params.get('id'))
+  if (!person) return <EmptyState title="Contacto no encontrado" />
   return (
     <>
       <BackLink to="/directorio" label="Volver al directorio" />
@@ -232,7 +239,7 @@ export function ContactDetail() {
         <dl className="data-grid">
           <div>
             <dt>Departamento</dt>
-            <dd>{person.department}</dd>
+            <dd>{displayValue(person.department)}</dd>
           </div>
           <div>
             <dt>Empresa</dt>
@@ -241,17 +248,21 @@ export function ContactDetail() {
           <div>
             <dt>Email</dt>
             <dd>
-              <a href={`mailto:${person.email}`}>{person.email}</a>
+              {person.email ? (
+                <a href={`mailto:${person.email}`}>{person.email}</a>
+              ) : (
+                displayValue(person.email)
+              )}
             </dd>
           </div>
           <div>
             <dt>Visibilidad</dt>
-            <dd>Compartido con socios (demo)</dd>
+            <dd>Permisos pendientes de validar</dd>
           </div>
         </dl>
         <DemoNotice>
-          Propuesta de ficha de contacto. La ruta original devolvía 404 y no se pudieron verificar
-          sus campos.
+          La ficha utiliza los campos observados. Una inscripción no se vincula a una persona del
+          CRM sin un identificador verificado.
         </DemoNotice>
       </div>
     </>
@@ -317,36 +328,39 @@ export function Profile() {
               ].map(([k, v]) => (
                 <div key={k}>
                   <dt>{k}</dt>
-                  <dd>{v}</dd>
+                  <dd>{displayValue(v)}</dd>
                 </div>
               ))}
             </dl>
             <DemoNotice>
-              El rol es informativo. La edición del perfil no permite cambiar privilegios.
+              Rol observado en la cuenta: {mockDb.account.sourceRole}. La vista {store.role} es una
+              simulación local de permisos.
             </DemoNotice>
           </div>
         </TabsContent>
         <TabsContent value="comunicaciones">
           <div className="content-panel">
             <h2>Elige qué quieres recibir</h2>
-            <p className="muted">Recibe solo la información que te interesa.</p>
-            {[
-              ['Actividades y encuentros', 'Nuevas convocatorias, formación y recordatorios.'],
-              ['Newsletter del sector', 'Novedades, tendencias y noticias de la comunidad.'],
-              ['Información legal y normativa', 'Cambios normativos y contenidos de asesoría.'],
-              ['Encuestas y participación', 'Ayúdanos a conocer las necesidades del sector.'],
-            ].map(([title, desc], i) => (
-              <label className="preference-row" key={title}>
-                <div>
-                  <strong>{title}</strong>
-                  <span>{desc}</span>
-                </div>
-                <Checkbox
-                  checked={prefs[i]}
-                  onCheckedChange={(v) => setPrefs(prefs.map((p, j) => (j === i ? v === true : p)))}
-                />
-              </label>
-            ))}
+            <p className="muted">
+              Las selecciones originales no se pudieron comprobar. El estado indeterminado significa
+              «no verificado»; los cambios se guardan solo en local.
+            </p>
+            {mockDb.catalogs.communicationLabels
+              .map((title) => [title, 'Preferencia de comunicación'])
+              .map(([title, desc], i) => (
+                <label className="preference-row" key={title}>
+                  <div>
+                    <strong>{title}</strong>
+                    <span>{desc}</span>
+                  </div>
+                  <Checkbox
+                    checked={prefs[i] ?? 'indeterminate'}
+                    onCheckedChange={(v) =>
+                      setPrefs(prefs.map((p, j) => (j === i ? v === true : p)))
+                    }
+                  />
+                </label>
+              ))}
             <div className="form-actions">
               <Button variant="outline" onClick={() => setPrefs(store.preferences)}>
                 Cancelar
@@ -404,7 +418,9 @@ export function Profile() {
 export function CompanyDetail({ own = false }: { own?: boolean }) {
   const [params] = useSearchParams()
   const store = useStore()
-  const company = companies.find((c) => c.id === params.get('id')) || companies[0]
+  const company = allCompanies.find(
+    (c) => c.id === (own ? mockDb.account.companyId : params.get('id')),
+  )
   const canEdit = own && store.role !== 'Socio'
   const [edit, setEdit] = useState(false)
   const [brandOpen, setBrandOpen] = useState(false)
@@ -412,6 +428,7 @@ export function CompanyDetail({ own = false }: { own?: boolean }) {
   const [brandValues, setBrandValues] = useState<Record<string, string>>({})
   const [teamValues, setTeamValues] = useState<Record<string, string>>({})
   const [deleteBrand, setDeleteBrand] = useState('')
+  if (!company) return <EmptyState title="Empresa no encontrada" />
   const name = own ? store.business.name : company.name
   return (
     <>
@@ -434,21 +451,19 @@ export function CompanyDetail({ own = false }: { own?: boolean }) {
         }
       />
       <div className="company-detail-header">
-        <span className="company-logo extra-large">{own ? 'NT' : company.initials}</span>
+        <span className="company-logo extra-large">{initialsFor(name)}</span>
         <div>
           <span className="status">
             <span />
-            Empresa asociada
+            {own ? 'Cuenta de revisión · pruebas' : displayValue(company.membership)}
           </span>
           <p>
             <MapPin size={15} />
-            {own ? store.business.city : company.location} <span>·</span>
-            {own ? store.business.category : company.category}
+            {displayValue(own ? store.business.city : company.location)} <span>·</span>
+            {displayValue(own ? store.business.category : company.category)}
           </p>
         </div>
-        <span className="small-label">
-          {own ? 'Socio desde 2018' : 'Miembro de la comunidad AFEB'}
-        </span>
+        <span className="small-label">Muestra observada · 14/10/2026</span>
       </div>
       <Tabs defaultValue="datos">
         <TabsList>
@@ -466,7 +481,10 @@ export function CompanyDetail({ own = false }: { own?: boolean }) {
                     ['Razón social', store.business.name],
                     ['CIF / NIF', store.business.tax],
                     ['Domicilio social', store.business.address],
-                    ['Localidad / País', `${store.business.city} · ${store.business.country}`],
+                    [
+                      'Localidad / País',
+                      [store.business.city, store.business.country].filter(Boolean).join(' · '),
+                    ],
                     ['Email general', store.business.email],
                     ['Teléfono', store.business.phone],
                     ['Web', store.business.website],
@@ -476,14 +494,18 @@ export function CompanyDetail({ own = false }: { own?: boolean }) {
                     ['Nombre comercial', company.name],
                     ['Localidad', company.location],
                     ['Categoría', company.category],
-                    ['Email general', `hola@${company.id}.example`],
-                    ['Web', `${company.id}.example`],
+                    ['Email general', company.email],
+                    ['CIF / NIF', company.tax],
+                    ['Teléfono', company.phone],
+                    ['Domicilio', company.address],
+                    ['Código postal', company.postalCode],
+                    ['Web', company.website],
                     ['Descripción', company.description],
                   ]
               ).map(([k, v]) => (
                 <div key={k}>
                   <dt>{k}</dt>
-                  <dd>{v}</dd>
+                  <dd>{displayValue(v)}</dd>
                 </div>
               ))}
             </dl>
@@ -499,7 +521,7 @@ export function CompanyDetail({ own = false }: { own?: boolean }) {
                   ].map(([k, v]) => (
                     <div key={k}>
                       <dt>{k}</dt>
-                      <dd>{v}</dd>
+                      <dd>{displayValue(v)}</dd>
                     </div>
                   ))}
                 </dl>
@@ -525,31 +547,34 @@ export function CompanyDetail({ own = false }: { own?: boolean }) {
                 </Button>
               )}
             </div>
-            {(own ? store.brands : [company.name]).map((brand) => (
-              <div className="brand-row" key={brand}>
-                <span className="company-logo">
-                  {brand
-                    .split(' ')
-                    .map((x) => x[0])
-                    .slice(0, 2)
-                    .join('')}
-                </span>
-                <strong>{brand}</strong>
-                {canEdit && (
-                  <Button
-                    aria-label={`Eliminar ${brand}`}
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => setDeleteBrand(brand)}
-                  >
-                    <Trash2 size={17} />
-                  </Button>
-                )}
-              </div>
-            ))}
+            {(own ? store.brands : company.brands.map((b) => b.name ?? 'No verificado')).map(
+              (brand, index) => (
+                <div className="brand-row" key={`${index}-${brand}`}>
+                  <span className="company-logo">
+                    {brand
+                      .split(' ')
+                      .map((x) => x[0])
+                      .slice(0, 2)
+                      .join('')}
+                  </span>
+                  <strong>{brand}</strong>
+                  {canEdit && (
+                    <Button
+                      aria-label={`Eliminar ${brand}`}
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => setDeleteBrand(brand)}
+                    >
+                      <Trash2 size={17} />
+                    </Button>
+                  )}
+                </div>
+              ),
+            )}
             <p className="form-hint">
-              El coste por logo debe confirmarse: la auditoría detectó importes de 100 € y 130 €.
-              Esta demo no cobra ni sube archivos.
+              El coste por logo debe confirmarse: la auditoría detectó importes de{' '}
+              {mockDb.auditedForms.brands.observedPrices.join(' € y ')} €. Esta demo no cobra ni
+              sube archivos.
             </p>
           </div>
         </TabsContent>
@@ -584,7 +609,8 @@ export function CompanyDetail({ own = false }: { own?: boolean }) {
                   <p>{name}</p>
                 </div>
                 <span className="small-label">
-                  {member.includes('Clara') ? 'SocioAdmin' : 'Socio'}
+                  {contacts.find((p) => p.name === member && p.companyId === company.id)
+                    ?.sourceRole || 'Rol no verificado'}
                 </span>
               </div>
             ))}
@@ -595,7 +621,8 @@ export function CompanyDetail({ own = false }: { own?: boolean }) {
               />
             )}
             <DemoNotice>
-              Las invitaciones, bajas y permisos del equipo deben resolverse en el servidor.
+              Los contactos recogidos son una muestra, no el total del equipo. Las altas realizadas
+              aquí se guardan en local.
             </DemoNotice>
           </div>
         </TabsContent>

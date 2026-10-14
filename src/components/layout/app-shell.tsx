@@ -39,6 +39,8 @@ import {
 import { Avatar } from '@/components/shared'
 import { BrandMark } from '@/components/brand-mark'
 import { GlobalSearch } from '@/components/global-search'
+import { afebTeam, reports, activities } from '@/data/fixtures'
+import { initialsFor, referenceIds } from '@/data/mock-db'
 import { useStore } from '@/lib/store'
 const navigation = [
   { label: 'Inicio', path: '/', icon: LayoutDashboard },
@@ -86,10 +88,10 @@ export function AppShell() {
         <span className="brand-caption">Portal del socio</span>
       </Link>
       <div className="workspace">
-        <div className="company-mark">NT</div>
+        <div className="company-mark">{initialsFor(store.business.name)}</div>
         <div>
           <strong>{store.business.name}</strong>
-          <span>Empresa asociada</span>
+          <span>Cuenta de revisión</span>
         </div>
         <ChevronsUpDown size={14} />
       </div>
@@ -153,7 +155,7 @@ export function AppShell() {
         </div>
         <DropdownMenu>
           <DropdownMenuTrigger className="user-switch">
-            <Avatar initials="CM" />
+            <Avatar initials={initialsFor(store.person.name)} />
             <div>
               <strong>{store.person.name}</strong>
               <span>{store.role}</span>
@@ -187,8 +189,8 @@ export function AppShell() {
           <DialogHeader>
             <DialogTitle>Volver al punto de partida</DialogTitle>
             <DialogDescription>
-              Se restablecerán los datos ficticios de esta demo: perfil, empresa, marcas, equipo,
-              preferencias, actividades y solicitudes. Solo afecta a este navegador.
+              Se recuperará la base verificada y se borrarán los cambios locales de perfil, empresa,
+              marcas, equipo, preferencias, actividades y solicitudes. Solo afecta a este navegador.
             </DialogDescription>
           </DialogHeader>
           <div className="form-actions">
@@ -240,7 +242,7 @@ export function AppShell() {
               <span />
             </button>
             <Link to="/perfil" aria-label="Mi perfil">
-              <Avatar initials="CM" size="small" />
+              <Avatar initials={initialsFor(store.person.name)} size="small" />
             </Link>
           </div>
         </header>
@@ -259,15 +261,9 @@ export function AppShell() {
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Hablemos.</DialogTitle>
-            <DialogDescription>
-              Elige el área que mejor encaje con tu consulta. Datos de ejemplo.
-            </DialogDescription>
+            <DialogDescription>Contactos observados en el portal AFEB.</DialogDescription>
           </DialogHeader>
-          {[
-            ['Atención al socio', 'Perfil, empresa y acceso al portal'],
-            ['Actividades y formación', 'Inscripciones, encuentros y webinars'],
-            ['Informes y normativa', 'Documentación y asesoría'],
-          ].map(([title, desc]) => (
+          {afebTeam.map(({ name: title, position: desc, email }) => (
             <div className="contact-help" key={title}>
               <div>
                 <h3>{title}</h3>
@@ -275,34 +271,34 @@ export function AppShell() {
               </div>
               <a
                 className="text-link"
-                href={`mailto:atencion@afeb.example?subject=${encodeURIComponent(title)}`}
+                href={`mailto:${email}?subject=${encodeURIComponent(title)}`}
               >
                 Escribir
                 <ArrowUpRight size={16} />
               </a>
             </div>
           ))}
-          <p className="form-hint">
-            Direcciones ficticias. Se sustituirán por los contactos confirmados por AFEB.
-          </p>
+          <p className="form-hint">Muestra recogida el 14/10/2026.</p>
         </DialogContent>
       </Dialog>
       <Dialog open={notifications} onOpenChange={setNotifications}>
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Al día con AFEB</DialogTitle>
-            <DialogDescription>Novedades de demostración de tu espacio.</DialogDescription>
+            <DialogDescription>
+              Accesos a los registros de la muestra. No se han importado notificaciones reales.
+            </DialogDescription>
           </DialogHeader>
           {[
             [
-              'Nuevo informe disponible',
-              'Evolución de ventas · 3.er trimestre 2026',
-              '/detalles-informe?id=ventas',
+              'Informe del catálogo',
+              reports.find((r) => r.id === referenceIds.featuredReportId)!.title,
+              `/detalles-informe?id=${referenceIds.featuredReportId}`,
             ],
             [
-              'Tu próxima actividad',
-              'Del dato a la decisión · 28 de octubre',
-              '/detalles-evento?id=webinar',
+              'Actividad del catálogo',
+              activities.find((a) => a.id === referenceIds.featuredActivityId)!.title,
+              `/detalles-evento?id=${referenceIds.featuredActivityId}`,
             ],
           ].map(([title, desc, path]) => (
             <Link

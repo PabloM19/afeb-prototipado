@@ -20,6 +20,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { displayValue } from '@/data/mock-db'
 import { formatDate } from '@/data/fixtures'
 import type { Activity } from '@/data/fixtures'
 export function PageHeading({
@@ -162,14 +163,16 @@ export function ActivityRow({
       className={`activity-row ${compact ? 'compact' : ''}`}
     >
       <div className="date-box">
-        <span>{formatDate(activity.date, { month: 'short' }).replace('.', '')}</span>
-        <strong>{date.getDate()}</strong>
+        <span>
+          {activity.date ? formatDate(activity.date, { month: 'short' }).replace('.', '') : '—'}
+        </span>
+        <strong>{activity.date ? date.getDate() : '—'}</strong>
       </div>
       <div className="activity-row-info">
         <span className="small-label">{activity.category}</span>
         <h3>{activity.title}</h3>
         <p>
-          {activity.mode} <span>·</span>{' '}
+          {displayValue(activity.mode)} <span>·</span>{' '}
           {formatDate(activity.date, { hour: '2-digit', minute: '2-digit' })}
         </p>
       </div>
@@ -217,7 +220,10 @@ export function DemoNotice({ children }: { children?: ReactNode }) {
   return (
     <div className="demo-notice">
       <LockKeyhole size={15} />
-      <span>{children || 'Prototipo local. Los datos y las acciones son de demostración.'}</span>
+      <span>
+        {children ||
+          'Base observada en AFEB. Los cambios y las solicitudes son simulaciones locales.'}
+      </span>
     </div>
   )
 }
@@ -341,7 +347,7 @@ export function EditDialog({
 export function downloadDemo(title: string) {
   const blob = new Blob(
     [
-      `AFEB · Documento de demostración\n\n${title}\n\nEste archivo ilustra el flujo de descarga del prototipo local. No es un informe real ni contiene datos de AFEB.\nFecha: 14/10/2026`,
+      `AFEB · Ficha de archivo observado\n\n${title}\n\nFicha de prueba del nombre de archivo observado en AFEB. No contiene el documento original ni sus cifras.\nFecha: 14/10/2026`,
     ],
     { type: 'text/plain;charset=utf-8' },
   )

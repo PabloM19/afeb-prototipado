@@ -3554,6 +3554,30 @@ td strong {
 .table-container {
   position: relative;
 }
+.source-excerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.source-file-list {
+  list-style: none;
+  margin: 20px 0 30px;
+  padding: 0;
+}
+.source-file-list li {
+  display: flex;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.source-file-list svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
 [data-slot='sheet-content'],
 [data-slot='sheet-overlay'],
 [data-slot='dialog-content'],

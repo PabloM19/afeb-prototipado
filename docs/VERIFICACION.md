@@ -1,3 +1,5 @@
+> Las comprobaciones de diseño y búsqueda anteriores usan el dataset inicial. La nueva base observada y sus recorridos se documentan en `DATOS_MOCK.md` y en la comprobación añadida al final.
+
 # Verificación del borrador
 
 Revisión realizada el 14 de octubre de 2026 sobre el servidor local Vite. Se utilizó el navegador de Codex para recorrer la aplicación, capturar las pantallas y comprobar estados renderizados. El repositorio estaba vacío de interfaz React al comenzar; no existía una pantalla local anterior para una comparación visual antes/después. La plataforma actual no se modificó.
@@ -66,3 +68,17 @@ Estas comprobaciones usan datos ficticios y roles de demostración. La búsqueda
 ## Límites de esta revisión
 
 No hay pruebas de autenticación, permisos/API, aislamiento entre empresas, envío de correo, subida/descarga privada real, cuotas de Zoho, pagos, concurrencia de inscripciones ni restauración de copias. Son capacidades de la siguiente fase. Loading/error de API y restablecimiento por token no son alcanzables porque no existe backend. No se ha certificado WCAG ni se ha realizado un pentest. Los horarios deben normalizarse en el backend antes de producción.
+
+## Base observada · 14/10/2026
+
+- `npm run mock:check`: IDs únicos, procedencia, relaciones entre tablas, propietarios de archivos, años derivados y casos observados con campos desconocidos.
+- Comprobados inmutabilidad de la base, inscripción abierta/plazo vencido, bloqueo de BdB, bloqueo de una actividad con datos incompletos y búsqueda de ECOEMBES, EUDR, contratos, memoria 2025 y 3M.
+- Recorrido en navegador: HOUSER se inscribe, aparece en perfil y participantes, persiste al recargar y se cancela, recuperando las ocho inscripciones de la muestra. No se envían formularios a AFEB.
+- Borrador Implementa DIY oculto a socio; publicación local desde Gestor; aparece abierto con aviso de modificación. Restablecer devuelve su estado Borrador y cero inscripciones.
+- Las cuatro preferencias originales se muestran indeterminadas después del reinicio. Los documentos muestran sus años solo cuando aparecen en el nombre.
+- BdB conserva 150/75 €, inscripción bloqueada y cupo desconocido. Mapa de la Distribución no permite descargar un archivo no asignado.
+- 24 rutas/variantes revisadas en 1440 px y 11 pantallas de datos en 390 px, sin desbordamiento horizontal del documento. Las tablas conservan su scroll propio.
+- La pestaña de verificación abierta después de las ediciones no registró errores ni advertencias de consola. Los mensajes temporales de HMR durante el cambio del contexto desaparecieron al recargar.
+- La serie estadística inventada y los trimestres generados del histórico se han retirado. La muestra es parcial y los originales PDF/DOC no están importados.
+
+Evidencias actuales: [rutas](previews/mock/route-checks.json), [móvil](previews/mock/mobile-checks.json), [inicio de escritorio](previews/mock/inicio-desktop.jpg) e [inicio móvil](previews/mock/inicio-mobile.jpg). Los escenarios reproducibles y el contrato de continuidad están en `DATOS_MOCK.md`.

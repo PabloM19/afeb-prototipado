@@ -16,19 +16,19 @@ La cabecera muestra un campo alargado de 44 px de alto. Al pulsarlo abre un diá
 
 Los grupos de trabajo conservan su estado vacío: el buscador ofrece el acceso al área y encuentra las actividades de grupos que ya existen. No inventa grupos nuevos.
 
-Ejemplos: `distribucion` encuentra contenido de actividades, informes, normativa, documentos y colaboradores; `contratos` muestra normativa, un documento y asesoría jurídica; `habitat` encuentra Forma Hábitat; `memoria 2025` encuentra la memoria institucional.
+Ejemplos de la base observada: `ecoembes` encuentra su actividad; `eudr` encuentra el recurso de normativa; `contratos` encuentra la asesoría; `memoria 2025` encuentra Memoria_AFEB_2025.pdf; `3m` encuentra la empresa y sus contactos recogidos.
 
 ## Archivos
 
 - `src/components/global-search.tsx`: apertura, diálogo, filtros, agrupación y teclado.
 - `src/lib/search.ts`: áreas, índice de contenido visible, normalización y relevancia.
 - `src/styles/global-search.css`: barra y panel adaptables; usa los tokens de la rama.
-- `src/data/fixtures.ts`: referencia compartida de normativa para la pantalla y el índice.
+- `src/data/mock-db.json` y `src/data/fixtures.ts`: base observada y adaptadores compartidos por las pantallas y el índice.
 - `resources.tsx` y `services.tsx`: navegación contextual desde resultados, incluyendo nuevas selecciones dentro de la misma ruta.
 
 ## Continuidad hacia datos reales
 
-Actualmente busca en los datos locales del prototipo. Los archivos ilustrativos no tienen contenido PDF/DOC indexable; sus títulos y metadatos sí se buscan.
+Actualmente busca en la muestra observada local. Ver `DATOS_MOCK.md` para procedencia, cobertura y valores desconocidos. Los archivos ilustrativos no tienen contenido PDF/DOC indexable; sus títulos y metadatos sí se buscan.
 
 Al conectar un backend, sustituir la creación del índice local por un servicio de búsqueda común, conservando la interfaz y agrupación. El servidor debe resolver usuario, empresa y permisos antes de calcular resultados o contadores. La descarga sigue teniendo su autorización propia. Un contrato posible es `GET /api/search?q=…&area=…`, con grupos, totales y cursor por área para catálogos grandes. La extracción de texto de archivos reales, si se acuerda, pertenece a ese servicio.
 
@@ -40,3 +40,5 @@ Al conectar un backend, sustituir la creación del índice local por un servicio
 - [Resultados en 390 px](previews/search/resultados-mobile.jpg) y [320 px](previews/search/resultados-320.jpg).
 
 La comprobación funcional y de tamaños se recoge en `VERIFICACION.md`.
+
+Las capturas anteriores documentan el diseño del buscador antes de sustituir los datos ficticios por la base observada.

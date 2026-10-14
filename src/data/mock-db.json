@@ -1,0 +1,3083 @@
+{
+  "meta": {
+    "datasetId": "afeb-observed-2026-10-14-v1",
+    "schemaVersion": 1,
+    "observedAt": "2026-10-14",
+    "simulationDate": "2026-10-14",
+    "simulationTimezone": "Europe/Madrid",
+    "coverage": "Representative UI snapshot, not a full database export",
+    "rules": [
+      "One factual source for mock content",
+      "null means missing or not collected; never zero, free or unlimited by assumption",
+      "Source fields are immutable; runtime changes are local simulation overrides",
+      "No invented entities, dates, prices, attachments or metrics",
+      "No credentials, cookies, tokens, signed file URLs or private communication bodies"
+    ],
+    "groupsObservation": {
+      "sourceId": "groups-catalog",
+      "visibleResultCount": 0
+    },
+    "excludedRecords": [
+      "Unnamed draft entries in /eventos",
+      "Non-member relationship entries in the public member list",
+      "Administrative test contacts such as Angus McGyver",
+      "Historical participation and communication logs outside the selected sample"
+    ]
+  },
+  "sources": [
+    {
+      "id": "activities-catalog",
+      "url": "https://portal.brico-afeb.com/eventos",
+      "observedAt": "2026-10-14",
+      "method": "rendered-ui-read-only",
+      "coverage": "First visible public batch and named drafts; unnamed drafts excluded"
+    },
+    {
+      "id": "regulations-catalog",
+      "url": "https://portal.brico-afeb.com/normativa",
+      "observedAt": "2026-10-14",
+      "method": "rendered-ui-read-only",
+      "coverage": "Visible report and webinar lists; legal advice service"
+    },
+    {
+      "id": "companies-catalog",
+      "url": "https://portal.brico-afeb.com/socios",
+      "observedAt": "2026-10-14",
+      "method": "rendered-ui-read-only",
+      "coverage": "Eight entries explicitly tagged Socio AFEB; own test company and AFEB"
+    },
+    {
+      "id": "reports-catalog",
+      "url": "https://portal.brico-afeb.com/informes",
+      "observedAt": "2026-10-14",
+      "method": "rendered-ui-read-only",
+      "coverage": "Eleven visible catalog entries"
+    },
+    {
+      "id": "documents-catalog",
+      "url": "https://portal.brico-afeb.com/documentos",
+      "observedAt": "2026-10-14",
+      "method": "rendered-ui-read-only",
+      "coverage": "Five visible institutional file rows"
+    },
+    {
+      "id": "providers-catalog",
+      "url": "https://portal.brico-afeb.com/colaboradores",
+      "observedAt": "2026-10-14",
+      "method": "rendered-ui-read-only",
+      "coverage": "Six providers and six benefits; all twelve visible cards expanded"
+    },
+    {
+      "id": "review-profile",
+      "url": "https://portal.brico-afeb.com/perfil",
+      "observedAt": "2026-10-14",
+      "method": "rendered-ui-read-only",
+      "coverage": "Account data and empty registrations; preference states not verified"
+    },
+    {
+      "id": "own-company",
+      "url": "https://portal.brico-afeb.com/detalles-de-mi-empresa?recordId=recZm9CJPXVwvTO9w",
+      "observedAt": "2026-10-14",
+      "method": "rendered-ui-read-only",
+      "coverage": "Test company with empty business fields, brands and company directory"
+    },
+    {
+      "id": "afeb-team",
+      "url": "https://portal.brico-afeb.com/",
+      "observedAt": "2026-10-14",
+      "method": "rendered-ui-read-only",
+      "coverage": "Eight published professional contact cards"
+    },
+    {
+      "id": "groups-catalog",
+      "url": "https://portal.brico-afeb.com/grupos-trabajo",
+      "observedAt": "2026-10-14",
+      "method": "rendered-ui-read-only",
+      "coverage": "Empty list in review account"
+    },
+    {
+      "id": "activity-rechBg5Ghv8eStB7u",
+      "url": "https://portal.brico-afeb.com/detalles-evento?recordId=rechBg5Ghv8eStB7u",
+      "observedAt": "2026-10-14",
+      "method": "rendered-ui-read-only",
+      "coverage": "Visible detail fields and first participant batch"
+    },
+    {
+      "id": "activity-rec1ALws66b1fUrsO",
+      "url": "https://portal.brico-afeb.com/detalles-evento?recordId=rec1ALws66b1fUrsO",
+      "observedAt": "2026-10-14",
+      "method": "rendered-ui-read-only",
+      "coverage": "Visible detail fields and first participant batch"
+    },
+    {
+      "id": "activity-rec9o6L7QzzSGPd3O",
+      "url": "https://portal.brico-afeb.com/detalles-evento?recordId=rec9o6L7QzzSGPd3O",
+      "observedAt": "2026-10-14",
+      "method": "rendered-ui-read-only",
+      "coverage": "Visible detail fields and first participant batch"
+    },
+    {
+      "id": "activity-recUoTW85mdkZSs2j",
+      "url": "https://portal.brico-afeb.com/detalles-evento?recordId=recUoTW85mdkZSs2j",
+      "observedAt": "2026-10-14",
+      "method": "rendered-ui-read-only",
+      "coverage": "Visible detail fields and first participant batch"
+    },
+    {
+      "id": "activity-recLtCYBe6zHUNuTR",
+      "url": "https://portal.brico-afeb.com/detalles-evento?recordId=recLtCYBe6zHUNuTR",
+      "observedAt": "2026-10-14",
+      "method": "rendered-ui-read-only",
+      "coverage": "Visible detail fields and first participant batch"
+    },
+    {
+      "id": "company-recGhfV9L4RCctCrd",
+      "url": "https://portal.brico-afeb.com/detalles-socio?recordId=recGhfV9L4RCctCrd",
+      "observedAt": "2026-10-14",
+      "method": "rendered-ui-read-only",
+      "coverage": "General company fields, visible brands and first member cards; communication logs excluded"
+    },
+    {
+      "id": "company-recR9s8Enais4SXet",
+      "url": "https://portal.brico-afeb.com/detalles-socio?recordId=recR9s8Enais4SXet",
+      "observedAt": "2026-10-14",
+      "method": "rendered-ui-read-only",
+      "coverage": "General company fields, visible brands and first member cards; communication logs excluded"
+    },
+    {
+      "id": "report-recZpF6HXxGwqF7JL",
+      "url": "https://portal.brico-afeb.com/detalles-informe?recordId=recZpF6HXxGwqF7JL",
+      "observedAt": "2026-10-14",
+      "method": "rendered-ui-read-only",
+      "coverage": "Visible access label and attachment filenames; no file bytes or signed URLs imported"
+    },
+    {
+      "id": "report-recYUL9XzeEjQf3qb",
+      "url": "https://portal.brico-afeb.com/detalles-informe?recordId=recYUL9XzeEjQf3qb",
+      "observedAt": "2026-10-14",
+      "method": "rendered-ui-read-only",
+      "coverage": "Visible access label and attachment filenames; no file bytes or signed URLs imported"
+    },
+    {
+      "id": "audit-forms",
+      "url": "urn:sha256:c479ac1dbd04c84e2c40bce4d98ba1ce53125cd6d6734a8bfca538d54a9ecf38",
+      "artifactPath": "output/pdf/auditoria_portal_afeb_2026-10-14.pdf",
+      "observedAt": "2026-10-14",
+      "method": "provided-audit-pdf",
+      "coverage": "Pages 3 and 7: brand price discrepancy, cobranding options and limit, tender subscription reference price"
+    }
+  ],
+  "catalogs": {
+    "activityCategories": [
+      "Asambleas y Foros",
+      "Club Export",
+      "Encuentros con la distribución",
+      "Ferias",
+      "Formación y Webinars",
+      "Grupos de Trabajo",
+      "GT 2025",
+      "Lobby",
+      "Normativa",
+      "Otros"
+    ],
+    "companyCategories": [
+      "Adhesivos y selladores",
+      "Baño",
+      "Calefacció y Climatización",
+      "Cerrajería",
+      "Cocina",
+      "Construcción",
+      "Decoración",
+      "Domótica",
+      "Droguería y limpieza",
+      "Electricidad",
+      "Ferretería",
+      "Fijaciones",
+      "Fontanería",
+      "Herramientas",
+      "Iluminación",
+      "Jardín",
+      "Madera",
+      "Menaje",
+      "Mobiliario y ordenacion",
+      "Pintura",
+      "Protección laboral",
+      "Puertas y ventanas"
+    ],
+    "documentCategories": [
+      "Estatutos reglamentos y normativa AFEB",
+      "Código de Buenas Prácticas Comerciales",
+      "Informes jurídicos",
+      "Memoria de Actividad",
+      "Internacionalización"
+    ],
+    "communicationLabels": [
+      "Nuevas Actividades",
+      "Newsletter",
+      "Legal",
+      "Encuestas (no relacionadas con actividades en las que has participado)"
+    ]
+  },
+  "companies": [
+    {
+      "id": "recR9s8Enais4SXet",
+      "name": "3M ESPAÑA, S.L.",
+      "membershipRaw": "Socio AFEB",
+      "isMember": true,
+      "category": "Adhesivos y selladores",
+      "location": "Madrid",
+      "province": "Madrid",
+      "postalCode": "28027",
+      "address": "Juan Ignacio Luca De Tena, 19-25",
+      "country": null,
+      "email": "3m.iberia@mmm.com",
+      "phone": "916210000",
+      "website": "https://www.3m.com.es",
+      "taxId": "B28078020",
+      "employees": null,
+      "revenue": null,
+      "market": null,
+      "export": null,
+      "description": null,
+      "memberPersonIds": [
+        "contact-recR9s8Enais4SXet-francisco-barrajon",
+        "contact-recR9s8Enais4SXet-beatriz-gutierrez",
+        "contact-recR9s8Enais4SXet-ana-tejero"
+      ],
+      "brands": [
+        {
+          "id": "recR9s8Enais4SXet-brand-1",
+          "name": "Command(tm)"
+        }
+      ],
+      "source": {
+        "sourceIds": ["companies-catalog", "company-recR9s8Enais4SXet"],
+        "verifiedFields": [
+          "name",
+          "membershipRaw",
+          "category",
+          "phone",
+          "taxId",
+          "province",
+          "address",
+          "location",
+          "postalCode",
+          "website",
+          "email",
+          "brands",
+          "memberPersonIds"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "recGhfV9L4RCctCrd",
+      "name": "AC MARCA ADHESIVES S.L.",
+      "membershipRaw": "Socio AFEB",
+      "isMember": true,
+      "category": "Adhesivos y selladores",
+      "location": "Hospitalet Del Ll.",
+      "province": "Barcelona",
+      "postalCode": "8907",
+      "address": "Avda. Carrilet, 293-297",
+      "country": null,
+      "email": "STRULLAS@ACMARCA.COM",
+      "phone": "93 260 68 00",
+      "website": "https://www.mundoceys.com",
+      "taxId": "A 08147191",
+      "employees": null,
+      "revenue": null,
+      "market": null,
+      "export": null,
+      "description": null,
+      "memberPersonIds": [
+        "contact-recGhfV9L4RCctCrd-albert-armengou",
+        "contact-recGhfV9L4RCctCrd-bernat-barqueros",
+        "contact-recGhfV9L4RCctCrd-nacho-bretons-boixareu",
+        "contact-recGhfV9L4RCctCrd-eduard-castells",
+        "contact-recGhfV9L4RCctCrd-alba-crespo",
+        "contact-recGhfV9L4RCctCrd-m-fernandez"
+      ],
+      "brands": [
+        {
+          "id": "recGhfV9L4RCctCrd-brand-1",
+          "name": "Ceys"
+        },
+        {
+          "id": "recGhfV9L4RCctCrd-brand-2",
+          "name": "Ceys Agua Stop"
+        },
+        {
+          "id": "recGhfV9L4RCctCrd-brand-3",
+          "name": "Paso Profesional"
+        },
+        {
+          "id": "recGhfV9L4RCctCrd-brand-4",
+          "name": "Paso Profesional"
+        }
+      ],
+      "source": {
+        "sourceIds": ["companies-catalog", "company-recGhfV9L4RCctCrd"],
+        "verifiedFields": [
+          "name",
+          "membershipRaw",
+          "category",
+          "phone",
+          "taxId",
+          "province",
+          "address",
+          "location",
+          "postalCode",
+          "website",
+          "email",
+          "brands",
+          "memberPersonIds"
+        ],
+        "notes": ["Repeated brand label exists in source and is not silently deduplicated."]
+      }
+    },
+    {
+      "id": "recgE6o65hAJLAd1m",
+      "name": "AGHASA TURIS, S.A",
+      "membershipRaw": "Socio AFEB",
+      "isMember": true,
+      "category": null,
+      "location": null,
+      "province": null,
+      "postalCode": null,
+      "address": null,
+      "country": null,
+      "email": null,
+      "phone": null,
+      "website": null,
+      "taxId": null,
+      "employees": null,
+      "revenue": null,
+      "market": null,
+      "export": null,
+      "description": null,
+      "memberPersonIds": [],
+      "brands": [],
+      "source": {
+        "sourceIds": ["companies-catalog"],
+        "verifiedFields": ["name", "membershipRaw"],
+        "notes": []
+      }
+    },
+    {
+      "id": "recjCrzA5r95OP3dQ",
+      "name": "AKZO NOBEL COATINGS, S.L.",
+      "membershipRaw": "Socio AFEB",
+      "isMember": true,
+      "category": null,
+      "location": null,
+      "province": null,
+      "postalCode": null,
+      "address": null,
+      "country": null,
+      "email": null,
+      "phone": null,
+      "website": null,
+      "taxId": null,
+      "employees": null,
+      "revenue": null,
+      "market": null,
+      "export": null,
+      "description": null,
+      "memberPersonIds": [],
+      "brands": [],
+      "source": {
+        "sourceIds": ["companies-catalog"],
+        "verifiedFields": ["name", "membershipRaw"],
+        "notes": []
+      }
+    },
+    {
+      "id": "rec8asC1RCdSB1HVy",
+      "name": "ALBERO FORTE COMOPOSITE, SLU (PLASTICFORTE)",
+      "membershipRaw": "Socio AFEB",
+      "isMember": true,
+      "category": null,
+      "location": null,
+      "province": null,
+      "postalCode": null,
+      "address": null,
+      "country": null,
+      "email": null,
+      "phone": null,
+      "website": null,
+      "taxId": null,
+      "employees": null,
+      "revenue": null,
+      "market": null,
+      "export": null,
+      "description": null,
+      "memberPersonIds": [],
+      "brands": [],
+      "source": {
+        "sourceIds": ["companies-catalog"],
+        "verifiedFields": ["name", "membershipRaw"],
+        "notes": []
+      }
+    },
+    {
+      "id": "recl1DURKbROcnxKX",
+      "name": "ALTADEX, S.A.U.",
+      "membershipRaw": "Socio AFEB",
+      "isMember": true,
+      "category": null,
+      "location": null,
+      "province": null,
+      "postalCode": null,
+      "address": null,
+      "country": null,
+      "email": null,
+      "phone": null,
+      "website": null,
+      "taxId": null,
+      "employees": null,
+      "revenue": null,
+      "market": null,
+      "export": null,
+      "description": null,
+      "memberPersonIds": [],
+      "brands": [],
+      "source": {
+        "sourceIds": ["companies-catalog"],
+        "verifiedFields": ["name", "membershipRaw"],
+        "notes": []
+      }
+    },
+    {
+      "id": "rec7Mwiadmmppzvdn",
+      "name": "ALTUNA HERMANOS, SA",
+      "membershipRaw": "Socio AFEB",
+      "isMember": true,
+      "category": null,
+      "location": null,
+      "province": null,
+      "postalCode": null,
+      "address": null,
+      "country": null,
+      "email": null,
+      "phone": null,
+      "website": null,
+      "taxId": null,
+      "employees": null,
+      "revenue": null,
+      "market": null,
+      "export": null,
+      "description": null,
+      "memberPersonIds": [],
+      "brands": [],
+      "source": {
+        "sourceIds": ["companies-catalog"],
+        "verifiedFields": ["name", "membershipRaw"],
+        "notes": []
+      }
+    },
+    {
+      "id": "recBws9SAiiKadF7m",
+      "name": "ALYCO TOOLS, S.A",
+      "membershipRaw": "Socio AFEB",
+      "isMember": true,
+      "category": null,
+      "location": null,
+      "province": null,
+      "postalCode": null,
+      "address": null,
+      "country": null,
+      "email": null,
+      "phone": null,
+      "website": null,
+      "taxId": null,
+      "employees": null,
+      "revenue": null,
+      "market": null,
+      "export": null,
+      "description": null,
+      "memberPersonIds": [],
+      "brands": [],
+      "source": {
+        "sourceIds": ["companies-catalog"],
+        "verifiedFields": ["name", "membershipRaw"],
+        "notes": []
+      }
+    },
+    {
+      "id": "reciubrH8X2ccL2yw",
+      "name": "AFEB",
+      "membershipRaw": "Otro",
+      "isMember": false,
+      "category": null,
+      "location": null,
+      "province": null,
+      "postalCode": null,
+      "address": null,
+      "country": null,
+      "email": null,
+      "phone": null,
+      "website": null,
+      "taxId": null,
+      "employees": null,
+      "revenue": null,
+      "market": null,
+      "export": null,
+      "description": null,
+      "memberPersonIds": [],
+      "brands": [],
+      "source": {
+        "sourceIds": ["companies-catalog"],
+        "verifiedFields": ["name", "membershipRaw"],
+        "notes": []
+      }
+    },
+    {
+      "id": "recZm9CJPXVwvTO9w",
+      "name": "ZERION (pruebas)",
+      "membershipRaw": null,
+      "isMember": false,
+      "category": null,
+      "location": null,
+      "province": null,
+      "postalCode": null,
+      "address": null,
+      "country": null,
+      "email": null,
+      "phone": null,
+      "website": null,
+      "taxId": null,
+      "employees": null,
+      "revenue": null,
+      "market": null,
+      "export": null,
+      "description": null,
+      "memberPersonIds": ["review-eloy"],
+      "brands": [],
+      "source": {
+        "sourceIds": ["companies-catalog", "own-company", "review-profile"],
+        "verifiedFields": ["name"],
+        "notes": [
+          "Explicit test record in source. Business fields and brands are blank. Company directory was empty; account affiliation is verified by profile."
+        ]
+      }
+    }
+  ],
+  "people": [
+    {
+      "id": "review-eloy",
+      "name": "Eloy Latorre",
+      "position": "Cofundador",
+      "companyId": "recZm9CJPXVwvTO9w",
+      "department": "Dirección General",
+      "level": "Propietario/a o Socio/a",
+      "email": "eloy@zerion.es",
+      "phone": "615 25 25 83",
+      "linkedin": null,
+      "sourceRole": "AdminAFEB",
+      "kind": "review-account",
+      "source": {
+        "sourceIds": ["review-profile"],
+        "verifiedFields": [
+          "name",
+          "position",
+          "companyId",
+          "department",
+          "level",
+          "email",
+          "phone",
+          "sourceRole"
+        ],
+        "notes": []
+      }
+    },
+    {
+      "id": "contact-recGhfV9L4RCctCrd-albert-armengou",
+      "name": "Albert Armengou",
+      "position": null,
+      "companyId": "recGhfV9L4RCctCrd",
+      "department": null,
+      "level": null,
+      "email": "aarmengou@acmarca.com",
+      "phone": null,
+      "linkedin": null,
+      "sourceRole": null,
+      "kind": "company-member",
+      "source": {
+        "sourceIds": ["company-recGhfV9L4RCctCrd"],
+        "verifiedFields": ["name", "position", "companyId", "email"],
+        "notes": [
+          "Technical local ID; no unobserved CRM contact ID or role is inferred. Mobile phones not imported for this sample."
+        ]
+      }
+    },
+    {
+      "id": "contact-recGhfV9L4RCctCrd-bernat-barqueros",
+      "name": "Bernat Barqueros",
+      "position": "Director de I + D",
+      "companyId": "recGhfV9L4RCctCrd",
+      "department": null,
+      "level": null,
+      "email": "bbarqueros@acmarca.com",
+      "phone": null,
+      "linkedin": null,
+      "sourceRole": null,
+      "kind": "company-member",
+      "source": {
+        "sourceIds": ["company-recGhfV9L4RCctCrd"],
+        "verifiedFields": ["name", "position", "companyId", "email"],
+        "notes": [
+          "Technical local ID; no unobserved CRM contact ID or role is inferred. Mobile phones not imported for this sample."
+        ]
+      }
+    },
+    {
+      "id": "contact-recGhfV9L4RCctCrd-nacho-bretons-boixareu",
+      "name": "Nacho Bretons Boixareu",
+      "position": "Director ComerciaL",
+      "companyId": "recGhfV9L4RCctCrd",
+      "department": null,
+      "level": null,
+      "email": "nbretons@acmarca.com",
+      "phone": null,
+      "linkedin": null,
+      "sourceRole": null,
+      "kind": "company-member",
+      "source": {
+        "sourceIds": ["company-recGhfV9L4RCctCrd"],
+        "verifiedFields": ["name", "position", "companyId", "email"],
+        "notes": [
+          "Technical local ID; no unobserved CRM contact ID or role is inferred. Mobile phones not imported for this sample."
+        ]
+      }
+    },
+    {
+      "id": "contact-recGhfV9L4RCctCrd-eduard-castells",
+      "name": "Eduard Castells",
+      "position": "Responsable Inteligencia Comercial",
+      "companyId": "recGhfV9L4RCctCrd",
+      "department": null,
+      "level": null,
+      "email": "ecastells@acmarca.com",
+      "phone": null,
+      "linkedin": null,
+      "sourceRole": null,
+      "kind": "company-member",
+      "source": {
+        "sourceIds": ["company-recGhfV9L4RCctCrd"],
+        "verifiedFields": ["name", "position", "companyId", "email"],
+        "notes": [
+          "Technical local ID; no unobserved CRM contact ID or role is inferred. Mobile phones not imported for this sample."
+        ]
+      }
+    },
+    {
+      "id": "contact-recGhfV9L4RCctCrd-alba-crespo",
+      "name": "Alba Crespo",
+      "position": "Key Account Manager",
+      "companyId": "recGhfV9L4RCctCrd",
+      "department": null,
+      "level": null,
+      "email": "acrespo@acmarca.com",
+      "phone": null,
+      "linkedin": null,
+      "sourceRole": null,
+      "kind": "company-member",
+      "source": {
+        "sourceIds": ["company-recGhfV9L4RCctCrd"],
+        "verifiedFields": ["name", "position", "companyId", "email"],
+        "notes": [
+          "Technical local ID; no unobserved CRM contact ID or role is inferred. Mobile phones not imported for this sample."
+        ]
+      }
+    },
+    {
+      "id": "contact-recGhfV9L4RCctCrd-m-fernandez",
+      "name": "M. Fernández",
+      "position": null,
+      "companyId": "recGhfV9L4RCctCrd",
+      "department": null,
+      "level": null,
+      "email": "mfernandez@acmarca.com",
+      "phone": null,
+      "linkedin": null,
+      "sourceRole": null,
+      "kind": "company-member",
+      "source": {
+        "sourceIds": ["company-recGhfV9L4RCctCrd"],
+        "verifiedFields": ["name", "position", "companyId", "email"],
+        "notes": [
+          "Technical local ID; no unobserved CRM contact ID or role is inferred. Mobile phones not imported for this sample."
+        ]
+      }
+    },
+    {
+      "id": "contact-recR9s8Enais4SXet-francisco-barrajon",
+      "name": "Francisco Barrajón",
+      "position": "Sales Leader Iberia",
+      "companyId": "recR9s8Enais4SXet",
+      "department": null,
+      "level": null,
+      "email": "fbarrajon-jr@mmm.com",
+      "phone": null,
+      "linkedin": null,
+      "sourceRole": null,
+      "kind": "company-member",
+      "source": {
+        "sourceIds": ["company-recR9s8Enais4SXet"],
+        "verifiedFields": ["name", "position", "companyId", "email"],
+        "notes": [
+          "Technical local ID; no unobserved CRM contact ID or role is inferred. Mobile phones not imported for this sample."
+        ]
+      }
+    },
+    {
+      "id": "contact-recR9s8Enais4SXet-beatriz-gutierrez",
+      "name": "Beatriz Gutierrez",
+      "position": "Marketing Manager",
+      "companyId": "recR9s8Enais4SXet",
+      "department": null,
+      "level": null,
+      "email": "bgutierrez@mmm.com",
+      "phone": null,
+      "linkedin": null,
+      "sourceRole": null,
+      "kind": "company-member",
+      "source": {
+        "sourceIds": ["company-recR9s8Enais4SXet"],
+        "verifiedFields": ["name", "position", "companyId", "email"],
+        "notes": [
+          "Technical local ID; no unobserved CRM contact ID or role is inferred. Mobile phones not imported for this sample."
+        ]
+      }
+    },
+    {
+      "id": "contact-recR9s8Enais4SXet-ana-tejero",
+      "name": "Ana Tejero",
+      "position": "DIY Channel Leader",
+      "companyId": "recR9s8Enais4SXet",
+      "department": null,
+      "level": null,
+      "email": "atejero2@mmm.com",
+      "phone": null,
+      "linkedin": null,
+      "sourceRole": null,
+      "kind": "company-member",
+      "source": {
+        "sourceIds": ["company-recR9s8Enais4SXet"],
+        "verifiedFields": ["name", "position", "companyId", "email"],
+        "notes": [
+          "Technical local ID; no unobserved CRM contact ID or role is inferred. Mobile phones not imported for this sample."
+        ]
+      }
+    },
+    {
+      "id": "afeb-marta-omedes",
+      "name": "Marta Omedes",
+      "position": "Dirección General",
+      "companyId": "reciubrH8X2ccL2yw",
+      "department": null,
+      "level": null,
+      "email": "marta.omedes@brico-afeb.com",
+      "phone": null,
+      "linkedin": null,
+      "sourceRole": null,
+      "kind": "afeb-team",
+      "source": {
+        "sourceIds": ["afeb-team"],
+        "verifiedFields": ["name", "position", "email"],
+        "notes": ["Grouped under Contacta con nosotros in the AFEB home page."]
+      }
+    },
+    {
+      "id": "afeb-maria-soler",
+      "name": "Maria Soler",
+      "position": "Adjunta DG y Responsable Operaciones",
+      "companyId": "reciubrH8X2ccL2yw",
+      "department": null,
+      "level": null,
+      "email": "maria.soler@brico-afeb.com",
+      "phone": null,
+      "linkedin": null,
+      "sourceRole": null,
+      "kind": "afeb-team",
+      "source": {
+        "sourceIds": ["afeb-team"],
+        "verifiedFields": ["name", "position", "email"],
+        "notes": ["Grouped under Contacta con nosotros in the AFEB home page."]
+      }
+    },
+    {
+      "id": "afeb-jordi-albaladejo",
+      "name": "Jordi Albaladejo",
+      "position": "Responsable Comercial y MK",
+      "companyId": "reciubrH8X2ccL2yw",
+      "department": null,
+      "level": null,
+      "email": "jordi.albaladejo@brico-afeb.com",
+      "phone": null,
+      "linkedin": null,
+      "sourceRole": null,
+      "kind": "afeb-team",
+      "source": {
+        "sourceIds": ["afeb-team"],
+        "verifiedFields": ["name", "position", "email"],
+        "notes": ["Grouped under Contacta con nosotros in the AFEB home page."]
+      }
+    },
+    {
+      "id": "afeb-marta-vinas",
+      "name": "Marta Viñas",
+      "position": "Atención al Socio",
+      "companyId": "reciubrH8X2ccL2yw",
+      "department": null,
+      "level": null,
+      "email": "marta.vinas@brico-afeb.com",
+      "phone": null,
+      "linkedin": null,
+      "sourceRole": null,
+      "kind": "afeb-team",
+      "source": {
+        "sourceIds": ["afeb-team"],
+        "verifiedFields": ["name", "position", "email"],
+        "notes": ["Grouped under Contacta con nosotros in the AFEB home page."]
+      }
+    },
+    {
+      "id": "afeb-susana-velasco",
+      "name": "Susana Velasco",
+      "position": "Club Export",
+      "companyId": "reciubrH8X2ccL2yw",
+      "department": null,
+      "level": null,
+      "email": "susana.velasco@brico-afeb.com",
+      "phone": null,
+      "linkedin": null,
+      "sourceRole": null,
+      "kind": "afeb-team",
+      "source": {
+        "sourceIds": ["afeb-team"],
+        "verifiedFields": ["name", "position", "email"],
+        "notes": ["Grouped under Contacta con nosotros in the AFEB home page."]
+      }
+    },
+    {
+      "id": "afeb-mari-carmen-vilchez",
+      "name": "Mari Carmen Vilchez",
+      "position": "Facturación",
+      "companyId": "reciubrH8X2ccL2yw",
+      "department": null,
+      "level": null,
+      "email": "mcarmen.vilchez@brico-afeb.com",
+      "phone": null,
+      "linkedin": null,
+      "sourceRole": null,
+      "kind": "afeb-team",
+      "source": {
+        "sourceIds": ["afeb-team"],
+        "verifiedFields": ["name", "position", "email"],
+        "notes": ["Grouped under Contacta con nosotros in the AFEB home page."]
+      }
+    },
+    {
+      "id": "afeb-pedro-palay",
+      "name": "Pedro Palay",
+      "position": "Asesoría Jurídica",
+      "companyId": "reciubrH8X2ccL2yw",
+      "department": null,
+      "level": null,
+      "email": "juridico@acasociados.com",
+      "phone": null,
+      "linkedin": null,
+      "sourceRole": null,
+      "kind": "afeb-team",
+      "source": {
+        "sourceIds": ["afeb-team"],
+        "verifiedFields": ["name", "position", "email"],
+        "notes": ["Grouped under Contacta con nosotros in the AFEB home page."]
+      }
+    },
+    {
+      "id": "afeb-alejandro-casero",
+      "name": "Alejandro Casero",
+      "position": "Mi Hogar Mejor",
+      "companyId": "reciubrH8X2ccL2yw",
+      "department": null,
+      "level": null,
+      "email": "mhm@brico-afeb.com",
+      "phone": null,
+      "linkedin": null,
+      "sourceRole": null,
+      "kind": "afeb-team",
+      "source": {
+        "sourceIds": ["afeb-team"],
+        "verifiedFields": ["name", "position", "email"],
+        "notes": ["Grouped under Contacta con nosotros in the AFEB home page."]
+      }
+    }
+  ],
+  "activities": [
+    {
+      "id": "recmWV4H7hxOZDFQP",
+      "title": "HEMEROTECA AFEB",
+      "category": "Otros",
+      "stateRaw": "Consulta",
+      "startsAt": null,
+      "endsAt": null,
+      "registrationDeadline": null,
+      "place": null,
+      "address": null,
+      "timezone": null,
+      "memberPrice": null,
+      "additionalMemberPrice": null,
+      "nonMemberPrice": null,
+      "capacity": null,
+      "description": null,
+      "participantSample": "not-collected",
+      "fileIds": [],
+      "qualityNotes": [],
+      "source": {
+        "sourceIds": ["activities-catalog"],
+        "verifiedFields": ["title", "category", "stateRaw", "startsAt"],
+        "notes": []
+      }
+    },
+    {
+      "id": "rec1ALws66b1fUrsO",
+      "title": "Encuentro con Grupo BdB",
+      "category": "Encuentros con la distribución",
+      "stateRaw": "Grupo completo",
+      "startsAt": "2026-10-15T11:00",
+      "endsAt": "2026-10-15T16:00",
+      "registrationDeadline": "2026-10-13",
+      "place": "Valencia",
+      "address": "Hotel SH Campus Lyceum Carrer d'Almansa, 15, 46113 Montcada, Valencia",
+      "timezone": null,
+      "memberPrice": 150.0,
+      "additionalMemberPrice": 75.0,
+      "nonMemberPrice": null,
+      "capacity": null,
+      "description": "SUGERENCIAS DE DESPLAZAMIENTO : BARCELONA – VALENCIA IDA - Renfe Euromed 07:15h – 10:10h REGRESO – Renfe Euromed 16:59h – 20:51h\n\nMADRID – VALENCIA IDA – Renfe Ave 07:27h – 10:37h REGRESO – Renfe Ave 16:27h – 19:44h\n\nINFORMACIÓN LOGÍSTICA:\n\nPunto de encuentro: 11:00 h La jornada comenzará con la presentación por parte de BdB en el Hotel SH Campus Lyceum , Carrer d'Almansa, 15, 46113 Montcada (Valencia). Ver ubicación en Google Maps: A continuación, nos desplazaremos por medios propios al centro logístico del Grupo BdB para realizar una visita a sus instalaciones. Ubicación del centro logístico y aparcamiento: **Centro logístico de Grupo BdB: **Calle Zèfir, 7, 46119 Nàquera (Valencia).\n\nIMPORTANTE : el centro logÍstico no dispone de aparcamiento propio por lo que se deberá estacionar el coche a una distancia de unos 5 minutos caminando: C. Vendaval, 2, 46119 Nàquera, Valencia POLÍTICA DE CANCELACIÓN : En caso de baja puedes tramitarla a través del Portal entrando en tu perfil o bien contactando a este mismo correo hasta el 13 de octubre. Una vez pasada la fecha se emitirán las facturas correspondientes en concepto de inscripción y no se realizarán abonos.",
+      "participantSample": "first-visible-page",
+      "fileIds": ["file-69fff1538a86a4bd"],
+      "qualityNotes": [],
+      "source": {
+        "sourceIds": ["activities-catalog", "activity-rec1ALws66b1fUrsO"],
+        "verifiedFields": [
+          "title",
+          "category",
+          "stateRaw",
+          "startsAt",
+          "endsAt",
+          "registrationDeadline",
+          "place",
+          "address",
+          "memberPrice",
+          "additionalMemberPrice",
+          "nonMemberPrice",
+          "description"
+        ],
+        "notes": [
+          "A source dash is null. Capacity and time zone are not stated in the inspected UI."
+        ]
+      }
+    },
+    {
+      "id": "rec7HedzrkFcFqWPw",
+      "title": "Grupo de Trabajo | TALLER MARCA PERSONAL",
+      "category": "Grupos de Trabajo",
+      "stateRaw": "Grupo completo",
+      "startsAt": "2026-10-19T10:00",
+      "endsAt": null,
+      "registrationDeadline": null,
+      "place": null,
+      "address": null,
+      "timezone": null,
+      "memberPrice": null,
+      "additionalMemberPrice": null,
+      "nonMemberPrice": null,
+      "capacity": null,
+      "description": null,
+      "participantSample": "not-collected",
+      "fileIds": [],
+      "qualityNotes": [],
+      "source": {
+        "sourceIds": ["activities-catalog"],
+        "verifiedFields": ["title", "category", "stateRaw", "startsAt"],
+        "notes": []
+      }
+    },
+    {
+      "id": "recqCjZWTRLWZmbu2",
+      "title": "Grupo de Trabajo | DIRECCIÓN GENERAL Madrid",
+      "category": "Grupos de Trabajo",
+      "stateRaw": "Grupo completo",
+      "startsAt": "2026-10-20T10:00",
+      "endsAt": null,
+      "registrationDeadline": null,
+      "place": null,
+      "address": null,
+      "timezone": null,
+      "memberPrice": null,
+      "additionalMemberPrice": null,
+      "nonMemberPrice": null,
+      "capacity": null,
+      "description": null,
+      "participantSample": "not-collected",
+      "fileIds": [],
+      "qualityNotes": [],
+      "source": {
+        "sourceIds": ["activities-catalog"],
+        "verifiedFields": ["title", "category", "stateRaw", "startsAt"],
+        "notes": []
+      }
+    },
+    {
+      "id": "recroXKvtkC3H8KFl",
+      "title": "Grupo de Trabajo | EXPORTACIÓN LATAM_ Club Export",
+      "category": "Grupos de Trabajo",
+      "stateRaw": "Grupo completo",
+      "startsAt": "2026-10-21T10:00",
+      "endsAt": null,
+      "registrationDeadline": null,
+      "place": null,
+      "address": null,
+      "timezone": null,
+      "memberPrice": null,
+      "additionalMemberPrice": null,
+      "nonMemberPrice": null,
+      "capacity": null,
+      "description": null,
+      "participantSample": "not-collected",
+      "fileIds": [],
+      "qualityNotes": [],
+      "source": {
+        "sourceIds": ["activities-catalog"],
+        "verifiedFields": ["title", "category", "stateRaw", "startsAt"],
+        "notes": []
+      }
+    },
+    {
+      "id": "reccj4yl1Bmtw4ca8",
+      "title": "Grupo de Trabajo | KAM Madrid",
+      "category": "Grupos de Trabajo",
+      "stateRaw": "Grupo completo",
+      "startsAt": "2026-10-22T10:00",
+      "endsAt": null,
+      "registrationDeadline": null,
+      "place": null,
+      "address": null,
+      "timezone": null,
+      "memberPrice": null,
+      "additionalMemberPrice": null,
+      "nonMemberPrice": null,
+      "capacity": null,
+      "description": null,
+      "participantSample": "not-collected",
+      "fileIds": [],
+      "qualityNotes": [],
+      "source": {
+        "sourceIds": ["activities-catalog"],
+        "verifiedFields": ["title", "category", "stateRaw", "startsAt"],
+        "notes": []
+      }
+    },
+    {
+      "id": "rechBg5Ghv8eStB7u",
+      "title": "WEBINAR | ECOEMBES - Desgranando el PPWR: preparación, cumplimiento y acompañamiento.",
+      "category": null,
+      "stateRaw": "Inscripciones abiertas",
+      "startsAt": "2026-10-26T10:00",
+      "endsAt": "2026-11-26T11:00",
+      "registrationDeadline": "2026-10-23",
+      "place": null,
+      "address": null,
+      "timezone": null,
+      "memberPrice": 0,
+      "additionalMemberPrice": 0,
+      "nonMemberPrice": null,
+      "capacity": null,
+      "description": "CONTENIDO: Los cambios regulatorios traen consigo nuevos desafíos, pero también oportunidades para innovar y fortalecer la sostenibilidad de nuestras empresas. En este webinar dirigido a los socios de AFEB, ofreceremos una visión práctica de los principales impactos del PPWR y mostraremos cómo Ecoembes puede acompañar a fabricantes y distribuidores con productos, servicios y conocimiento especializado para facilitar la transición. Queremos ayudarte a entender qué viene, qué significa para tu organización y cómo afrontarlo con éxito, paso a paso y de la mano de un socio de confianza.",
+      "participantSample": "first-visible-page",
+      "fileIds": [],
+      "qualityNotes": [
+        "Fin observado: 26/11/2026, un mes después del inicio. No se corrige por inferencia."
+      ],
+      "source": {
+        "sourceIds": ["activities-catalog", "activity-rechBg5Ghv8eStB7u"],
+        "verifiedFields": [
+          "title",
+          "category",
+          "stateRaw",
+          "startsAt",
+          "endsAt",
+          "registrationDeadline",
+          "place",
+          "address",
+          "memberPrice",
+          "additionalMemberPrice",
+          "nonMemberPrice",
+          "description"
+        ],
+        "notes": [
+          "A source dash is null. Capacity and time zone are not stated in the inspected UI."
+        ]
+      }
+    },
+    {
+      "id": "reclQOglCiwZbqQI1",
+      "title": "Grupo de Trabajo | DIRECCIÓN COMERCIAL Barcelona",
+      "category": "Grupos de Trabajo",
+      "stateRaw": "Inscripciones abiertas",
+      "startsAt": "2026-10-29T10:00",
+      "endsAt": null,
+      "registrationDeadline": null,
+      "place": null,
+      "address": null,
+      "timezone": null,
+      "memberPrice": null,
+      "additionalMemberPrice": null,
+      "nonMemberPrice": null,
+      "capacity": null,
+      "description": null,
+      "participantSample": "not-collected",
+      "fileIds": [],
+      "qualityNotes": [],
+      "source": {
+        "sourceIds": ["activities-catalog"],
+        "verifiedFields": ["title", "category", "stateRaw", "startsAt"],
+        "notes": []
+      }
+    },
+    {
+      "id": "rec9o6L7QzzSGPd3O",
+      "title": "WEBINAR | HOUSER & HOUSER - DIY en las Redes Sociales en tiempos de IA",
+      "category": "Formación y Webinars",
+      "stateRaw": "Inscripciones abiertas",
+      "startsAt": "2026-10-30T10:00",
+      "endsAt": "2026-10-30T11:00",
+      "registrationDeadline": "2026-10-28",
+      "place": "Online",
+      "address": null,
+      "timezone": null,
+      "memberPrice": 0,
+      "additionalMemberPrice": 0,
+      "nonMemberPrice": null,
+      "capacity": null,
+      "description": "CONTENIDO: La irrupción de la Inteligencia Artificial Generativa ha supuesto un antes y un después en la generación de contenidos para redes sociales y las marcas del mundo DIY no son una excepción. En este webinar, exploramos ese cambio de paradigma, tanto desde el punto de vista de la propia generación de contenidos, como el resto de implicaciones en el impacto de la IA en la relación con la audiencia a impactar. Exploraremos qué puede hacer la IA y también qué no debería hacer para producir unos contenidos que generen engagement en los consumidores e intentaremos entrever cómo evolucionarán las redes sociales en adelante.\n\nDirigido a: Profesionales del mundo DIY interesados en el impacto de la IA en los medios sociales, desde personal de los equipos de Marketing, hasta capas directivas que estén evaluando el impacto de la IA en sus organizaciones.",
+      "participantSample": "first-visible-page",
+      "fileIds": [],
+      "qualityNotes": [],
+      "source": {
+        "sourceIds": ["activities-catalog", "activity-rec9o6L7QzzSGPd3O"],
+        "verifiedFields": [
+          "title",
+          "category",
+          "stateRaw",
+          "startsAt",
+          "endsAt",
+          "registrationDeadline",
+          "place",
+          "address",
+          "memberPrice",
+          "additionalMemberPrice",
+          "nonMemberPrice",
+          "description"
+        ],
+        "notes": [
+          "A source dash is null. Capacity and time zone are not stated in the inspected UI."
+        ]
+      }
+    },
+    {
+      "id": "recUoTW85mdkZSs2j",
+      "title": "WEBINAR | Implementa DIY",
+      "category": "Formación y Webinars",
+      "stateRaw": "Borrador",
+      "startsAt": "2026-11-20T10:00",
+      "endsAt": "2026-11-20T11:00",
+      "registrationDeadline": "2026-11-18",
+      "place": null,
+      "address": null,
+      "timezone": null,
+      "memberPrice": 0,
+      "additionalMemberPrice": 0,
+      "nonMemberPrice": null,
+      "capacity": null,
+      "description": null,
+      "participantSample": "empty-observed",
+      "fileIds": [],
+      "qualityNotes": [],
+      "source": {
+        "sourceIds": ["activities-catalog", "activity-recUoTW85mdkZSs2j"],
+        "verifiedFields": [
+          "title",
+          "category",
+          "stateRaw",
+          "startsAt",
+          "endsAt",
+          "registrationDeadline",
+          "place",
+          "address",
+          "memberPrice",
+          "additionalMemberPrice",
+          "nonMemberPrice"
+        ],
+        "notes": [
+          "A source dash is null. Capacity and time zone are not stated in the inspected UI."
+        ]
+      }
+    },
+    {
+      "id": "recBd2al2cLAQGIVB",
+      "title": "Coloquio Club Export - Diciembre",
+      "category": "Club Export",
+      "stateRaw": "Borrador",
+      "startsAt": "2026-12-15T10:00",
+      "endsAt": null,
+      "registrationDeadline": null,
+      "place": null,
+      "address": null,
+      "timezone": null,
+      "memberPrice": null,
+      "additionalMemberPrice": null,
+      "nonMemberPrice": null,
+      "capacity": null,
+      "description": null,
+      "participantSample": "not-collected",
+      "fileIds": [],
+      "qualityNotes": [],
+      "source": {
+        "sourceIds": ["activities-catalog"],
+        "verifiedFields": ["title", "category", "stateRaw", "startsAt"],
+        "notes": []
+      }
+    },
+    {
+      "id": "recLtCYBe6zHUNuTR",
+      "title": "WEBINAR | Cómo obtener el estado de declarante autorizado para poder importar mercancías CBAM en la UE",
+      "category": "Normativa",
+      "stateRaw": "Finalizado",
+      "startsAt": "2025-12-11T11:00",
+      "endsAt": "2025-12-11T12:00",
+      "registrationDeadline": "2025-12-11",
+      "place": "Online",
+      "address": null,
+      "timezone": null,
+      "memberPrice": 0,
+      "additionalMemberPrice": 0,
+      "nonMemberPrice": null,
+      "capacity": null,
+      "description": "El 1 de enero de 2026 comienza el periodo definitivo del Mecanismo de Ajuste en Frontera por Carbono (CBAM) , en el que será imprescindible disponer del estado de declarante autorizado CBAM para poder importar mercancías CBAM en la UE.\n\nAdemás, desde octubre se han aprobado medidas de simplificación y refuerzo del mecanismo, que introducen un nuevo umbral único basado en la masa neta acumulada de las mercancías importadas en un año natural, clave para determinar quiénes son los sujetos obligados y cuáles son sus obligaciones.\n\nEn este contexto, la **Subdirección General de Mercados de Carbono de la Oficina Española de Cambio Climático * organiza un * webinar** el 11 de diciembre de 2025 , de 11:00 a 12:30 h , para abordar:",
+      "participantSample": "empty-observed",
+      "fileIds": ["file-cf65109c1a9b5708"],
+      "qualityNotes": [
+        "Fin en campos estructurados: 12:00; el texto del contenido anuncia 12:30. Se preserva la discrepancia."
+      ],
+      "source": {
+        "sourceIds": ["regulations-catalog", "activity-recLtCYBe6zHUNuTR"],
+        "verifiedFields": [
+          "title",
+          "category",
+          "stateRaw",
+          "endsAt",
+          "registrationDeadline",
+          "place",
+          "address",
+          "memberPrice",
+          "additionalMemberPrice",
+          "nonMemberPrice",
+          "description"
+        ],
+        "notes": [
+          "Finalized status comes from the DOCUMENTOS WEBINARS NORMATIVA FINALIZADOS section",
+          "A source dash is null. Capacity and time zone are not stated in the inspected UI."
+        ]
+      }
+    }
+  ],
+  "participations": [
+    {
+      "id": "participation-recHATztUZ7uxu5Kk",
+      "sourceLinkRecordId": "recHATztUZ7uxu5Kk",
+      "activityId": "rechBg5Ghv8eStB7u",
+      "personId": null,
+      "companyId": null,
+      "name": "Vanessa Pozuelo Vico",
+      "companyLabel": "IMPREX EUROPE SL",
+      "statusRaw": "Listed under Lista de Inscritos",
+      "source": {
+        "sourceIds": ["activity-rechBg5Ghv8eStB7u"],
+        "verifiedFields": ["name", "companyLabel", "activityId"],
+        "notes": [
+          "The participant link ID is preserved as an occurrence ID, not assumed to identify a CRM contact. No identity merge by name."
+        ]
+      }
+    },
+    {
+      "id": "participation-reciDTh55yD9hqwpE",
+      "sourceLinkRecordId": "reciDTh55yD9hqwpE",
+      "activityId": "rechBg5Ghv8eStB7u",
+      "personId": null,
+      "companyId": null,
+      "name": "Laura Ferrer",
+      "companyLabel": "JUBA PPE SL",
+      "statusRaw": "Listed under Lista de Inscritos",
+      "source": {
+        "sourceIds": ["activity-rechBg5Ghv8eStB7u"],
+        "verifiedFields": ["name", "companyLabel", "activityId"],
+        "notes": [
+          "The participant link ID is preserved as an occurrence ID, not assumed to identify a CRM contact. No identity merge by name."
+        ]
+      }
+    },
+    {
+      "id": "participation-recTYJyT0jhKXuMaP",
+      "sourceLinkRecordId": "recTYJyT0jhKXuMaP",
+      "activityId": "rechBg5Ghv8eStB7u",
+      "personId": null,
+      "companyId": null,
+      "name": "LARA PALERO GOMEZ",
+      "companyLabel": "CARLOS WENDEL S.L. - EDDING",
+      "statusRaw": "Listed under Lista de Inscritos",
+      "source": {
+        "sourceIds": ["activity-rechBg5Ghv8eStB7u"],
+        "verifiedFields": ["name", "companyLabel", "activityId"],
+        "notes": [
+          "The participant link ID is preserved as an occurrence ID, not assumed to identify a CRM contact. No identity merge by name."
+        ]
+      }
+    },
+    {
+      "id": "participation-recnwWs9015vbzOsT",
+      "sourceLinkRecordId": "recnwWs9015vbzOsT",
+      "activityId": "rechBg5Ghv8eStB7u",
+      "personId": null,
+      "companyId": null,
+      "name": "David Hernández Fresno",
+      "companyLabel": "SEMILLAS FITO SAU",
+      "statusRaw": "Listed under Lista de Inscritos",
+      "source": {
+        "sourceIds": ["activity-rechBg5Ghv8eStB7u"],
+        "verifiedFields": ["name", "companyLabel", "activityId"],
+        "notes": [
+          "The participant link ID is preserved as an occurrence ID, not assumed to identify a CRM contact. No identity merge by name."
+        ]
+      }
+    },
+    {
+      "id": "participation-recdZaLmFd5qO0r3k",
+      "sourceLinkRecordId": "recdZaLmFd5qO0r3k",
+      "activityId": "rechBg5Ghv8eStB7u",
+      "personId": null,
+      "companyId": null,
+      "name": "Francesc Gómez De Haro",
+      "companyLabel": "Aslak Machines & Tools",
+      "statusRaw": "Listed under Lista de Inscritos",
+      "source": {
+        "sourceIds": ["activity-rechBg5Ghv8eStB7u"],
+        "verifiedFields": ["name", "companyLabel", "activityId"],
+        "notes": [
+          "The participant link ID is preserved as an occurrence ID, not assumed to identify a CRM contact. No identity merge by name."
+        ]
+      }
+    },
+    {
+      "id": "participation-reckbiuq0TazrI5Sw",
+      "sourceLinkRecordId": "reckbiuq0TazrI5Sw",
+      "activityId": "rechBg5Ghv8eStB7u",
+      "personId": null,
+      "companyId": null,
+      "name": "Cesar Azuaza",
+      "companyLabel": "ASLAK MACHINES & TOOLS S.L.",
+      "statusRaw": "Listed under Lista de Inscritos",
+      "source": {
+        "sourceIds": ["activity-rechBg5Ghv8eStB7u"],
+        "verifiedFields": ["name", "companyLabel", "activityId"],
+        "notes": [
+          "The participant link ID is preserved as an occurrence ID, not assumed to identify a CRM contact. No identity merge by name."
+        ]
+      }
+    },
+    {
+      "id": "participation-recksRaJ1uAZKqzGJ",
+      "sourceLinkRecordId": "recksRaJ1uAZKqzGJ",
+      "activityId": "rechBg5Ghv8eStB7u",
+      "personId": null,
+      "companyId": null,
+      "name": "Andrea Jiménez Gallardo",
+      "companyLabel": "Reunión Industrial S.L.U",
+      "statusRaw": "Listed under Lista de Inscritos",
+      "source": {
+        "sourceIds": ["activity-rechBg5Ghv8eStB7u"],
+        "verifiedFields": ["name", "companyLabel", "activityId"],
+        "notes": [
+          "The participant link ID is preserved as an occurrence ID, not assumed to identify a CRM contact. No identity merge by name."
+        ]
+      }
+    },
+    {
+      "id": "participation-recZcQu3wrC4f0OOO",
+      "sourceLinkRecordId": "recZcQu3wrC4f0OOO",
+      "activityId": "rechBg5Ghv8eStB7u",
+      "personId": null,
+      "companyId": null,
+      "name": "Olga Marin",
+      "companyLabel": "GENERAL DE MEDICIÓN S.L.",
+      "statusRaw": "Listed under Lista de Inscritos",
+      "source": {
+        "sourceIds": ["activity-rechBg5Ghv8eStB7u"],
+        "verifiedFields": ["name", "companyLabel", "activityId"],
+        "notes": [
+          "The participant link ID is preserved as an occurrence ID, not assumed to identify a CRM contact. No identity merge by name."
+        ]
+      }
+    },
+    {
+      "id": "participation-recHkSzNG7rWYqUNv",
+      "sourceLinkRecordId": "recHkSzNG7rWYqUNv",
+      "activityId": "rec1ALws66b1fUrsO",
+      "personId": null,
+      "companyId": null,
+      "name": "Marc Dalmases",
+      "companyLabel": "MONTANA COLORS S.L",
+      "statusRaw": "Listed under Lista de Inscritos",
+      "source": {
+        "sourceIds": ["activity-rec1ALws66b1fUrsO"],
+        "verifiedFields": ["name", "companyLabel", "activityId"],
+        "notes": [
+          "The participant link ID is preserved as an occurrence ID, not assumed to identify a CRM contact. No identity merge by name."
+        ]
+      }
+    },
+    {
+      "id": "participation-recJ4YEI1I2Kg4UgI",
+      "sourceLinkRecordId": "recJ4YEI1I2Kg4UgI",
+      "activityId": "rec1ALws66b1fUrsO",
+      "personId": null,
+      "companyId": null,
+      "name": "GUILLERMO MARCO JUAN",
+      "companyLabel": "Cerrajería valenciana S.A",
+      "statusRaw": "Listed under Lista de Inscritos",
+      "source": {
+        "sourceIds": ["activity-rec1ALws66b1fUrsO"],
+        "verifiedFields": ["name", "companyLabel", "activityId"],
+        "notes": [
+          "The participant link ID is preserved as an occurrence ID, not assumed to identify a CRM contact. No identity merge by name."
+        ]
+      }
+    },
+    {
+      "id": "participation-rec5bBqYeb7Q8LoBd",
+      "sourceLinkRecordId": "rec5bBqYeb7Q8LoBd",
+      "activityId": "rec1ALws66b1fUrsO",
+      "personId": null,
+      "companyId": null,
+      "name": "Giovanni Zanoni",
+      "companyLabel": "CERRAJERA VALENCIANA SA",
+      "statusRaw": "Listed under Lista de Inscritos",
+      "source": {
+        "sourceIds": ["activity-rec1ALws66b1fUrsO"],
+        "verifiedFields": ["name", "companyLabel", "activityId"],
+        "notes": [
+          "The participant link ID is preserved as an occurrence ID, not assumed to identify a CRM contact. No identity merge by name."
+        ]
+      }
+    },
+    {
+      "id": "participation-recwKD7f9Wa1fnpRd",
+      "sourceLinkRecordId": "recwKD7f9Wa1fnpRd",
+      "activityId": "rec1ALws66b1fUrsO",
+      "personId": null,
+      "companyId": null,
+      "name": "Fernando Martín Gil",
+      "companyLabel": "V33 ESPAÑA SA",
+      "statusRaw": "Listed under Lista de Inscritos",
+      "source": {
+        "sourceIds": ["activity-rec1ALws66b1fUrsO"],
+        "verifiedFields": ["name", "companyLabel", "activityId"],
+        "notes": [
+          "The participant link ID is preserved as an occurrence ID, not assumed to identify a CRM contact. No identity merge by name."
+        ]
+      }
+    },
+    {
+      "id": "participation-reccr7IUgpFGbNy8q",
+      "sourceLinkRecordId": "reccr7IUgpFGbNy8q",
+      "activityId": "rec1ALws66b1fUrsO",
+      "personId": null,
+      "companyId": null,
+      "name": "Esther Martín",
+      "companyLabel": "QUIADSA (INDUSTRIAS QUIMICAS DEL ADHESIVO S.A.)",
+      "statusRaw": "Listed under Lista de Inscritos",
+      "source": {
+        "sourceIds": ["activity-rec1ALws66b1fUrsO"],
+        "verifiedFields": ["name", "companyLabel", "activityId"],
+        "notes": [
+          "The participant link ID is preserved as an occurrence ID, not assumed to identify a CRM contact. No identity merge by name."
+        ]
+      }
+    },
+    {
+      "id": "participation-rec3NeOKTW7tZ1gWd",
+      "sourceLinkRecordId": "rec3NeOKTW7tZ1gWd",
+      "activityId": "rec1ALws66b1fUrsO",
+      "personId": null,
+      "companyId": null,
+      "name": "Juan Ramón Capitán",
+      "companyLabel": "SOUDAL QUIMICA S.L.",
+      "statusRaw": "Listed under Lista de Inscritos",
+      "source": {
+        "sourceIds": ["activity-rec1ALws66b1fUrsO"],
+        "verifiedFields": ["name", "companyLabel", "activityId"],
+        "notes": [
+          "The participant link ID is preserved as an occurrence ID, not assumed to identify a CRM contact. No identity merge by name."
+        ]
+      }
+    },
+    {
+      "id": "participation-recueUdiFAo6qoi9W",
+      "sourceLinkRecordId": "recueUdiFAo6qoi9W",
+      "activityId": "rec1ALws66b1fUrsO",
+      "personId": null,
+      "companyId": null,
+      "name": "David Lozano",
+      "companyLabel": "MONTANA COLORS S.L",
+      "statusRaw": "Listed under Lista de Inscritos",
+      "source": {
+        "sourceIds": ["activity-rec1ALws66b1fUrsO"],
+        "verifiedFields": ["name", "companyLabel", "activityId"],
+        "notes": [
+          "The participant link ID is preserved as an occurrence ID, not assumed to identify a CRM contact. No identity merge by name."
+        ]
+      }
+    },
+    {
+      "id": "participation-recuxhkbwzhyloXRj",
+      "sourceLinkRecordId": "recuxhkbwzhyloXRj",
+      "activityId": "rec1ALws66b1fUrsO",
+      "personId": null,
+      "companyId": null,
+      "name": "Ramón Teruel",
+      "companyLabel": "Hozelock Exel group",
+      "statusRaw": "Listed under Lista de Inscritos",
+      "source": {
+        "sourceIds": ["activity-rec1ALws66b1fUrsO"],
+        "verifiedFields": ["name", "companyLabel", "activityId"],
+        "notes": [
+          "The participant link ID is preserved as an occurrence ID, not assumed to identify a CRM contact. No identity merge by name."
+        ]
+      }
+    },
+    {
+      "id": "participation-rec0LuXTXLvvFmEsY",
+      "sourceLinkRecordId": "rec0LuXTXLvvFmEsY",
+      "activityId": "rec9o6L7QzzSGPd3O",
+      "personId": null,
+      "companyId": null,
+      "name": "Carlo Contreras",
+      "companyLabel": "QUIADSA",
+      "statusRaw": "Listed under Lista de Inscritos",
+      "source": {
+        "sourceIds": ["activity-rec9o6L7QzzSGPd3O"],
+        "verifiedFields": ["name", "companyLabel", "activityId"],
+        "notes": [
+          "The participant link ID is preserved as an occurrence ID, not assumed to identify a CRM contact. No identity merge by name."
+        ]
+      }
+    },
+    {
+      "id": "participation-recxQZNqwjepb2ZBl",
+      "sourceLinkRecordId": "recxQZNqwjepb2ZBl",
+      "activityId": "rec9o6L7QzzSGPd3O",
+      "personId": null,
+      "companyId": null,
+      "name": "Obdulia Villarrubia",
+      "companyLabel": "PRODUCTOS IMEDIO S.A.",
+      "statusRaw": "Listed under Lista de Inscritos",
+      "source": {
+        "sourceIds": ["activity-rec9o6L7QzzSGPd3O"],
+        "verifiedFields": ["name", "companyLabel", "activityId"],
+        "notes": [
+          "The participant link ID is preserved as an occurrence ID, not assumed to identify a CRM contact. No identity merge by name."
+        ]
+      }
+    },
+    {
+      "id": "participation-recwgL6hB6AMeGjlG",
+      "sourceLinkRecordId": "recwgL6hB6AMeGjlG",
+      "activityId": "rec9o6L7QzzSGPd3O",
+      "personId": null,
+      "companyId": null,
+      "name": "Isabel Gómez",
+      "companyLabel": "JUBA PPE SL",
+      "statusRaw": "Listed under Lista de Inscritos",
+      "source": {
+        "sourceIds": ["activity-rec9o6L7QzzSGPd3O"],
+        "verifiedFields": ["name", "companyLabel", "activityId"],
+        "notes": [
+          "The participant link ID is preserved as an occurrence ID, not assumed to identify a CRM contact. No identity merge by name."
+        ]
+      }
+    },
+    {
+      "id": "participation-rec7QZPxIkVPBKHYm",
+      "sourceLinkRecordId": "rec7QZPxIkVPBKHYm",
+      "activityId": "rec9o6L7QzzSGPd3O",
+      "personId": null,
+      "companyId": null,
+      "name": "Esther Martín",
+      "companyLabel": "QUIADSA (INDUSTRIAS QUIMICAS DEL ADHESIVO S.A.)",
+      "statusRaw": "Listed under Lista de Inscritos",
+      "source": {
+        "sourceIds": ["activity-rec9o6L7QzzSGPd3O"],
+        "verifiedFields": ["name", "companyLabel", "activityId"],
+        "notes": [
+          "The participant link ID is preserved as an occurrence ID, not assumed to identify a CRM contact. No identity merge by name."
+        ]
+      }
+    },
+    {
+      "id": "participation-recyf2a82B7U3M26C",
+      "sourceLinkRecordId": "recyf2a82B7U3M26C",
+      "activityId": "rec9o6L7QzzSGPd3O",
+      "personId": null,
+      "companyId": null,
+      "name": "Noemí Álvarez Sánchez",
+      "companyLabel": "TUNAP PRODUCTOS QUÍMICOS SA",
+      "statusRaw": "Listed under Lista de Inscritos",
+      "source": {
+        "sourceIds": ["activity-rec9o6L7QzzSGPd3O"],
+        "verifiedFields": ["name", "companyLabel", "activityId"],
+        "notes": [
+          "The participant link ID is preserved as an occurrence ID, not assumed to identify a CRM contact. No identity merge by name."
+        ]
+      }
+    },
+    {
+      "id": "participation-recXsgtGvS5VdSRF7",
+      "sourceLinkRecordId": "recXsgtGvS5VdSRF7",
+      "activityId": "rec9o6L7QzzSGPd3O",
+      "personId": null,
+      "companyId": null,
+      "name": "ANA RODRIGUEZ",
+      "companyLabel": "RULO PLUMA S.A.",
+      "statusRaw": "Listed under Lista de Inscritos",
+      "source": {
+        "sourceIds": ["activity-rec9o6L7QzzSGPd3O"],
+        "verifiedFields": ["name", "companyLabel", "activityId"],
+        "notes": [
+          "The participant link ID is preserved as an occurrence ID, not assumed to identify a CRM contact. No identity merge by name."
+        ]
+      }
+    },
+    {
+      "id": "participation-rec9igO9FVz1Yy4x5",
+      "sourceLinkRecordId": "rec9igO9FVz1Yy4x5",
+      "activityId": "rec9o6L7QzzSGPd3O",
+      "personId": null,
+      "companyId": null,
+      "name": "Patricia Gómez",
+      "companyLabel": "PRODUCTOS PROMADE SA",
+      "statusRaw": "Listed under Lista de Inscritos",
+      "source": {
+        "sourceIds": ["activity-rec9o6L7QzzSGPd3O"],
+        "verifiedFields": ["name", "companyLabel", "activityId"],
+        "notes": [
+          "The participant link ID is preserved as an occurrence ID, not assumed to identify a CRM contact. No identity merge by name."
+        ]
+      }
+    },
+    {
+      "id": "participation-recgKy0GyFRk0wSE4",
+      "sourceLinkRecordId": "recgKy0GyFRk0wSE4",
+      "activityId": "rec9o6L7QzzSGPd3O",
+      "personId": null,
+      "companyId": null,
+      "name": "Rosi Rubio",
+      "companyLabel": "CATRAL GROUP .S.A.",
+      "statusRaw": "Listed under Lista de Inscritos",
+      "source": {
+        "sourceIds": ["activity-rec9o6L7QzzSGPd3O"],
+        "verifiedFields": ["name", "companyLabel", "activityId"],
+        "notes": [
+          "The participant link ID is preserved as an occurrence ID, not assumed to identify a CRM contact. No identity merge by name."
+        ]
+      }
+    }
+  ],
+  "reports": [
+    {
+      "id": "recdevEVYOb3luYPL",
+      "title": "Situación de Mercado y Conflicto Oriente Medio",
+      "categoryRaw": "Informes Mercado AFEB",
+      "catalogDate": "2026-04-09",
+      "description": null,
+      "accessLabel": null,
+      "price": null,
+      "personalized": null,
+      "fileIds": [],
+      "source": {
+        "sourceIds": ["reports-catalog"],
+        "verifiedFields": ["title", "categoryRaw", "catalogDate"],
+        "notes": ["Catalog date is preserved without claiming it is the content update date."]
+      }
+    },
+    {
+      "id": "recK5FXzzVRa06VnX",
+      "title": "Barómetro Sectorial AECOC",
+      "categoryRaw": "Informes Mercado AFEB",
+      "catalogDate": "2026-04-09",
+      "description": null,
+      "accessLabel": null,
+      "price": null,
+      "personalized": null,
+      "fileIds": [],
+      "source": {
+        "sourceIds": ["reports-catalog"],
+        "verifiedFields": ["title", "categoryRaw", "catalogDate"],
+        "notes": ["Catalog date is preserved without claiming it is the content update date."]
+      }
+    },
+    {
+      "id": "recYUL9XzeEjQf3qb",
+      "title": "Mapa de la Distribución – AFEB - Gratuito Socios AFEB",
+      "categoryRaw": "Informes Mercado AFEB",
+      "catalogDate": "2026-04-09",
+      "description": null,
+      "accessLabel": "Este documento se edita de manera individual para cada una de las empresas e incluye una marca de agua identificativa.",
+      "price": 0,
+      "personalized": true,
+      "fileIds": [],
+      "source": {
+        "sourceIds": ["reports-catalog", "report-recYUL9XzeEjQf3qb"],
+        "verifiedFields": [
+          "title",
+          "categoryRaw",
+          "catalogDate",
+          "accessLabel",
+          "personalized",
+          "fileIds",
+          "price"
+        ],
+        "notes": [
+          "Catalog date is preserved without claiming it is the content update date.",
+          "No individualized file was displayed for the review company."
+        ]
+      }
+    },
+    {
+      "id": "recZpF6HXxGwqF7JL",
+      "title": "Evolución de Ventas",
+      "categoryRaw": "Informes Mercado AFEB",
+      "catalogDate": "2026-04-09",
+      "description": null,
+      "accessLabel": "Gratuito y Exclusivo Socios AFEB",
+      "price": 0,
+      "personalized": false,
+      "fileIds": [
+        "file-d5aa5baeb2a3a30e",
+        "file-178bb2c0a17fb0c3",
+        "file-17045dc95ce7b234",
+        "file-756b68fab06ad099",
+        "file-dfb56f29b33ef8cf",
+        "file-f1e3fb49921fbf40",
+        "file-996dcbd38b5ecda6",
+        "file-2163b5c3706ecd3c",
+        "file-bdcd05a12681a8d4",
+        "file-930e4e998ac7ceb9",
+        "file-ed82868a17dc3686",
+        "file-19681998fb516715",
+        "file-1e6bb31d634aeef6",
+        "file-443b59a8bab95c93",
+        "file-6238508eef297af8",
+        "file-335984bdcb5b60eb",
+        "file-8f4581b450ece7d3",
+        "file-e6c43076b4dc8d16",
+        "file-6ebd50ca9f3b1b67",
+        "file-8499e6a9c88ab561",
+        "file-cb06ae69cc33f611",
+        "file-afd4a416f8242684",
+        "file-3834daef2fef9bce"
+      ],
+      "source": {
+        "sourceIds": ["reports-catalog", "report-recZpF6HXxGwqF7JL"],
+        "verifiedFields": [
+          "title",
+          "categoryRaw",
+          "catalogDate",
+          "accessLabel",
+          "personalized",
+          "fileIds",
+          "price"
+        ],
+        "notes": [
+          "Catalog date is preserved without claiming it is the content update date.",
+          "The attachment list is observed metadata, not imported file content."
+        ]
+      }
+    },
+    {
+      "id": "rec0ADdl0xzh9vYHc",
+      "title": "Exportación_Encuestas de Coyuntura",
+      "categoryRaw": "Informes Sectoriales",
+      "catalogDate": "2026-04-09",
+      "description": null,
+      "accessLabel": null,
+      "price": null,
+      "personalized": null,
+      "fileIds": [],
+      "source": {
+        "sourceIds": ["reports-catalog"],
+        "verifiedFields": ["title", "categoryRaw", "catalogDate"],
+        "notes": ["Catalog date is preserved without claiming it is the content update date."]
+      }
+    },
+    {
+      "id": "rec0IbEOMqygUSiH9",
+      "title": "Construcción _ Informes del Mercado",
+      "categoryRaw": "Informes Sectoriales",
+      "catalogDate": "2026-04-09",
+      "description": null,
+      "accessLabel": null,
+      "price": null,
+      "personalized": null,
+      "fileIds": [],
+      "source": {
+        "sourceIds": ["reports-catalog"],
+        "verifiedFields": ["title", "categoryRaw", "catalogDate"],
+        "notes": ["Catalog date is preserved without claiming it is the content update date."]
+      }
+    },
+    {
+      "id": "rec8vo1LTUQBcS1Gi",
+      "title": "Metal _ Informes de Sentimiento Económico",
+      "categoryRaw": "Informes Sectoriales",
+      "catalogDate": "2026-04-09",
+      "description": null,
+      "accessLabel": null,
+      "price": null,
+      "personalized": null,
+      "fileIds": [],
+      "source": {
+        "sourceIds": ["reports-catalog"],
+        "verifiedFields": ["title", "categoryRaw", "catalogDate"],
+        "notes": ["Catalog date is preserved without claiming it is the content update date."]
+      }
+    },
+    {
+      "id": "recXOclPyMsQdAiGV",
+      "title": "Vigilancia de Mercado",
+      "categoryRaw": "Informes Sectoriales",
+      "catalogDate": "2026-04-09",
+      "description": null,
+      "accessLabel": null,
+      "price": null,
+      "personalized": null,
+      "fileIds": [],
+      "source": {
+        "sourceIds": ["reports-catalog"],
+        "verifiedFields": ["title", "categoryRaw", "catalogDate"],
+        "notes": ["Catalog date is preserved without claiming it is the content update date."]
+      }
+    },
+    {
+      "id": "rec46un7uxFIS1uIt",
+      "title": "Newsletter HIMA",
+      "categoryRaw": "Informes Internacionales",
+      "catalogDate": "2026-04-09",
+      "description": null,
+      "accessLabel": null,
+      "price": null,
+      "personalized": null,
+      "fileIds": [],
+      "source": {
+        "sourceIds": ["reports-catalog"],
+        "verifiedFields": ["title", "categoryRaw", "catalogDate"],
+        "notes": ["Catalog date is preserved without claiming it is the content update date."]
+      }
+    },
+    {
+      "id": "rec4Lkc5LUVSkChrV",
+      "title": "Home Improvement Report Retail Worldwide 2025",
+      "categoryRaw": "Informes Internacionales",
+      "catalogDate": "2026-10-12",
+      "description": null,
+      "accessLabel": null,
+      "price": null,
+      "personalized": null,
+      "fileIds": [],
+      "source": {
+        "sourceIds": ["reports-catalog"],
+        "verifiedFields": ["title", "categoryRaw", "catalogDate"],
+        "notes": ["Catalog date is preserved without claiming it is the content update date."]
+      }
+    },
+    {
+      "id": "recxH4DMkSS2efQRz",
+      "title": "News Edra/Ghin 2024",
+      "categoryRaw": "Informes Internacionales",
+      "catalogDate": null,
+      "description": null,
+      "accessLabel": null,
+      "price": null,
+      "personalized": null,
+      "fileIds": [],
+      "source": {
+        "sourceIds": ["reports-catalog"],
+        "verifiedFields": ["title", "categoryRaw", "catalogDate"],
+        "notes": ["Catalog date is preserved without claiming it is the content update date."]
+      }
+    },
+    {
+      "id": "recUWbsQongMgQWE0",
+      "title": "Transformación Industrial",
+      "categoryRaw": "Normativa",
+      "catalogDate": null,
+      "description": null,
+      "accessLabel": null,
+      "price": null,
+      "personalized": null,
+      "fileIds": [],
+      "source": {
+        "sourceIds": ["regulations-catalog"],
+        "verifiedFields": ["title", "categoryRaw", "catalogDate"],
+        "notes": ["Catalog date is preserved without claiming it is the content update date."]
+      }
+    },
+    {
+      "id": "recWSWl6ckYTPRjdA",
+      "title": "Huella de Carbono",
+      "categoryRaw": "Normativa",
+      "catalogDate": null,
+      "description": null,
+      "accessLabel": null,
+      "price": null,
+      "personalized": null,
+      "fileIds": [],
+      "source": {
+        "sourceIds": ["regulations-catalog"],
+        "verifiedFields": ["title", "categoryRaw", "catalogDate"],
+        "notes": ["Catalog date is preserved without claiming it is the content update date."]
+      }
+    },
+    {
+      "id": "recZXBnTe2SzK4os0",
+      "title": "Ley Crea y Crece",
+      "categoryRaw": "Normativa",
+      "catalogDate": null,
+      "description": null,
+      "accessLabel": null,
+      "price": null,
+      "personalized": null,
+      "fileIds": [],
+      "source": {
+        "sourceIds": ["regulations-catalog"],
+        "verifiedFields": ["title", "categoryRaw", "catalogDate"],
+        "notes": ["Catalog date is preserved without claiming it is the content update date."]
+      }
+    },
+    {
+      "id": "recgSjutOIq1aIREs",
+      "title": "Desforestación - EUDR -",
+      "categoryRaw": "Normativa",
+      "catalogDate": null,
+      "description": null,
+      "accessLabel": null,
+      "price": null,
+      "personalized": null,
+      "fileIds": [],
+      "source": {
+        "sourceIds": ["regulations-catalog"],
+        "verifiedFields": ["title", "categoryRaw", "catalogDate"],
+        "notes": ["Catalog date is preserved without claiming it is the content update date."]
+      }
+    },
+    {
+      "id": "rechy7nExWLOJL6N8",
+      "title": "Make it Zero",
+      "categoryRaw": "Normativa",
+      "catalogDate": null,
+      "description": null,
+      "accessLabel": null,
+      "price": null,
+      "personalized": null,
+      "fileIds": [],
+      "source": {
+        "sourceIds": ["regulations-catalog"],
+        "verifiedFields": ["title", "categoryRaw", "catalogDate"],
+        "notes": ["Catalog date is preserved without claiming it is the content update date."]
+      }
+    }
+  ],
+  "documents": [
+    {
+      "id": "document-memoria-afeb-2025-pdf",
+      "title": "Memoria_AFEB_2025.pdf",
+      "category": "Memoria de Actividad",
+      "subcategory": "General",
+      "fileId": "file-9f4602b1fe439ffa",
+      "source": {
+        "sourceIds": ["documents-catalog"],
+        "verifiedFields": ["title", "category", "subcategory"],
+        "notes": [
+          "Displayed document name is the observed filename. Year is only derived when explicitly present in that filename."
+        ]
+      }
+    },
+    {
+      "id": "document-reglamento-de-regimen-interno-doc",
+      "title": "Reglamento de Régimen Interno.doc",
+      "category": "Estatutos reglamentos y normativa AFEB",
+      "subcategory": "General",
+      "fileId": "file-fcae29b5bf335cc7",
+      "source": {
+        "sourceIds": ["documents-catalog"],
+        "verifiedFields": ["title", "category", "subcategory"],
+        "notes": [
+          "Displayed document name is the observed filename. Year is only derived when explicitly present in that filename."
+        ]
+      }
+    },
+    {
+      "id": "document-estatutos-afeb-2023-pdf",
+      "title": "Estatutos AFEB 2023.pdf",
+      "category": "Estatutos reglamentos y normativa AFEB",
+      "subcategory": "General",
+      "fileId": "file-8964fb7895d92127",
+      "source": {
+        "sourceIds": ["documents-catalog"],
+        "verifiedFields": ["title", "category", "subcategory"],
+        "notes": [
+          "Displayed document name is the observed filename. Year is only derived when explicitly present in that filename."
+        ]
+      }
+    },
+    {
+      "id": "document-codigo-de-buenas-practicas-comerciales-pdf",
+      "title": "Código de buenas prácticas comerciales.pdf",
+      "category": "Código de Buenas Prácticas Comerciales",
+      "subcategory": "General",
+      "fileId": "file-ef8446d6a86f9de5",
+      "source": {
+        "sourceIds": ["documents-catalog"],
+        "verifiedFields": ["title", "category", "subcategory"],
+        "notes": [
+          "Displayed document name is the observed filename. Year is only derived when explicitly present in that filename."
+        ]
+      }
+    },
+    {
+      "id": "document-code-of-practice-pdf",
+      "title": "Code of Practice.pdf",
+      "category": "Código de Buenas Prácticas Comerciales",
+      "subcategory": "General",
+      "fileId": "file-52c388108f098b5d",
+      "source": {
+        "sourceIds": ["documents-catalog"],
+        "verifiedFields": ["title", "category", "subcategory"],
+        "notes": [
+          "Displayed document name is the observed filename. Year is only derived when explicitly present in that filename."
+        ]
+      }
+    }
+  ],
+  "files": [
+    {
+      "id": "file-69fff1538a86a4bd",
+      "ownerType": "activity",
+      "ownerId": "rec1ALws66b1fUrsO",
+      "filename": "Agenda_Encuentro con BdB.pdf",
+      "format": "PDF",
+      "years": [],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["activity-rec1ALws66b1fUrsO"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-cf65109c1a9b5708",
+      "ownerType": "activity",
+      "ownerId": "recLtCYBe6zHUNuTR",
+      "filename": "WEBINAR | Cómo obtener el estado de declarante autorizado para poder importar mercancías CBAM en la UE.ics",
+      "format": "ICS",
+      "years": [],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["activity-recLtCYBe6zHUNuTR"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-d5aa5baeb2a3a30e",
+      "ownerType": "report",
+      "ownerId": "recZpF6HXxGwqF7JL",
+      "filename": "Estudio Evolución de Ventas 2T 2026_parcial.pdf",
+      "format": "PDF",
+      "years": ["2026"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["report-recZpF6HXxGwqF7JL"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-178bb2c0a17fb0c3",
+      "ownerType": "report",
+      "ownerId": "recZpF6HXxGwqF7JL",
+      "filename": "Estudio Evolución de Ventas 1T 2026_parcial.pdf",
+      "format": "PDF",
+      "years": ["2026"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["report-recZpF6HXxGwqF7JL"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-17045dc95ce7b234",
+      "ownerType": "report",
+      "ownerId": "recZpF6HXxGwqF7JL",
+      "filename": "Informe Ventas AFEB 4T 2025.pdf",
+      "format": "PDF",
+      "years": ["2025"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["report-recZpF6HXxGwqF7JL"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-756b68fab06ad099",
+      "ownerType": "report",
+      "ownerId": "recZpF6HXxGwqF7JL",
+      "filename": "Informe de Ventas AFEB 3T 2025.pdf",
+      "format": "PDF",
+      "years": ["2025"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["report-recZpF6HXxGwqF7JL"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-dfb56f29b33ef8cf",
+      "ownerType": "report",
+      "ownerId": "recZpF6HXxGwqF7JL",
+      "filename": "Informe de Ventas AFEB 2T 2025.pdf",
+      "format": "PDF",
+      "years": ["2025"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["report-recZpF6HXxGwqF7JL"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-f1e3fb49921fbf40",
+      "ownerType": "report",
+      "ownerId": "recZpF6HXxGwqF7JL",
+      "filename": "Informe de Ventas AFEB 1T 2025.pdf",
+      "format": "PDF",
+      "years": ["2025"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["report-recZpF6HXxGwqF7JL"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-996dcbd38b5ecda6",
+      "ownerType": "report",
+      "ownerId": "recZpF6HXxGwqF7JL",
+      "filename": "Informe Ventas Fabricantes + Distribuidores 4T 2024 + Acumulado 2024.pdf",
+      "format": "PDF",
+      "years": ["2024"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["report-recZpF6HXxGwqF7JL"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-2163b5c3706ecd3c",
+      "ownerType": "report",
+      "ownerId": "recZpF6HXxGwqF7JL",
+      "filename": "Informe de Ventas AFEB 3T 2024",
+      "format": null,
+      "years": ["2024"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["report-recZpF6HXxGwqF7JL"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-bdcd05a12681a8d4",
+      "ownerType": "report",
+      "ownerId": "recZpF6HXxGwqF7JL",
+      "filename": "Informe de Ventas AFEB 2T 2024",
+      "format": null,
+      "years": ["2024"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["report-recZpF6HXxGwqF7JL"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-930e4e998ac7ceb9",
+      "ownerType": "report",
+      "ownerId": "recZpF6HXxGwqF7JL",
+      "filename": "Informe de Ventas AFEB 1T 2024",
+      "format": null,
+      "years": ["2024"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["report-recZpF6HXxGwqF7JL"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-ed82868a17dc3686",
+      "ownerType": "report",
+      "ownerId": "recZpF6HXxGwqF7JL",
+      "filename": "Informe de Ventas AFEB 4T 2023.pdf",
+      "format": "PDF",
+      "years": ["2023"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["report-recZpF6HXxGwqF7JL"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-19681998fb516715",
+      "ownerType": "report",
+      "ownerId": "recZpF6HXxGwqF7JL",
+      "filename": "Informe-AFEB-Ventas-3T-2023.pdf",
+      "format": "PDF",
+      "years": ["2023"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["report-recZpF6HXxGwqF7JL"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-1e6bb31d634aeef6",
+      "ownerType": "report",
+      "ownerId": "recZpF6HXxGwqF7JL",
+      "filename": "Informe-AFEB-Ventas-2T-2023.pdf",
+      "format": "PDF",
+      "years": ["2023"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["report-recZpF6HXxGwqF7JL"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-443b59a8bab95c93",
+      "ownerType": "report",
+      "ownerId": "recZpF6HXxGwqF7JL",
+      "filename": "Evolucion-de-Ventas-Fabricantes-Distribuidores-1T-2023.pdf",
+      "format": "PDF",
+      "years": ["2023"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["report-recZpF6HXxGwqF7JL"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-6238508eef297af8",
+      "ownerType": "report",
+      "ownerId": "recZpF6HXxGwqF7JL",
+      "filename": "Evolucion-de-Ventas-Fabricantes-Distribuidores-4T-2022-2021-2020.pdf",
+      "format": "PDF",
+      "years": ["2022", "2021", "2020"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["report-recZpF6HXxGwqF7JL"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-335984bdcb5b60eb",
+      "ownerType": "report",
+      "ownerId": "recZpF6HXxGwqF7JL",
+      "filename": "Evolucion-de-Ventas-Fabricantes-Distribuidores-3T-2022-2021-2020.pdf",
+      "format": "PDF",
+      "years": ["2022", "2021", "2020"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["report-recZpF6HXxGwqF7JL"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-8f4581b450ece7d3",
+      "ownerType": "report",
+      "ownerId": "recZpF6HXxGwqF7JL",
+      "filename": "Evolucion-de-Ventas-Fabricantes-Distribuidores-1T-2022-2021-2020.pdf",
+      "format": "PDF",
+      "years": ["2022", "2021", "2020"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["report-recZpF6HXxGwqF7JL"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-e6c43076b4dc8d16",
+      "ownerType": "report",
+      "ownerId": "recZpF6HXxGwqF7JL",
+      "filename": "Evolucion-de-Ventas-Fabricantes-Distribuidores-2T-2022-2021-2020.pdf",
+      "format": "PDF",
+      "years": ["2022", "2021", "2020"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["report-recZpF6HXxGwqF7JL"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-6ebd50ca9f3b1b67",
+      "ownerType": "report",
+      "ownerId": "recZpF6HXxGwqF7JL",
+      "filename": "Evolucion-de-ventas-1T-2019-2020-2021.pdf",
+      "format": "PDF",
+      "years": ["2019", "2020", "2021"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["report-recZpF6HXxGwqF7JL"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-8499e6a9c88ab561",
+      "ownerType": "report",
+      "ownerId": "recZpF6HXxGwqF7JL",
+      "filename": "Evolucion-de-ventas-2T-2019-2020-2021.pdf",
+      "format": "PDF",
+      "years": ["2019", "2020", "2021"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["report-recZpF6HXxGwqF7JL"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-cb06ae69cc33f611",
+      "ownerType": "report",
+      "ownerId": "recZpF6HXxGwqF7JL",
+      "filename": "Evolucion-de-ventas-3T-2019-2020-2021.pdf",
+      "format": "PDF",
+      "years": ["2019", "2020", "2021"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["report-recZpF6HXxGwqF7JL"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-afd4a416f8242684",
+      "ownerType": "report",
+      "ownerId": "recZpF6HXxGwqF7JL",
+      "filename": "Evolucion-de-ventas-4T-2019-2020-2021.pdf",
+      "format": "PDF",
+      "years": ["2019", "2020", "2021"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["report-recZpF6HXxGwqF7JL"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-3834daef2fef9bce",
+      "ownerType": "report",
+      "ownerId": "recZpF6HXxGwqF7JL",
+      "filename": "Evolucion-de-ventas-acumuladas-2019-2020-2021.pdf",
+      "format": "PDF",
+      "years": ["2019", "2020", "2021"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["report-recZpF6HXxGwqF7JL"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-9f4602b1fe439ffa",
+      "ownerType": "document",
+      "ownerId": "document-memoria-afeb-2025-pdf",
+      "filename": "Memoria_AFEB_2025.pdf",
+      "format": "PDF",
+      "years": ["2025"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["documents-catalog"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-fcae29b5bf335cc7",
+      "ownerType": "document",
+      "ownerId": "document-reglamento-de-regimen-interno-doc",
+      "filename": "Reglamento de Régimen Interno.doc",
+      "format": "DOC",
+      "years": [],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["documents-catalog"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-8964fb7895d92127",
+      "ownerType": "document",
+      "ownerId": "document-estatutos-afeb-2023-pdf",
+      "filename": "Estatutos AFEB 2023.pdf",
+      "format": "PDF",
+      "years": ["2023"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["documents-catalog"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-ef8446d6a86f9de5",
+      "ownerType": "document",
+      "ownerId": "document-codigo-de-buenas-practicas-comerciales-pdf",
+      "filename": "Código de buenas prácticas comerciales.pdf",
+      "format": "PDF",
+      "years": [],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["documents-catalog"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-52c388108f098b5d",
+      "ownerType": "document",
+      "ownerId": "document-code-of-practice-pdf",
+      "filename": "Code of Practice.pdf",
+      "format": "PDF",
+      "years": [],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["documents-catalog"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-d0e99c1068f3ae2b",
+      "ownerType": "provider",
+      "ownerId": "recqcB8z58fCtDYb3",
+      "filename": "Catalogo_ARS_Persona_InnoPersona_AFEB_v0_3.pdf",
+      "format": "PDF",
+      "years": [],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["providers-catalog"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-3dd200808d51082a",
+      "ownerType": "provider",
+      "ownerId": "recaAF6jKtcm8zpqO",
+      "filename": "Tranfermate _ Global-Accounts.pdf",
+      "format": "PDF",
+      "years": [],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["providers-catalog"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-cd506e21db893ca6",
+      "ownerType": "provider",
+      "ownerId": "recwiZG7XBzrh6Dd7",
+      "filename": "Presentacion_Nexmart_Simply_eBusiness.pdf",
+      "format": "PDF",
+      "years": [],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["providers-catalog"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-e7ca185e6b8e8a5c",
+      "ownerType": "provider",
+      "ownerId": "rec5nA9kzbUR6R7gj",
+      "filename": "Cartel_AFEB_Sercotel_B-1.pdf",
+      "format": "PDF",
+      "years": [],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["providers-catalog"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-5272435331a04e55",
+      "ownerType": "provider",
+      "ownerId": "recdiZ7U7hGO8QalU",
+      "filename": "Convenio IESE AFEB.pdf",
+      "format": "PDF",
+      "years": [],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["providers-catalog"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-36885c3affab4876",
+      "ownerType": "provider",
+      "ownerId": "recDlM6g3oQ7mVbAY",
+      "filename": "COLECTIVOS-VACACIONAL_2024-afeb.pdf",
+      "format": "PDF",
+      "years": ["2024"],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["providers-catalog"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-bce938748347fb9b",
+      "ownerType": "provider",
+      "ownerId": "recha8LO37gyr1QPJ",
+      "filename": "Hexagone-Language-Solutions.pdf",
+      "format": "PDF",
+      "years": [],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["providers-catalog"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-c8a242fffe332b21",
+      "ownerType": "provider",
+      "ownerId": "recOPgc4hY48Va0e7",
+      "filename": "FLYER-B2P-AFEB-1.pdf",
+      "format": "PDF",
+      "years": [],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["providers-catalog"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    },
+    {
+      "id": "file-c0e908c1cb170eeb",
+      "ownerType": "service",
+      "ownerId": "contracts-advice",
+      "filename": "AsesoraContratosconlaDistribucion .pdf",
+      "format": "PDF",
+      "years": [],
+      "contentImported": false,
+      "downloadUrl": null,
+      "source": {
+        "sourceIds": ["regulations-catalog"],
+        "verifiedFields": ["filename"],
+        "notes": [
+          "Format and year filters derived only from filename; no file contents or signed URLs imported"
+        ]
+      }
+    }
+  ],
+  "providers": [
+    {
+      "id": "recYJxQ0QgiQGpZN8",
+      "title": "MARBET VIAJES ESPAÑA S.A.",
+      "category": "AGENCIA DE VIAJES",
+      "type": "Proveedores",
+      "description": "marbet Spain, agencia 360º de eventos corporativos, viajes de incentivo y experiencias de marca, perteneciente al Grupo Würth.",
+      "benefit": null,
+      "contactEmail": null,
+      "fileIds": [],
+      "source": {
+        "sourceIds": ["providers-catalog"],
+        "verifiedFields": ["title", "category", "type", "description", "benefit", "contactEmail"],
+        "notes": [
+          "Short description is the first visible paragraph of the expanded card; not generated. Provider claims are transcribed, not independently certified."
+        ]
+      }
+    },
+    {
+      "id": "rech6jt1oB6Qt5a7v",
+      "title": "EVENING AI LABS S.L.",
+      "category": "ASESORIA DE IA",
+      "type": "Proveedores",
+      "description": "En Evening ayudamos a fabricantes y distribuidores de ferretería, bricolaje e industria a eliminar trabajo manual. Desarrollamos software a medida y herramientas de inteligencia artificial que se conectan a lo que ya usáis (ERP, tarifas, catálogos, web), sin cambiar vuestra forma de trabajar.",
+      "benefit": null,
+      "contactEmail": "info@evening.es",
+      "fileIds": [],
+      "source": {
+        "sourceIds": ["providers-catalog"],
+        "verifiedFields": ["title", "category", "type", "description", "benefit", "contactEmail"],
+        "notes": [
+          "Short description is the first visible paragraph of the expanded card; not generated. Provider claims are transcribed, not independently certified."
+        ]
+      }
+    },
+    {
+      "id": "recqcB8z58fCtDYb3",
+      "title": "ARS PERSONA CTS S.L.",
+      "category": "ASESORIA DE IA",
+      "type": "Proveedores",
+      "description": "ARS Persona | InnoPersona es una consultora humano-tecnológica especializada en talento, liderazgo, movilidad profesional e inteligencia artificial aplicada al trabajo real.",
+      "benefit": null,
+      "contactEmail": "jnavarro@innopersona.com",
+      "fileIds": ["file-d0e99c1068f3ae2b"],
+      "source": {
+        "sourceIds": ["providers-catalog"],
+        "verifiedFields": ["title", "category", "type", "description", "benefit", "contactEmail"],
+        "notes": [
+          "Short description is the first visible paragraph of the expanded card; not generated. Provider claims are transcribed, not independently certified."
+        ]
+      }
+    },
+    {
+      "id": "recaAF6jKtcm8zpqO",
+      "title": "TRANSFERMATE LIMITED",
+      "category": "COBROS Y PAGOS INTERNACIONALES",
+      "type": "Proveedores",
+      "description": "Gracias a nuestra red de pagos, usted y sus clientes pueden pagar en más de 200 países y territorios y en más de 140 divisas, todo ello dentro de su propio ecosistema. Al integrar nuestra infraestructura, podrá captar flujos de ingresos asociados a los pagos globales y eliminar comisiones y gastos de cambio innecesarios. Ofrezca una experiencia de pago más rápida, transparente y simplificada, añadiendo valor real a sus clientes y a su forma de trabajar. Hemos construido una red mundial sobre la base de 92 licencias individuales, creando una forma segura de transmitir fondos a escala internacional utilizando vías de pago locales.\nCOBERTURA MUNDIAL\nLa integración de nuestra infraestructura le permite a usted y a sus clientes cobrar en la moneda local de 60 países y territorios.",
+      "benefit": null,
+      "contactEmail": "jagarcia@transfermate.com",
+      "fileIds": ["file-3dd200808d51082a"],
+      "source": {
+        "sourceIds": ["providers-catalog"],
+        "verifiedFields": ["title", "category", "type", "description", "benefit", "contactEmail"],
+        "notes": [
+          "Short description is the first visible paragraph of the expanded card; not generated. Provider claims are transcribed, not independently certified."
+        ]
+      }
+    },
+    {
+      "id": "rec8WeSRxjwiDenQH",
+      "title": "RETEXCYCLE (AUGUSTO BELLINI SL)",
+      "category": "CUMPLIMIENTO DE NORMATIVA",
+      "type": "Proveedores",
+      "description": "Retexcycle ofrece soluciones globales de trazabilidad, tanto físicas como digitales, que ayudan a las empresas a cumplir con el Reglamento Europeo de Deforestación (EUDR).\nDesde 2023, más de 200 clientes internacionales utilizan nuestra plataforma para automatizar la carga en TRACES, generar DDS y analizar riesgos de deforestación con más de 47 parámetros aplicados a los GeoJSON de proveedores. A día de hoy, han trazado más de 500.000 toneladas de materias primas.",
+      "benefit": null,
+      "contactEmail": "pepe@retexcycle.com",
+      "fileIds": [],
+      "source": {
+        "sourceIds": ["providers-catalog"],
+        "verifiedFields": ["title", "category", "type", "description", "benefit", "contactEmail"],
+        "notes": [
+          "Short description is the first visible paragraph of the expanded card; not generated. Provider claims are transcribed, not independently certified."
+        ]
+      }
+    },
+    {
+      "id": "recwiZG7XBzrh6Dd7",
+      "title": "NEXMART",
+      "category": "FACTURACIÓN ELECTRÓNICA",
+      "type": "Proveedores",
+      "description": "¿Quiénes somos?\nSomos una empresa global de ingeniería informática con más de 20 años de experiencia en comercio electrónico. Trabajamos con +300 fabricantes y marcas del sector de ferretería, bricolaje y suministro industrial, y +25.000 distribuidores profesionales en 70 países.",
+      "benefit": null,
+      "contactEmail": "sales-es@nexmart.com",
+      "fileIds": ["file-cd506e21db893ca6"],
+      "source": {
+        "sourceIds": ["providers-catalog"],
+        "verifiedFields": ["title", "category", "type", "description", "benefit", "contactEmail"],
+        "notes": [
+          "Short description is the first visible paragraph of the expanded card; not generated. Provider claims are transcribed, not independently certified."
+        ]
+      }
+    },
+    {
+      "id": "rec2sHID4Q9f7HoWW",
+      "title": "Beneficios para estudios en ESIC",
+      "category": "Partnerships",
+      "type": "Benefits",
+      "description": "Beneficios del convenio para las personas trabajadoras y familiares de primer nivel de empresas asociadas a la Asociación de Fabricantes de Bricolaje y Ferretería.",
+      "benefit": "30% dto EN PROGRAMAS DE POSTGRADO\n15% dto EN LOS CICLOS FORMATIVOS DE GRADO SUPERIOR\n5% dto EN LOS TÍTULOS PROPIOS Y OFICIALES UNIVERSITARIOS DE ESIC UNIVERSITY",
+      "contactEmail": null,
+      "fileIds": [],
+      "source": {
+        "sourceIds": ["providers-catalog"],
+        "verifiedFields": ["title", "category", "type", "description", "benefit", "contactEmail"],
+        "notes": [
+          "Short description is the first visible paragraph of the expanded card; not generated. Provider claims are transcribed, not independently certified."
+        ]
+      }
+    },
+    {
+      "id": "rec5nA9kzbUR6R7gj",
+      "title": "Hoteles Sercotel",
+      "category": "Ofertas",
+      "type": "Benefits",
+      "description": "Sercotel, te ofrece un 20% de descuento en tus reservas, por pertenecer a AFEB.",
+      "benefit": "Sercotel, te ofrece un 20% de descuento en tus reservas, por pertenecer a AFEB.",
+      "contactEmail": null,
+      "fileIds": ["file-e7ca185e6b8e8a5c"],
+      "source": {
+        "sourceIds": ["providers-catalog"],
+        "verifiedFields": ["title", "category", "type", "description", "benefit", "contactEmail"],
+        "notes": [
+          "Short description is the first visible paragraph of the expanded card; not generated. Provider claims are transcribed, not independently certified."
+        ]
+      }
+    },
+    {
+      "id": "recdiZ7U7hGO8QalU",
+      "title": "Beneficios para estudios en IESE",
+      "category": "Partnerships",
+      "type": "Benefits",
+      "description": "FORMACIÓN EJECUTIVA PARA DIRECTIVOS AFEB",
+      "benefit": "BONIFICACIÓN\n10% de bonificación en los programas para los años 2024 a 2026.",
+      "contactEmail": null,
+      "fileIds": ["file-5272435331a04e55"],
+      "source": {
+        "sourceIds": ["providers-catalog"],
+        "verifiedFields": ["title", "category", "type", "description", "benefit", "contactEmail"],
+        "notes": [
+          "Short description is the first visible paragraph of the expanded card; not generated. Provider claims are transcribed, not independently certified."
+        ]
+      }
+    },
+    {
+      "id": "recDlM6g3oQ7mVbAY",
+      "title": "Viajes El Corte Ingles",
+      "category": "Ofertas",
+      "type": "Benefits",
+      "description": "Por ser miembro de AFEB dispones de descuentos exclusivos en viajes y hasta un 11% de descuento en Cruceros:",
+      "benefit": "Por ser miembro de AFEB dispones de descuentos exclusivos en viajes y hasta un 11% de descuento en Cruceros:",
+      "contactEmail": null,
+      "fileIds": ["file-36885c3affab4876"],
+      "source": {
+        "sourceIds": ["providers-catalog"],
+        "verifiedFields": ["title", "category", "type", "description", "benefit", "contactEmail"],
+        "notes": [
+          "Short description is the first visible paragraph of the expanded card; not generated. Provider claims are transcribed, not independently certified."
+        ]
+      }
+    },
+    {
+      "id": "recha8LO37gyr1QPJ",
+      "title": "Hexagone Language Solutions",
+      "category": "Ofertas",
+      "type": "Benefits",
+      "description": "La escuela de idiomas Hexagone, te ofrece un 10% de descuento en tu formación de idiomas por ser miembro de AFEB.",
+      "benefit": "La escuela de idiomas Hexagone, te ofrece un 10% de descuento en tu formación de idiomas por ser miembro de AFEB.",
+      "contactEmail": null,
+      "fileIds": ["file-bce938748347fb9b"],
+      "source": {
+        "sourceIds": ["providers-catalog"],
+        "verifiedFields": ["title", "category", "type", "description", "benefit", "contactEmail"],
+        "notes": [
+          "Short description is the first visible paragraph of the expanded card; not generated. Provider claims are transcribed, not independently certified."
+        ]
+      }
+    },
+    {
+      "id": "recOPgc4hY48Va0e7",
+      "title": "Hoteles Grupo Barceló",
+      "category": "Ofertas",
+      "type": "Benefits",
+      "description": "Grupo Barceló, te ofrece un 10% de descuento en tus reservas por pertenecer a AFEB, y hasta un 10% adicional si formas parte de MyBarceló.",
+      "benefit": "Grupo Barceló, te ofrece un 10% de descuento en tus reservas por pertenecer a AFEB, y hasta un 10% adicional si formas parte de MyBarceló.",
+      "contactEmail": null,
+      "fileIds": ["file-c8a242fffe332b21"],
+      "source": {
+        "sourceIds": ["providers-catalog"],
+        "verifiedFields": ["title", "category", "type", "description", "benefit", "contactEmail"],
+        "notes": [
+          "Short description is the first visible paragraph of the expanded card; not generated. Provider claims are transcribed, not independently certified."
+        ]
+      }
+    }
+  ],
+  "groups": [],
+  "services": [
+    {
+      "id": "contracts-advice",
+      "title": "Asesoría de contratos con la distribución",
+      "description": "Este nuevo servicio ofrece un acompañamiento y asesoría para la correcta interpretación y aplicación de los contratos con los distribuidores, poniendo al que ya es el abogado de AFEB, Pedro Palay, a disposición de nuestras empresas asociadas para que pueda realizar una labor de asesoría y ser también vuestro interlocutor interno (compliance, departamento legal…), y/o externo (contacto con el cliente/distribuidor) si fuera preciso.",
+      "contactPersonId": "afeb-pedro-palay",
+      "contactEmail": "pedro.palay@brico-afeb.com",
+      "fileIds": ["file-c0e908c1cb170eeb"],
+      "source": {
+        "sourceIds": ["regulations-catalog"],
+        "verifiedFields": ["title", "description", "contactEmail", "fileIds"],
+        "notes": [
+          "The legal service lists a different email from the homepage contact card; both source contexts are kept."
+        ]
+      }
+    }
+  ],
+  "account": {
+    "personId": "review-eloy",
+    "companyId": "recZm9CJPXVwvTO9w",
+    "sourceRole": "AdminAFEB",
+    "initialRegisteredActivityIds": [],
+    "communicationPreferences": [null, null, null, null],
+    "source": {
+      "sourceIds": ["review-profile"],
+      "verifiedFields": ["personId", "companyId", "sourceRole", "initialRegisteredActivityIds"],
+      "notes": [
+        "Communication choices were not verified; blank cells are not interpreted as false."
+      ]
+    }
+  },
+  "presentation": {
+    "featuredActivityId": "rec9o6L7QzzSGPd3O",
+    "featuredReportId": "recZpF6HXxGwqF7JL",
+    "memberHighlightIds": ["recR9s8Enais4SXet", "recGhfV9L4RCctCrd", "recgE6o65hAJLAd1m"]
+  },
+  "scenarios": [
+    {
+      "id": "baseline",
+      "label": "Datos observados",
+      "activityId": null,
+      "reportId": null,
+      "expected": "Reset restores this dataset and empty review-account registrations."
+    },
+    {
+      "id": "register-cancel",
+      "label": "Inscripción, duplicado y cancelación",
+      "activityId": "rec9o6L7QzzSGPd3O",
+      "reportId": null,
+      "expected": "A local registration can be created once, shared with profile and cancelled; source fields remain unchanged."
+    },
+    {
+      "id": "closed-registration",
+      "label": "Actividad completa y plazo vencido",
+      "activityId": "rec1ALws66b1fUrsO",
+      "reportId": null,
+      "expected": "Registration is blocked without inventing a numeric capacity."
+    },
+    {
+      "id": "draft-publication",
+      "label": "Borrador y publicación local",
+      "activityId": "recUoTW85mdkZSs2j",
+      "reportId": null,
+      "expected": "Hidden in member views until explicitly published in the local simulation."
+    },
+    {
+      "id": "personalized-report",
+      "label": "Documento individual sin asignación",
+      "activityId": null,
+      "reportId": "recYUL9XzeEjQf3qb",
+      "expected": "No personalized file is invented for ZERION."
+    },
+    {
+      "id": "metadata-inconsistency",
+      "label": "Fecha de fin inconsistente",
+      "activityId": "rechBg5Ghv8eStB7u",
+      "reportId": null,
+      "expected": "Observed November end is preserved and flagged."
+    }
+  ],
+  "auditedForms": {
+    "collaboration": {
+      "maxCompanies": 5,
+      "types": [
+        "Comercial",
+        "Exportación",
+        "Marketing",
+        "Punto de venta",
+        "Desarrollo de producto",
+        "Otras"
+      ],
+      "source": {
+        "sourceIds": ["audit-forms"],
+        "verifiedFields": ["maxCompanies", "types"],
+        "notes": ["Observed by the provided audit; matching and follow-up are not verified."]
+      }
+    },
+    "tenders": {
+      "personalizedMonthlyPrice": 90,
+      "currency": "EUR",
+      "categoryOptions": null,
+      "source": {
+        "sourceIds": ["audit-forms"],
+        "verifiedFields": ["personalizedMonthlyPrice"],
+        "notes": [
+          "Reference price in the audit; not a current quotation. Specific tender category options were not collected."
+        ]
+      }
+    },
+    "brands": {
+      "observedPrices": [100, 130],
+      "currency": "EUR",
+      "agreedPrice": null,
+      "source": {
+        "sourceIds": ["audit-forms"],
+        "verifiedFields": ["observedPrices"],
+        "notes": ["Contradictory amounts in source UI; no tariff selected."]
+      }
+    }
+  },
+  "catalogSources": {
+    "activityCategories": ["activities-catalog"],
+    "companyCategories": ["companies-catalog"],
+    "documentCategories": ["documents-catalog"],
+    "communicationLabels": ["review-profile"]
+  }
+}

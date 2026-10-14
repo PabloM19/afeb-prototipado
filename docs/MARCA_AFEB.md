@@ -38,7 +38,7 @@ npm exec -- vite preview --host 127.0.0.1 --outDir tmp/neutral-dist --port 5174 
 
 Las ramas también pueden compararse con `git diff main...codex/afeb-brand`. Después de guardar los cambios, `git switch main` recupera el diseño neutro; `git switch codex/afeb-brand` vuelve a la variante. El servidor de desarrollo se actualiza al cambiar de rama.
 
-La base funcional y los datos ficticios son los mismos en las dos variantes. La marca no cambia la lógica de formularios ni los permisos de demostración.
+La estructura visual procede de la base común. La variante de marca ahora usa registros observados según `DATOS_MOCK.md`; `main` conserva la captura anterior a esa sustitución. La marca no cambia la lógica de formularios ni los permisos de demostración.
 
 ## Capturas y comprobación
 

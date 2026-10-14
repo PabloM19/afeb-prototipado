@@ -18,6 +18,7 @@ Abre http://localhost:5173. Si ese puerto está ocupado, utiliza la dirección q
 ```bash
 npm run build        # Comprobación TypeScript y build
 npm run check        # Comprobación TypeScript
+npm run mock:check   # Integridad de la base observada
 npm run format       # Formato del código y documentos
 npm run format:check
 npm run preview      # Previsualizar dist después del build
@@ -29,9 +30,11 @@ Inicio, actividades y sus variantes, inscripción y cancelación, invitaciones, 
 
 El menú de usuario (abajo a la izquierda; dentro del menú en móvil) cambia entre **Socio, SocioAdmin y Gestor AFEB**. Gestor AFEB muestra `/gestion`, donde puedes crear, editar y publicar actividades de ejemplo y consultar solicitudes locales. El selector permite evaluar el diseño por perfil; **no es autorización real**.
 
-Las acciones de demostración persisten en `localStorage` con prefijo `afeb:`. No se envían correos, no hay pagos, no se suben archivos y no se realizan solicitudes a la plataforma actual ni a Zoho. Las descargas son TXT explícitamente identificados como ejemplos; el calendario genera un ICS para una actividad ficticia. Usa datos ficticios en los formularios.
+La mini base común está en **`src/data/mock-db.json`**: registros observados en AFEB el 14/10/2026, con procedencia y campos desconocidos a `null`. Las pantallas y el buscador leen sus adaptadores. Consulta [datos, relaciones y escenarios](docs/DATOS_MOCK.md).
 
-Para reiniciar la demo, abre el menú de usuario y selecciona **Restablecer demo**. Elimina únicamente las claves `afeb:` en el almacenamiento local de este origen. No hay credenciales del portal real en el código.
+Las simulaciones persisten bajo `afeb:mock:<datasetId>:`. No envían correos ni modifican el portal. Las descargas crean fichas TXT de nombres observados; no contienen los documentos originales. El calendario no se genera sin archivo o zona verificada.
+
+Para reiniciar, selecciona **Restablecer demo** en el menú de usuario: borra únicamente los cambios de la versión activa y recupera la base observada. No hay credenciales del portal en el código.
 
 ## Estructura
 
@@ -40,7 +43,9 @@ Para reiniciar la demo, abre el menú de usuario y selecciona **Restablecer demo
 - `src/components/global-search.tsx` y `src/lib/search.ts`: búsqueda general agrupada por áreas. Ver [funcionamiento y continuidad](docs/BUSQUEDA_GLOBAL.md).
 - `src/components/shared.tsx`: cabeceras, filtros, estados, filas, formularios y diálogos reutilizables.
 - `src/features`: pantallas agrupadas por dominio funcional.
-- `src/data/fixtures.ts`: entidades y contenido ficticio, categorías y utilidades de fecha.
+- `src/data/mock-db.json`: única base de registros observados, relaciones, procedencia y escenarios.
+- `src/data/mock-db.ts`: base inmutable y utilidades.
+- `src/data/fixtures.ts`: adaptadores de la base y utilidades de presentación.
 - `src/lib/store.tsx`: estado de la demostración. Sustituir por servicios al implementar backend.
 - `src/index.css`: tokens neutros, composición, adaptabilidad y estados.
 - `src/styles/afeb-brand.css`: capa de marca aplicada sobre la base funcional.

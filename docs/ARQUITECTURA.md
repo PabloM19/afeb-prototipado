@@ -10,7 +10,7 @@ Se utiliza Vite con React y TypeScript para iterar el diseño de forma rápida. 
 - `App.tsx` registra rutas y proveedores; cada dominio vive en `features/`.
 - UI básica en `components/ui/`: fuente de shadcn, accesibilidad de Radix. No reinventar diálogos, menú, select, checkbox o foco.
 - Componentes de producto comunes en `components/shared.tsx`. Si crecen, separar formularios, listado y descargador en módulos propios.
-- Estado mutable en `StoreProvider`, persistido bajo `afeb:`. Fixtures inmutables para compañías, contactos y recursos. Los componentes no llaman al portal actual.
+- Base común inmutable en `data/mock-db.json`, adaptada por `data/fixtures.ts`. Estado de simulación en `StoreProvider`, persistido bajo `afeb:mock:<datasetId>:`. Ver `DATOS_MOCK.md`. Los componentes no llaman al portal actual.
 - Layout único con sidebar de escritorio, Sheet móvil, breadcrumb, búsqueda, notificaciones y ayuda. Cambiar de ruta reinicia el scroll.
 - La búsqueda global agrupa el contenido visible de empresas, actividades, personas, informes, normativa, documentos, colaboradores y accesos al resto del portal. `components/global-search.tsx` presenta el diálogo; `lib/search.ts` construye y consulta el índice local. Ver `BUSQUEDA_GLOBAL.md`. Los listados filtran en memoria porque la demo es acotada.
 - Inter Variable instalada localmente desde npm y usada en toda la interfaz, igual que en `main`. Lucide es la única familia de iconos.
@@ -18,7 +18,7 @@ Se utiliza Vite con React y TypeScript para iterar el diseño de forma rápida. 
 - Estilo: fondos blancos, surfaces tranquilas, texto base de 16 px y metadatos de 14–15 px. Los verdes se concentran en navegación activa, acciones, estados y bloques destacados. El logotipo se muestra sin alterar sus proporciones ni recolorear el archivo. Ver `MARCA_AFEB.md`.
 - Mobile first funcional: navegación con labels, listados apilados, formularios a una columna y tabla con scroll acotado. No ocultar funciones para simplificar la captura.
 - El selector de roles es una herramienta de demo. Su lógica no constituye una frontera de seguridad.
-- Descargas TXT de muestra e ICS se generan con Blob. Los archivos privados reales pasarán por endpoints autorizados.
+- Las fichas TXT se generan con Blob a partir de nombres observados. El calendario permanece deshabilitado sin archivo o zona verificada. Los archivos privados reales pasarán por endpoints autorizados.
 
 ## Entidades de destino
 
@@ -32,7 +32,7 @@ Crear interfaces por dominio en `src/services/` (todavía no implementadas) y ad
 
 Autenticación y autorización se repiten en operaciones de servidor. Usar sesiones revocables, autenticación mantenida, MFA para administración, límites, validación, errores controlados y almacenamiento privado. Cupos y duplicados requieren transacciones; los botones deshabilitados son solo feedback.
 
-Los horarios de la demo se muestran según el navegador y están pensados para Europe/Madrid. Antes de producción, normalizar instantes en UTC con zona IANA `Europe/Madrid`, incluidos cambios de horario; el backend será responsable del cierre de inscripción. El reloj del borrador se fija al 14/10/2026 para poder explorar los estados con consistencia.
+Las fechas observadas conservan sus campos locales y no presuponen una zona horaria de la fuente. Europe/Madrid es el contexto técnico de la simulación. Antes de producción, normalizar instantes en UTC con zona IANA `Europe/Madrid`, incluidos cambios de horario; el backend será responsable del cierre de inscripción. El reloj del borrador se fija al 14/10/2026 para poder explorar los estados con consistencia.
 
 ## Estado y pruebas
 

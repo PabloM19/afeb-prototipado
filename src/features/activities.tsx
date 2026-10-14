@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import {
+  Ticket,
   ArrowUpRight,
   CalendarDays,
   MapPin,
@@ -11,7 +12,6 @@ import {
   Plus,
   Monitor,
   ArrowRight,
-  Ticket,
 } from 'lucide-react'
 import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
@@ -37,10 +37,19 @@ import {
   DemoNotice,
   downloadDemo,
 } from '@/components/shared'
-import { activityCategories, formatDate, contacts } from '@/data/fixtures'
+import { activityCategories, formatDate, participations, resolveActivityId } from '@/data/fixtures'
+import {
+  referenceIds,
+  displayValue,
+  getMockFiles,
+  initialsFor,
+  simulationDate,
+} from '@/data/mock-db'
+import { canRegisterInMock } from '@/lib/mock-rules'
 import { useStore } from '@/lib/store'
 export function Activities() {
   const { activities, role } = useStore()
+  const highlighted = activities.find((a) => a.id === referenceIds.featuredActivityId)!
   const [search, setSearch] = useState('')
   const [category, setCategory] = useState('Todas')
   const [tab, setTab] = useState('proximas')
@@ -48,9 +57,12 @@ export function Activities() {
     (a) =>
       (role === 'Gestor AFEB' || a.state !== 'Borrador') &&
       (tab === 'proximas'
-        ? a.state === 'Abierta'
+        ? a.state !== 'Borrador' &&
+          a.state !== 'Finalizada' &&
+          (!a.date || a.date.slice(0, 10) >= simulationDate)
         : tab === 'historico'
-          ? ['Finalizada', 'Cerrada'].includes(a.state)
+          ? a.state === 'Finalizada' ||
+            (a.state !== 'Borrador' && Boolean(a.date) && a.date.slice(0, 10) < simulationDate)
           : a.state === 'Borrador') &&
       (category === 'Todas' || a.category === category) &&
       a.title.toLowerCase().includes(search.toLowerCase()),
@@ -81,20 +93,20 @@ export function Activities() {
       />
       <div className="activity-banner">
         <div>
-          <span className="eyebrow">Nos vemos en Barcelona</span>
-          <h2>
-            Las mejores ideas empiezan
-            <br />
-            con una conversación.
-          </h2>
-          <p>Encuentro con la distribución · 22 de octubre</p>
-          <Link className="text-link" to="/detalles-evento?id=encuentro">
+          <span className="eyebrow">Actividad del catálogo observado</span>
+          <h2>{highlighted.title}</h2>
+          <p>
+            {highlighted.category} ·{' '}
+            {formatDate(highlighted.date, { day: 'numeric', month: 'long' })}
+          </p>
+          <Link className="text-link" to={`/detalles-evento?id=${highlighted.id}`}>
             Conocer la jornada
             <ArrowUpRight size={17} />
           </Link>
         </div>
         <div className="banner-date" aria-hidden="true">
-          22<span>Octubre / 2026</span>
+          {new Date(highlighted.date).getDate()}
+          <span>{formatDate(highlighted.date, { month: 'long', year: 'numeric' })}</span>
         </div>
       </div>
       <div className="catalog-top">
@@ -144,22 +156,15 @@ export function Activities() {
 export function EventDetail() {
   const [params] = useSearchParams()
   const store = useStore()
-  const activity = store.activities.find((a) => a.id === params.get('id')) || store.activities[0]
+  const activity = store.activities.find((a) => a.id === resolveActivityId(params.get('id')))
   const [confirm, setConfirm] = useState(false)
   const [accepted, setAccepted] = useState(false)
   const [cancel, setCancel] = useState(false)
   const [peopleSearch, setPeopleSearch] = useState('')
-  const isRegistered = store.registered.includes(activity.id)
-  const isOpen =
-    activity.state === 'Abierta' &&
-    activity.deadline >= '2026-10-14' &&
-    activity.attendees < activity.capacity
-  const people = contacts.filter((c) => c.name.toLowerCase().includes(peopleSearch.toLowerCase()))
-  if (activity.state === 'Borrador' && store.role !== 'Gestor AFEB')
+  if (!activity)
     return (
       <EmptyState
-        title="Actividad no disponible"
-        description="Esta actividad todavía no se ha publicado."
+        title="Actividad no encontrada en la base"
         action={
           <Button asChild>
             <Link to="/eventos">Ver actividades</Link>
@@ -167,109 +172,141 @@ export function EventDetail() {
         }
       />
     )
-  function calendar() {
-    const toUTC = (date: string) =>
-      new Date(date).toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z'
-    const content = `BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//AFEB//Prototipo//ES\r\nBEGIN:VEVENT\r\nUID:${activity.id}@afeb-demo.example\r\nDTSTAMP:20261014T080000Z\r\nDTSTART:${toUTC(activity.date)}\r\nDTEND:${toUTC(activity.end)}\r\nSUMMARY:${activity.title}\r\nLOCATION:${activity.place}\r\nDESCRIPTION:Actividad ficticia del prototipo AFEB.\r\nEND:VEVENT\r\nEND:VCALENDAR`
-    const url = URL.createObjectURL(new Blob([content], { type: 'text/calendar' }))
-    const link = document.createElement('a')
-    link.href = url
-    link.download = 'actividad-afeb-demo.ics'
-    link.click()
-    URL.revokeObjectURL(url)
-  }
+  if (activity.state === 'Borrador' && store.role !== 'Gestor AFEB')
+    return (
+      <EmptyState
+        title="Actividad no disponible"
+        description="Esta actividad todavía no se ha publicado en la simulación."
+        action={
+          <Button asChild>
+            <Link to="/eventos">Ver actividades</Link>
+          </Button>
+        }
+      />
+    )
+  const isRegistered = store.registered.includes(activity.id)
+  const isOpen = canRegisterInMock(activity)
+  const sourceParticipants = participations.filter((p) => p.activityId === activity.id)
+  const people = [
+    ...sourceParticipants.map((p) => ({ ...p, path: `/detalles-equipo?participation=${p.id}` })),
+    ...(isRegistered
+      ? [
+          {
+            id: 'local-review-registration',
+            name: store.person.name,
+            company: store.business.name,
+            initials: initialsFor(store.person.name),
+            path: '/perfil',
+          },
+        ]
+      : []),
+  ].filter((p) => p.name.toLocaleLowerCase().includes(peopleSearch.toLocaleLowerCase()))
+  const price = (amount: number | null) =>
+    amount === 0 ? 'Gratuito' : amount === null ? 'No verificado' : `${amount} €`
+  const files = getMockFiles(activity.fileIds)
   return (
     <>
       <BackLink to="/eventos" label="Todas las actividades" />
       <div className="detail-heading">
         <div className="detail-badges">
-          <span className="small-label">{activity.category}</span>
+          <span className="small-label">{displayValue(activity.category)}</span>
           <Status>{activity.state}</Status>
         </div>
         <h1>{activity.title}</h1>
-        <p>{activity.description}</p>
+        <p className="source-excerpt">{displayValue(activity.description)}</p>
       </div>
+      {activity.qualityNotes.map((note) => (
+        <DemoNotice key={note}>{note}</DemoNotice>
+      ))}
+      {activity.isLocalOverride && (
+        <DemoNotice>
+          Este registro tiene cambios de simulación local. La base observada se conserva.
+        </DemoNotice>
+      )}
       <div className="detail-grid">
         <div>
           <div className="event-details-strip">
             <div>
               <CalendarDays size={20} />
               <span>
-                Fecha<strong>{formatDate(activity.date, { day: 'numeric', month: 'long' })}</strong>
+                Inicio
+                <strong>
+                  {formatDate(activity.date, {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                  })}
+                </strong>
               </span>
             </div>
             <div>
               <Clock3 size={20} />
               <span>
-                Horario
+                Fin
                 <strong>
-                  {formatDate(activity.date, { hour: '2-digit', minute: '2-digit' })} –{' '}
-                  {formatDate(activity.end, { hour: '2-digit', minute: '2-digit' })}
+                  {formatDate(activity.end, {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                  })}
                 </strong>
               </span>
             </div>
             <div>
               {activity.mode === 'Webinar' ? <Monitor size={20} /> : <MapPin size={20} />}
               <span>
-                Formato<strong>{activity.mode}</strong>
+                Formato<strong>{displayValue(activity.mode)}</strong>
               </span>
             </div>
           </div>
           <section className="detail-section">
-            <h2>Un encuentro para avanzar</h2>
-            <p>{activity.description}</p>
-            <p>
-              Dirigido a profesionales de empresas asociadas interesados en compartir experiencias,
-              conocer nuevas perspectivas y fortalecer su red de contactos.
-            </p>
-            <h3>Programa de la sesión</h3>
-            <div className="program">
-              {[
-                ['09:30', 'Bienvenida y contexto del sector'],
-                ['10:00', 'Perspectivas y conversación con expertos'],
-                ['11:00', 'Preguntas, intercambio y networking'],
-              ].map(([time, title]) => (
-                <div key={time}>
-                  <span>{time}</span>
-                  <strong>{title}</strong>
-                </div>
-              ))}
-            </div>
+            <h2>Información de la actividad</h2>
+            {activity.description ? (
+              activity.description.split('\n\n').map((paragraph, i) => <p key={i}>{paragraph}</p>)
+            ) : (
+              <p>No se ha recogido una descripción para esta actividad.</p>
+            )}
+            {activity.address && (
+              <p>
+                <strong>Dirección:</strong> {activity.address}
+              </p>
+            )}
             <p className="form-hint">
-              Programa ilustrativo. La versión final se cargará desde la gestión editorial.
+              Contenido recogido del portal el {formatDate(simulationDate)}. No se añade un programa
+              que no figure en la fuente.
             </p>
           </section>
           <section className="detail-section">
             <h2>Documentación y recursos</h2>
-            <button
-              className="file-row"
-              onClick={() => downloadDemo(`Programa — ${activity.title}`)}
-            >
-              <span className="file-icon">TXT</span>
-              <div>
-                <strong>Programa de la actividad</strong>
-                <p>Ejemplo de descarga · Demostración</p>
-              </div>
-              <Download size={18} />
-            </button>
-            {activity.state === 'Finalizada' && (
+            {files.map((file) => (
               <button
                 className="file-row"
-                onClick={() => downloadDemo(`Materiales — ${activity.title}`)}
+                key={file.id}
+                onClick={() => downloadDemo(file.filename)}
+                aria-label={`Descargar ficha de prueba TXT de ${file.filename}`}
               >
-                <span className="file-icon">TXT</span>
+                <span className="file-icon">{file.format ?? '—'}</span>
                 <div>
-                  <strong>Materiales de la sesión</strong>
-                  <p>Contenido de ejemplo</p>
+                  <strong>{file.filename}</strong>
+                  <p>Archivo observado · Contenido no importado · Ficha de prueba TXT</p>
                 </div>
                 <Download size={18} />
               </button>
+            ))}
+            {files.length === 0 && (
+              <p className="muted">
+                No se han recogido archivos para esta actividad en la muestra.
+              </p>
             )}
           </section>
           <section className="detail-section">
             <div className="section-heading">
               <h2>La comunidad que participa</h2>
-              <span className="small-label">Muestra de asistentes</span>
+              <span className="small-label">Registros de la muestra y altas locales</span>
             </div>
             <SearchInput
               value={peopleSearch}
@@ -277,8 +314,8 @@ export function EventDetail() {
               placeholder="Buscar un asistente…"
             />
             <div className="attendees">
-              {people.slice(0, 4).map((p) => (
-                <Link key={p.id} to={`/detalles-equipo?id=${p.id}`}>
+              {people.map((p) => (
+                <Link key={p.id} to={p.path}>
                   <Avatar initials={p.initials} />
                   <div>
                     <strong>{p.name}</strong>
@@ -288,38 +325,50 @@ export function EventDetail() {
                 </Link>
               ))}
             </div>
-            {people.length === 0 && <EmptyState />}
+            {people.length === 0 && (
+              <EmptyState
+                title="Sin participantes recogidos"
+                description="No se añaden asistentes de otras actividades ni personas ficticias."
+              />
+            )}
+            <p className="form-hint">
+              La lista observada puede tener más páginas. Esta muestra no se presenta como el total
+              de inscritos del portal.
+            </p>
           </section>
         </div>
         <aside className="booking-panel">
-          <Status>{isRegistered ? 'Inscripción confirmada' : activity.state}</Status>
+          <Status>{isRegistered ? 'Inscripción local confirmada' : activity.state}</Status>
           <h2>
             {isRegistered
-              ? 'Nos vemos pronto.'
+              ? 'Inscripción preparada.'
               : isOpen
                 ? 'Reserva tu lugar.'
                 : 'Actividad sin inscripción.'}
           </h2>
-          <p>{activity.place}</p>
+          <p>{displayValue(activity.place)}</p>
           <div className="booking-price">
-            {activity.price === 0 ? 'Sin coste' : `${activity.price} €`}
-            <span>Tarifa para socios</span>
+            {price(activity.price)}
+            <span>Tarifa socio observada</span>
           </div>
-          {activity.price > 0 && (
+          {activity.price !== null && activity.price > 0 && (
             <div className="pricing-lines">
               <span>
-                Segundo asistente <strong>50 €</strong>
+                Desde el segundo asistente <strong>{price(activity.secondPrice)}</strong>
               </span>
               <span>
-                No socio <strong>120 €</strong>
+                No socio <strong>{price(activity.nonMemberPrice)}</strong>
               </span>
             </div>
           )}
           <div className="booking-facts">
             <span>
               <UsersRound size={16} />
-              {activity.attendees} de {activity.capacity} plazas
+              {activity.attendees === null
+                ? 'Asistentes no verificados'
+                : `${activity.attendees} inscripciones recogidas en el mock`}
             </span>
+            <span>Cupo: {displayValue(activity.capacity)}</span>
             <span>
               <CalendarDays size={16} />
               Hasta el {formatDate(activity.deadline, { day: 'numeric', month: 'long' })}
@@ -327,9 +376,13 @@ export function EventDetail() {
           </div>
           {isRegistered ? (
             <>
-              <Button variant="outline" onClick={calendar}>
+              <Button
+                variant="outline"
+                disabled
+                title="Zona horaria original y archivo de calendario no importados"
+              >
                 <CalendarDays size={16} />
-                Añadir al calendario
+                Calendario no importado
               </Button>
               <Button variant="ghost" className="cancel-button" onClick={() => setCancel(true)}>
                 Cancelar inscripción
@@ -346,7 +399,11 @@ export function EventDetail() {
                 ? 'Actividad finalizada'
                 : activity.state === 'Borrador'
                   ? 'Pendiente de publicación'
-                  : 'Inscripciones cerradas'}
+                  : activity.state === 'Completa'
+                    ? 'Grupo completo'
+                    : activity.state === 'Abierta'
+                      ? 'Datos de inscripción incompletos'
+                      : 'Inscripciones cerradas'}
             </Button>
           )}
           {isOpen && (
@@ -358,8 +415,8 @@ export function EventDetail() {
             </Button>
           )}
           <p className="booking-hint">
-            Las cancelaciones se solicitarán según la política de cada actividad. Tarifas
-            ilustrativas.
+            Las tarifas proceden de la fuente. No se supone un cupo cuando falta el dato. Las
+            acciones de este mock se guardan solo en el navegador.
           </p>
           <DemoNotice />
         </aside>
@@ -367,7 +424,7 @@ export function EventDetail() {
       <Dialog open={confirm} onOpenChange={setConfirm}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Confirma tu inscripción</DialogTitle>
+            <DialogTitle>Confirma tu inscripción local</DialogTitle>
             <DialogDescription>
               {activity.title} · {formatDate(activity.date)}
             </DialogDescription>
@@ -375,23 +432,23 @@ export function EventDetail() {
           <div className="summary-box">
             <strong>{store.person.name}</strong>
             <span>{store.business.name}</span>
-            <span>Tarifa: {activity.price === 0 ? 'Sin coste' : `${activity.price} €`}</span>
+            <span>Tarifa observada: {price(activity.price)}</span>
           </div>
           <label className="checkbox-label">
             <Checkbox checked={accepted} onCheckedChange={(v) => setAccepted(v === true)} />
             <span>
-              He leído las condiciones y la política de cancelación de la actividad de ejemplo.
+              Entiendo que esta inscripción es una simulación local y no se comunica a AFEB.
             </span>
           </label>
           <DemoNotice>
-            La inscripción se guardará solo en este navegador. No genera un cobro.
+            Se añadirá a tu perfil y a los participantes del mock. No genera un cobro.
           </DemoNotice>
           <Button
             disabled={!accepted}
             onClick={() => {
               store.register(activity.id)
               setConfirm(false)
-              toast.success('Inscripción de demostración confirmada')
+              toast.success('Inscripción local confirmada')
             }}
           >
             <Check size={16} />
@@ -402,10 +459,10 @@ export function EventDetail() {
       <Dialog open={cancel} onOpenChange={setCancel}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>¿Cancelar esta inscripción?</DialogTitle>
+            <DialogTitle>¿Cancelar esta inscripción local?</DialogTitle>
             <DialogDescription>
-              Se eliminará de tu agenda de demostración. Puedes volver a inscribirte si el evento
-              sigue abierto.
+              Se quitará del perfil y de los participantes del mock. El registro observado de AFEB
+              se conserva.
             </DialogDescription>
           </DialogHeader>
           <div className="form-actions">
@@ -427,13 +484,15 @@ export function EventDetail() {
     </>
   )
 }
+
 export function Invite() {
   const [params] = useSearchParams()
   const store = useStore()
-  const activity = store.activities.find((x) => x.id === params.get('id')) || store.activities[0]
+  const activity = store.activities.find((x) => x.id === resolveActivityId(params.get('id')))
   const [values, setValues] = useState<Record<string, string>>({ company: store.business.name })
   const [accept, setAccept] = useState(false)
   const [sent, setSent] = useState(false)
+  if (!activity) return <EmptyState title="Actividad no encontrada en la base" />
   return (
     <>
       <BackLink to={`/detalles-evento?id=${activity.id}`} label="Volver a la actividad" />
@@ -461,7 +520,7 @@ export function Invite() {
           <form
             onSubmit={(e) => {
               e.preventDefault()
-              if (activity.state !== 'Abierta')
+              if (!canRegisterInMock(activity))
                 return toast.error('La actividad no admite invitaciones')
               store.addRequest(`Invitación: ${values.email} · ${activity.title}`)
               setSent(true)

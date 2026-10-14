@@ -1,0 +1,170 @@
+[
+  {
+    "path": "/",
+    "overflow": false,
+    "title": "Hola, Eloy.",
+    "width": 1440,
+    "wrongLegacyData": false
+  },
+  {
+    "path": "/eventos",
+    "overflow": false,
+    "title": "Actividades",
+    "width": 1440,
+    "wrongLegacyData": false
+  },
+  {
+    "path": "/detalles-evento?id=rechBg5Ghv8eStB7u",
+    "overflow": false,
+    "title": "WEBINAR | ECOEMBES - Desgranando el PPWR: preparación, cumplimiento y acompañamiento.",
+    "width": 1440,
+    "wrongLegacyData": false
+  },
+  {
+    "path": "/inscribir?id=rec9o6L7QzzSGPd3O",
+    "overflow": false,
+    "title": "Las buenas conversaciones se comparten.",
+    "width": 1440,
+    "wrongLegacyData": false
+  },
+  {
+    "path": "/socios",
+    "overflow": false,
+    "title": "Empresas asociadas",
+    "width": 1440,
+    "wrongLegacyData": false
+  },
+  {
+    "path": "/detalles-socio?id=recGhfV9L4RCctCrd",
+    "overflow": false,
+    "title": "AC MARCA ADHESIVES S.L.",
+    "width": 1440,
+    "wrongLegacyData": false
+  },
+  {
+    "path": "/directorio",
+    "overflow": false,
+    "title": "Directorio",
+    "width": 1440,
+    "wrongLegacyData": false
+  },
+  {
+    "path": "/detalles-equipo?id=afeb-pedro-palay",
+    "overflow": false,
+    "title": "Pedro Palay",
+    "width": 1440,
+    "wrongLegacyData": false
+  },
+  {
+    "path": "/detalles-equipo?participation=participation-rec0LuXTXLvvFmEsY",
+    "overflow": false,
+    "title": "Carlo Contreras",
+    "width": 1440,
+    "wrongLegacyData": false
+  },
+  {
+    "path": "/detalles-de-mi-empresa",
+    "overflow": false,
+    "title": "ZERION (pruebas)",
+    "width": 1440,
+    "wrongLegacyData": false
+  },
+  {
+    "path": "/perfil",
+    "overflow": false,
+    "title": "Mi perfil",
+    "width": 1440,
+    "wrongLegacyData": false
+  },
+  {
+    "path": "/informes",
+    "overflow": false,
+    "title": "Informes del sector",
+    "width": 1440,
+    "wrongLegacyData": false
+  },
+  {
+    "path": "/detalles-informe?id=recZpF6HXxGwqF7JL",
+    "overflow": false,
+    "title": "Evolución de Ventas",
+    "width": 1440,
+    "wrongLegacyData": false
+  },
+  {
+    "path": "/detalles-informe?id=recUWbsQongMgQWE0",
+    "overflow": false,
+    "title": "Transformación Industrial",
+    "width": 1440,
+    "wrongLegacyData": false
+  },
+  {
+    "path": "/publicaciones",
+    "overflow": false,
+    "title": "Informes del sector",
+    "width": 1440,
+    "wrongLegacyData": false
+  },
+  {
+    "path": "/documentos",
+    "overflow": false,
+    "title": "Documentos",
+    "width": 1440,
+    "wrongLegacyData": false
+  },
+  {
+    "path": "/normativa",
+    "overflow": false,
+    "title": "Normativa y asesoría",
+    "width": 1440,
+    "wrongLegacyData": false
+  },
+  {
+    "path": "/colaboradores",
+    "overflow": false,
+    "title": "Colaboradores y beneficios",
+    "width": 1440,
+    "wrongLegacyData": false
+  },
+  {
+    "path": "/grupos-trabajo",
+    "overflow": false,
+    "title": "Grupos de trabajo",
+    "width": 1440,
+    "wrongLegacyData": false
+  },
+  {
+    "path": "/otras-acciones-cobranding",
+    "overflow": false,
+    "title": "Conecta una nueva idea.",
+    "width": 1440,
+    "wrongLegacyData": false
+  },
+  {
+    "path": "/otras-acciones-licitaciones",
+    "overflow": false,
+    "title": "Licitaciones",
+    "width": 1440,
+    "wrongLegacyData": false
+  },
+  {
+    "path": "/gestion",
+    "overflow": false,
+    "title": "Gestión interna",
+    "width": 1440,
+    "wrongLegacyData": false
+  },
+  {
+    "path": "/login",
+    "overflow": false,
+    "title": "Conectamos empresas.Impulsamosel sector.",
+    "width": 1440,
+    "wrongLegacyData": false
+  },
+  {
+    "path": "/forget-password",
+    "overflow": false,
+    "title": "Conectamos empresas.Impulsamosel sector.",
+    "width": 1440,
+    "wrongLegacyData": false
+  }
+]
