@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import {
   ArrowUpRight,
@@ -156,8 +156,13 @@ export function Companies() {
 export function Directory() {
   const [search, setSearch] = useState('')
   const [department, setDepartment] = useState('Todos los departamentos')
-  const { role } = useStore()
-  const items = contacts.filter(
+  const { role, person, business } = useStore()
+  const directoryContacts = contacts.map((p) =>
+    p.id === mockDb.account.personId
+      ? { ...p, ...person, initials: initialsFor(person.name), company: business.name }
+      : p,
+  )
+  const items = directoryContacts.filter(
     (p) =>
       (department === 'Todos los departamentos' || department === p.department) &&
       `${p.name} ${p.company} ${p.position}`.toLowerCase().includes(search.toLowerCase()),
@@ -181,7 +186,7 @@ export function Directory() {
           onChange={setDepartment}
           options={[
             'Todos los departamentos',
-            ...new Set(contacts.map((p) => p.department).filter(Boolean)),
+            ...new Set(directoryContacts.map((p) => p.department).filter(Boolean)),
           ]}
         />
       </div>
@@ -202,7 +207,7 @@ export function Directory() {
               </a>
             )}
             <div className="person-card-footer">
-              <span>Contacto recogido</span>
+              <span>Contacto del mock</span>
               <Link className="text-link" to={`/detalles-equipo?id=${p.id}`}>
                 Ver contacto
                 <ArrowUpRight size={16} />
@@ -226,9 +231,19 @@ export function Directory() {
 }
 export function ContactDetail() {
   const [params] = useSearchParams()
-  const person = params.get('participation')
+  const store = useStore()
+  const observedPerson = params.get('participation')
     ? participations.find((x) => x.id === params.get('participation'))
     : contacts.find((x) => x.id === params.get('id'))
+  const person =
+    observedPerson?.id === mockDb.account.personId
+      ? {
+          ...observedPerson,
+          ...store.person,
+          initials: initialsFor(store.person.name),
+          company: store.business.name,
+        }
+      : observedPerson
   if (!person) return <EmptyState title="Contacto no encontrado" />
   return (
     <>
@@ -272,6 +287,7 @@ export function Profile() {
   const store = useStore()
   const [edit, setEdit] = useState(false)
   const [prefs, setPrefs] = useState(store.preferences)
+  useEffect(() => setPrefs(store.preferences), [store.preferences])
   return (
     <>
       <PageHeading

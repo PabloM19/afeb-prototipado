@@ -47,10 +47,10 @@ El contacto jurídico de la portada y el del servicio de asesoría publican corr
 
 - `src/data/mock-db.ts` importa y congela recursivamente la base. Expone referencias, utilidades y versión del dataset.
 - `src/data/fixtures.ts` adapta esos registros a las pantallas existentes. No debe contener una segunda colección de datos de negocio.
-- `src/lib/store.tsx` parte de copias de la base y conserva cambios de simulación en `localStorage`, bajo `afeb:mock:afeb-observed-2026-10-14-v1:`. Los antiguos datos ficticios usan otro prefijo y dejan de alimentar esta versión.
+- `src/lib/mock-backend.ts` crea copias de la base y escribe los cambios relacionados juntos en `localStorage`, bajo `afeb:mock:afeb-observed-2026-10-14-v1:backend:v1`. `src/lib/store.tsx` conecta React y sincroniza las pestañas. Los antiguos datos ficticios usan otro prefijo y dejan de alimentar esta versión.
 - `src/lib/mock-rules.ts` reúne la regla local de inscripción. Exige estado abierto, fechas y tarifa comprobadas, y aplica el plazo con reloj fijo **14/10/2026**. Un cupo desconocido permanece desconocido. Estas son reglas del borrador, no una afirmación sobre el backend actual.
 - El buscador y las fichas leen las mismas entidades. Perfil e inscripciones comparten el estado local.
-- **Restablecer demo** borra únicamente las claves de esta versión y recupera la base observada. No altera el JSON ni la web privada.
+- **Restablecer demo** recupera la base observada en el snapshot local y elimina las claves antiguas migradas de esta versión. No altera el JSON ni la web privada.
 
 ## Escenarios reproducibles
 
@@ -73,7 +73,10 @@ No introducir contraseñas, cookies, tokens, enlaces firmados ni cuerpos de comu
 
 ```bash
 npm run mock:check
+npm run mock:flows
 npm run build
 ```
 
 El control automático verifica IDs únicos, procedencia, relaciones entre tablas, propietarios de archivos, años derivados y los casos observados que no deben corregirse silenciosamente.
+
+Los escenarios también se pueden preparar desde `/demo`; el funcionamiento del mini backend y los controles de presentación están en `DEMO.md`.

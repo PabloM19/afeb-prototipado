@@ -1,184 +1,56 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useEffect, useState, useSyncExternalStore } from 'react'
 import type { ReactNode } from 'react'
-import { activities as initialActivities } from '@/data/fixtures'
 import type { Activity, Role } from '@/data/fixtures'
-import {
-  currentSourcePerson,
-  currentSourceCompany,
-  mockDb,
-  mockStoragePrefix,
-} from '@/data/mock-db'
-import { canRegisterInMock } from '@/lib/mock-rules'
-type Person = {
-  name: string
-  position: string
-  email: string
-  phone: string
-  linkedin: string
-  department: string
-  level: string
-}
-type Business = {
-  name: string
-  tax: string
-  address: string
-  city: string
-  country: string
-  email: string
-  phone: string
-  employees: string
-  revenue: string
-  market: string
-  export: string
-  category: string
-  website: string
-}
-type Store = {
+import { createMockBackend } from '@/lib/mock-backend'
+import type { DemoState, Person, Business, RequestStatus } from '@/lib/mock-backend'
+
+type Store = DemoState & {
   reset: () => void
-  role: Role
   setRole: (r: Role) => void
-  person: Person
   setPerson: (p: Person) => void
-  business: Business
   setBusiness: (b: Business) => void
-  preferences: (boolean | null)[]
   setPreferences: (p: (boolean | null)[]) => void
-  registered: string[]
   register: (id: string) => void
   cancel: (id: string) => void
-  activities: Activity[]
   setActivities: (a: Activity[]) => void
-  requests: string[]
-  addRequest: (r: string) => void
-  brands: string[]
-  setBrands: (b: string[]) => void
-  team: string[]
-  setTeam: (t: string[]) => void
+  addRequest: (subject: string, activityId?: string | null) => void
+  updateRequest: (id: string, status: RequestStatus) => void
+  setBrands: (brands: string[]) => void
+  setTeam: (team: string[]) => void
+  loadScenario: (id: string) => void
 }
 const Context = createContext<Store | null>(null)
-function useLocal<T>(key: string, initial: T) {
-  const storageKey = `${mockStoragePrefix}${key}`
-  const [value, setValue] = useState<T>(() => {
-    try {
-      return JSON.parse(localStorage.getItem(storageKey) || 'null') ?? structuredClone(initial)
-    } catch {
-      return structuredClone(initial)
-    }
-  })
-  return [
-    value,
-    (next: T) => {
-      setValue(next)
-      localStorage.setItem(storageKey, JSON.stringify(next))
-    },
-  ] as const
-}
 export function StoreProvider({ children }: { children: ReactNode }) {
-  const [role, setRole] = useLocal<Role>('role', 'SocioAdmin')
-  const [person, setPerson] = useLocal('person', {
-    name: currentSourcePerson.name,
-    position: currentSourcePerson.position ?? '',
-    email: currentSourcePerson.email ?? '',
-    phone: currentSourcePerson.phone ?? '',
-    linkedin: currentSourcePerson.linkedin ?? '',
-    department: currentSourcePerson.department ?? '',
-    level: currentSourcePerson.level ?? '',
-  })
-  const [business, setBusiness] = useLocal('business', {
-    name: currentSourceCompany.name,
-    tax: currentSourceCompany.taxId ?? '',
-    address: currentSourceCompany.address ?? '',
-    city: currentSourceCompany.location ?? '',
-    country: currentSourceCompany.country ?? '',
-    email: currentSourceCompany.email ?? '',
-    phone: currentSourceCompany.phone ?? '',
-    employees: currentSourceCompany.employees ?? '',
-    revenue: currentSourceCompany.revenue ?? '',
-    market: currentSourceCompany.market ?? '',
-    export: currentSourceCompany.export ?? '',
-    category: currentSourceCompany.category ?? '',
-    website: currentSourceCompany.website ?? '',
-  })
-  const [preferences, setPreferences] = useLocal<(boolean | null)[]>(
-    'preferences',
-    mockDb.account.communicationPreferences,
-  )
-  const [registered, setRegistered] = useLocal<string[]>(
-    'registered',
-    mockDb.account.initialRegisteredActivityIds,
-  )
-  const [activities, setActivities] = useLocal<Activity[]>('activities', initialActivities)
-  const [requests, setRequests] = useLocal<string[]>('requests', [])
-  const [brands, setBrands] = useLocal<string[]>(
-    'brands',
-    currentSourceCompany.brands.map((b) => b.name).filter((name): name is string => name !== null),
-  )
-  const [team, setTeam] = useLocal<string[]>(
-    'team',
-    mockDb.people
-      .filter((p) => new Set<string>(currentSourceCompany.memberPersonIds).has(p.id))
-      .map((p) => p.name),
-  )
+  const [backend] = useState(() => createMockBackend(localStorage))
+  const state = useSyncExternalStore(backend.subscribe, backend.getSnapshot)
+  useEffect(() => {
+    const sync = (event: StorageEvent) => {
+      if (
+        event.storageArea === localStorage &&
+        (event.key === backend.storageKey || event.key === null)
+      )
+        backend.syncFromStorage()
+    }
+    window.addEventListener('storage', sync)
+    return () => window.removeEventListener('storage', sync)
+  }, [backend])
   return (
     <Context.Provider
       value={{
-        reset: () => {
-          Object.keys(localStorage)
-            .filter((key) => key.startsWith(mockStoragePrefix))
-            .forEach((key) => localStorage.removeItem(key))
-          window.location.assign('/')
-        },
-        role,
-        setRole,
-        person,
-        setPerson,
-        business,
-        setBusiness,
-        preferences,
-        setPreferences,
-        registered,
-        register: (id) => {
-          const activity = activities.find((a) => a.id === id)
-          if (!activity || !canRegisterInMock(activity)) return
-          if (!registered.includes(id)) {
-            setRegistered([...registered, id])
-            setActivities(
-              activities.map((a) =>
-                a.id === id
-                  ? {
-                      ...a,
-                      attendees: a.attendees === null ? null : a.attendees + 1,
-                      isLocalOverride: true,
-                    }
-                  : a,
-              ),
-            )
-          }
-        },
-        cancel: (id) => {
-          if (registered.includes(id)) {
-            setRegistered(registered.filter((x) => x !== id))
-            setActivities(
-              activities.map((a) =>
-                a.id === id
-                  ? {
-                      ...a,
-                      attendees: a.attendees === null ? null : Math.max(0, a.attendees - 1),
-                      isLocalOverride: true,
-                    }
-                  : a,
-              ),
-            )
-          }
-        },
-        activities,
-        setActivities,
-        requests,
-        addRequest: (r) => setRequests([...requests, r]),
-        brands,
-        setBrands,
-        team,
-        setTeam,
+        ...state,
+        reset: backend.reset,
+        setRole: (role) => backend.patch('role', role),
+        setPerson: (person) => backend.patch('person', person),
+        setBusiness: (business) => backend.patch('business', business),
+        setPreferences: (prefs) => backend.patch('preferences', prefs),
+        setActivities: (activities) => backend.patch('activities', activities),
+        register: backend.register,
+        cancel: backend.cancel,
+        addRequest: backend.addRequest,
+        updateRequest: backend.updateRequest,
+        setBrands: (brands) => backend.patch('brands', brands),
+        setTeam: (team) => backend.patch('team', team),
+        loadScenario: backend.loadScenario,
       }}
     >
       {children}

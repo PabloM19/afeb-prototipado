@@ -1,0 +1,47 @@
+[
+  {
+    "width": 390,
+    "pane": "Recorridos",
+    "overflow": false
+  },
+  {
+    "width": 390,
+    "pane": "Datos del mock",
+    "overflow": false
+  },
+  {
+    "width": 390,
+    "pane": "Solicitudes (0)",
+    "overflow": false
+  },
+  {
+    "width": 320,
+    "pane": "Recorridos",
+    "overflow": false
+  },
+  {
+    "width": 320,
+    "pane": "Datos del mock",
+    "overflow": false
+  },
+  {
+    "width": 320,
+    "pane": "Solicitudes (0)",
+    "overflow": false
+  },
+  {
+    "width": 768,
+    "pane": "Recorridos",
+    "overflow": false
+  },
+  {
+    "width": 768,
+    "pane": "Datos del mock",
+    "overflow": false
+  },
+  {
+    "width": 768,
+    "pane": "Solicitudes (0)",
+    "overflow": false
+  }
+]

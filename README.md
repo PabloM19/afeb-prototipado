@@ -19,10 +19,15 @@ Abre http://localhost:5173. Si ese puerto está ocupado, utiliza la dirección q
 npm run build        # Comprobación TypeScript y build
 npm run check        # Comprobación TypeScript
 npm run mock:check   # Integridad de la base observada
+npm run mock:flows   # Flujos del mini backend local
 npm run format       # Formato del código y documentos
 npm run format:check
 npm run preview      # Previsualizar dist después del build
 ```
+
+## Preparar una demo
+
+Abre **Centro de demos** en la navegación o visita `/demo`. Puedes cargar recorridos, consultar los datos que se ven en el front, cambiar de rol y gestionar solicitudes locales. Los cambios persisten y se sincronizan entre pestañas del mismo navegador. Ver [guía de presentación y mini backend](docs/DEMO.md).
 
 ## Qué puedes recorrer
 
@@ -46,7 +51,9 @@ Para reiniciar, selecciona **Restablecer demo** en el menú de usuario: borra ú
 - `src/data/mock-db.json`: única base de registros observados, relaciones, procedencia y escenarios.
 - `src/data/mock-db.ts`: base inmutable y utilidades.
 - `src/data/fixtures.ts`: adaptadores de la base y utilidades de presentación.
-- `src/lib/store.tsx`: estado de la demostración. Sustituir por servicios al implementar backend.
+- `src/lib/mock-backend.ts`: repositorio persistente y comandos del mini backend local.
+- `src/lib/store.tsx`: suscripción de React y sincronización entre pestañas.
+- `src/features/demo.tsx`: centro de control de presentaciones y datos.
 - `src/index.css`: tokens neutros, composición, adaptabilidad y estados.
 - `src/styles/afeb-brand.css`: capa de marca aplicada sobre la base funcional.
 - `src/styles/global-search.css`: barra alargada y diálogo de búsqueda adaptables.

@@ -82,3 +82,12 @@ No hay pruebas de autenticación, permisos/API, aislamiento entre empresas, env�
 - La serie estadística inventada y los trimestres generados del histórico se han retirado. La muestra es parcial y los originales PDF/DOC no están importados.
 
 Evidencias actuales: [rutas](previews/mock/route-checks.json), [móvil](previews/mock/mobile-checks.json), [inicio de escritorio](previews/mock/inicio-desktop.jpg) e [inicio móvil](previews/mock/inicio-mobile.jpg). Los escenarios reproducibles y el contrato de continuidad están en `DATOS_MOCK.md`.
+
+## Centro de demos y mini backend local
+
+- `npm run mock:flows`: operaciones de inscripción/cancelación idempotentes, estado persistente, sincronización del repositorio, solicitudes y estados, rol de gestión, seis escenarios, restablecimiento, escritura fallida y migración del formato anterior.
+- Recorrido de navegador: HOUSER se carga con una inscripción local y nueve registros de muestra/simulación; el recorrido base la elimina. Se abre una asesoría desde Normativa, aparece Pendiente en Centro de demos, pasa a En curso en Gestión y a Resuelta en la otra pestaña. La actualización llega sin recargar y se conserva después de recargar.
+- Una edición del cargo de la cuenta se refleja en Directorio y en su ficha. Restablecer recupera la información observada, cero solicitudes y la vista SocioAdmin.
+- Datos del mock muestra 12 actividades y 10 empresas y enlaza sus pantallas.
+- Centro de demos comprobado en 1440 px y en 320/390/768 px con sus tres pestañas, sin desbordamiento horizontal del documento. Evidencias en `previews/demo-center/`.
+- Las solicitudes generadas durante la comprobación se eliminaron mediante restablecimiento. El JSON observado permanece sin cambios.

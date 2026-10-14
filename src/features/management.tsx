@@ -27,7 +27,9 @@ import {
   EmptyState,
   DemoNotice,
   FormFields,
+  FilterSelect,
 } from '@/components/shared'
+import { requestStatuses, type RequestStatus } from '@/lib/mock-backend'
 import { displayValue } from '@/data/mock-db'
 import { useStore } from '@/lib/store'
 import { activityCategories, formatDate } from '@/data/fixtures'
@@ -259,10 +261,21 @@ export default function Management() {
             <h2>Solicitudes recibidas en la demo</h2>
             {store.requests.length ? (
               store.requests.map((r, i) => (
-                <div className="request-row" key={`${i}-${r}`}>
+                <div className="request-row" key={r.id}>
                   <span>{String(i + 1).padStart(2, '0')}</span>
-                  <p>{r}</p>
-                  <Status>Pendiente</Status>
+                  <div>
+                    <p>{r.subject}</p>
+                    <span className="form-hint">
+                      Solicitud local ·{' '}
+                      {r.createdAt ? formatDate(r.createdAt) : 'Fecha no recogida'}
+                    </span>
+                  </div>
+                  <FilterSelect
+                    value={r.status}
+                    onChange={(value) => store.updateRequest(r.id, value as RequestStatus)}
+                    options={requestStatuses}
+                    label={`Estado de ${r.subject}`}
+                  />
                 </div>
               ))
             ) : (

@@ -18,6 +18,7 @@ import {
   CircleHelp,
   LogOut,
   ChevronRight,
+  Play,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
@@ -67,6 +68,7 @@ export function AppShell() {
       '/perfil': 'Mi perfil',
       '/detalles-de-mi-empresa': 'Mi empresa',
       '/gestion': 'Gestión interna',
+      '/demo': 'Centro de demos',
       '/detalles-evento': 'Detalle de actividad',
       '/detalles-informe': 'Detalle de informe',
       '/detalles-socio': 'Ficha de empresa',
@@ -115,6 +117,14 @@ export function AppShell() {
           </NavLink>
         ))}
       </nav>
+      <NavLink
+        to="/demo"
+        className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+        onClick={() => setMobile(false)}
+      >
+        <Play size={18} />
+        Centro de demos
+      </NavLink>
       <div className="nav-caption nav-caption-second">Tu empresa</div>
       <nav aria-label="Empresa">
         <NavLink
@@ -171,6 +181,7 @@ export function AppShell() {
               </DropdownMenuItem>
             ))}
             <DropdownMenuSeparator />
+            <DropdownMenuItem onClick={() => navigate('/demo')}>Centro de demos</DropdownMenuItem>
             <DropdownMenuItem onClick={() => navigate('/perfil')}>Mi perfil</DropdownMenuItem>
             <DropdownMenuItem onClick={() => setResetOpen(true)}>Restablecer demo</DropdownMenuItem>
             <DropdownMenuItem onClick={() => navigate('/login')}>
@@ -197,7 +208,15 @@ export function AppShell() {
             <Button variant="outline" onClick={() => setResetOpen(false)}>
               Cancelar
             </Button>
-            <Button onClick={() => store.reset()}>Restablecer demo</Button>
+            <Button
+              onClick={() => {
+                store.reset()
+                setResetOpen(false)
+                navigate('/')
+              }}
+            >
+              Restablecer demo
+            </Button>
           </div>
         </DialogContent>
       </Dialog>

@@ -7,6 +7,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
+          if (id.endsWith('/src/data/mock-db.json')) return 'mock-data'
           if (id.includes('node_modules/radix-ui') || id.includes('node_modules/@radix-ui'))
             return 'vendor-ui'
           if (id.includes('node_modules/recharts') || id.includes('node_modules/d3-'))

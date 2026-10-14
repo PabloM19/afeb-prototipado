@@ -10,7 +10,7 @@ Se utiliza Vite con React y TypeScript para iterar el diseño de forma rápida. 
 - `App.tsx` registra rutas y proveedores; cada dominio vive en `features/`.
 - UI básica en `components/ui/`: fuente de shadcn, accesibilidad de Radix. No reinventar diálogos, menú, select, checkbox o foco.
 - Componentes de producto comunes en `components/shared.tsx`. Si crecen, separar formularios, listado y descargador en módulos propios.
-- Base común inmutable en `data/mock-db.json`, adaptada por `data/fixtures.ts`. Estado de simulación en `StoreProvider`, persistido bajo `afeb:mock:<datasetId>:`. Ver `DATOS_MOCK.md`. Los componentes no llaman al portal actual.
+- Base común inmutable en `data/mock-db.json`, adaptada por `data/fixtures.ts`. Estado de simulación en `lib/mock-backend.ts`, con comandos independientes de React y snapshots atómicos. `StoreProvider` se suscribe con `useSyncExternalStore`; el evento `storage` sincroniza pestañas. Se persiste bajo `afeb:mock:<datasetId>:`. Ver `DATOS_MOCK.md`. Los componentes no llaman al portal actual.
 - Layout único con sidebar de escritorio, Sheet móvil, breadcrumb, búsqueda, notificaciones y ayuda. Cambiar de ruta reinicia el scroll.
 - La búsqueda global agrupa el contenido visible de empresas, actividades, personas, informes, normativa, documentos, colaboradores y accesos al resto del portal. `components/global-search.tsx` presenta el diálogo; `lib/search.ts` construye y consulta el índice local. Ver `BUSQUEDA_GLOBAL.md`. Los listados filtran en memoria porque la demo es acotada.
 - Inter Variable instalada localmente desde npm y usada en toda la interfaz, igual que en `main`. Lucide es la única familia de iconos.
@@ -28,7 +28,7 @@ Separar estado comercial/condición de socio de rol de aplicación. PSR o Potenc
 
 ## Sustitución del estado demo
 
-Crear interfaces por dominio en `src/services/` (todavía no implementadas) y adaptadores mock/API. Componentes deben consumir los mismos contratos tipados. Para producción, servidor resuelve identidad y empresa, filtra campos y autoriza cada lectura, escritura y descarga. No pasar tokens de Zoho al navegador. No persistir credenciales en localStorage.
+Extender los comandos del repositorio local `lib/mock-backend.ts` mediante interfaces por dominio en `src/services/` y adaptadores mock/API. Mantener los escenarios de `DEMO.md`. Componentes deben consumir los mismos contratos tipados. Para producción, servidor resuelve identidad y empresa, filtra campos y autoriza cada lectura, escritura y descarga. No pasar tokens de Zoho al navegador. No persistir credenciales en localStorage.
 
 Autenticación y autorización se repiten en operaciones de servidor. Usar sesiones revocables, autenticación mantenida, MFA para administración, límites, validación, errores controlados y almacenamiento privado. Cupos y duplicados requieren transacciones; los botones deshabilitados son solo feedback.
 

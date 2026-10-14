@@ -11,6 +11,7 @@ import { Companies, Directory, ContactDetail, Profile, CompanyDetail } from '@/f
 import { Reports, ReportDetail, Documents, Regulations } from '@/features/resources'
 import { Providers, Groups, Cobranding, Tenders } from '@/features/services'
 const Dashboard = lazy(() => import('@/features/dashboard'))
+const DemoCenter = lazy(() => import('@/features/demo'))
 const Management = lazy(() => import('@/features/management'))
 const Auth = lazy(() => import('@/features/auth'))
 function ScrollToTop() {
@@ -56,6 +57,7 @@ export default function App() {
                 <Route path="grupos-trabajo" element={<Groups />} />
                 <Route path="otras-acciones-cobranding" element={<Cobranding />} />
                 <Route path="otras-acciones-licitaciones" element={<Tenders />} />
+                <Route path="demo" element={<DemoCenter />} />
                 <Route path="gestion" element={<Management />} />
                 <Route
                   path="*"

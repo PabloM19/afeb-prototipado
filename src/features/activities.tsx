@@ -522,7 +522,7 @@ export function Invite() {
               e.preventDefault()
               if (!canRegisterInMock(activity))
                 return toast.error('La actividad no admite invitaciones')
-              store.addRequest(`Invitación: ${values.email} · ${activity.title}`)
+              store.addRequest(`Invitación: ${values.email} · ${activity.title}`, activity.id)
               setSent(true)
             }}
           >

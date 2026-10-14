@@ -1,3 +1,4 @@
+import { mockDb } from '@/data/mock-db'
 import {
   companies,
   contacts,
@@ -148,9 +149,12 @@ export function createSearchIndex(context: SearchContext): SearchEntry[] {
     ...contacts.map((item) => ({
       id: `person-${item.id}`,
       area: 'people' as const,
-      title: item.name,
-      description: item.position,
-      meta: `${item.company} · ${item.department}`,
+      title: item.id === mockDb.account.personId ? context.person.name : item.name,
+      description: item.id === mockDb.account.personId ? context.person.position : item.position,
+      meta:
+        item.id === mockDb.account.personId
+          ? `${context.business.name} · ${context.person.department}`
+          : `${item.company} · ${item.department}`,
       path: `/detalles-equipo?id=${item.id}`,
     })),
     ...reports.map((item) => ({
@@ -196,6 +200,15 @@ export function createSearchIndex(context: SearchContext): SearchEntry[] {
       path: `/colaboradores?buscar=${encodeURIComponent(item.title)}&tipo=${item.type}`,
       keywords: item.benefit,
     })),
+    {
+      id: 'demo-center',
+      area: 'account',
+      title: 'Centro de demos',
+      description: 'Recorridos, datos y solicitudes locales',
+      meta: 'Controles de presentación',
+      path: '/demo',
+      keywords: 'mock base datos escenarios reiniciar',
+    },
     {
       id: 'own-profile',
       area: 'account',
