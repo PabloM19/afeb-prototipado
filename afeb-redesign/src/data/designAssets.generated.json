@@ -1,0 +1,126 @@
+{
+  "media": [
+    {
+      "path": "/media/afeb-logo.png",
+      "bytes": 16178
+    },
+    {
+      "path": "/media/bauhaus.webp",
+      "bytes": 47650
+    },
+    {
+      "path": "/media/bellota.webp",
+      "bytes": 1596
+    },
+    {
+      "path": "/media/black-decker.webp",
+      "bytes": 1622
+    },
+    {
+      "path": "/media/bosch.webp",
+      "bytes": 1200
+    },
+    {
+      "path": "/media/club-coloquio.webp",
+      "bytes": 49524
+    },
+    {
+      "path": "/media/club-export.png",
+      "bytes": 15562
+    },
+    {
+      "path": "/media/companies/3m.webp",
+      "bytes": 1688
+    },
+    {
+      "path": "/media/companies/akzo-nobel.webp",
+      "bytes": 2706
+    },
+    {
+      "path": "/media/companies/bellota.svg",
+      "bytes": 4637
+    },
+    {
+      "path": "/media/companies/bosch.svg",
+      "bytes": 1764
+    },
+    {
+      "path": "/media/companies/compo.webp",
+      "bytes": 14044
+    },
+    {
+      "path": "/media/companies/nexmart.webp",
+      "bytes": 17526
+    },
+    {
+      "path": "/media/companies/rubi.svg",
+      "bytes": 2926
+    },
+    {
+      "path": "/media/compo.webp",
+      "bytes": 2536
+    },
+    {
+      "path": "/media/foro-invierno.webp",
+      "bytes": 47460
+    },
+    {
+      "path": "/media/foro-verano.webp",
+      "bytes": 63270
+    },
+    {
+      "path": "/media/grupo-trabajo.webp",
+      "bytes": 38620
+    },
+    {
+      "path": "/media/hero-tools.webp",
+      "bytes": 508130
+    },
+    {
+      "path": "/media/providers/dachser-diy-logistics.webp",
+      "bytes": 16346
+    },
+    {
+      "path": "/media/providers/daterium-system.webp",
+      "bytes": 10750
+    },
+    {
+      "path": "/media/providers/slimstock.webp",
+      "bytes": 6174
+    },
+    {
+      "path": "/media/rubi.webp",
+      "bytes": 1370
+    },
+    {
+      "path": "/media/wd40.webp",
+      "bytes": 2410
+    }
+  ],
+  "icons": [
+    "ArrowUpRight",
+    "ArrowRight",
+    "ArrowDown",
+    "ArrowLeft",
+    "Search",
+    "Menu",
+    "X",
+    "ChevronDown",
+    "ChevronRight",
+    "Check",
+    "Plus",
+    "Minus",
+    "Download",
+    "Copy",
+    "Mail",
+    "Phone",
+    "Globe2",
+    "CalendarDays",
+    "Users",
+    "FileText",
+    "Play",
+    "Info",
+    "CircleCheck",
+    "TriangleAlert"
+  ]
+}

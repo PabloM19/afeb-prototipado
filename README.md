@@ -2,7 +2,9 @@
 
 Portal local en **React + TypeScript + Vite**, con **shadcn/ui, Radix UI, Tailwind CSS 4, Lucide y Manrope Variable**. Esta rama aplica el sistema visual de la landing aportada: papel, neutros cálidos, bosque, lima, tarjetas planas y bordes de 3 px. Implementación basada en la auditoría del 14 de octubre de 2026, con la fase 1 aceptada.
 
-La versión neutra está en `main`, la variante verde anterior en `codex/afeb-brand` y esta adaptación en **`codex/afeb-design-system`**. Consulta [el sistema visual aplicado](docs/SISTEMA_VISUAL.md) y [el historial de marca](docs/MARCA_AFEB.md).
+La rama de trabajo es **`main`**, que integra `codex/afeb-design-system`. Las variantes anteriores se conservan en el historial: neutra en `b7c3752` y verde con la fase 1 en `4a142a8`. Consulta [el sistema visual aplicado](docs/SISTEMA_VISUAL.md) y [el historial de marca](docs/MARCA_AFEB.md).
+
+El repositorio incluye también la landing independiente en `afeb-redesign/` y sus recursos de referencia en `assets/`. Para trabajar en la landing, ejecuta `npm install` y `npm run dev` desde `afeb-redesign/`; utiliza el puerto 5180. La aplicación del portal se ejecuta desde la raíz.
 
 ## Arranque
 

@@ -1,0 +1,114 @@
+[
+  {
+    "slug": "catalogue",
+    "url": "https://brico-afeb.com/afeb-recomienda/",
+    "logos": [
+      {
+        "width": "326",
+        "height": "124",
+        "src": "https://brico-afeb.com/wp-content/uploads/2020/09/daterium.png",
+        "class": [
+          "vc_single_image-img",
+          "attachment-full"
+        ],
+        "alt": "",
+        "decoding": "async",
+        "loading": "lazy",
+        "title": "daterium",
+        "srcset": "https://brico-afeb.com/wp-content/uploads/2020/09/daterium.png 326w, https://brico-afeb.com/wp-content/uploads/2020/09/daterium-300x114.png 300w",
+        "sizes": "(max-width: 326px) 100vw, 326px"
+      },
+      {
+        "width": "326",
+        "height": "124",
+        "src": "https://brico-afeb.com/wp-content/uploads/2021/04/expens.jpg",
+        "class": [
+          "vc_single_image-img",
+          "attachment-full"
+        ],
+        "alt": "",
+        "decoding": "async",
+        "loading": "lazy",
+        "title": "expens",
+        "srcset": "https://brico-afeb.com/wp-content/uploads/2021/04/expens.jpg 326w, https://brico-afeb.com/wp-content/uploads/2021/04/expens-300x114.jpg 300w",
+        "sizes": "(max-width: 326px) 100vw, 326px"
+      },
+      {
+        "width": "400",
+        "height": "180",
+        "src": "https://brico-afeb.com/wp-content/uploads/2025/09/Slimstock.png",
+        "class": [
+          "vc_single_image-img",
+          "attachment-full"
+        ],
+        "alt": "",
+        "decoding": "async",
+        "loading": "lazy",
+        "title": "Slimstock",
+        "srcset": "https://brico-afeb.com/wp-content/uploads/2025/09/Slimstock.png 400w, https://brico-afeb.com/wp-content/uploads/2025/09/Slimstock-300x135.png 300w",
+        "sizes": "(max-width: 400px) 100vw, 400px"
+      }
+    ]
+  },
+  {
+    "slug": "daterium-system",
+    "url": "https://brico-afeb.com/afeb-recomienda/daterium-system/",
+    "logos": [
+      {
+        "width": "1772",
+        "height": "591",
+        "src": "https://brico-afeb.com/wp-content/uploads/2019/06/daterium.jpg",
+        "class": [
+          "vc_single_image-img",
+          "attachment-full"
+        ],
+        "alt": "",
+        "decoding": "async",
+        "loading": "lazy",
+        "title": "daterium",
+        "srcset": "https://brico-afeb.com/wp-content/uploads/2019/06/daterium.jpg 1772w, https://brico-afeb.com/wp-content/uploads/2019/06/daterium-300x100.jpg 300w, https://brico-afeb.com/wp-content/uploads/2019/06/daterium-768x256.jpg 768w, https://brico-afeb.com/wp-content/uploads/2019/06/daterium-1024x342.jpg 1024w, https://brico-afeb.com/wp-content/uploads/2019/06/daterium-672x224.jpg 672w, https://brico-afeb.com/wp-content/uploads/2019/06/daterium-1038x346.jpg 1038w",
+        "sizes": "(max-width: 1772px) 100vw, 1772px"
+      }
+    ]
+  },
+  {
+    "slug": "dachser-diy-logistics",
+    "url": "https://brico-afeb.com/afeb-recomienda/dachser-diy-logistics/",
+    "logos": [
+      {
+        "width": "874",
+        "height": "449",
+        "src": "https://brico-afeb.com/wp-content/uploads/2021/04/201126_DACHSER_Intelligent_Logistics_RGB_Ref.jpg",
+        "class": [
+          "vc_single_image-img",
+          "attachment-full"
+        ],
+        "alt": "",
+        "decoding": "async",
+        "loading": "lazy",
+        "title": "160920_DACHSER_Intelligent_Logistics_RGB_Ref",
+        "srcset": "https://brico-afeb.com/wp-content/uploads/2021/04/201126_DACHSER_Intelligent_Logistics_RGB_Ref.jpg 874w, https://brico-afeb.com/wp-content/uploads/2021/04/201126_DACHSER_Intelligent_Logistics_RGB_Ref-300x154.jpg 300w, https://brico-afeb.com/wp-content/uploads/2021/04/201126_DACHSER_Intelligent_Logistics_RGB_Ref-768x395.jpg 768w, https://brico-afeb.com/wp-content/uploads/2021/04/201126_DACHSER_Intelligent_Logistics_RGB_Ref-672x345.jpg 672w, https://brico-afeb.com/wp-content/uploads/2021/04/201126_DACHSER_Intelligent_Logistics_RGB_Ref-480x247.jpg 480w",
+        "sizes": "(max-width: 874px) 100vw, 874px"
+      }
+    ]
+  },
+  {
+    "slug": "slimstock",
+    "url": "https://brico-afeb.com/afeb-recomienda/slimstock/",
+    "logos": [
+      {
+        "width": "200",
+        "height": "58",
+        "src": "https://brico-afeb.com/wp-content/uploads/2024/10/Logo-Slimstock.png",
+        "class": [
+          "vc_single_image-img",
+          "attachment-large"
+        ],
+        "alt": "",
+        "decoding": "async",
+        "loading": "lazy",
+        "title": "Logo-Slimstock"
+      }
+    ]
+  }
+]

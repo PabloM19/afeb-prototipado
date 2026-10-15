@@ -2,13 +2,13 @@
 
 ## Prioridad actual · interfaz
 
-La fase 1 fue aceptada por el usuario el 15/10/2026; leer [ACEPTACION_FASE_1.md](ACEPTACION_FASE_1.md). El usuario ha pedido un paréntesis para trabajar en la interfaz. **No iniciar la fase 2 durante este bloque.** La rama `codex/afeb-design-system` ya aplica el sistema de la landing; leer [SISTEMA_VISUAL.md](SISTEMA_VISUAL.md). Conservar los flujos, relaciones y reglas aceptados; verificar los recorridos afectados por cada cambio visual. Las plantillas funcionales de abajo quedan para una reanudación posterior.
+La fase 1 fue aceptada por el usuario el 15/10/2026; leer [ACEPTACION_FASE_1.md](ACEPTACION_FASE_1.md). El usuario ha pedido un paréntesis para trabajar en la interfaz. **No iniciar la fase 2 durante este bloque.** `main` integra el sistema de la landing desarrollado en `codex/afeb-design-system`; leer [SISTEMA_VISUAL.md](SISTEMA_VISUAL.md). Conservar los flujos, relaciones y reglas aceptados; verificar los recorridos afectados por cada cambio visual. Las plantillas funcionales de abajo quedan para una reanudación posterior.
 
 ## Contexto para empezar
 
 Este repositorio contiene el primer borrador del portal del socio AFEB. No comenzar otra aplicación ni reemplazar el sistema visual: extender esta base. Revisar `README.md`, `docs/HOJA_DE_RUTA_AFEB.md`, `docs/ALCANCE.md`, `docs/ARQUITECTURA.md` y la auditoría original en `output/pdf/auditoria_portal_afeb_2026-10-14.pdf` antes de ampliar el alcance.
 
-Stack: React 19, TypeScript, Vite 7, Tailwind 4, shadcn/ui, Radix, Lucide, React Router, Sonner y Recharts. `main` conserva el diseño neutro; `codex/afeb-brand`, la primera variante verde con Inter. La rama actual `codex/afeb-design-system` adapta Manrope, tokens, geometría y componentes del kit de la landing. Layout común, módulos por dominio y base observada centralizada en `src/data/mock-db.json`. Mini backend local en `src/lib/mock-backend.ts`, con `StoreProvider` suscrito y Centro de demos en `/demo`; ningún backend o credencial real. `/publicaciones` redirige a `/informes`, `/detalles-equipo` es propuesta, grupos vacíos e informe por empresa sin archivo asignado.
+Stack: React 19, TypeScript, Vite 7, Tailwind 4, shadcn/ui, Radix, Lucide, React Router, Sonner y Recharts. La rama actual `main` adapta Manrope, tokens, geometría y componentes del kit de la landing. El diseño neutro (`b7c3752`) y la primera variante verde con Inter (`4a142a8`) quedan en el historial; las ramas auxiliares se retiraron al integrar el diseño. Layout común, módulos por dominio y base observada centralizada en `src/data/mock-db.json`. Mini backend local en `src/lib/mock-backend.ts`, con `StoreProvider` suscrito y Centro de demos en `/demo`; ningún backend o credencial real. `/publicaciones` redirige a `/informes`, `/detalles-equipo` es propuesta, grupos vacíos e informe por empresa sin archivo asignado.
 
 El punto de entrada para revisar el diseño es `npm run dev`. `npm run build` verifica tipos y bundle. Los roles se prueban desde el menú de usuario; `Gestor AFEB` habilita el panel editorial de muestra. Restablecer vuelve a la base observada; leer `docs/DATOS_MOCK.md` antes de modificar datos.
 

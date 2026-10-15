@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "daterium-system",
+    "url": "https://brico-afeb.com/wp-content/uploads/2019/06/daterium.jpg",
+    "size": [
+      700,
+      233
+    ],
+    "asset": "/media/providers/daterium-system.webp"
+  },
+  {
+    "slug": "dachser-diy-logistics",
+    "url": "https://brico-afeb.com/wp-content/uploads/2021/04/201126_DACHSER_Intelligent_Logistics_RGB_Ref.jpg",
+    "size": [
+      584,
+      300
+    ],
+    "asset": "/media/providers/dachser-diy-logistics.webp"
+  },
+  {
+    "slug": "slimstock",
+    "url": "https://brico-afeb.com/wp-content/uploads/2025/09/Slimstock.png",
+    "size": [
+      400,
+      180
+    ],
+    "asset": "/media/providers/slimstock.webp"
+  }
+]

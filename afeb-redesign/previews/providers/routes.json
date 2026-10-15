@@ -1,0 +1,128 @@
+[
+  {
+    "contact": [
+      {
+        "href": "tel:+34671080938",
+        "target": null
+      },
+      {
+        "href": "mailto:joaquim.lopez@es.dachser.com",
+        "target": null
+      },
+      {
+        "href": "https://www.dachser.es/es/diy-logistics-102",
+        "target": "_blank"
+      }
+    ],
+    "h1": "DACHSER DIY Logistics",
+    "imagesLoaded": true,
+    "path": "/proveedores-recomendados/dachser-diy-logistics",
+    "related": [
+      "/proveedores-recomendados/nexmart",
+      "/proveedores-recomendados/daterium-system",
+      "/proveedores-recomendados/slimstock"
+    ],
+    "services": [
+      "Aprovisionamiento y distribución",
+      "Almacenamiento",
+      "Servicios de valor añadido",
+      "eLogistics",
+      "Logística en tienda y B2C"
+    ],
+    "tags": "TransporteAlmacenesDistribución"
+  },
+  {
+    "contact": [
+      {
+        "href": "tel:+34629266506",
+        "target": null
+      },
+      {
+        "href": "mailto:n.padros@slimstock.com",
+        "target": null
+      },
+      {
+        "href": "https://www.slimstock.com/es/",
+        "target": "_blank"
+      }
+    ],
+    "h1": "Slimstock",
+    "imagesLoaded": true,
+    "path": "/proveedores-recomendados/slimstock",
+    "related": [
+      "/proveedores-recomendados/nexmart",
+      "/proveedores-recomendados/daterium-system",
+      "/proveedores-recomendados/dachser-diy-logistics"
+    ],
+    "services": [
+      "Previsión de la demanda",
+      "Optimización del inventario",
+      "Reaprovisionamiento",
+      "Planificación integrada"
+    ],
+    "tags": "DemandaInventarioReposición"
+  },
+  {
+    "contact": [
+      {
+        "href": "tel:+34943309286",
+        "target": null
+      },
+      {
+        "href": "mailto:sales-es@nexmart.com",
+        "target": null
+      },
+      {
+        "href": "https://www.nexmart.com/es/",
+        "target": "_blank"
+      }
+    ],
+    "h1": "NEXMART",
+    "imagesLoaded": true,
+    "path": "/proveedores-recomendados/nexmart",
+    "related": [
+      "/proveedores-recomendados/daterium-system",
+      "/proveedores-recomendados/dachser-diy-logistics",
+      "/proveedores-recomendados/slimstock"
+    ],
+    "services": [
+      "EDI Connect",
+      "Business App",
+      "Documents to EDI",
+      "Retail Connect",
+      "Data Engine"
+    ],
+    "tags": "eBusinessIntegraciónCanal digital"
+  },
+  {
+    "contact": [
+      {
+        "href": "tel:+34916256238",
+        "target": null
+      },
+      {
+        "href": "mailto:info@dateriumsystem.com",
+        "target": null
+      },
+      {
+        "href": "https://www.dateriumsystem.com/",
+        "target": "_blank"
+      }
+    ],
+    "h1": "Daterium System",
+    "imagesLoaded": true,
+    "path": "/proveedores-recomendados/daterium-system",
+    "related": [
+      "/proveedores-recomendados/nexmart",
+      "/proveedores-recomendados/dachser-diy-logistics",
+      "/proveedores-recomendados/slimstock"
+    ],
+    "services": [
+      "Daterium Data Product",
+      "Calidad del dato",
+      "Activos digitales",
+      "Daterium Consulting"
+    ],
+    "tags": "CatálogosDatosConsultoría"
+  }
+]

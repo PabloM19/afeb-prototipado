@@ -1,0 +1,191 @@
+{
+  "results": [
+    {
+      "width": 1920,
+      "scrollWidth": 1920,
+      "height": 6427,
+      "brokenImages": [],
+      "fonts": true,
+      "h1": {
+        "x": 320,
+        "y": 258.8125,
+        "width": 751.28125,
+        "height": 270.5625,
+        "top": 258.8125,
+        "right": 1071.28125,
+        "bottom": 529.375,
+        "left": 320
+      },
+      "outOfBounds": []
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 6314,
+      "brokenImages": [],
+      "fonts": true,
+      "h1": {
+        "x": 80,
+        "y": 229.015625,
+        "width": 751.28125,
+        "height": 250.171875,
+        "top": 229.015625,
+        "right": 831.28125,
+        "bottom": 479.1875,
+        "left": 80
+      },
+      "outOfBounds": []
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "height": 6133,
+      "brokenImages": [],
+      "fonts": true,
+      "h1": {
+        "x": 56.828125,
+        "y": 219.890625,
+        "width": 528.1875,
+        "height": 171.609375,
+        "top": 219.890625,
+        "right": 585.015625,
+        "bottom": 391.5,
+        "left": 56.828125
+      },
+      "outOfBounds": [],
+      "mobileMenu": {
+        "opened": "true",
+        "firstFocus": "01Somos AFEB",
+        "closedWithEscape": true,
+        "anchorWorks": true,
+        "closedOnNavigation": true
+      }
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "height": 5927,
+      "brokenImages": [],
+      "fonts": true,
+      "h1": {
+        "x": 32,
+        "y": 216.328125,
+        "width": 407.390625,
+        "height": 129.84375,
+        "top": 216.328125,
+        "right": 439.390625,
+        "bottom": 346.171875,
+        "left": 32
+      },
+      "outOfBounds": [],
+      "mobileMenu": {
+        "opened": "true",
+        "firstFocus": "01Somos AFEB",
+        "closedWithEscape": true,
+        "anchorWorks": true,
+        "closedOnNavigation": true
+      }
+    },
+    {
+      "width": 430,
+      "scrollWidth": 430,
+      "height": 7885,
+      "brokenImages": [],
+      "fonts": true,
+      "h1": {
+        "x": 24,
+        "y": 154.1875,
+        "width": 382,
+        "height": 143.53125,
+        "top": 154.1875,
+        "right": 406,
+        "bottom": 297.71875,
+        "left": 24
+      },
+      "outOfBounds": [],
+      "mobileMenu": {
+        "opened": "true",
+        "firstFocus": "01Somos AFEB",
+        "closedWithEscape": true,
+        "anchorWorks": true,
+        "closedOnNavigation": true
+      }
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 7928,
+      "brokenImages": [],
+      "fonts": true,
+      "h1": {
+        "x": 24,
+        "y": 154.1875,
+        "width": 342,
+        "height": 130.171875,
+        "top": 154.1875,
+        "right": 366,
+        "bottom": 284.359375,
+        "left": 24
+      },
+      "outOfBounds": [],
+      "mobileMenu": {
+        "opened": "true",
+        "firstFocus": "01Somos AFEB",
+        "closedWithEscape": true,
+        "anchorWorks": true,
+        "closedOnNavigation": true
+      }
+    },
+    {
+      "width": 375,
+      "scrollWidth": 375,
+      "height": 7998,
+      "brokenImages": [],
+      "fonts": true,
+      "h1": {
+        "x": 24,
+        "y": 154.1875,
+        "width": 327,
+        "height": 125.15625,
+        "top": 154.1875,
+        "right": 351,
+        "bottom": 279.34375,
+        "left": 24
+      },
+      "outOfBounds": [],
+      "mobileMenu": {
+        "opened": "true",
+        "firstFocus": "01Somos AFEB",
+        "closedWithEscape": true,
+        "anchorWorks": true,
+        "closedOnNavigation": true
+      }
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "height": 8160,
+      "brokenImages": [],
+      "fonts": true,
+      "h1": {
+        "x": 20,
+        "y": 152.921875,
+        "width": 280,
+        "height": 104.765625,
+        "top": 152.921875,
+        "right": 300,
+        "bottom": 257.6875,
+        "left": 20
+      },
+      "outOfBounds": [],
+      "mobileMenu": {
+        "opened": "true",
+        "firstFocus": "01Somos AFEB",
+        "closedWithEscape": true,
+        "anchorWorks": true,
+        "closedOnNavigation": true
+      }
+    }
+  ],
+  "errors": []
+}

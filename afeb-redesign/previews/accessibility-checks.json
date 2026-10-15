@@ -1,0 +1,10 @@
+{
+  "contrast": [],
+  "anchorTargets": true,
+  "reducedMotion": true,
+  "menuFocus": {
+    "toToggle": true,
+    "wrapsToLast": true,
+    "wrapsToFirst": true
+  }
+}

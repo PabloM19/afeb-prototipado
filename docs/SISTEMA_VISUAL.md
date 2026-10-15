@@ -1,6 +1,6 @@
 # Sistema visual del portal AFEB
 
-**Fecha:** 15/10/2026. **Rama:** `codex/afeb-design-system`. Parte de `codex/afeb-brand` y conserva los flujos de la fase 1 aceptada.
+**Fecha:** 15/10/2026. **Rama actual:** `main`. Integra el diseño desarrollado en `codex/afeb-design-system` a partir de `codex/afeb-brand` y conserva los flujos de la fase 1 aceptada. Las variantes anteriores permanecen en el historial, aunque sus ramas auxiliares se han retirado.
 
 ## Referencia y adaptación
 

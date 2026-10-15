@@ -1,0 +1,112 @@
+[
+  {
+    "body": "17px",
+    "fonts": true,
+    "hero": "76px",
+    "layout": "732px 488px",
+    "overflow": [],
+    "scrollWidth": 1920,
+    "section": "52px",
+    "width": 1920
+  },
+  {
+    "body": "17px",
+    "fonts": true,
+    "hero": "74.16px",
+    "layout": "732px 488px",
+    "overflow": [],
+    "scrollWidth": 1440,
+    "section": "49.68px",
+    "width": 1440
+  },
+  {
+    "body": "17px",
+    "fonts": true,
+    "hero": "63.86px",
+    "layout": "617.375px 440.977px",
+    "overflow": [],
+    "scrollWidth": 1240,
+    "section": "42.78px",
+    "width": 1240
+  },
+  {
+    "body": "17px",
+    "fonts": true,
+    "hero": "52.736px",
+    "layout": "505.359px 360.969px",
+    "overflow": [],
+    "scrollWidth": 1024,
+    "section": "35.328px",
+    "width": 1024
+  },
+  {
+    "body": "17px",
+    "fonts": true,
+    "hero": "66px",
+    "layout": "836px",
+    "overflow": [],
+    "scrollWidth": 900,
+    "section": "34px",
+    "width": 900
+  },
+  {
+    "body": "17px",
+    "fonts": true,
+    "hero": "59.904px",
+    "layout": "704px",
+    "overflow": [],
+    "scrollWidth": 768,
+    "section": "34px",
+    "width": 768
+  },
+  {
+    "body": "17px",
+    "fonts": true,
+    "hero": "53.118px",
+    "layout": "617px",
+    "overflow": [],
+    "scrollWidth": 681,
+    "section": "34px",
+    "width": 681
+  },
+  {
+    "body": "16px",
+    "fonts": true,
+    "hero": "45.15px",
+    "layout": "382px",
+    "overflow": [],
+    "scrollWidth": 430,
+    "section": "34.4px",
+    "width": 430
+  },
+  {
+    "body": "16px",
+    "fonts": true,
+    "hero": "40.95px",
+    "layout": "342px",
+    "overflow": [],
+    "scrollWidth": 390,
+    "section": "32px",
+    "width": 390
+  },
+  {
+    "body": "16px",
+    "fonts": true,
+    "hero": "39.375px",
+    "layout": "327px",
+    "overflow": [],
+    "scrollWidth": 375,
+    "section": "32px",
+    "width": 375
+  },
+  {
+    "body": "16px",
+    "fonts": true,
+    "hero": "36px",
+    "layout": "280px",
+    "overflow": [],
+    "scrollWidth": 320,
+    "section": "32px",
+    "width": 320
+  }
+]

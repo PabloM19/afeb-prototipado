@@ -1,0 +1,19 @@
+[
+  {
+    "file": "afeb-design-system.zip",
+    "bytes": 1568698,
+    "files": 122,
+    "integrity": "ok",
+    "httpMatchesLocal": true
+  },
+  {
+    "file": "afeb-assets.zip",
+    "bytes": 941509,
+    "files": 64,
+    "integrity": "ok",
+    "httpMatchesLocal": true
+  },
+  {
+    "downloadFromUI": "ok"
+  }
+]

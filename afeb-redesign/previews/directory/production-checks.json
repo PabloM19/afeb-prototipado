@@ -1,0 +1,110 @@
+{
+  "productionProfiles": [
+    {
+      "cssLoaded": true,
+      "externalHref": "https://www.3m.com.es/3M/es_ES/empresa-es/",
+      "externalTarget": "_blank",
+      "h1": "3M España",
+      "imagesLoaded": true,
+      "path": "/empresas-asociadas/3m",
+      "relatedCount": 3,
+      "title": "3M España — AFEB"
+    },
+    {
+      "cssLoaded": true,
+      "externalHref": "https://www.bruguer.es/es/",
+      "externalTarget": "_blank",
+      "h1": "Akzo Nobel Coatings",
+      "imagesLoaded": true,
+      "path": "/empresas-asociadas/akzo-nobel",
+      "relatedCount": 3,
+      "title": "Akzo Nobel Coatings — AFEB"
+    },
+    {
+      "cssLoaded": true,
+      "externalHref": "https://www.bellota.com/",
+      "externalTarget": "_blank",
+      "h1": "Bellota",
+      "imagesLoaded": true,
+      "path": "/empresas-asociadas/bellota",
+      "relatedCount": 3,
+      "title": "Bellota — AFEB"
+    },
+    {
+      "cssLoaded": true,
+      "externalHref": "https://www.bosch-professional.com/es/es/",
+      "externalTarget": "_blank",
+      "h1": "Bosch",
+      "imagesLoaded": true,
+      "path": "/empresas-asociadas/bosch",
+      "relatedCount": 3,
+      "title": "Bosch — AFEB"
+    },
+    {
+      "cssLoaded": true,
+      "externalHref": "https://www.compo.es/",
+      "externalTarget": "_blank",
+      "h1": "COMPO",
+      "imagesLoaded": true,
+      "path": "/empresas-asociadas/compo",
+      "relatedCount": 3,
+      "title": "COMPO — AFEB"
+    },
+    {
+      "cssLoaded": true,
+      "externalHref": "https://www.rubi.com/es",
+      "externalTarget": "_blank",
+      "h1": "RUBI",
+      "imagesLoaded": true,
+      "path": "/empresas-asociadas/rubi",
+      "relatedCount": 3,
+      "title": "RUBI — AFEB"
+    },
+    {
+      "cssLoaded": true,
+      "externalHref": "https://www.stanleyblackanddecker.com/",
+      "externalTarget": "_blank",
+      "h1": "Stanley Black & Decker",
+      "imagesLoaded": true,
+      "path": "/empresas-asociadas/stanley-black-decker",
+      "relatedCount": 3,
+      "title": "Stanley Black & Decker — AFEB"
+    },
+    {
+      "cssLoaded": true,
+      "externalHref": "https://wd40.es/",
+      "externalTarget": "_blank",
+      "h1": "WD-40",
+      "imagesLoaded": true,
+      "path": "/empresas-asociadas/wd40",
+      "relatedCount": 3,
+      "title": "WD-40 — AFEB"
+    }
+  ],
+  "filters": [
+    {
+      "sector": "industria",
+      "status": "1 empresa encontrada"
+    },
+    {
+      "sector": "herramientas",
+      "status": "4 empresas encontradas"
+    },
+    {
+      "sector": "ferreteria",
+      "status": "3 empresas encontradas"
+    },
+    {
+      "sector": "jardin",
+      "status": "2 empresas encontradas"
+    },
+    {
+      "sector": "pinturas",
+      "status": "1 empresa encontrada"
+    },
+    {
+      "sector": "todos",
+      "status": "8 empresas en esta selección"
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+[
+  {
+    "path": "/sistema-de-diseno",
+    "status": 200,
+    "bytes": 889,
+    "type": "text/html"
+  },
+  {
+    "path": "/design-system/tokens.json",
+    "status": 200,
+    "bytes": 3395,
+    "type": "application/json"
+  },
+  {
+    "path": "/design-system/tokens.css",
+    "status": 200,
+    "bytes": 639,
+    "type": "text/css"
+  },
+  {
+    "path": "/design-system/fonts/manrope-latin-wght-normal.woff2",
+    "status": 200,
+    "bytes": 24836,
+    "type": "font/woff2"
+  },
+  {
+    "path": "/media/rubi.webp",
+    "status": 200,
+    "bytes": 1370,
+    "type": "image/webp"
+  },
+  {
+    "path": "/media/bosch.webp",
+    "status": 200,
+    "bytes": 1200,
+    "type": "image/webp"
+  },
+  {
+    "path": "/media/foro-verano.webp",
+    "status": 200,
+    "bytes": 63270,
+    "type": "image/webp"
+  },
+  {
+    "path": "/media/black-decker.webp",
+    "status": 200,
+    "bytes": 1622,
+    "type": "image/webp"
+  },
+  {
+    "path": "/media/wd40.webp",
+    "status": 200,
+    "bytes": 2410,
+    "type": "image/webp"
+  },
+  {
+    "path": "/media/bellota.webp",
+    "status": 200,
+    "bytes": 1596,
+    "type": "image/webp"
+  },
+  {
+    "path": "/media/hero-tools.webp",
+    "status": 200,
+    "bytes": 508130,
+    "type": "image/webp"
+  },
+  {
+    "path": "/media/club-coloquio.webp",
+    "status": 200,
+    "bytes": 49524,
+    "type": "image/webp"
+  },
+  {
+    "path": "/media/afeb-logo.png",
+    "status": 200,
+    "bytes": 16178,
+    "type": "image/png"
+  },
+  {
+    "path": "/media/bauhaus.webp",
+    "status": 200,
+    "bytes": 47650,
+    "type": "image/webp"
+  },
+  {
+    "path": "/media/foro-invierno.webp",
+    "status": 200,
+    "bytes": 47460,
+    "type": "image/webp"
+  },
+  {
+    "path": "/media/club-export.png",
+    "status": 200,
+    "bytes": 15562,
+    "type": "image/png"
+  },
+  {
+    "path": "/media/manifest.json",
+    "status": 200,
+    "bytes": 2211,
+    "type": "application/json"
+  },
+  {
+    "path": "/media/compo.webp",
+    "status": 200,
+    "bytes": 2536,
+    "type": "image/webp"
+  },
+  {
+    "path": "/media/grupo-trabajo.webp",
+    "status": 200,
+    "bytes": 38620,
+    "type": "image/webp"
+  },
+  {
+    "path": "/media/providers/dachser-diy-logistics.webp",
+    "status": 200,
+    "bytes": 16346,
+    "type": "image/webp"
+  },
+  {
+    "path": "/media/providers/slimstock.webp",
+    "status": 200,
+    "bytes": 6174,
+    "type": "image/webp"
+  },
+  {
+    "path": "/media/providers/daterium-system.webp",
+    "status": 200,
+    "bytes": 10750,
+    "type": "image/webp"
+  },
+  {
+    "path": "/media/companies/bellota.svg",
+    "status": 200,
+    "bytes": 4637,
+    "type": "image/svg+xml"
+  },
+  {
+    "path": "/media/companies/bosch.svg",
+    "status": 200,
+    "bytes": 1764,
+    "type": "image/svg+xml"
+  },
+  {
+    "path": "/media/companies/rubi.svg",
+    "status": 200,
+    "bytes": 2926,
+    "type": "image/svg+xml"
+  },
+  {
+    "path": "/media/companies/akzo-nobel.webp",
+    "status": 200,
+    "bytes": 2706,
+    "type": "image/webp"
+  },
+  {
+    "path": "/media/companies/compo.webp",
+    "status": 200,
+    "bytes": 14044,
+    "type": "image/webp"
+  },
+  {
+    "path": "/media/companies/nexmart.webp",
+    "status": 200,
+    "bytes": 17526,
+    "type": "image/webp"
+  },
+  {
+    "path": "/media/companies/3m.webp",
+    "status": 200,
+    "bytes": 1688,
+    "type": "image/webp"
+  }
+]

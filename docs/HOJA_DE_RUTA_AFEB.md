@@ -1,6 +1,6 @@
 # Hoja de ruta AFEB: auditoría frente al mock actual
 
-**Revisión:** 15/10/2026. **Rama actual:** `codex/afeb-design-system`, derivada de `codex/afeb-brand`. **Base funcional contrastada:** fase 1 implementada en `4a142a8` sobre `0ea35c3`.
+**Revisión:** 15/10/2026. **Rama actual:** `main`, que integra `codex/afeb-design-system`, derivada de `codex/afeb-brand`. **Base funcional contrastada:** fase 1 implementada en `4a142a8` sobre `0ea35c3`.
 
 **Fase 1 completada, verificada y aceptada por el usuario (mock local):** ver [guía de prueba](PROBAR_FASE_1.md) y [acta de aceptación del 15/10/2026](ACEPTACION_FASE_1.md). Las fases 2-6 siguen pendientes.
 

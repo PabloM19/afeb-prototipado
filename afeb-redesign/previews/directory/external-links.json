@@ -1,0 +1,48 @@
+[
+  {
+    "url": "https://www.3m.com.es/3M/es_ES/empresa-es/",
+    "status": "request_timeout"
+  },
+  {
+    "url": "https://www.bruguer.es/es/",
+    "status": 200,
+    "finalUrl": "https://www.bruguer.es"
+  },
+  {
+    "url": "https://www.bellota.com/",
+    "status": 200,
+    "finalUrl": "https://www.bellota.com/",
+    "publishedLegacyLink": "https://www.bellota.com/ES/es/",
+    "publishedLegacyRedirect": "https://www.bellota.com/es-es/producto/escarificador-con-ruedas-para-mantenimiento-del-jardin-con-mango-largo-3080cm/"
+  },
+  {
+    "url": "https://www.bosch-professional.com/es/es/",
+    "status": 200,
+    "finalUrl": "https://www.bosch-professional.com/es/es/"
+  },
+  {
+    "url": "https://www.compo.es/",
+    "status": 200,
+    "finalUrl": "https://www.compo.es/"
+  },
+  {
+    "url": "https://www.rubi.com/es",
+    "status": 200,
+    "finalUrl": "https://www.rubi.com/es"
+  },
+  {
+    "url": "https://www.stanleyblackanddecker.com/",
+    "status": 403,
+    "finalUrl": "https://www.stanleyblackanddecker.com/"
+  },
+  {
+    "url": "https://wd40.es/",
+    "status": 403,
+    "finalUrl": "https://wd40.es/"
+  },
+  {
+    "url": "https://www.nexmart.com/es/",
+    "status": 200,
+    "finalUrl": "https://www.nexmart.com/es/"
+  }
+]

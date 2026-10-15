@@ -1,0 +1,54 @@
+[
+  {
+    "name": "3m",
+    "url": "https://brico-afeb.com/wp-content/uploads/2023/08/3M_.png",
+    "dimensions": [
+      80,
+      80
+    ]
+  },
+  {
+    "name": "nexmart",
+    "url": "https://brico-afeb.com/wp-content/uploads/2021/01/Logo_nexmart.png",
+    "dimensions": [
+      735,
+      330
+    ]
+  },
+  {
+    "name": "bellota",
+    "url": "https://www.bellota.com/wp-content/uploads/2023/08/bellota-logo.svg",
+    "dimensions": "vector",
+    "asset": "/media/companies/bellota.svg"
+  },
+  {
+    "name": "bosch",
+    "url": "https://www.bosch-professional.com/media/professional/central_assets/bosch_logo/bosch.svg",
+    "dimensions": "vector",
+    "asset": "/media/companies/bosch.svg"
+  },
+  {
+    "name": "rubi",
+    "url": "https://www.rubi.com/img/logo2.svg",
+    "dimensions": "vector",
+    "asset": "/media/companies/rubi.svg"
+  },
+  {
+    "name": "compo",
+    "url": "https://www.compo.de/dam/jcr:b2270762-fa24-489c-afbc-8153c12185c1/COMPO_Logo_Header@3x.png?x=50&y=50",
+    "dimensions": [
+      228,
+      274
+    ],
+    "asset": "/media/companies/compo.webp"
+  },
+  {
+    "name": "akzo-nobel",
+    "url": "https://images.akzonobel.com/akzonobel-corporate/global/en/admin/logo-akzonobel.png?impolicy=.auto",
+    "dimensions": [
+      184,
+      59
+    ],
+    "asset": "/media/companies/akzo-nobel.webp"
+  }
+]

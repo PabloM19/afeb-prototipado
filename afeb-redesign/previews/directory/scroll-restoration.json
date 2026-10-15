@@ -1,0 +1,14 @@
+{
+  "development": {
+    "before": 843.5,
+    "after": {
+      "query": "bellota",
+      "scroll": 843.5
+    }
+  },
+  "production": {
+    "cardTop": 338.078125,
+    "query": "bellota",
+    "scroll": 843.5
+  }
+}

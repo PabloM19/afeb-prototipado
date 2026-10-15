@@ -1,0 +1,280 @@
+[
+  {
+    "archivo": "01_logotipos/afeb-transparente.png",
+    "apartado": "Identidad",
+    "origen": "https://brico-afeb.com/wp-content/uploads/2026/03/LOGO-AFEB-512px-FONS-TRANSPARENT.png",
+    "paginas_origen": [],
+    "dimensiones": [
+      512,
+      512
+    ],
+    "tipo": "Original descargado sin modificar",
+    "notas": "PNG original con transparencia; no se ha localizado un SVG oficial en la biblioteca pública consultada.",
+    "bytes": 18162,
+    "sha256": "077779fe5c8e7ca80a6b6b08d0087bf1d6ec7decaa60a70d5d4edd22b2ed5b83"
+  },
+  {
+    "archivo": "01_logotipos/afeb-fondo-blanco.png",
+    "apartado": "Identidad",
+    "origen": "https://brico-afeb.com/wp-content/uploads/2026/03/LOGO-AFEB-512px-FONS-BLANC.png",
+    "paginas_origen": [],
+    "dimensiones": [
+      512,
+      512
+    ],
+    "tipo": "Original descargado sin modificar",
+    "notas": "",
+    "bytes": 24138,
+    "sha256": "d883a3e643c55fa7f4fb831f59a9c2cc24e51e135e63eeae8374a5cffdc59ba2"
+  },
+  {
+    "archivo": "01_logotipos/club-export.png",
+    "apartado": "Internacionalización",
+    "origen": "https://brico-afeb.com/wp-content/uploads/2023/01/logo-club-export-afeb.png",
+    "paginas_origen": [],
+    "dimensiones": [
+      497,
+      337
+    ],
+    "tipo": "Original descargado sin modificar",
+    "notas": "",
+    "bytes": 16453,
+    "sha256": "e5ca5affdaf5b662e682777a1fca341ea391bbf25fc2b5391d4e662575f8bde9"
+  },
+  {
+    "archivo": "02_fotografias/hero-herramientas.jpg",
+    "apartado": "Hero",
+    "origen": "https://brico-afeb.com/wp-content/uploads/2025/07/fondo-afeb-04-3.jpg",
+    "paginas_origen": [],
+    "dimensiones": [
+      2000,
+      959
+    ],
+    "tipo": "Original descargado sin modificar",
+    "notas": "Fondo utilizado actualmente en la home; deja espacio libre para el titular.",
+    "bytes": 1231208,
+    "sha256": "979078ae3cdddb0e5c5c2d270d90d1cd4c7334d712eeb4c9267ee188d634a82d"
+  },
+  {
+    "archivo": "02_fotografias/herramientas-alternativa.jpg",
+    "apartado": "Hero",
+    "origen": "https://brico-afeb.com/wp-content/uploads/2025/07/Fondo-AFEB-02.jpg",
+    "paginas_origen": [],
+    "dimensiones": [
+      5400,
+      3600
+    ],
+    "tipo": "Original descargado sin modificar",
+    "notas": "Alternativa de fondo; conservar el original y recortar en el diseño.",
+    "bytes": 16849192,
+    "sha256": "87e250af76f15470c7280ba662bccec510ad8be3a7d86aeb8fbbbe89e45c6dee"
+  },
+  {
+    "archivo": "02_fotografias/foro-invierno-2025.jpeg",
+    "apartado": "Foros y actividades",
+    "origen": "https://brico-afeb.com/wp-content/uploads/2026/03/Memoria_AFEB_2025_12-pags_def.pdf",
+    "pagina_pdf": 7,
+    "dimensiones": [
+      623,
+      300
+    ],
+    "tipo": "Imagen incrustada extraída del PDF, sin reescalado",
+    "notas": "Actividad de 2025. Resolución adecuada para tarjetas; no ampliar a pantalla completa.",
+    "bytes": 55548,
+    "sha256": "840b4a37a9f3d069793b646059a9ab69f50f6cbeb2ce5a159deb4e092c00ca41"
+  },
+  {
+    "archivo": "02_fotografias/foro-verano-2025.jpeg",
+    "apartado": "Foros y actividades",
+    "origen": "https://brico-afeb.com/wp-content/uploads/2026/03/Memoria_AFEB_2025_12-pags_def.pdf",
+    "pagina_pdf": 7,
+    "dimensiones": [
+      624,
+      300
+    ],
+    "tipo": "Imagen incrustada extraída del PDF, sin reescalado",
+    "notas": "Actividad de 2025. Resolución adecuada para tarjetas; no ampliar a pantalla completa.",
+    "bytes": 69292,
+    "sha256": "3bf8456cc8348a5a8e504fbd4eacb13936d071dbf9deb65eb5ce91d25ad9056d"
+  },
+  {
+    "archivo": "02_fotografias/grupo-de-trabajo-01.jpeg",
+    "apartado": "Grupos de trabajo",
+    "origen": "https://brico-afeb.com/wp-content/uploads/2026/03/Memoria_AFEB_2025_12-pags_def.pdf",
+    "pagina_pdf": 7,
+    "dimensiones": [
+      457,
+      303
+    ],
+    "tipo": "Imagen incrustada extraída del PDF, sin reescalado",
+    "notas": "Actividad de 2025. Resolución adecuada para tarjetas; no ampliar a pantalla completa.",
+    "bytes": 45739,
+    "sha256": "057975f075f5c7ac5ec73c0964eef32254c4ad0368949de6be4a83a0916bb5b8"
+  },
+  {
+    "archivo": "02_fotografias/grupo-de-trabajo-02.jpeg",
+    "apartado": "Grupos de trabajo",
+    "origen": "https://brico-afeb.com/wp-content/uploads/2026/03/Memoria_AFEB_2025_12-pags_def.pdf",
+    "pagina_pdf": 7,
+    "dimensiones": [
+      433,
+      305
+    ],
+    "tipo": "Imagen incrustada extraída del PDF, sin reescalado",
+    "notas": "Actividad de 2025. Resolución adecuada para tarjetas; no ampliar a pantalla completa.",
+    "bytes": 35504,
+    "sha256": "09af3abb4365304e84b35869f5904bfb687b87b1f62eb52e1e75b45571933a09"
+  },
+  {
+    "archivo": "02_fotografias/encuentro-bricogroup-2025.jpeg",
+    "apartado": "Encuentros con la distribución",
+    "origen": "https://brico-afeb.com/wp-content/uploads/2026/03/Memoria_AFEB_2025_12-pags_def.pdf",
+    "pagina_pdf": 8,
+    "dimensiones": [
+      434,
+      305
+    ],
+    "tipo": "Imagen incrustada extraída del PDF, sin reescalado",
+    "notas": "Actividad de 2025. Resolución adecuada para tarjetas; no ampliar a pantalla completa.",
+    "bytes": 43172,
+    "sha256": "dfa91f342866ac7a49b3e21acf1cf818d0ced332c5caf68906811bfd9bc63fc0"
+  },
+  {
+    "archivo": "02_fotografias/encuentro-synergas-2025.jpeg",
+    "apartado": "Encuentros con la distribución",
+    "origen": "https://brico-afeb.com/wp-content/uploads/2026/03/Memoria_AFEB_2025_12-pags_def.pdf",
+    "pagina_pdf": 8,
+    "dimensiones": [
+      413,
+      301
+    ],
+    "tipo": "Imagen incrustada extraída del PDF, sin reescalado",
+    "notas": "Actividad de 2025. Resolución adecuada para tarjetas; no ampliar a pantalla completa.",
+    "bytes": 55194,
+    "sha256": "a1e9fe94b3752c051ad9b1744d7939fffa0869aecee12b63a503dfb8c55f3553"
+  },
+  {
+    "archivo": "02_fotografias/encuentro-bauhaus-2025.jpeg",
+    "apartado": "Encuentros con la distribución",
+    "origen": "https://brico-afeb.com/wp-content/uploads/2026/03/Memoria_AFEB_2025_12-pags_def.pdf",
+    "pagina_pdf": 8,
+    "dimensiones": [
+      462,
+      305
+    ],
+    "tipo": "Imagen incrustada extraída del PDF, sin reescalado",
+    "notas": "Actividad de 2025. Resolución adecuada para tarjetas; no ampliar a pantalla completa.",
+    "bytes": 53907,
+    "sha256": "a3395d42b35ea2f323b8f5578529dcab5534ae79c055e7df93a6f17c5c7fc921"
+  },
+  {
+    "archivo": "02_fotografias/coloquio-club-export-2025.jpeg",
+    "apartado": "Internacionalización",
+    "origen": "https://brico-afeb.com/wp-content/uploads/2026/03/Memoria_AFEB_2025_12-pags_def.pdf",
+    "pagina_pdf": 10,
+    "dimensiones": [
+      619,
+      341
+    ],
+    "tipo": "Imagen incrustada extraída del PDF, sin reescalado",
+    "notas": "Actividad de 2025. Resolución adecuada para tarjetas; no ampliar a pantalla completa.",
+    "bytes": 57241,
+    "sha256": "6554f59ac29e0d93f9a2f4d964ac39410b4b8a568ca3116e0dd08ff6726406e6"
+  },
+  {
+    "archivo": "03_socios/bellota.jpg",
+    "apartado": "Empresas asociadas",
+    "origen": "https://brico-afeb.com/wp-content/uploads/2025/05/bellota.jpg",
+    "paginas_origen": [
+      "https://brico-afeb.com/empresas-asociadas/"
+    ],
+    "dimensiones": [
+      80,
+      80
+    ],
+    "tipo": "Original descargado sin modificar",
+    "notas": "Logo publicado a 80 px en el directorio. Usar en una banda de marcas a tamaño contenido; su presencia aquí no implica un testimonio ni patrocinio.",
+    "bytes": 15779,
+    "sha256": "f3c1b6cbec72624013978aa305ddec9d5541c7fa04adb7877cf4bfc504d47aa8"
+  },
+  {
+    "archivo": "03_socios/compo.png",
+    "apartado": "Empresas asociadas",
+    "origen": "https://brico-afeb.com/wp-content/uploads/2015/10/compo.png",
+    "paginas_origen": [
+      "https://brico-afeb.com/empresas-asociadas/"
+    ],
+    "dimensiones": [
+      80,
+      80
+    ],
+    "tipo": "Original descargado sin modificar",
+    "notas": "Logo publicado a 80 px en el directorio. Usar en una banda de marcas a tamaño contenido; su presencia aquí no implica un testimonio ni patrocinio.",
+    "bytes": 9993,
+    "sha256": "3d60c7f6af2ab025102b3372dec0503d4e6167916e643bca46cf828b28300c44"
+  },
+  {
+    "archivo": "03_socios/bosch.png",
+    "apartado": "Empresas asociadas",
+    "origen": "https://brico-afeb.com/wp-content/uploads/2021/04/BOSCH-LOGO.png",
+    "paginas_origen": [
+      "https://brico-afeb.com/empresas-asociadas/"
+    ],
+    "dimensiones": [
+      97,
+      97
+    ],
+    "tipo": "Original descargado sin modificar",
+    "notas": "Logo publicado a 80 px en el directorio. Usar en una banda de marcas a tamaño contenido; su presencia aquí no implica un testimonio ni patrocinio.",
+    "bytes": 5202,
+    "sha256": "84d563de90b6d00da26983c615b80d94b5080fd311799b7280f2ac8e41129dd0"
+  },
+  {
+    "archivo": "03_socios/rubi.jpg",
+    "apartado": "Empresas asociadas",
+    "origen": "https://brico-afeb.com/wp-content/uploads/2024/12/logo-rubi-rgb.jpg",
+    "paginas_origen": [
+      "https://brico-afeb.com/empresas-asociadas/"
+    ],
+    "dimensiones": [
+      80,
+      80
+    ],
+    "tipo": "Original descargado sin modificar",
+    "notas": "Logo publicado a 80 px en el directorio. Usar en una banda de marcas a tamaño contenido; su presencia aquí no implica un testimonio ni patrocinio.",
+    "bytes": 31422,
+    "sha256": "cb078e5e8412f44a91ebed53f80aff34053d69d9762da0afe0b3ad3487e083f7"
+  },
+  {
+    "archivo": "03_socios/stanley-black-decker.png",
+    "apartado": "Empresas asociadas",
+    "origen": "https://brico-afeb.com/wp-content/uploads/2015/10/blackanddecker.png",
+    "paginas_origen": [
+      "https://brico-afeb.com/empresas-asociadas/"
+    ],
+    "dimensiones": [
+      80,
+      80
+    ],
+    "tipo": "Original descargado sin modificar",
+    "notas": "Logo publicado a 80 px en el directorio. Usar en una banda de marcas a tamaño contenido; su presencia aquí no implica un testimonio ni patrocinio.",
+    "bytes": 8530,
+    "sha256": "c3f64c0cdb5b6c0c4fb6882d17e26e8d0a8456f4cc4e2d6e80019f8cf9758499"
+  },
+  {
+    "archivo": "03_socios/wd40.gif",
+    "apartado": "Empresas asociadas",
+    "origen": "https://brico-afeb.com/wp-content/uploads/2015/10/wd.gif",
+    "paginas_origen": [
+      "https://brico-afeb.com/empresas-asociadas/"
+    ],
+    "dimensiones": [
+      100,
+      100
+    ],
+    "tipo": "Original descargado sin modificar",
+    "notas": "Logo publicado a 80 px en el directorio. Usar en una banda de marcas a tamaño contenido; su presencia aquí no implica un testimonio ni patrocinio.",
+    "bytes": 4880,
+    "sha256": "dcc9092a5023fd8e4e5e2d9ece81ea25e770f75f3c08206bd87e0fa8606ed160"
+  }
+]

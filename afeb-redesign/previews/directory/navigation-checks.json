@@ -1,0 +1,475 @@
+{
+  "filters": [
+    {
+      "count": "1 empresa encontradas",
+      "names": [
+        "3M España"
+      ],
+      "sector": "industria"
+    },
+    {
+      "count": "4 empresas encontradas",
+      "names": [
+        "Bellota",
+        "Bosch",
+        "RUBI",
+        "Stanley Black & Decker"
+      ],
+      "sector": "herramientas"
+    },
+    {
+      "count": "3 empresas encontradas",
+      "names": [
+        "Bellota",
+        "Stanley Black & Decker",
+        "WD-40"
+      ],
+      "sector": "ferreteria"
+    },
+    {
+      "count": "2 empresas encontradas",
+      "names": [
+        "Bellota",
+        "COMPO"
+      ],
+      "sector": "jardin"
+    },
+    {
+      "count": "1 empresa encontradas",
+      "names": [
+        "Akzo Nobel Coatings"
+      ],
+      "sector": "pinturas"
+    },
+    {
+      "count": "8 empresas en esta selección",
+      "names": [
+        "3M España",
+        "Akzo Nobel Coatings",
+        "Bellota",
+        "Bosch",
+        "COMPO",
+        "RUBI",
+        "Stanley Black & Decker",
+        "WD-40"
+      ],
+      "sector": "todos"
+    }
+  ],
+  "search": [
+    {
+      "count": "1 empresa encontrada",
+      "empty": false,
+      "names": [
+        "Bellota"
+      ],
+      "q": "BELLOTA"
+    },
+    {
+      "count": "2 empresas encontradas",
+      "empty": false,
+      "names": [
+        "3M España",
+        "Bosch"
+      ],
+      "q": "éspaña"
+    },
+    {
+      "count": "1 empresa encontrada",
+      "empty": false,
+      "names": [
+        "Bosch"
+      ],
+      "q": "róbert"
+    },
+    {
+      "count": "0 empresas encontradas",
+      "empty": true,
+      "names": [],
+      "q": "no-existe-esta-empresa"
+    }
+  ],
+  "preservedFilters": {
+    "count": "1 empresa encontrada",
+    "query": "BÉLLOTA",
+    "sector": "jardin"
+  },
+  "profiles": [
+    {
+      "external": [
+        {
+          "href": "https://www.3m.com.es/3M/es_ES/empresa-es/",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "href": "https://www.3m.com.es/3M/es_ES/empresa-es/",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "href": "https://www.3m.com.es/3M/es_ES/empresa-es/",
+          "rel": "noopener noreferrer"
+        }
+      ],
+      "font": "\"Manrope Variable\", sans-serif",
+      "h1": "3M España",
+      "images": [
+        {
+          "loaded": true,
+          "src": "/media/companies/3m.webp"
+        },
+        {
+          "loaded": true,
+          "src": "/media/companies/akzo-nobel.webp"
+        },
+        {
+          "loaded": true,
+          "src": "/media/companies/bellota.svg"
+        },
+        {
+          "loaded": true,
+          "src": "/media/companies/bosch.svg"
+        }
+      ],
+      "overflow": false,
+      "path": "/empresas-asociadas/3m",
+      "related": [
+        "/empresas-asociadas/akzo-nobel",
+        "/empresas-asociadas/bellota",
+        "/empresas-asociadas/bosch"
+      ]
+    },
+    {
+      "external": [
+        {
+          "href": "https://www.bruguer.es/es/",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "href": "https://www.bruguer.es/es/",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "href": "https://www.bruguer.es/es/",
+          "rel": "noopener noreferrer"
+        }
+      ],
+      "font": "\"Manrope Variable\", sans-serif",
+      "h1": "Akzo Nobel Coatings",
+      "images": [
+        {
+          "loaded": true,
+          "src": "/media/companies/akzo-nobel.webp"
+        },
+        {
+          "loaded": true,
+          "src": "/media/companies/3m.webp"
+        },
+        {
+          "loaded": true,
+          "src": "/media/companies/bellota.svg"
+        },
+        {
+          "loaded": true,
+          "src": "/media/companies/bosch.svg"
+        }
+      ],
+      "overflow": false,
+      "path": "/empresas-asociadas/akzo-nobel",
+      "related": [
+        "/empresas-asociadas/3m",
+        "/empresas-asociadas/bellota",
+        "/empresas-asociadas/bosch"
+      ]
+    },
+    {
+      "external": [
+        {
+          "href": "https://www.bellota.com/ES/es/",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "href": "https://www.bellota.com/ES/es/",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "href": "https://www.bellota.com/ES/es/",
+          "rel": "noopener noreferrer"
+        }
+      ],
+      "font": "\"Manrope Variable\", sans-serif",
+      "h1": "Bellota",
+      "images": [
+        {
+          "loaded": true,
+          "src": "/media/companies/bellota.svg"
+        },
+        {
+          "loaded": true,
+          "src": "/media/companies/bosch.svg"
+        },
+        {
+          "loaded": true,
+          "src": "/media/companies/compo.webp"
+        },
+        {
+          "loaded": true,
+          "src": "/media/companies/rubi.svg"
+        }
+      ],
+      "overflow": false,
+      "path": "/empresas-asociadas/bellota",
+      "related": [
+        "/empresas-asociadas/bosch",
+        "/empresas-asociadas/compo",
+        "/empresas-asociadas/rubi"
+      ]
+    },
+    {
+      "external": [
+        {
+          "href": "https://www.bosch-professional.com/es/es/",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "href": "https://www.bosch-professional.com/es/es/",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "href": "https://www.bosch-professional.com/es/es/",
+          "rel": "noopener noreferrer"
+        }
+      ],
+      "font": "\"Manrope Variable\", sans-serif",
+      "h1": "Bosch",
+      "images": [
+        {
+          "loaded": true,
+          "src": "/media/companies/bosch.svg"
+        },
+        {
+          "loaded": true,
+          "src": "/media/companies/bellota.svg"
+        },
+        {
+          "loaded": true,
+          "src": "/media/companies/rubi.svg"
+        },
+        {
+          "loaded": true,
+          "src": "/media/black-decker.webp"
+        }
+      ],
+      "overflow": false,
+      "path": "/empresas-asociadas/bosch",
+      "related": [
+        "/empresas-asociadas/bellota",
+        "/empresas-asociadas/rubi",
+        "/empresas-asociadas/stanley-black-decker"
+      ]
+    },
+    {
+      "external": [
+        {
+          "href": "https://www.compo.es/",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "href": "https://www.compo.es/",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "href": "https://www.compo.es/",
+          "rel": "noopener noreferrer"
+        }
+      ],
+      "font": "\"Manrope Variable\", sans-serif",
+      "h1": "COMPO",
+      "images": [
+        {
+          "loaded": true,
+          "src": "/media/companies/compo.webp"
+        },
+        {
+          "loaded": true,
+          "src": "/media/companies/bellota.svg"
+        },
+        {
+          "loaded": true,
+          "src": "/media/companies/3m.webp"
+        },
+        {
+          "loaded": true,
+          "src": "/media/companies/akzo-nobel.webp"
+        }
+      ],
+      "overflow": false,
+      "path": "/empresas-asociadas/compo",
+      "related": [
+        "/empresas-asociadas/bellota",
+        "/empresas-asociadas/3m",
+        "/empresas-asociadas/akzo-nobel"
+      ]
+    },
+    {
+      "external": [
+        {
+          "href": "https://www.rubi.com/es",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "href": "https://www.rubi.com/es",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "href": "https://www.rubi.com/es",
+          "rel": "noopener noreferrer"
+        }
+      ],
+      "font": "\"Manrope Variable\", sans-serif",
+      "h1": "RUBI",
+      "images": [
+        {
+          "loaded": true,
+          "src": "/media/companies/rubi.svg"
+        },
+        {
+          "loaded": true,
+          "src": "/media/companies/bellota.svg"
+        },
+        {
+          "loaded": true,
+          "src": "/media/companies/bosch.svg"
+        },
+        {
+          "loaded": true,
+          "src": "/media/black-decker.webp"
+        }
+      ],
+      "overflow": false,
+      "path": "/empresas-asociadas/rubi",
+      "related": [
+        "/empresas-asociadas/bellota",
+        "/empresas-asociadas/bosch",
+        "/empresas-asociadas/stanley-black-decker"
+      ]
+    },
+    {
+      "external": [
+        {
+          "href": "https://www.stanleyblackanddecker.com/",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "href": "https://www.stanleyblackanddecker.com/",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "href": "https://www.stanleyblackanddecker.com/",
+          "rel": "noopener noreferrer"
+        }
+      ],
+      "font": "\"Manrope Variable\", sans-serif",
+      "h1": "Stanley Black & Decker",
+      "images": [
+        {
+          "loaded": true,
+          "src": "/media/black-decker.webp"
+        },
+        {
+          "loaded": true,
+          "src": "/media/companies/bellota.svg"
+        },
+        {
+          "loaded": true,
+          "src": "/media/companies/bosch.svg"
+        },
+        {
+          "loaded": true,
+          "src": "/media/companies/rubi.svg"
+        }
+      ],
+      "overflow": false,
+      "path": "/empresas-asociadas/stanley-black-decker",
+      "related": [
+        "/empresas-asociadas/bellota",
+        "/empresas-asociadas/bosch",
+        "/empresas-asociadas/rubi"
+      ]
+    },
+    {
+      "external": [
+        {
+          "href": "https://wd40.es/",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "href": "https://wd40.es/",
+          "rel": "noopener noreferrer"
+        },
+        {
+          "href": "https://wd40.es/",
+          "rel": "noopener noreferrer"
+        }
+      ],
+      "font": "\"Manrope Variable\", sans-serif",
+      "h1": "WD-40",
+      "images": [
+        {
+          "loaded": true,
+          "src": "/media/wd40.webp"
+        },
+        {
+          "loaded": true,
+          "src": "/media/companies/bellota.svg"
+        },
+        {
+          "loaded": true,
+          "src": "/media/black-decker.webp"
+        },
+        {
+          "loaded": true,
+          "src": "/media/companies/3m.webp"
+        }
+      ],
+      "overflow": false,
+      "path": "/empresas-asociadas/wd40",
+      "related": [
+        "/empresas-asociadas/bellota",
+        "/empresas-asociadas/stanley-black-decker",
+        "/empresas-asociadas/3m"
+      ]
+    }
+  ],
+  "provider": {
+    "contacts": [
+      {
+        "href": "tel:+34943309286",
+        "label": "Teléfono+34 943 309 286",
+        "target": null
+      },
+      {
+        "href": "mailto:sales-es@nexmart.com",
+        "label": "Correo electrónicosales-es@nexmart.com",
+        "target": null
+      },
+      {
+        "href": "https://www.nexmart.com/es/",
+        "label": "Sitio web · nueva pestañanexmart.com",
+        "target": "_blank"
+      }
+    ],
+    "images": [
+      {
+        "loaded": true,
+        "src": "/media/companies/nexmart.webp"
+      }
+    ],
+    "services": [
+      "EDI Connect",
+      "Business App",
+      "Documents to EDI",
+      "Retail Connect",
+      "Data Engine"
+    ]
+  }
+}

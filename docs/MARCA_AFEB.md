@@ -1,5 +1,7 @@
 # Variante de identidad AFEB
 
+**Integración en `main`:** las ramas auxiliares se retiraron al preparar la subida inicial a GitHub. Los nombres de ramas y comandos de comparación siguientes son históricos: para consultar las variantes, usar los commits `b7c3752` (neutra), `4a142a8` (verde con fase 1) y `966d42f` (sistema de la landing con normativa corregida).
+
 **Actualización 15/10/2026:** la rama `codex/afeb-design-system` adapta el kit de diseño aportado por el usuario, con Manrope, bosque/lima, papel/neutros cálidos y bordes de 3 px. La especificación vigente para esa rama está en [SISTEMA_VISUAL.md](SISTEMA_VISUAL.md). El resto de este documento conserva la referencia histórica de `codex/afeb-brand`.
 
 Rama: `codex/afeb-brand`. La versión neutra está guardada en `main`, commit `b7c3752`.

@@ -1,0 +1,128 @@
+[
+  {
+    "original": "01_logotipos/afeb-transparente.png",
+    "output": "media/afeb-logo.png",
+    "size": [
+      435,
+      365
+    ],
+    "bytes": 16178
+  },
+  {
+    "original": "01_logotipos/club-export.png",
+    "output": "media/club-export.png",
+    "size": [
+      497,
+      337
+    ],
+    "bytes": 15562
+  },
+  {
+    "original": "02_fotografias/herramientas-alternativa.jpg",
+    "output": "media/hero-tools.webp",
+    "size": [
+      1080,
+      1440
+    ],
+    "bytes": 508130
+  },
+  {
+    "original": "02_fotografias/foro-verano-2025.jpeg",
+    "output": "media/foro-verano.webp",
+    "size": [
+      624,
+      300
+    ],
+    "bytes": 63270
+  },
+  {
+    "original": "02_fotografias/foro-invierno-2025.jpeg",
+    "output": "media/foro-invierno.webp",
+    "size": [
+      623,
+      300
+    ],
+    "bytes": 47460
+  },
+  {
+    "original": "02_fotografias/grupo-de-trabajo-01.jpeg",
+    "output": "media/grupo-trabajo.webp",
+    "size": [
+      457,
+      303
+    ],
+    "bytes": 38620
+  },
+  {
+    "original": "02_fotografias/encuentro-bauhaus-2025.jpeg",
+    "output": "media/bauhaus.webp",
+    "size": [
+      462,
+      305
+    ],
+    "bytes": 47650
+  },
+  {
+    "original": "02_fotografias/coloquio-club-export-2025.jpeg",
+    "output": "media/club-coloquio.webp",
+    "size": [
+      619,
+      341
+    ],
+    "bytes": 49524
+  },
+  {
+    "original": "03_socios/bosch.png",
+    "output": "media/bosch.webp",
+    "size": [
+      97,
+      97
+    ],
+    "bytes": 1200
+  },
+  {
+    "original": "03_socios/bellota.jpg",
+    "output": "media/bellota.webp",
+    "size": [
+      80,
+      80
+    ],
+    "bytes": 1596
+  },
+  {
+    "original": "03_socios/rubi.jpg",
+    "output": "media/rubi.webp",
+    "size": [
+      80,
+      80
+    ],
+    "bytes": 1370
+  },
+  {
+    "original": "03_socios/compo.png",
+    "output": "media/compo.webp",
+    "size": [
+      80,
+      80
+    ],
+    "bytes": 2536
+  },
+  {
+    "original": "03_socios/wd40.gif",
+    "output": "media/wd40.webp",
+    "size": [
+      100,
+      100
+    ],
+    "bytes": 2410
+  },
+  {
+    "original": "03_socios/stanley-black-decker.png",
+    "output": "media/black-decker.webp",
+    "size": [
+      80,
+      80
+    ],
+    "bytes": 1622
+  }
+]
