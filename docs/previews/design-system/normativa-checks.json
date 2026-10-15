@@ -1,0 +1,200 @@
+{
+  "sizes": [
+    {
+      "overflow": false,
+      "rows": [
+        {
+          "aligned": true,
+          "display": "grid",
+          "height": 93,
+          "title": "Transformación Industrial",
+          "titleBetweenIcons": true
+        },
+        {
+          "aligned": true,
+          "display": "grid",
+          "height": 93,
+          "title": "Huella de Carbono",
+          "titleBetweenIcons": true
+        },
+        {
+          "aligned": true,
+          "display": "grid",
+          "height": 93,
+          "title": "Ley Crea y Crece",
+          "titleBetweenIcons": true
+        },
+        {
+          "aligned": true,
+          "display": "grid",
+          "height": 93,
+          "title": "Desforestación - EUDR -",
+          "titleBetweenIcons": true
+        },
+        {
+          "aligned": true,
+          "display": "grid",
+          "height": 92,
+          "title": "Make it Zero",
+          "titleBetweenIcons": true
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "overflow": false,
+      "rows": [
+        {
+          "aligned": true,
+          "display": "grid",
+          "height": 93,
+          "title": "Transformación Industrial",
+          "titleBetweenIcons": true
+        },
+        {
+          "aligned": true,
+          "display": "grid",
+          "height": 93,
+          "title": "Huella de Carbono",
+          "titleBetweenIcons": true
+        },
+        {
+          "aligned": true,
+          "display": "grid",
+          "height": 93,
+          "title": "Ley Crea y Crece",
+          "titleBetweenIcons": true
+        },
+        {
+          "aligned": true,
+          "display": "grid",
+          "height": 93,
+          "title": "Desforestación - EUDR -",
+          "titleBetweenIcons": true
+        },
+        {
+          "aligned": true,
+          "display": "grid",
+          "height": 92,
+          "title": "Make it Zero",
+          "titleBetweenIcons": true
+        }
+      ],
+      "width": 768
+    },
+    {
+      "overflow": false,
+      "rows": [
+        {
+          "aligned": true,
+          "display": "grid",
+          "height": 84,
+          "title": "Transformación Industrial",
+          "titleBetweenIcons": true
+        },
+        {
+          "aligned": true,
+          "display": "grid",
+          "height": 84,
+          "title": "Huella de Carbono",
+          "titleBetweenIcons": true
+        },
+        {
+          "aligned": true,
+          "display": "grid",
+          "height": 84,
+          "title": "Ley Crea y Crece",
+          "titleBetweenIcons": true
+        },
+        {
+          "aligned": true,
+          "display": "grid",
+          "height": 84,
+          "title": "Desforestación - EUDR -",
+          "titleBetweenIcons": true
+        },
+        {
+          "aligned": true,
+          "display": "grid",
+          "height": 84,
+          "title": "Make it Zero",
+          "titleBetweenIcons": true
+        }
+      ],
+      "width": 390
+    },
+    {
+      "overflow": false,
+      "rows": [
+        {
+          "aligned": true,
+          "display": "grid",
+          "height": 87.390625,
+          "title": "Transformación Industrial",
+          "titleBetweenIcons": true
+        },
+        {
+          "aligned": true,
+          "display": "grid",
+          "height": 84,
+          "title": "Huella de Carbono",
+          "titleBetweenIcons": true
+        },
+        {
+          "aligned": true,
+          "display": "grid",
+          "height": 84,
+          "title": "Ley Crea y Crece",
+          "titleBetweenIcons": true
+        },
+        {
+          "aligned": true,
+          "display": "grid",
+          "height": 87.390625,
+          "title": "Desforestación - EUDR -",
+          "titleBetweenIcons": true
+        },
+        {
+          "aligned": true,
+          "display": "grid",
+          "height": 84,
+          "title": "Make it Zero",
+          "titleBetweenIcons": true
+        }
+      ],
+      "width": 320
+    }
+  ],
+  "links": [
+    {
+      "title": "Transformación Industrial",
+      "expected": "/detalles-informe?id=recUWbsQongMgQWE0",
+      "url": "http://127.0.0.1:5173/detalles-informe?id=recUWbsQongMgQWE0",
+      "heading": "Transformación Industrial"
+    },
+    {
+      "title": "Huella de Carbono",
+      "expected": "/detalles-informe?id=recWSWl6ckYTPRjdA",
+      "url": "http://127.0.0.1:5173/detalles-informe?id=recWSWl6ckYTPRjdA",
+      "heading": "Huella de Carbono"
+    },
+    {
+      "title": "Ley Crea y Crece",
+      "expected": "/detalles-informe?id=recZXBnTe2SzK4os0",
+      "url": "http://127.0.0.1:5173/detalles-informe?id=recZXBnTe2SzK4os0",
+      "heading": "Ley Crea y Crece"
+    },
+    {
+      "title": "Desforestación - EUDR -",
+      "expected": "/detalles-informe?id=recgSjutOIq1aIREs",
+      "url": "http://127.0.0.1:5173/detalles-informe?id=recgSjutOIq1aIREs",
+      "heading": "Desforestación - EUDR -"
+    },
+    {
+      "title": "Make it Zero",
+      "expected": "/detalles-informe?id=rechy7nExWLOJL6N8",
+      "url": "http://127.0.0.1:5173/detalles-informe?id=rechy7nExWLOJL6N8",
+      "heading": "Make it Zero"
+    }
+  ]
+}

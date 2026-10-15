@@ -121,3 +121,9 @@ Rama `codex/afeb-design-system`: Manrope local, tokens del kit aportado, superfi
 - Prueba interactiva en el origen separado `127.0.0.1:5181`; restablecimiento final con cero inscripciones, actividades modificadas y solicitudes locales, de nuevo en SocioAdmin. Consola final sin advertencias ni errores.
 
 Especificación, límites y [evidencias](SISTEMA_VISUAL.md) en el documento del sistema visual. La fase 1 sigue cerrada; no se han implementado requisitos de la fase 2.
+
+### Corrección del listado de normativa
+
+Los recursos ya eran enlaces, pero sus reglas de composición seguían seleccionando `button`: el listado aparecía sin alineación ni espaciado. Corregidos los selectores a `a` y aplicada una fila con icono en superficie cálida, título flexible, flecha al extremo y separadores. El foco se dibuja dentro de la fila y los títulos pueden ocupar dos líneas en móvil.
+
+Comprobadas las cinco filas a 1440, 768, 390 y 320 px: iconos/flechas alineados, títulos entre ellos y página sin desbordamiento. Se abrieron los cinco enlaces y se verificó el título de cada ficha. Build correcto. Evidencias: [escritorio](previews/design-system/normativa-desktop.jpg), [móvil](previews/design-system/normativa-mobile.jpg) y [mediciones y destinos](previews/design-system/normativa-checks.json).

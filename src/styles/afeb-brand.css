@@ -667,6 +667,45 @@ p {
 }
 
 /* Lists, status, tabs and filters share the landing's square geometry. */
+.legal-resources > a {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 20px;
+  align-items: center;
+  gap: 20px;
+  min-height: 92px;
+  padding: 24px;
+}
+.legal-resources > a:hover {
+  background: var(--afeb-paper);
+}
+.legal-resources > a:focus-visible {
+  outline-offset: -4px;
+}
+.legal-resources > a > div {
+  min-width: 0;
+}
+.legal-resources > a > svg:first-child {
+  width: 44px;
+  height: 44px;
+  padding: 11px;
+  background: var(--afeb-warm);
+  color: var(--afeb-forest);
+  border-radius: 3px;
+}
+.legal-resources > a > svg:last-child {
+  width: 20px;
+  height: 20px;
+  color: var(--afeb-forest);
+  margin: 0;
+}
+.legal-resources h3 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.45;
+}
+.legal-resources p:not(:empty) {
+  margin-top: 6px;
+}
 .activity-row {
   padding: 26px 12px;
   border-color: var(--border);
@@ -1440,6 +1479,20 @@ tbody tr:hover {
   }
 }
 @media (max-width: 600px) {
+  .legal-resources > a {
+    grid-template-columns: 40px minmax(0, 1fr) 18px;
+    padding: 20px 16px;
+    gap: 14px;
+    min-height: 84px;
+  }
+  .legal-resources > a > svg:first-child {
+    width: 40px;
+    height: 40px;
+    padding: 9px;
+  }
+  .legal-resources h3 {
+    font-size: 16px;
+  }
   .management-summary {
     grid-template-columns: minmax(0, 1fr);
   }
