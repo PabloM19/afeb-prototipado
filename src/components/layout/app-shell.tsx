@@ -44,7 +44,7 @@ import { afebTeam, reports, activities } from '@/data/fixtures'
 import { initialsFor, referenceIds } from '@/data/mock-db'
 import { useStore } from '@/lib/store'
 const navigation = [
-  { label: 'Inicio', path: '/', icon: LayoutDashboard },
+  { label: 'Inicio', path: '/portal', icon: LayoutDashboard },
   { label: 'Actividades', path: '/eventos', icon: CalendarDays },
   { label: 'Empresas asociadas', path: '/socios', icon: Building2 },
   { label: 'Directorio', path: '/directorio', icon: UsersRound },
@@ -86,7 +86,7 @@ export function AppShell() {
     <>
       <Link
         className="brand"
-        to="/"
+        to="/portal"
         aria-label="AFEB · Portal del socio"
         onClick={() => setMobile(false)}
       >
@@ -106,7 +106,7 @@ export function AppShell() {
         {navigation.map(({ label, path, icon: Icon }) => (
           <NavLink
             key={path}
-            end={path === '/'}
+            end={path === '/portal'}
             to={path}
             onClick={() => setMobile(false)}
             className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
@@ -216,7 +216,7 @@ export function AppShell() {
               onClick={() => {
                 store.reset()
                 setResetOpen(false)
-                navigate('/')
+                navigate('/portal')
               }}
             >
               Restablecer demo

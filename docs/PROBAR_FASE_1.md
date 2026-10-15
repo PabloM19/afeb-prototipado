@@ -6,6 +6,8 @@
 
 Arranca con `npm run dev` y abre la dirección de Vite, normalmente `http://127.0.0.1:5173/`. Se reutilizan los registros observados: no hay que importar otra base ni usar credenciales reales.
 
+La raíz ahora abre la landing: pulsa **Hazte socio**, introduce un email y una contraseña ficticios y pulsa **Abrir demostración**. Llegarás al inicio del portal en `/portal`. Desde ahí continúa esta guía; el resto de URLs y acciones se mantiene.
+
 El recorrido de aceptación utilizó `http://127.0.0.1:5175/`. Cada combinación de protocolo, host y puerto conserva su propio estado: usa el mismo origen para recuperar una sesión o comprobar la sincronización entre pestañas.
 
 ## 1. Preparar una persona y conservar sus datos

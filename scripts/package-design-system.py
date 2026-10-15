@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUTPUT = ROOT / 'public/design-system'
 OUTPUT.mkdir(parents=True, exist_ok=True)
 SKIP_PARTS = {'node_modules', '.git', 'dist', '__pycache__'}
-SOURCE_NOTES = ['reference/afeb/LEEME.md', 'reference/afeb/inventario.json', 'reference/afeb/05_contenidos/base-para-la-landing.md']
+SOURCE_NOTES = ['afeb-redesign/reference/afeb/LEEME.md', 'afeb-redesign/reference/afeb/inventario.json', 'afeb-redesign/reference/afeb/05_contenidos/base-para-la-landing.md']
 
 
 def allowed(path):
@@ -21,9 +21,9 @@ def add_folder(archive, folder, prefix):
 
 with ZipFile(OUTPUT / 'afeb-design-system.zip', 'w', ZIP_DEFLATED) as archive:
     prefix = Path('AFEB-design-system')
-    for name in ['src', 'public', 'scripts', 'docs', 'reference/directory', 'reference/providers']:
+    for name in ['src', 'public', 'scripts', 'docs', 'afeb-redesign/reference/directory', 'afeb-redesign/reference/providers']:
         add_folder(archive, ROOT / name, prefix)
-    for name in ['package.json', 'package-lock.json', 'tsconfig.json', 'vite.config.ts', 'index.html', 'README.md', '.gitignore']:
+    for name in ['package.json', 'package-lock.json', 'tsconfig.json', 'vite.config.ts', 'index.html', 'README.md', '.gitignore', 'vercel.json']:
         item = ROOT / name
         if item.exists():
             archive.write(item, prefix / name)
@@ -37,7 +37,7 @@ with ZipFile(OUTPUT / 'afeb-assets.zip', 'w', ZIP_DEFLATED) as archive:
     for item in sorted(OUTPUT.rglob('*')):
         if item.is_file() and allowed(item.relative_to(ROOT)):
             archive.write(item, Path('AFEB-assets/design-system') / item.relative_to(OUTPUT))
-    for name in SOURCE_NOTES + ['reference/directory/README.md', 'reference/directory/logos/sources.json', 'reference/providers/README.md', 'reference/providers/logos.json', 'docs/design-system.md']:
+    for name in SOURCE_NOTES + ['afeb-redesign/reference/directory/README.md', 'afeb-redesign/reference/directory/logos/sources.json', 'afeb-redesign/reference/providers/README.md', 'afeb-redesign/reference/providers/logos.json', 'afeb-redesign/docs/design-system.md']:
         if (ROOT / name).exists():
             archive.write(ROOT / name, Path('AFEB-assets') / name)
 

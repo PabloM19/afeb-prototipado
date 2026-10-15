@@ -6,6 +6,8 @@
 
 El usuario aportó `afeb-redesign/public/design-system/`, con tokens, fuentes, iconos y assets. Se contrastaron también `afeb-redesign/docs/design-system.md`, los estilos de la landing y su guía en `/sistema-de-diseno`. Es un sistema de interfaz de la propuesta, no un manual corporativo certificado.
 
+Tras unificar el proyecto para Vercel, esos recursos viven en `public/design-system/`, las imágenes en `public/media/` y la landing activa en `src/website/`. El resto de rutas `afeb-redesign/` de este documento identifica la procedencia original.
+
 La landing y sus archivos se conservan. El portal reutiliza sus valores visuales sobre los componentes React/shadcn/Radix existentes. No se trasplantan demos de componentes ni formularios sin backend de la landing a los flujos funcionales del portal.
 
 | Fundamento                                | Aplicación en el portal                                                                                                                                             |

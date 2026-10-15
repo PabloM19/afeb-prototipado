@@ -1,4 +1,4 @@
-/* Extraído de src/styles.css. Ejecutar npm run design:assets para regenerar. */
+/* Extraído de src/website/styles.css. Ejecutar npm run design:assets para regenerar. */
 :root {
   --ink: #203c30;
   --forest: #153e30;
@@ -12,8 +12,8 @@
   --line: #dfe5db;
   --font: 'Manrope Variable', sans-serif;
   --text-body: 1rem;
-  --text-small: .875rem;
-  --text-label: .75rem;
+  --text-small: 0.875rem;
+  --text-label: 0.75rem;
   --text-card: clamp(1.375rem, 1.9vw, 1.75rem);
   --text-section: clamp(2.125rem, 3.45vw, 3.25rem);
   --text-hero: clamp(3.125rem, 5.15vw, 4.75rem);

@@ -6,6 +6,9 @@ Se utiliza Vite con React y TypeScript para iterar el diseño de forma rápida. 
 
 ## Convenciones
 
+- `main.tsx` carga la web pública para `/`, directorios públicos y guía de diseño; para el resto carga el portal. `website-entry.tsx` reutiliza la landing integrada en `src/website/` y sus estilos; `portal-entry.tsx` carga `App.tsx` y el CSS del portal. Los enlaces entre experiencias son enlaces de documento, para que no se mezclen sus estilos globales.
+- Entrada: `/` → «Hazte socio» → `/login` → `/portal`. Volver desde acceso a la web carga `/`; los enlaces de inicio y los recorridos del portal usan `/portal`. No se introduce autenticación real ni se cambian las claves de persistencia.
+- Solo hay un `package.json`, lockfile, configuración Vite y `index.html`, todos en la raíz. `public/media/` y `public/design-system/` contienen los assets versionados; no requieren instalación ni build en otra carpeta. El servidor de raíz y un único `dist/` sirven ambas experiencias. `vercel.json` fija Vite y el fallback SPA para recargas de `/login`, `/portal` y demás rutas.
 - Alias `@/` apunta a `src/`.
 - `App.tsx` registra rutas y proveedores; cada dominio vive en `features/`.
 - UI básica en `components/ui/`: fuente de shadcn, accesibilidad de Radix. No reinventar diálogos, menú, select, checkbox o foco.
@@ -14,7 +17,7 @@ Se utiliza Vite con React y TypeScript para iterar el diseño de forma rápida. 
 - Layout único con sidebar de escritorio, Sheet móvil, breadcrumb, búsqueda, notificaciones y ayuda. Cambiar de ruta reinicia el scroll.
 - La búsqueda global agrupa el contenido visible de empresas, actividades, personas, informes, normativa, documentos, colaboradores y accesos al resto del portal. `components/global-search.tsx` presenta el diálogo; `lib/search.ts` construye y consulta el índice local. Ver `BUSQUEDA_GLOBAL.md`. Los listados filtran en memoria porque la demo es acotada.
 - Manrope Variable servida localmente desde el kit de la landing en `public/design-system/fonts/`. Tokens compartidos en `src/styles/design-tokens.css` y adaptación de componentes en `src/styles/afeb-brand.css`; ver `SISTEMA_VISUAL.md`. Lucide es la única familia de iconos. Las ramas anteriores conservan Inter.
-- Base funcional en `index.css`; identidad de esta variante en `styles/afeb-brand.css`. Tailwind da soporte a los primitives de shadcn. La rama `main` conserva el diseño neutro.
+- Base funcional del portal en `index.css`; sistema visual en `styles/afeb-brand.css`. Tailwind da soporte a los primitives de shadcn. `main` integra el sistema visual de la landing; el diseño neutro queda en el historial.
 - Estilo: fondos blancos, surfaces tranquilas, texto base de 16 px y metadatos de 14–15 px. Los verdes se concentran en navegación activa, acciones, estados y bloques destacados. El logotipo se muestra sin alterar sus proporciones ni recolorear el archivo. Ver `MARCA_AFEB.md`.
 - Mobile first funcional: navegación con labels, listados apilados, formularios a una columna y tabla con scroll acotado. No ocultar funciones para simplificar la captura.
 - El selector de roles es una herramienta de demo. Su lógica no constituye una frontera de seguridad.

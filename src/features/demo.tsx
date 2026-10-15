@@ -164,7 +164,7 @@ export default function DemoCenter() {
         ? `/detalles-evento?id=${scenario.activityId}`
         : scenario.reportId
           ? `/detalles-informe?id=${scenario.reportId}`
-          : '/'
+          : '/portal'
   }
   return (
     <>

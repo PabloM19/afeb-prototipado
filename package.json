@@ -1,5 +1,5 @@
 {
-  "name": "afeb-portal",
+  "name": "afeb-prototipado",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -11,10 +11,12 @@
     "format": "prettier --write src vite.config.ts docs/*.md README.md",
     "format:check": "prettier --check src vite.config.ts docs/*.md README.md",
     "mock:check": "node scripts/check-mock-db.mjs",
-    "mock:flows": "node scripts/check-mock-backend.mjs"
+    "mock:flows": "node scripts/check-mock-backend.mjs",
+    "design:assets": "node scripts/prepare-design-system.mjs",
+    "design:package": "npm run design:assets && python3 scripts/package-design-system.py"
   },
   "dependencies": {
-    "@fontsource-variable/inter": "^5.2.0",
+    "@fontsource-variable/manrope": "^5.2.8",
     "class-variance-authority": "^0.7.1",
     "cn": "^0.4.0",
     "lucide-react": "^0.468.0",

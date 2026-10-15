@@ -127,3 +127,22 @@ Especificación, límites y [evidencias](SISTEMA_VISUAL.md) en el documento del 
 Los recursos ya eran enlaces, pero sus reglas de composición seguían seleccionando `button`: el listado aparecía sin alineación ni espaciado. Corregidos los selectores a `a` y aplicada una fila con icono en superficie cálida, título flexible, flecha al extremo y separadores. El foco se dibuja dentro de la fila y los títulos pueden ocupar dos líneas en móvil.
 
 Comprobadas las cinco filas a 1440, 768, 390 y 320 px: iconos/flechas alineados, títulos entre ellos y página sin desbordamiento. Se abrieron los cinco enlaces y se verificó el título de cada ficha. Build correcto. Evidencias: [escritorio](previews/design-system/normativa-desktop.jpg), [móvil](previews/design-system/normativa-mobile.jpg) y [mediciones y destinos](previews/design-system/normativa-checks.json).
+
+## Landing como entrada de la aplicación
+
+- La raíz carga la landing existente y todos sus recursos desde el mismo servidor que el portal. Hazte socio, Quiero asociarme y Portal del socio apuntan al login local. El acceso simulado entra en `/portal`; el menú Inicio y el recorrido Abrir inicio de demos también llevan allí.
+- Recorrido completo probado en escritorio y móvil sobre el build de producción servido en `127.0.0.1:5182`: landing → login con datos ficticios → portal → actividades → inicio. Recargar `/portal` conserva esa pantalla y volver a `/` carga la landing. El enlace Volver a la web y la recuperación simulada también se comprobaron.
+- 31 rutas/variantes en 1440 y 390 px: 62 comprobaciones sin desbordamiento de página, imágenes rotas ni mezcla de hojas de estilo de web y portal. Incluyen los directorios públicos y sus fichas, la guía de diseño y las rutas existentes del portal. Consola de la sesión sin advertencias ni errores.
+- `npm run build`, `npm run mock:check` y `npm run mock:flows` correctos. Los datos y comandos de negocio de la fase 1 permanecen iguales.
+
+Evidencias: [landing](previews/entry-flow/landing-desktop.jpg), [login](previews/entry-flow/login-desktop.jpg), [portal](previews/entry-flow/portal-desktop.jpg) y [comprobaciones de producción](previews/entry-flow/production-checks.json).
+
+### Proyecto único preparado para Vercel
+
+La landing se ha trasladado a `src/website/` y sus assets a `public/`. Retirados el paquete, lockfile, entry HTML y configuraciones Vite/TypeScript del antiguo proyecto separado. Solo queda el paquete raíz. Las referencias y capturas originales se conservan en `afeb-redesign/`. Los scripts de regeneración del sistema visual funcionan desde la raíz, incluidos sus dos ZIP de entrega.
+
+`vercel.json` define preset Vite, instalación `npm ci`, build `npm run build`, salida `dist` y rewrite SPA a `index.html`, siguiendo la [documentación de Vite en Vercel](https://vercel.com/docs/frameworks/frontend/vite#using-vite-to-make-spas). La configuración corresponde a un solo proyecto, sin Services ni variables de entorno para el mock.
+
+Una copia limpia de los archivos preparados, sin dependencias ni build previos, pasó `npm ci`, build e integridad/flujos de la fase 1. Su preview de producción en `127.0.0.1:5183` pasó otras 62 comprobaciones en 1440 y 390 px, sin imágenes rotas, desbordamientos ni mezcla de CSS. Probado Hazte socio → login con datos ficticios → `/portal` y recarga del portal; consola sin errores ni advertencias. [Resultados de la instalación limpia](previews/entry-flow/clean-install-checks.json).
+
+Estas pruebas verifican el paquete y el recorrido de producción local; no equivalen a un despliegue ya realizado en una cuenta de Vercel.

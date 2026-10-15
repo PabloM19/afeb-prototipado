@@ -12,6 +12,8 @@ Stack: React 19, TypeScript, Vite 7, Tailwind 4, shadcn/ui, Radix, Lucide, React
 
 El punto de entrada para revisar el diseño es `npm run dev`. `npm run build` verifica tipos y bundle. Los roles se prueban desde el menú de usuario; `Gestor AFEB` habilita el panel editorial de muestra. Restablecer vuelve a la base observada; leer `docs/DATOS_MOCK.md` antes de modificar datos.
 
+La raíz `/` abre la landing integrada en `src/website/`. «Hazte socio» y «Portal del socio» abren `/login`; el acceso de demostración entra en `/portal`. El resto de rutas del portal conserva su URL. `src/main.tsx` selecciona `website-entry.tsx` o `portal-entry.tsx`, con CSS separado; mantener enlaces de documento entre web y portal para evitar que sus estilos globales se mezclen. Hay un único proyecto en raíz; los assets viven en `public/` y `vercel.json` configura su despliegue SPA. No recrear un paquete, Vite o instalación de dependencias separados dentro de la landing.
+
 ## Orden funcional para cuando se retome
 
 Después del bloque de interfaz, seguir las fases de [HOJA_DE_RUTA_AFEB.md](HOJA_DE_RUTA_AFEB.md), manteniendo sus IDs y estados actualizados:

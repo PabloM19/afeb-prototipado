@@ -39,7 +39,7 @@ export default function App() {
               <Route path="/login" element={<Auth />} />
               <Route path="/forget-password" element={<Auth recovery />} />
               <Route element={<AppShell />}>
-                <Route index element={<Dashboard />} />
+                <Route path="portal" element={<Dashboard />} />
                 <Route path="eventos" element={<Activities />} />
                 <Route path="detalles-evento" element={<EventDetail />} />
                 <Route path="inscribir" element={<Invite />} />
@@ -70,7 +70,7 @@ export default function App() {
                       description="Vuelve al inicio para continuar explorando el portal."
                       action={
                         <Button asChild>
-                          <Link to="/">Volver al inicio</Link>
+                          <Link to="/portal">Volver al inicio</Link>
                         </Button>
                       }
                     />

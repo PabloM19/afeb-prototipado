@@ -12,9 +12,9 @@ export default function Auth({ recovery = false }: { recovery?: boolean }) {
   return (
     <div className="auth-layout">
       <section className="auth-story">
-        <Link to="/" className="auth-brand" aria-label="AFEB · Volver al portal">
+        <a href="/" className="auth-brand" aria-label="AFEB · Volver a la web">
           <BrandMark />
-        </Link>
+        </a>
         <div>
           <span className="eyebrow">El portal de nuestra comunidad</span>
           <h1>
@@ -29,13 +29,13 @@ export default function Auth({ recovery = false }: { recovery?: boolean }) {
         <span>Asociación de Fabricantes de Bricolaje y Ferretería</span>
       </section>
       <section className="auth-form">
-        <Link to="/" className="auth-mobile-brand" aria-label="AFEB · Volver al portal">
+        <a href="/" className="auth-mobile-brand" aria-label="AFEB · Volver a la web">
           <BrandMark />
-        </Link>
-        <Link className="back-link" to="/">
+        </a>
+        <a className="back-link" href="/">
           <ArrowLeft size={16} />
-          Volver al portal
-        </Link>
+          Volver a la web
+        </a>
         <div>
           <span className="eyebrow">Tu espacio AFEB</span>
           <h2>{recovery ? 'Recupera tu acceso.' : 'Qué bueno verte de nuevo.'}</h2>
@@ -60,7 +60,7 @@ export default function Auth({ recovery = false }: { recovery?: boolean }) {
               onSubmit={(e) => {
                 e.preventDefault()
                 if (recovery) setSent(true)
-                else navigate('/')
+                else navigate('/portal')
               }}
             >
               <label className="field">

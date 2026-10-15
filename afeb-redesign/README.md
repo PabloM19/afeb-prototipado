@@ -1,5 +1,7 @@
 # AFEB · propuesta de rediseño
 
+**Integrado en el proyecto raíz.** La landing activa está en `../src/website/`, sus recursos en `../public/` y los scripts en `../scripts/`. Ejecutar `npm install`, `npm run dev` y `npm run build` desde la raíz del repositorio. Esta carpeta solo conserva referencias, documentación y evidencias históricas; las instrucciones de proyecto independiente siguientes describen la versión anterior. El despliegue actual de Vercel usa el `vercel.json` de la raíz, con preset Vite.
+
 Home, directorio de asociados y fichas de empresa y proveedor, construidos con React, Vite, TypeScript y CSS. Proyecto independiente del portal existente.
 
 ## Abrir el prototipo

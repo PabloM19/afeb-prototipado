@@ -8,6 +8,8 @@
 
 La adaptación al sistema visual de la landing está documentada en [SISTEMA_VISUAL.md](SISTEMA_VISUAL.md). Este cambio de presentación no amplía la cobertura funcional del inventario.
 
+**Entrada integrada:** `/` sirve la landing pública preparada; «Hazte socio» y «Portal del socio» llevan a `/login`, y el acceso simulado abre `/portal`. En el inventario histórico, la fila `/` describe el inicio del portal, trasladado a `/portal`. Los directorios públicos de la landing son pantallas adicionales a este inventario; la autenticación real sigue pendiente.
+
 Este documento es el inventario de cobertura y pendientes para continuar el portal. Se ha cruzado la auditoría completa con las rutas, componentes, datos y comandos actuales. Una pantalla presente no se considera completa si sus acciones o datos todavía faltan.
 
 Fuentes:

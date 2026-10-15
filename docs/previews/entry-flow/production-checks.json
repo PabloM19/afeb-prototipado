@@ -1,0 +1,627 @@
+{
+  "origin": "http://127.0.0.1:5182",
+  "checks": [
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/portal",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Hola, Eloy.",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/eventos",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Actividades",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/detalles-evento?id=rechBg5Ghv8eStB7u",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "WEBINAR | ECOEMBES - Desgranando el PPWR: preparación, cumplimiento y acompañamiento.",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/inscribir?id=rec9o6L7QzzSGPd3O",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Invita a una nueva conversación",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/socios",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Empresas asociadas",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/detalles-socio?id=recGhfV9L4RCctCrd",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "AC MARCA ADHESIVES S.L.",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/directorio",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Directorio",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/detalles-equipo?id=afeb-pedro-palay",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Pedro Palay",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/detalles-equipo?participation=participation-rec0LuXTXLvvFmEsY",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Carlo Contreras",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/detalles-de-mi-empresa",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "ZERION (pruebas)",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/perfil",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Mi perfil",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/informes",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Informes del sector",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/detalles-informe?id=recZpF6HXxGwqF7JL",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Evolución de Ventas",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/detalles-informe?id=recUWbsQongMgQWE0",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Transformación Industrial",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/publicaciones",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Informes del sector",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/documentos",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Documentos",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/normativa",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Normativa y asesoría",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/colaboradores",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Colaboradores y beneficios",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/grupos-trabajo",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Grupos de trabajo",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/otras-acciones-cobranding",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Conecta una nueva idea.",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/otras-acciones-licitaciones",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Licitaciones",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/gestion",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Gestión interna",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/login",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Conectamos empresas.Impulsamosel sector.",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/forget-password",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Conectamos empresas.Impulsamosel sector.",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/demo",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Centro de demos",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/",
+      "styles": [
+        "http://127.0.0.1:5182/assets/website-entry-BWBHfNhO.css"
+      ],
+      "title": "El sector avanza.Juntos, más lejos.",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/empresas-asociadas",
+      "styles": [
+        "http://127.0.0.1:5182/assets/website-entry-BWBHfNhO.css"
+      ],
+      "title": "Empresasasociadas.",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/empresas-asociadas/bosch",
+      "styles": [
+        "http://127.0.0.1:5182/assets/website-entry-BWBHfNhO.css"
+      ],
+      "title": "Bosch",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/proveedores-recomendados",
+      "styles": [
+        "http://127.0.0.1:5182/assets/website-entry-BWBHfNhO.css"
+      ],
+      "title": "Proveedoresrecomendados.",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/proveedores-recomendados/nexmart",
+      "styles": [
+        "http://127.0.0.1:5182/assets/website-entry-BWBHfNhO.css"
+      ],
+      "title": "NEXMART",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/sistema-de-diseno",
+      "styles": [
+        "http://127.0.0.1:5182/assets/website-entry-BWBHfNhO.css",
+        "http://127.0.0.1:5182/assets/DesignSystemPage-Bc9VTYDn.css"
+      ],
+      "title": "Sistema de diseño.",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/portal",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Hola, Eloy.",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/eventos",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Actividades",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/detalles-evento?id=rechBg5Ghv8eStB7u",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "WEBINAR | ECOEMBES - Desgranando el PPWR: preparación, cumplimiento y acompañamiento.",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/inscribir?id=rec9o6L7QzzSGPd3O",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Invita a una nueva conversación",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/socios",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Empresas asociadas",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/detalles-socio?id=recGhfV9L4RCctCrd",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "AC MARCA ADHESIVES S.L.",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/directorio",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Directorio",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/detalles-equipo?id=afeb-pedro-palay",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Pedro Palay",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/detalles-equipo?participation=participation-rec0LuXTXLvvFmEsY",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Carlo Contreras",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/detalles-de-mi-empresa",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "ZERION (pruebas)",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/perfil",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Mi perfil",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/informes",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Informes del sector",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/detalles-informe?id=recZpF6HXxGwqF7JL",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Evolución de Ventas",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/detalles-informe?id=recUWbsQongMgQWE0",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Transformación Industrial",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/publicaciones",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Informes del sector",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/documentos",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Documentos",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/normativa",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Normativa y asesoría",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/colaboradores",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Colaboradores y beneficios",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/grupos-trabajo",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Grupos de trabajo",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/otras-acciones-cobranding",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Conecta una nueva idea.",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/otras-acciones-licitaciones",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Licitaciones",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/gestion",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Gestión interna",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/login",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Conectamos empresas.Impulsamosel sector.",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/forget-password",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Conectamos empresas.Impulsamosel sector.",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/demo",
+      "styles": [
+        "http://127.0.0.1:5182/assets/portal-entry-Dr4xNcC9.css"
+      ],
+      "title": "Centro de demos",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/",
+      "styles": [
+        "http://127.0.0.1:5182/assets/website-entry-BWBHfNhO.css"
+      ],
+      "title": "El sector avanza.Juntos, más lejos.",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/empresas-asociadas",
+      "styles": [
+        "http://127.0.0.1:5182/assets/website-entry-BWBHfNhO.css"
+      ],
+      "title": "Empresasasociadas.",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/empresas-asociadas/bosch",
+      "styles": [
+        "http://127.0.0.1:5182/assets/website-entry-BWBHfNhO.css"
+      ],
+      "title": "Bosch",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/proveedores-recomendados",
+      "styles": [
+        "http://127.0.0.1:5182/assets/website-entry-BWBHfNhO.css"
+      ],
+      "title": "Proveedoresrecomendados.",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/proveedores-recomendados/nexmart",
+      "styles": [
+        "http://127.0.0.1:5182/assets/website-entry-BWBHfNhO.css"
+      ],
+      "title": "NEXMART",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "path": "/sistema-de-diseno",
+      "styles": [
+        "http://127.0.0.1:5182/assets/website-entry-BWBHfNhO.css",
+        "http://127.0.0.1:5182/assets/DesignSystemPage-Bc9VTYDn.css"
+      ],
+      "title": "Sistema de diseño.",
+      "width": 390
+    }
+  ]
+}

@@ -1,9 +1,9 @@
 export const links = {
   home: 'https://brico-afeb.com/',
-  join: 'https://brico-afeb.com/quieres-asociarte-2/',
-  portal: 'https://portal.brico-afeb.com/',
-  activities: 'https://portal.brico-afeb.com/eventos',
-  reports: 'https://portal.brico-afeb.com/informes',
+  join: '/login',
+  portal: '/login',
+  activities: '/eventos',
+  reports: '/informes',
   associates: '/empresas-asociadas',
   board: 'https://brico-afeb.com/junta-directiva/',
   club: 'https://brico-afeb.com/club-export/',
@@ -34,15 +34,27 @@ export const associates = [
 
 export const resources = [
   {
-    category: 'Foros AFEB', year: '2026', title: 'Volvemos a encontrarnos. Volvemos a avanzar.',
-    detail: 'Revive el Foro de Invierno 2026', href: 'https://www.youtube.com/watch?v=WifozaE__00', type: 'video',
+    category: 'Foros AFEB',
+    year: '2026',
+    title: 'Volvemos a encontrarnos. Volvemos a avanzar.',
+    detail: 'Revive el Foro de Invierno 2026',
+    href: 'https://www.youtube.com/watch?v=WifozaE__00',
+    type: 'video',
   },
   {
-    category: 'Foros AFEB', year: '2026', title: 'Las conversaciones que mueven al sector.',
-    detail: 'Así fue el Foro de Verano 2026', href: 'https://www.youtube.com/watch?v=mGBwREndC8A', type: 'video',
+    category: 'Foros AFEB',
+    year: '2026',
+    title: 'Las conversaciones que mueven al sector.',
+    detail: 'Así fue el Foro de Verano 2026',
+    href: 'https://www.youtube.com/watch?v=mGBwREndC8A',
+    type: 'video',
   },
   {
-    category: 'La asociación', year: '2025', title: 'Un año de ideas, encuentros y trabajo en común.',
-    detail: 'Consulta nuestra memoria de actividades', href: links.memory, type: 'document',
+    category: 'La asociación',
+    year: '2025',
+    title: 'Un año de ideas, encuentros y trabajo en común.',
+    detail: 'Consulta nuestra memoria de actividades',
+    href: links.memory,
+    type: 'document',
   },
 ]

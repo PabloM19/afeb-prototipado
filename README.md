@@ -4,7 +4,7 @@ Portal local en **React + TypeScript + Vite**, con **shadcn/ui, Radix UI, Tailwi
 
 La rama de trabajo es **`main`**, que integra `codex/afeb-design-system`. Las variantes anteriores se conservan en el historial: neutra en `b7c3752` y verde con la fase 1 en `4a142a8`. Consulta [el sistema visual aplicado](docs/SISTEMA_VISUAL.md) y [el historial de marca](docs/MARCA_AFEB.md).
 
-El repositorio incluye también la landing independiente en `afeb-redesign/` y sus recursos de referencia en `assets/`. Para trabajar en la landing, ejecuta `npm install` y `npm run dev` desde `afeb-redesign/`; utiliza el puerto 5180. La aplicación del portal se ejecuta desde la raíz.
+La landing vive en `src/website/` y comparte proyecto con el portal: un único `package.json`, instalación, servidor y build en la raíz. `public/media/` y `public/design-system/` contienen los recursos de ambas experiencias. `afeb-redesign/` conserva documentación, referencias y capturas históricas; ya no es otra aplicación ni tiene configuración de Vite.
 
 ## Arranque
 
@@ -16,6 +16,16 @@ npm run dev
 ```
 
 Abre http://127.0.0.1:5173. Si ese puerto está ocupado, utiliza la dirección que imprima Vite. El estado local pertenece al origen completo, incluido el puerto.
+
+La entrada es siempre la landing en `/`. **Hazte socio**, **Quiero asociarme** y **Portal del socio** abren `/login`; al completar el acceso de demostración se abre `/portal`. Usa un email ficticio, por ejemplo `demo@example.test`, y una contraseña ficticia de al menos cuatro caracteres. **Volver a la web** regresa a la landing. El inicio del menú del portal apunta a `/portal`; las demás URLs del portal se mantienen.
+
+El build genera un único `dist/` para web y portal. `vercel.json` configura Vite, `npm ci`, `npm run build`, salida `dist` y el fallback de rutas a `index.html`.
+
+## Vercel
+
+Importa `PabloM19/afeb-prototipado`, rama `main`, como un único proyecto: **Root Directory `./`**, **Framework Preset Vite**, **Build Command `npm run build`**, **Output Directory `dist`**, **Install Command `npm ci`**. No requiere variables de entorno para la demo. Si una pantalla de importación anterior todavía muestra Services, vuelve a importar el repositorio actualizado y selecciona Vite.
+
+El dominio base abre la landing; Hazte socio abre `/login` y el acceso simulado lleva a `/portal`. Las recargas y enlaces directos del portal funcionan con la regla SPA de `vercel.json`. El login sigue siendo el acceso simulado del prototipo.
 
 ```bash
 npm run build        # Comprobación TypeScript y build
@@ -46,6 +56,10 @@ Para reiniciar, selecciona **Restablecer demo** en el menú de usuario: borra ú
 ## Estructura
 
 - `src/components/ui`: componentes de shadcn editables y versionados en el repositorio.
+- `src/main.tsx`, `src/website-entry.tsx` y `src/portal-entry.tsx`: selección de web/portal con sus propios estilos. Los enlaces entre ambas experiencias cargan un documento nuevo para aislar el CSS global.
+- `src/website/`: landing, directorios públicos y guía del sistema de diseño.
+- `public/media/` y `public/design-system/`: recursos compartidos versionados en el mismo proyecto.
+- `scripts/prepare-design-system.mjs`: regenera el catálogo de tokens y assets con `npm run design:assets`.
 - `src/components/layout`: estructura, navegación, ayuda y notificaciones.
 - `src/components/global-search.tsx` y `src/lib/search.ts`: búsqueda general agrupada por áreas. Ver [funcionamiento y continuidad](docs/BUSQUEDA_GLOBAL.md).
 - `src/components/shared.tsx`: cabeceras, filtros, estados, filas, formularios y diálogos reutilizables.

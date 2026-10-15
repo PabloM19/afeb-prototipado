@@ -1,5 +1,7 @@
 # AFEB · sistema de diseño de la propuesta web
 
+**Proyecto unificado:** el código activo está en `src/website/` desde la raíz, los recursos en `public/` y los comandos `design:assets`/`design:package` se ejecutan también en la raíz. Las rutas de archivos siguientes documentan la estructura original previa a la integración. No arrancar ni desplegar esta carpeta como otra aplicación.
+
 La referencia visual e interactiva está en `/sistema-de-diseno`. Reúne el lenguaje de la home y de los directorios, sin modificar sus estilos. No es un manual de marca corporativo certificado.
 
 ## Arranque

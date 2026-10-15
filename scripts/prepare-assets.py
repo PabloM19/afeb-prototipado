@@ -4,7 +4,7 @@ import json
 from PIL import Image, ImageOps
 
 ROOT = Path(__file__).resolve().parent.parent
-SOURCE = ROOT / 'reference' / 'afeb'
+SOURCE = ROOT / 'afeb-redesign' / 'reference' / 'afeb'
 OUTPUT = ROOT / 'public' / 'media'
 OUTPUT.mkdir(parents=True, exist_ok=True)
 manifest = []
