@@ -6,8 +6,8 @@ export function BrandMark({ className }: { className?: string }) {
       className={cn('afeb-logo', className)}
       src="/brand/afeb-logo.png"
       alt="AFEB · Asociación de Fabricantes de Bricolaje y Ferretería"
-      width={512}
-      height={512}
+      width={435}
+      height={365}
       decoding="async"
     />
   )

@@ -2,7 +2,11 @@
 
 **Estado: implementada y verificada el 14/10/2026.** La fase 1 completa la coherencia del mini backend local. Esta guía reproduce su criterio de cierre y sus comprobaciones adicionales.
 
+**Aceptada por el usuario el 15/10/2026:** el [acta de su recorrido](ACEPTACION_FASE_1.md) registra los resultados y el restablecimiento final. El siguiente bloque se dedica a la interfaz; la fase 2 queda pendiente.
+
 Arranca con `npm run dev` y abre la dirección de Vite, normalmente `http://127.0.0.1:5173/`. Se reutilizan los registros observados: no hay que importar otra base ni usar credenciales reales.
+
+El recorrido de aceptación utilizó `http://127.0.0.1:5175/`. Cada combinación de protocolo, host y puerto conserva su propio estado: usa el mismo origen para recuperar una sesión o comprobar la sincronización entre pestañas.
 
 ## 1. Preparar una persona y conservar sus datos
 

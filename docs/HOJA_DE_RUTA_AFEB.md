@@ -1,8 +1,12 @@
 # Hoja de ruta AFEB: auditoría frente al mock actual
 
-**Revisión:** 14/10/2026. **Rama:** `codex/afeb-brand`. **Código contrastado:** implementación actual de fase 1 sobre la base `0ea35c3`.
+**Revisión:** 15/10/2026. **Rama actual:** `codex/afeb-design-system`, derivada de `codex/afeb-brand`. **Base funcional contrastada:** fase 1 implementada en `4a142a8` sobre `0ea35c3`.
 
-**Fase 1 completada y verificada (mock local):** ver [guía de prueba](PROBAR_FASE_1.md). Las fases 2-6 siguen pendientes.
+**Fase 1 completada, verificada y aceptada por el usuario (mock local):** ver [guía de prueba](PROBAR_FASE_1.md) y [acta de aceptación del 15/10/2026](ACEPTACION_FASE_1.md). Las fases 2-6 siguen pendientes.
+
+**Prioridad actual:** paréntesis funcional para trabajar en la interfaz. No iniciar la fase 2 durante este bloque; preservar los recorridos aceptados al modificar la presentación.
+
+La adaptación al sistema visual de la landing está documentada en [SISTEMA_VISUAL.md](SISTEMA_VISUAL.md). Este cambio de presentación no amplía la cobertura funcional del inventario.
 
 Este documento es el inventario de cobertura y pendientes para continuar el portal. Se ha cruzado la auditoría completa con las rutas, componentes, datos y comandos actuales. Una pantalla presente no se considera completa si sus acciones o datos todavía faltan.
 
@@ -20,7 +24,7 @@ La auditoría mezcla **pantallas y acciones observadas**, **propuestas para la n
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Rutas auditadas                      | **21 de 21 representadas**. `/publicaciones` es una redirección y `/detalles-equipo` una ficha propuesta que sustituye el 404 observado.                                                                                                                           |
 | Pantallas adicionales                | `/gestion`, `/demo`, `/invitaciones/:id` y `/solicitudes/:id`, para gestión y flujos de demo.                                                                                                                                                                      |
-| Front                                | React, componentes reutilizables, Inter, marca AFEB, navegación adaptable y búsqueda global.                                                                                                                                                                       |
+| Front                                | React, componentes reutilizables, Manrope, sistema visual de la landing AFEB, navegación adaptable y búsqueda global.                                                                                                                                              |
 | Datos                                | Muestra observada en el portal, centralizada y con procedencia; campos desconocidos conservados como `null`.                                                                                                                                                       |
 | Mini backend                         | Repositorio en el navegador: cambios persistentes, escrituras conjuntas, sincronización entre pestañas del mismo origen, solicitudes y recorridos reproducibles.                                                                                                   |
 | Flujos interactivos                  | Perfil, preferencias personales, edición básica de empresa propia, marcas por nombre, alta completa de miembros, invitaciones y aceptación local, participación relacionada, inscripción/cancelación, edición/publicación de actividades y gestión de solicitudes. |
@@ -222,7 +226,7 @@ La búsqueda general y el centro de demos son ampliaciones solicitadas durante e
 
 | ID   | Funcionalidad                             | Estado actual                        | Pendiente concreto                                                                                                                                                                                                                                                             |
 | ---- | ----------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| T-01 | Marca y componentes                       | Implementado                         | Variante AFEB con Inter, logo contenido, verdes y componentes shadcn/Radix. La versión neutra anterior sigue en `main`.                                                                                                                                                        |
+| T-01 | Marca y componentes                       | Implementado                         | Sistema visual de la landing con Manrope, papel/bosque/lima, logo contenido y componentes shadcn/Radix. La versión neutra anterior sigue en `main`.                                                                                                                            |
 | T-02 | Navegación adaptable y teclado            | Implementado, revisión parcial       | Sidebar/móvil, rutas, filtros y diálogos; seguir verificando módulos que se añadan. No equivale a auditoría completa de accesibilidad.                                                                                                                                         |
 | T-03 | Búsqueda global agrupada                  | Funciona en mock, fase 1 completa    | Marcas, contactos observados/miembros locales, participaciones observadas/locales y solicitudes para Gestor; filtrado de borradores. Cuerpos PDF/DOC y backend pendientes.                                                                                                     |
 | T-04 | Búsqueda dentro de PDF/DOC                | Pendiente condicional                | No hay cuerpos originales importados. Requiere política de acceso y extracción de texto si se acuerda.                                                                                                                                                                         |

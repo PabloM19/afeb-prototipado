@@ -1,5 +1,7 @@
 # Variante de identidad AFEB
 
+**Actualización 15/10/2026:** la rama `codex/afeb-design-system` adapta el kit de diseño aportado por el usuario, con Manrope, bosque/lima, papel/neutros cálidos y bordes de 3 px. La especificación vigente para esa rama está en [SISTEMA_VISUAL.md](SISTEMA_VISUAL.md). El resto de este documento conserva la referencia histórica de `codex/afeb-brand`.
+
 Rama: `codex/afeb-brand`. La versión neutra está guardada en `main`, commit `b7c3752`.
 
 La variante usa el análisis visual aportado por el usuario como referencia, no como manual corporativo certificado. Se ha contrastado el logotipo con los activos publicados por [AFEB](https://brico-afeb.com/) y la [Memoria 2025](https://brico-afeb.com/wp-content/uploads/2026/03/Memoria_AFEB_2025_12-pags_def.pdf).

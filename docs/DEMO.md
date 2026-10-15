@@ -30,6 +30,8 @@ Inscribir/cancelar son idempotentes, comprueban las reglas locales y actualizan 
 
 El evento `storage` sincroniza pestañas del mismo origen. Una nueva versión de la página recupera el estado persistido. Las claves del formato anterior se migran para conservar los cambios de una presentación existente.
 
+El origen incluye protocolo, host y puerto: `http://127.0.0.1:5175/` (usado en la aceptación de la fase 1), `http://127.0.0.1:5173/` y `http://localhost:5175/` guardan estados independientes. Usa la misma dirección para recuperar la sesión y comprobar la sincronización; restablecer un origen no borra los otros.
+
 Este backend funciona **en el navegador**. No necesita un servidor de datos, no comparte sesiones entre dispositivos y no incorpora correo, pagos, ficheros originales o autorización real. Informes, documentos y colaboradores siguen siendo catálogos de consulta; el editor actual gestiona actividades y solicitudes. Las decisiones de integración siguen documentadas en `CURSOR.md`.
 
 ## Comprobación

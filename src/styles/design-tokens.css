@@ -1,0 +1,50 @@
+/* AFEB landing kit · public/design-system/tokens.json, 15/10/2026.
+   Namespaced to keep the kit's text --muted separate from shadcn's surface token. */
+@font-face {
+  font-family: 'Manrope Variable';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('/design-system/fonts/manrope-latin-ext-wght-normal.woff2') format('woff2');
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Manrope Variable';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('/design-system/fonts/manrope-latin-wght-normal.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+:root {
+  --afeb-ink: #203c30;
+  --afeb-forest: #153e30;
+  --afeb-forest-deep: #103426;
+  --afeb-lime: #b7d96c;
+  --afeb-brand: #87bc23;
+  --afeb-paper: #fbfcf9;
+  --afeb-warm: #f1f3ec;
+  --afeb-white: #fff;
+  --afeb-muted: #536356;
+  --afeb-line: #dfe5db;
+  --afeb-font: 'Manrope Variable', sans-serif;
+  --afeb-text-body: 1rem;
+  --afeb-text-small: 0.875rem;
+  --afeb-text-label: 0.75rem;
+  --afeb-text-card: clamp(1.375rem, 1.9vw, 1.75rem);
+  --afeb-text-section: clamp(2.125rem, 3.45vw, 3.25rem);
+  --afeb-text-hero: clamp(3.125rem, 5.15vw, 4.75rem);
+  --afeb-container: 1280px;
+  --afeb-gutter: clamp(24px, 5.55vw, 88px);
+  --afeb-section-space: 96px;
+  --afeb-radius: 3px;
+  --afeb-success: #153e30;
+  --afeb-info: #31576b;
+  --afeb-warning: #7c5b19;
+  --afeb-danger: #9a3d32;
+}

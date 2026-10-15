@@ -1,18 +1,22 @@
 # Continuidad en Cursor
 
+## Prioridad actual · interfaz
+
+La fase 1 fue aceptada por el usuario el 15/10/2026; leer [ACEPTACION_FASE_1.md](ACEPTACION_FASE_1.md). El usuario ha pedido un paréntesis para trabajar en la interfaz. **No iniciar la fase 2 durante este bloque.** La rama `codex/afeb-design-system` ya aplica el sistema de la landing; leer [SISTEMA_VISUAL.md](SISTEMA_VISUAL.md). Conservar los flujos, relaciones y reglas aceptados; verificar los recorridos afectados por cada cambio visual. Las plantillas funcionales de abajo quedan para una reanudación posterior.
+
 ## Contexto para empezar
 
 Este repositorio contiene el primer borrador del portal del socio AFEB. No comenzar otra aplicación ni reemplazar el sistema visual: extender esta base. Revisar `README.md`, `docs/HOJA_DE_RUTA_AFEB.md`, `docs/ALCANCE.md`, `docs/ARQUITECTURA.md` y la auditoría original en `output/pdf/auditoria_portal_afeb_2026-10-14.pdf` antes de ampliar el alcance.
 
-Stack: React 19, TypeScript, Vite 7, Tailwind 4, shadcn/ui, Radix, Lucide, React Router, Sonner y Recharts. `main` conserva el diseño neutro; `codex/afeb-brand` aplica el logotipo completo, los verdes y la tipografía Inter de `main`, según `MARCA_AFEB.md`. Layout común, módulos por dominio y base observada centralizada en `src/data/mock-db.json`. Mini backend local en `src/lib/mock-backend.ts`, con `StoreProvider` suscrito y Centro de demos en `/demo`; ningún backend o credencial real. `/publicaciones` redirige a `/informes`, `/detalles-equipo` es propuesta, grupos vacíos e informe por empresa sin archivo asignado.
+Stack: React 19, TypeScript, Vite 7, Tailwind 4, shadcn/ui, Radix, Lucide, React Router, Sonner y Recharts. `main` conserva el diseño neutro; `codex/afeb-brand`, la primera variante verde con Inter. La rama actual `codex/afeb-design-system` adapta Manrope, tokens, geometría y componentes del kit de la landing. Layout común, módulos por dominio y base observada centralizada en `src/data/mock-db.json`. Mini backend local en `src/lib/mock-backend.ts`, con `StoreProvider` suscrito y Centro de demos en `/demo`; ningún backend o credencial real. `/publicaciones` redirige a `/informes`, `/detalles-equipo` es propuesta, grupos vacíos e informe por empresa sin archivo asignado.
 
 El punto de entrada para revisar el diseño es `npm run dev`. `npm run build` verifica tipos y bundle. Los roles se prueban desde el menú de usuario; `Gestor AFEB` habilita el panel editorial de muestra. Restablecer vuelve a la base observada; leer `docs/DATOS_MOCK.md` antes de modificar datos.
 
-## Orden de trabajo sugerido
+## Orden funcional para cuando se retome
 
-Seguir las fases de [HOJA_DE_RUTA_AFEB.md](HOJA_DE_RUTA_AFEB.md), manteniendo sus IDs y estados actualizados:
+Después del bloque de interfaz, seguir las fases de [HOJA_DE_RUTA_AFEB.md](HOJA_DE_RUTA_AFEB.md), manteniendo sus IDs y estados actualizados:
 
-1. Completar miembros, invitaciones y solicitudes como entidades relacionadas del mini backend.
+1. Miembros, invitaciones y solicitudes como entidades relacionadas del mini backend: completado y aceptado.
 2. Completar campos y operaciones de perfil, empresa y directorios.
 3. Completar gestión editorial, archivos de demo autorizados y recorridos de presentación.
 4. Acordar arquitectura, datos y permisos y probar la integración mínima.
@@ -21,9 +25,11 @@ Seguir las fases de [HOJA_DE_RUTA_AFEB.md](HOJA_DE_RUTA_AFEB.md), manteniendo su
 
 Los prompts siguientes son plantillas por dominio; su numeración no sustituye ese orden ni autoriza integración o despliegue.
 
-## Estado y siguiente bloque del mock
+## Estado del mock y plantilla futura de fase 2
 
-La fase 1 está implementada y verificada; leer `docs/PROBAR_FASE_1.md`. Reutilizar los registros y comandos tipados de `lib/mock-types.ts`, `lib/mock-backend.ts` y los selectores compartidos de `lib/mock-selectors.ts`. No volver a convertir personas/invitaciones en nombres/asuntos sueltos.
+La fase 1 está implementada, verificada y aceptada; leer `docs/PROBAR_FASE_1.md` y `docs/ACEPTACION_FASE_1.md`. Reutilizar los registros y comandos tipados de `lib/mock-types.ts`, `lib/mock-backend.ts` y los selectores compartidos de `lib/mock-selectors.ts`. No volver a convertir personas/invitaciones en nombres/asuntos sueltos.
+
+La siguiente plantilla se conserva para cuando el usuario retome el trabajo funcional; no es la tarea activa:
 
 > Lee docs/HOJA_DE_RUTA_AFEB.md y docs/PROBAR_FASE_1.md. Continúa con la fase 2, escogiendo un conjunto acotado de IDs de campos/operaciones de socio y empresa. Conserva los flujos de miembros, invitaciones, solicitudes y participación ya implementados y la migración backend:v2. Reutiliza la base factual, los overlays y los componentes existentes; no completar datos desconocidos con contenido plausible ni conceder roles reales desde formularios. Prueba recarga, relaciones, reset y las vistas afectadas y actualiza los IDs concretos de la hoja de ruta.
 

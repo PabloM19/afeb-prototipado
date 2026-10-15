@@ -1,8 +1,8 @@
 # AFEB · Portal del socio
 
-Primer borrador de rediseño en **React + TypeScript + Vite**, con **shadcn/ui, Radix UI, Tailwind CSS 4, Lucide e Inter Variable**. Esta rama incluye una variante con la identidad AFEB: logotipo completo, verdes corporativos propuestos y la misma tipografía Inter de `main`. Implementación local basada en la auditoría del 14 de octubre de 2026.
+Portal local en **React + TypeScript + Vite**, con **shadcn/ui, Radix UI, Tailwind CSS 4, Lucide y Manrope Variable**. Esta rama aplica el sistema visual de la landing aportada: papel, neutros cálidos, bosque, lima, tarjetas planas y bordes de 3 px. Implementación basada en la auditoría del 14 de octubre de 2026, con la fase 1 aceptada.
 
-La versión neutra está guardada en `main`. La variante de marca está en `codex/afeb-brand`. Consulta [la aplicación de marca y la comparación](docs/MARCA_AFEB.md).
+La versión neutra está en `main`, la variante verde anterior en `codex/afeb-brand` y esta adaptación en **`codex/afeb-design-system`**. Consulta [el sistema visual aplicado](docs/SISTEMA_VISUAL.md) y [el historial de marca](docs/MARCA_AFEB.md).
 
 ## Arranque
 
@@ -13,7 +13,7 @@ npm install
 npm run dev
 ```
 
-Abre http://localhost:5173. Si ese puerto está ocupado, utiliza la dirección que imprima Vite.
+Abre http://127.0.0.1:5173. Si ese puerto está ocupado, utiliza la dirección que imprima Vite. El estado local pertenece al origen completo, incluido el puerto.
 
 ```bash
 npm run build        # Comprobación TypeScript y build
@@ -54,15 +54,16 @@ Para reiniciar, selecciona **Restablecer demo** en el menú de usuario: borra ú
 - `src/lib/mock-backend.ts`: repositorio persistente y comandos del mini backend local.
 - `src/lib/store.tsx`: suscripción de React y sincronización entre pestañas.
 - `src/features/demo.tsx`: centro de control de presentaciones y datos.
-- `src/index.css`: tokens neutros, composición, adaptabilidad y estados.
-- `src/styles/afeb-brand.css`: capa de marca aplicada sobre la base funcional.
+- `src/index.css`: composición, adaptabilidad y estados, con colores semánticos.
+- `src/styles/design-tokens.css`: tokens del kit de la landing y fuentes locales.
+- `src/styles/afeb-brand.css`: adaptación del sistema visual a los componentes del portal.
 - `src/styles/global-search.css`: barra alargada y diálogo de búsqueda adaptables.
 - `src/components/brand-mark.tsx` y `public/brand`: logotipo original y su presentación.
 - `docs`: mapa de la auditoría, decisiones, continuidad en Cursor y evidencias visuales.
 
 ## Fase 1 implementada
 
-La primera fase de la hoja de ruta está completada para el mock: miembros con campos/ID, invitaciones y aceptación explícita, participación por persona/empresa, solicitudes estructuradas con historial, licitaciones recuperables y búsqueda ampliada. Sigue [PROBAR_FASE_1.md](docs/PROBAR_FASE_1.md) para probar el recorrido completo.
+La primera fase está completada y [aceptada por el usuario](docs/ACEPTACION_FASE_1.md): miembros con campos/ID, invitaciones y aceptación explícita, participación por persona/empresa, solicitudes estructuradas con historial, licitaciones recuperables y búsqueda ampliada. Sigue [PROBAR_FASE_1.md](docs/PROBAR_FASE_1.md) para probar el recorrido completo. El rediseño conserva estos flujos; la fase 2 sigue pendiente durante el bloque de interfaz.
 
 ## Para continuar
 

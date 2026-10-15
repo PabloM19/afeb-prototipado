@@ -103,3 +103,21 @@ Evidencias actuales: [rutas](previews/mock/route-checks.json), [móvil](previews
 - Guía reproducible y límites de simulación en `PROBAR_FASE_1.md`. El dataset `src/data/mock-db.json` no se ha modificado.
 
 La pestaña de verificación abierta tras la implementación cargó `/demo` sin errores ni advertencias, en SocioAdmin, con 18 personas observadas y cero invitaciones/solicitudes locales tras el reinicio.
+
+## Aceptación manual del usuario · 15/10/2026
+
+El usuario comunicó un recorrido satisfactorio en `http://127.0.0.1:5175/`, con altas y duplicados de personas, invitaciones y sus respuestas, bloqueos, participación relacionada, solicitudes con seguimiento, licitaciones, marcas, búsqueda por rol, persistencia y sincronización entre pestañas. El restablecimiento final recuperó la base observada, incluidos 18 contactos y 24 participaciones, sin registros locales de prueba.
+
+El [acta de aceptación](ACEPTACION_FASE_1.md) conserva los resultados comunicados. Esta evidencia procede del usuario; no se presenta como otra ejecución de las pruebas anteriores. No reporta fallos funcionales pendientes. La fase 1 queda aceptada y el siguiente bloque se dedica a la interfaz, con la fase 2 pendiente.
+
+## Sistema visual de la landing aplicado al portal · 15/10/2026
+
+Rama `codex/afeb-design-system`: Manrope local, tokens del kit aportado, superficies cálidas, bosque/lima, bordes de 3 px y componentes adaptados sobre shadcn/Radix. Se conservan el dataset, los contratos, los módulos funcionales, las rutas y las claves de persistencia.
+
+- Pruebas de integridad y flujos de la fase 1, formato y build correctos.
+- 30 rutas/variantes en 1440, 768, 390 y 320 px: 120 comprobaciones finales sin desbordamiento horizontal de página ni imágenes rotas. Incluyen Gestor y fichas con invitación/solicitud creadas desde la interfaz.
+- Comprobados alta completa en móvil y recarga, invitación a HOUSER/aceptación, seguimiento con responsable y comentario, preferencias No/Sí recuperadas, búsqueda agrupada, Escape con retorno de foco, navegación móvil y editor con scroll interno.
+- Corregidos el ancho disponible de los catálogos en tablet, las pestañas de Gestor en 320 px y el resumen de gestión en móvil. Comprobaciones adicionales en 1001 y 1100 px para esos puntos.
+- Prueba interactiva en el origen separado `127.0.0.1:5181`; restablecimiento final con cero inscripciones, actividades modificadas y solicitudes locales, de nuevo en SocioAdmin. Consola final sin advertencias ni errores.
+
+Especificación, límites y [evidencias](SISTEMA_VISUAL.md) en el documento del sistema visual. La fase 1 sigue cerrada; no se han implementado requisitos de la fase 2.

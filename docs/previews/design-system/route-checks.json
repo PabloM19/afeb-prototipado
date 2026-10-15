@@ -1,0 +1,967 @@
+{
+  "date": "2026-10-15",
+  "origin": "http://127.0.0.1:5181",
+  "role": "Gestor AFEB",
+  "checks": [
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/",
+      "title": "Hola, Eloy.",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/eventos",
+      "title": "Actividades",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-evento?id=rechBg5Ghv8eStB7u",
+      "title": "WEBINAR | ECOEMBES - Desgranando el PPWR: preparación, cumplimiento y acompañamiento.",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/inscribir?id=rec9o6L7QzzSGPd3O",
+      "title": "Invita a una nueva conversación",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/socios",
+      "title": "Empresas asociadas",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-socio?id=recGhfV9L4RCctCrd",
+      "title": "AC MARCA ADHESIVES S.L.",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/directorio",
+      "title": "Directorio",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-equipo?id=afeb-pedro-palay",
+      "title": "Pedro Palay",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-equipo?participation=participation-rec0LuXTXLvvFmEsY",
+      "title": "Carlo Contreras",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-de-mi-empresa",
+      "title": "ZERION (pruebas)",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/perfil",
+      "title": "Mi perfil",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/informes",
+      "title": "Informes del sector",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-informe?id=recZpF6HXxGwqF7JL",
+      "title": "Evolución de Ventas",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-informe?id=recUWbsQongMgQWE0",
+      "title": "Transformación Industrial",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/publicaciones",
+      "title": "Informes del sector",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/documentos",
+      "title": "Documentos",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/normativa",
+      "title": "Normativa y asesoría",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/colaboradores",
+      "title": "Colaboradores y beneficios",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/grupos-trabajo",
+      "title": "Grupos de trabajo",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/otras-acciones-cobranding",
+      "title": "Conecta una nueva idea.",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/otras-acciones-licitaciones",
+      "title": "Licitaciones",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/gestion",
+      "title": "Gestión interna",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/login",
+      "title": "Conectamos empresas.Impulsamosel sector.",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/forget-password",
+      "title": "Conectamos empresas.Impulsamosel sector.",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/demo",
+      "title": "Centro de demos",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-evento?id=rec9o6L7QzzSGPd3O",
+      "title": "WEBINAR | HOUSER & HOUSER - DIY en las Redes Sociales en tiempos de IA",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/invitaciones/comprobacion-ausente",
+      "title": "Invitación no encontrada",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/solicitudes/comprobacion-ausente",
+      "title": "Solicitud no encontrada",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/invitaciones/local-invitation-cd70ecd5-1a98-4a37-8b9f-d8dfc8b97e28",
+      "title": "Persona Interfaz Demo",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/solicitudes/local-request-a78cfd41-8a9f-4914-9883-9d6c90bf2f85",
+      "title": "Detalle de solicitud",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/",
+      "title": "Hola, Eloy.",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/eventos",
+      "title": "Actividades",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-evento?id=rechBg5Ghv8eStB7u",
+      "title": "WEBINAR | ECOEMBES - Desgranando el PPWR: preparación, cumplimiento y acompañamiento.",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/inscribir?id=rec9o6L7QzzSGPd3O",
+      "title": "Invita a una nueva conversación",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/socios",
+      "title": "Empresas asociadas",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-socio?id=recGhfV9L4RCctCrd",
+      "title": "AC MARCA ADHESIVES S.L.",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/directorio",
+      "title": "Directorio",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-equipo?id=afeb-pedro-palay",
+      "title": "Pedro Palay",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-equipo?participation=participation-rec0LuXTXLvvFmEsY",
+      "title": "Carlo Contreras",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-de-mi-empresa",
+      "title": "ZERION (pruebas)",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/perfil",
+      "title": "Mi perfil",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/informes",
+      "title": "Informes del sector",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-informe?id=recZpF6HXxGwqF7JL",
+      "title": "Evolución de Ventas",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-informe?id=recUWbsQongMgQWE0",
+      "title": "Transformación Industrial",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/publicaciones",
+      "title": "Informes del sector",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/documentos",
+      "title": "Documentos",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/normativa",
+      "title": "Normativa y asesoría",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/colaboradores",
+      "title": "Colaboradores y beneficios",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/grupos-trabajo",
+      "title": "Grupos de trabajo",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/otras-acciones-cobranding",
+      "title": "Conecta una nueva idea.",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/otras-acciones-licitaciones",
+      "title": "Licitaciones",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/gestion",
+      "title": "Gestión interna",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/login",
+      "title": "Conectamos empresas.Impulsamosel sector.",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/forget-password",
+      "title": "Conectamos empresas.Impulsamosel sector.",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/demo",
+      "title": "Centro de demos",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-evento?id=rec9o6L7QzzSGPd3O",
+      "title": "WEBINAR | HOUSER & HOUSER - DIY en las Redes Sociales en tiempos de IA",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/invitaciones/comprobacion-ausente",
+      "title": "Invitación no encontrada",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/solicitudes/comprobacion-ausente",
+      "title": "Solicitud no encontrada",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/invitaciones/local-invitation-cd70ecd5-1a98-4a37-8b9f-d8dfc8b97e28",
+      "title": "Persona Interfaz Demo",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/solicitudes/local-request-a78cfd41-8a9f-4914-9883-9d6c90bf2f85",
+      "title": "Detalle de solicitud",
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/",
+      "title": "Hola, Eloy.",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/eventos",
+      "title": "Actividades",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-evento?id=rechBg5Ghv8eStB7u",
+      "title": "WEBINAR | ECOEMBES - Desgranando el PPWR: preparación, cumplimiento y acompañamiento.",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/inscribir?id=rec9o6L7QzzSGPd3O",
+      "title": "Invita a una nueva conversación",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/socios",
+      "title": "Empresas asociadas",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-socio?id=recGhfV9L4RCctCrd",
+      "title": "AC MARCA ADHESIVES S.L.",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/directorio",
+      "title": "Directorio",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-equipo?id=afeb-pedro-palay",
+      "title": "Pedro Palay",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-equipo?participation=participation-rec0LuXTXLvvFmEsY",
+      "title": "Carlo Contreras",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-de-mi-empresa",
+      "title": "ZERION (pruebas)",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/perfil",
+      "title": "Mi perfil",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/informes",
+      "title": "Informes del sector",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-informe?id=recZpF6HXxGwqF7JL",
+      "title": "Evolución de Ventas",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-informe?id=recUWbsQongMgQWE0",
+      "title": "Transformación Industrial",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/publicaciones",
+      "title": "Informes del sector",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/documentos",
+      "title": "Documentos",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/normativa",
+      "title": "Normativa y asesoría",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/colaboradores",
+      "title": "Colaboradores y beneficios",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/grupos-trabajo",
+      "title": "Grupos de trabajo",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/otras-acciones-cobranding",
+      "title": "Conecta una nueva idea.",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/otras-acciones-licitaciones",
+      "title": "Licitaciones",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/gestion",
+      "title": "Gestión interna",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/login",
+      "title": "Conectamos empresas.Impulsamosel sector.",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/forget-password",
+      "title": "Conectamos empresas.Impulsamosel sector.",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/demo",
+      "title": "Centro de demos",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-evento?id=rec9o6L7QzzSGPd3O",
+      "title": "WEBINAR | HOUSER & HOUSER - DIY en las Redes Sociales en tiempos de IA",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/invitaciones/comprobacion-ausente",
+      "title": "Invitación no encontrada",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/solicitudes/comprobacion-ausente",
+      "title": "Solicitud no encontrada",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/invitaciones/local-invitation-cd70ecd5-1a98-4a37-8b9f-d8dfc8b97e28",
+      "title": "Persona Interfaz Demo",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/solicitudes/local-request-a78cfd41-8a9f-4914-9883-9d6c90bf2f85",
+      "title": "Detalle de solicitud",
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/",
+      "title": "Hola, Eloy.",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/eventos",
+      "title": "Actividades",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-evento?id=rechBg5Ghv8eStB7u",
+      "title": "WEBINAR | ECOEMBES - Desgranando el PPWR: preparación, cumplimiento y acompañamiento.",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/inscribir?id=rec9o6L7QzzSGPd3O",
+      "title": "Invita a una nueva conversación",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/socios",
+      "title": "Empresas asociadas",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-socio?id=recGhfV9L4RCctCrd",
+      "title": "AC MARCA ADHESIVES S.L.",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/directorio",
+      "title": "Directorio",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-equipo?id=afeb-pedro-palay",
+      "title": "Pedro Palay",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-equipo?participation=participation-rec0LuXTXLvvFmEsY",
+      "title": "Carlo Contreras",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-de-mi-empresa",
+      "title": "ZERION (pruebas)",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/perfil",
+      "title": "Mi perfil",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/informes",
+      "title": "Informes del sector",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-informe?id=recZpF6HXxGwqF7JL",
+      "title": "Evolución de Ventas",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-informe?id=recUWbsQongMgQWE0",
+      "title": "Transformación Industrial",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/publicaciones",
+      "title": "Informes del sector",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/documentos",
+      "title": "Documentos",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/normativa",
+      "title": "Normativa y asesoría",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/colaboradores",
+      "title": "Colaboradores y beneficios",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/grupos-trabajo",
+      "title": "Grupos de trabajo",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/otras-acciones-cobranding",
+      "title": "Conecta una nueva idea.",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/otras-acciones-licitaciones",
+      "title": "Licitaciones",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/gestion",
+      "title": "Gestión interna",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/login",
+      "title": "Conectamos empresas.Impulsamosel sector.",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/forget-password",
+      "title": "Conectamos empresas.Impulsamosel sector.",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/demo",
+      "title": "Centro de demos",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/detalles-evento?id=rec9o6L7QzzSGPd3O",
+      "title": "WEBINAR | HOUSER & HOUSER - DIY en las Redes Sociales en tiempos de IA",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/invitaciones/comprobacion-ausente",
+      "title": "Invitación no encontrada",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/solicitudes/comprobacion-ausente",
+      "title": "Solicitud no encontrada",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/invitaciones/local-invitation-cd70ecd5-1a98-4a37-8b9f-d8dfc8b97e28",
+      "title": "Persona Interfaz Demo",
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "font": "\"Manrope Variable\", sans-serif",
+      "overflow": false,
+      "path": "/solicitudes/local-request-a78cfd41-8a9f-4914-9883-9d6c90bf2f85",
+      "title": "Detalle de solicitud",
+      "width": 320
+    }
+  ]
+}
