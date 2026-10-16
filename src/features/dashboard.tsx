@@ -210,7 +210,7 @@ export default function Dashboard() {
           </div>
         </section>
       </div>
-      <section className="quick-links">
+      <section className="quick-links dashboard-quick-links">
         <Link to="/detalles-de-mi-empresa">
           <Building2 size={20} />
           <div>

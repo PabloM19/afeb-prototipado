@@ -1734,3 +1734,19 @@ tbody tr:hover {
     padding: 20px;
   }
 }
+
+/* Give dashboard shortcuts a clear interactive surface. */
+.dashboard-quick-links > a {
+  padding: 16px;
+  border-radius: var(--radius);
+  transition: background-color 160ms ease;
+}
+.dashboard-quick-links > a:hover,
+.dashboard-quick-links > a:focus-visible {
+  background-color: var(--afeb-mist, #f0f2ec);
+}
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-quick-links > a {
+    transition: none;
+  }
+}
