@@ -70,7 +70,9 @@ export function CompanyCard({
       <div className="company-card__body">
         <span className="company-card__activity">{company.activity}</span>
         <h3>{company.name}</h3>
-        {company.legalName && <p className="company-card__legal">{company.legalName}</p>}
+        {company.legalName && company.legalName.trim() !== company.name.trim() && (
+          <p className="company-card__legal">{company.legalName}</p>
+        )}
         <p className="company-card__description">{company.description}</p>
       </div>
       <span className="company-card__action">

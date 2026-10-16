@@ -51,13 +51,13 @@ export function InvitationDetail() {
       <div className="workflow-panel">
         <div className="workflow-state">
           <Status>{invitation.status}</Status>
-          <span>{formatDate(invitation.createdAt)}</span>
+          <span>Creada: {formatDate(invitation.createdAt)}</span>
         </div>
         <dl className="data-grid">
           {[
             ['Email', invitation.invitee.email],
-            ['Cargo introducido', invitation.invitee.position],
-            ['Empresa introducida', invitation.invitee.companyLabel],
+            ['Cargo', invitation.invitee.position],
+            ['Empresa', invitation.invitee.companyLabel],
             ['Coste aplicable', invitation.cost.status],
             [
               'Tarifa de referencia observada',
@@ -65,7 +65,10 @@ export function InvitationDetail() {
                 ? null
                 : `${invitation.cost.referenceAmount} €`,
             ],
-            ['Respuesta', invitation.respondedAt ? formatDate(invitation.respondedAt) : null],
+            [
+              'Fecha de respuesta',
+              invitation.respondedAt ? formatDate(invitation.respondedAt) : null,
+            ],
           ].map(([k, v]) => (
             <div key={k}>
               <dt>{k}</dt>
@@ -190,7 +193,7 @@ export function RequestDetail() {
           people.find((p) => p.id === request.payload.personId)?.name ?? request.payload.personId,
         ],
         ['Email', invitation?.invitee.email ?? 'No verificado'],
-        ['Empresa introducida', invitation?.invitee.companyLabel ?? 'No verificado'],
+        ['Empresa indicada', invitation?.invitee.companyLabel ?? 'No verificado'],
         ['Estado de invitación', invitation?.status ?? 'No verificado'],
       )
       links.push({
@@ -216,18 +219,26 @@ export function RequestDetail() {
       )
       break
   }
+  const description =
+    request.kind === 'advice' &&
+    [request.payload.details.trim(), `Asesoría: ${request.payload.details.trim()}`].includes(
+      request.subject.trim(),
+    )
+      ? (mockDb.services.find((service) => service.id === request.payload.serviceId)?.title ??
+        'Consulta de asesoría')
+      : request.subject
   return (
     <>
       <BackLink to="/demo" label="Centro de demos" />
       <PageHeading
         eyebrow={requestKindLabels[request.kind]}
         title="Detalle de solicitud"
-        description={request.subject}
+        description={description}
       />
       <div className="detail-grid">
         <div>
           <section className="detail-section">
-            <h2>Datos conservados</h2>
+            <h2>Datos de la solicitud</h2>
             <dl className="data-grid">
               {labels.map(([k, v]) => (
                 <div key={k}>
@@ -281,7 +292,7 @@ export function RequestDetail() {
           <h2>Seguimiento local</h2>
           <Status>{request.status}</Status>
           <p>
-            Responsable:{' '}
+            Responsable actual:{' '}
             {request.assigneeId
               ? assignees.find((p) => p.id === request.assigneeId)?.name
               : 'Sin asignar'}
@@ -312,9 +323,9 @@ export function RequestDetail() {
                 }}
               >
                 <label className="field">
-                  <span>Responsable</span>
+                  <span>Asignar responsable</span>
                   <select
-                    aria-label="Responsable de solicitud"
+                    aria-label="Asignar responsable"
                     value={selected ?? request.assigneeId ?? ''}
                     onChange={(e) => setSelected(e.target.value)}
                   >
@@ -342,9 +353,7 @@ export function RequestDetail() {
               </form>
             </>
           ) : (
-            <p className="form-hint">
-              Selecciona la vista Gestor AFEB para gestionar estado, responsable y comentarios.
-            </p>
+            <p className="form-hint">Gestión disponible en la vista Gestor AFEB de la demo.</p>
           )}
           <DemoNotice>
             El estado de la solicitud no acepta una invitación automáticamente ni activa un

@@ -9,6 +9,7 @@ export type Company = {
   logoNote?: string
   sectors: SectorId[]
   activity: string
+  activitySummary?: string
   description: string
   overview: string
   specialities: string[]
@@ -42,6 +43,7 @@ export const companies: Company[] = [
     logo: '/media/companies/3m.webp',
     sectors: ['industria'],
     activity: 'Industria y productos de consumo',
+    activitySummary: 'Industria y consumo',
     description: 'Soluciones para la industria, la seguridad y los productos de consumo.',
     overview:
       '3M trabaja en el desarrollo, la fabricación y la comercialización de productos para ámbitos industriales y de consumo. Su oferta para profesionales incluye soluciones de fabricación, construcción y seguridad, con aplicaciones en la unión de materiales, el tratamiento de superficies y la protección.',
@@ -61,6 +63,7 @@ export const companies: Company[] = [
     logo: '/media/companies/akzo-nobel.webp',
     sectors: ['pinturas'],
     activity: 'Pinturas y decoración',
+    activitySummary: 'Pinturas',
     description: 'Pinturas y soluciones para la decoración de superficies.',
     overview:
       'Akzo Nobel Coatings desarrolla su actividad en el sector de la pintura. La oferta de Bruguer incluye pinturas para interior y exterior, esmaltes y productos para la decoración de superficies y muebles.',
@@ -75,6 +78,7 @@ export const companies: Company[] = [
     logo: '/media/companies/bellota.svg',
     sectors: ['herramientas', 'ferreteria', 'jardin'],
     activity: 'Herramientas, construcción y jardín',
+    activitySummary: 'Herramientas',
     description: 'Herramientas para la construcción, la ferretería y el trabajo en el jardín.',
     overview:
       'Bellota es una empresa fabricante de herramientas. Dentro de la comunidad AFEB, su actividad abarca la construcción, la ferretería, las herramientas y el jardín: distintos entornos de trabajo con un punto en común, la herramienta manual.',
@@ -103,6 +107,7 @@ export const companies: Company[] = [
     logo: '/media/companies/compo.webp',
     sectors: ['jardin'],
     activity: 'Jardín y cuidado de plantas',
+    activitySummary: 'Jardín',
     description: 'Productos para el jardín y el cuidado de las plantas.',
     overview:
       'COMPO Iberia forma parte del sector de jardín dentro de AFEB. Su web reúne productos y consejos para el cuidado de plantas, desde la preparación del sustrato y la nutrición hasta el mantenimiento del césped.',
@@ -117,6 +122,7 @@ export const companies: Company[] = [
     logo: '/media/companies/rubi.svg',
     sectors: ['herramientas'],
     activity: 'Herramientas para la colocación de cerámica',
+    activitySummary: 'Herramientas para cerámica',
     description: 'Herramientas y maquinaria para la colocación y el mantenimiento de cerámica.',
     overview:
       'RUBI diseña, fabrica y distribuye herramientas y maquinaria para trabajar la cerámica. Su actividad acompaña las distintas fases de la colocación, con soluciones de corte, perforación e instalación de materiales cerámicos.',
@@ -147,6 +153,7 @@ export const companies: Company[] = [
     logo: '/media/wd40.webp',
     sectors: ['ferreteria'],
     activity: 'Ferretería y mantenimiento',
+    activitySummary: 'Mantenimiento',
     description: 'Productos para lubricar, limpiar y proteger en tareas de mantenimiento.',
     overview:
       'WD-40 ofrece productos para el mantenimiento, la lubricación y la protección. Su catálogo incluye el Producto Multi-Uso y la gama WD-40 Specialist, con lubricantes, limpiadores y desengrasantes para distintas aplicaciones.',

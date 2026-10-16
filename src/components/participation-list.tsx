@@ -73,8 +73,8 @@ export function ParticipationList({
         />
       )}
       <p className="form-hint">
-        Relaciones de la simulación local. Las ocurrencias originales sin identidad de CRM
-        verificada no se asignan por nombre a una persona o empresa.{' '}
+        Participación local. Una coincidencia de nombre no basta para vincular un registro a una
+        persona o empresa.{' '}
         {companyId === mockDb.account.companyId
           ? 'Incluye a todos los miembros locales de tu empresa.'
           : ''}

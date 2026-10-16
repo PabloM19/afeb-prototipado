@@ -70,7 +70,7 @@ export default function CompanyPage() {
               )}
               <div className="company-facts__row">
                 <dt>Actividad principal</dt>
-                <dd>{company.activity}</dd>
+                <dd>{company.activitySummary ?? company.activity}</dd>
               </div>
               <div className="company-facts__row">
                 <dt>Sitio web</dt>
@@ -109,11 +109,7 @@ export default function CompanyPage() {
           </div>
           <div className="corporate-visit__action">
             <ExternalAction href={company.website} variant="lime" />
-            <p>
-              Se abrirá la web de la empresa
-              <br />
-              en una nueva pestaña.
-            </p>
+            <p>Web de la empresa · nueva pestaña</p>
           </div>
         </div>
       </section>

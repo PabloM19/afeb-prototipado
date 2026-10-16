@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom'
 import {
   LayoutDashboard,
@@ -12,6 +12,7 @@ import {
   Layers,
   ArrowUpRight,
   Bell,
+  FileText,
   ChevronsUpDown,
   Settings2,
   Menu,
@@ -58,6 +59,18 @@ export function AppShell() {
   const store = useStore()
   const location = useLocation()
   const navigate = useNavigate()
+  const [profileOpen, setProfileOpen] = useState(false)
+  const profileCloseTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
+  const keepProfileOpen = () => {
+    clearTimeout(profileCloseTimer.current)
+    setProfileOpen(true)
+  }
+  const scheduleProfileClose = () => {
+    clearTimeout(profileCloseTimer.current)
+    profileCloseTimer.current = setTimeout(() => setProfileOpen(false), 200)
+  }
+  useEffect(() => () => clearTimeout(profileCloseTimer.current), [])
+  useEffect(() => setProfileOpen(false), [location.pathname, location.search])
   const [mobile, setMobile] = useState(false)
   const [help, setHelp] = useState(false)
   const [notifications, setNotifications] = useState(false)
@@ -93,15 +106,6 @@ export function AppShell() {
         <BrandMark />
         <span className="brand-caption">Portal del socio</span>
       </Link>
-      <div className="workspace">
-        <div className="company-mark">{initialsFor(store.business.name)}</div>
-        <div>
-          <strong>{store.business.name}</strong>
-          <span>Cuenta de revisión</span>
-        </div>
-        <ChevronsUpDown size={14} />
-      </div>
-      <div className="nav-caption">Tu espacio AFEB</div>
       <nav aria-label="Navegación principal">
         {navigation.map(({ label, path, icon: Icon }) => (
           <NavLink
@@ -161,7 +165,6 @@ export function AppShell() {
       <div className="sidebar-bottom">
         <div className="help-card">
           <span>Estamos para ayudarte.</span>
-          <p>Tu equipo AFEB, a un clic.</p>
           <button onClick={() => setHelp(true)}>
             Contactar con AFEB
             <ArrowUpRight size={15} />
@@ -239,34 +242,76 @@ export function AppShell() {
       </Sheet>
       <div className="main-column">
         <header className="topbar has-global-search">
-          <div className="breadcrumb">
-            <Button
-              aria-label="Abrir menú"
-              className="mobile-menu"
-              variant="ghost"
-              size="icon"
-              onClick={() => setMobile(true)}
-            >
-              <Menu size={20} />
-            </Button>
-            <span>Portal del socio</span>
-            <ChevronRight size={13} />
-            <strong>{current}</strong>
+          <div className="topbar-context">
+            <div className="breadcrumb">
+              <Button
+                aria-label="Abrir menú"
+                className="mobile-menu"
+                variant="ghost"
+                size="icon"
+                onClick={() => setMobile(true)}
+              >
+                <Menu size={20} />
+              </Button>
+              <span>Portal del socio</span>
+              <ChevronRight size={13} />
+              <strong>{current}</strong>
+            </div>
           </div>
           <GlobalSearch />
           <div className="topbar-actions">
             <span className="prototype-tag">Demo local</span>
             <button
               className="notification-button"
-              aria-label="Ver notificaciones"
+              aria-label="Ver accesos de la demo"
+              title="Accesos de la demo"
+              aria-haspopup="dialog"
               onClick={() => setNotifications(true)}
             >
               <Bell size={19} />
-              <span />
+              <span aria-hidden="true" />
             </button>
-            <Link to="/perfil" aria-label="Mi perfil">
-              <Avatar initials={initialsFor(store.person.name)} size="small" />
-            </Link>
+            <DropdownMenu open={profileOpen} onOpenChange={setProfileOpen} modal={false}>
+              <DropdownMenuTrigger
+                className="profile-menu-trigger"
+                aria-label="Menú de perfil"
+                onPointerEnter={(event) => {
+                  if (event.pointerType === 'mouse') keepProfileOpen()
+                }}
+                onPointerLeave={scheduleProfileClose}
+                onClick={keepProfileOpen}
+                onPointerDown={(event) => {
+                  if (event.pointerType === 'mouse' && event.button === 0) {
+                    event.preventDefault()
+                    keepProfileOpen()
+                  }
+                }}
+              >
+                <Avatar initials={initialsFor(store.person.name)} size="small" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent
+                align="end"
+                className="profile-menu-content"
+                onPointerEnter={keepProfileOpen}
+                onPointerLeave={scheduleProfileClose}
+              >
+                <DropdownMenuLabel className="profile-company-label">
+                  <span>Tu empresa</span>
+                  <strong>{store.business.name}</strong>
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onSelect={() => navigate('/perfil')}>
+                  <UsersRound size={16} /> Ver perfil
+                </DropdownMenuItem>
+                <DropdownMenuItem onSelect={() => navigate('/perfil?tab=comunicaciones')}>
+                  <Settings2 size={16} /> Preferencias
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onSelect={() => navigate('/login')}>
+                  <LogOut size={16} /> Cerrar sesión
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </header>
         <main id="main" className="main-content" key={location.pathname}>
@@ -283,8 +328,8 @@ export function AppShell() {
       <Dialog open={help} onOpenChange={setHelp}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Hablemos.</DialogTitle>
-            <DialogDescription>Contactos observados en el portal AFEB.</DialogDescription>
+            <DialogTitle>Contacto con AFEB</DialogTitle>
+            <DialogDescription>Contactos de la muestra del portal AFEB.</DialogDescription>
           </DialogHeader>
           {afebTeam.map(({ name: title, position: desc, email }) => (
             <div className="contact-help" key={title}>
@@ -307,33 +352,35 @@ export function AppShell() {
       <Dialog open={notifications} onOpenChange={setNotifications}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Al día con AFEB</DialogTitle>
+            <DialogTitle>Accesos de la demo</DialogTitle>
             <DialogDescription>
               Accesos a los registros de la muestra. No se han importado notificaciones reales.
             </DialogDescription>
           </DialogHeader>
           {[
-            [
-              'Informe del catálogo',
-              reports.find((r) => r.id === referenceIds.featuredReportId)!.title,
-              `/detalles-informe?id=${referenceIds.featuredReportId}`,
-            ],
-            [
-              'Actividad del catálogo',
-              activities.find((a) => a.id === referenceIds.featuredActivityId)!.title,
-              `/detalles-evento?id=${referenceIds.featuredActivityId}`,
-            ],
-          ].map(([title, desc, path]) => (
+            {
+              label: 'Informe',
+              title: reports.find((r) => r.id === referenceIds.featuredReportId)!.title,
+              path: `/detalles-informe?id=${referenceIds.featuredReportId}`,
+              icon: FileText,
+            },
+            {
+              label: 'Actividad',
+              title: activities.find((a) => a.id === referenceIds.featuredActivityId)!.title,
+              path: `/detalles-evento?id=${referenceIds.featuredActivityId}`,
+              icon: CalendarDays,
+            },
+          ].map(({ label, title, path, icon: Icon }) => (
             <Link
               className="notification-item"
               key={path}
               to={path}
               onClick={() => setNotifications(false)}
             >
-              <Bell size={18} />
+              <Icon size={18} aria-hidden="true" />
               <div>
-                <strong>{title}</strong>
-                <p>{desc}</p>
+                <strong>{label}</strong>
+                <p>{title}</p>
               </div>
               <ArrowUpRight size={18} />
             </Link>

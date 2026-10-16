@@ -156,6 +156,7 @@ export default function CompaniesPage() {
                 ? 'encontrada'
                 : 'encontradas'
               : 'en esta selección'}
+            {hasFilters && ' en esta selección'}
           </p>
           {hasFilters ? (
             <button

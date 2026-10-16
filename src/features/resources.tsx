@@ -73,7 +73,6 @@ export function Reports() {
           </span>
         </div>
         <div className="report-feature-copy">
-          <span className="eyebrow">Archivo observado en el portal</span>
           <h2>{featured.title}</h2>
           <p>
             {featured.files.length} archivos observados. Último archivo de la lista:{' '}
@@ -106,10 +105,9 @@ export function Reports() {
         </Tabs>
       </div>
       <div className="reports-grid">
-        {filtered.map((r, i) => (
+        {filtered.map((r) => (
           <Link className="report-card" key={r.id} to={`/detalles-informe?id=${r.id}`}>
             <div className="report-card-top">
-              <span className="report-number">0{i + 1}</span>
               <ArrowUpRight size={21} />
             </div>
             <span className="small-label">
@@ -120,7 +118,11 @@ export function Reports() {
             <div className="report-card-footer">
               <span>
                 <LockKeyhole size={14} />
-                {displayValue(r.accessLabel)}
+                {displayValue(
+                  !r.personal && r.price === 0
+                    ? r.accessLabel.replace(/^Gratuito y /i, '')
+                    : r.accessLabel,
+                )}
               </span>
               <span>
                 {r.personal
@@ -174,7 +176,7 @@ export function ReportDetail() {
             </div>
           </section>
           <section className="detail-section">
-            <SectionHeading title="Archivos observados" />
+            <SectionHeading title="Archivos del recurso" />
             {years.length > 0 && (
               <FilterSelect
                 value={year}
@@ -201,7 +203,7 @@ export function ReportDetail() {
                   <span className="file-icon">{file.format ?? '—'}</span>
                   <div>
                     <strong>{file.filename}</strong>
-                    <p>Nombre observado · Ficha de prueba TXT</p>
+                    <p>Ficha de prueba TXT</p>
                   </div>
                   <Download size={19} />
                 </button>
@@ -209,7 +211,7 @@ export function ReportDetail() {
             )}
             {!report.personal && files.length === 0 && (
               <EmptyState
-                title="Sin archivos recogidos"
+                title="Sin archivos en esta muestra"
                 description="La muestra no incluye el contenido de este recurso."
               />
             )}
@@ -224,7 +226,7 @@ export function ReportDetail() {
           <span className="panel-icon">
             <FileText size={20} />
           </span>
-          <h2>{report.title}</h2>
+          <h2>Descarga del recurso</h2>
           <p>{report.edition}</p>
           <div className="booking-price">
             {report.price === 0
@@ -232,7 +234,13 @@ export function ReportDetail() {
               : report.price === null
                 ? 'Tarifa no verificada'
                 : `${report.price} €`}
-            <span>{displayValue(report.accessLabel)}</span>
+            <span>
+              {displayValue(
+                !report.personal && report.price === 0
+                  ? report.accessLabel.replace(/^Gratuito y /i, '')
+                  : report.accessLabel,
+              )}
+            </span>
           </div>
           <Button
             disabled={report.personal || report.files.length === 0}
@@ -269,7 +277,6 @@ export function Documents() {
   return (
     <>
       <PageHeading
-        eyebrow="La información, en su sitio"
         title="Documentos"
         description="Estatutos, memorias y recursos institucionales de nuestra asociación."
       />
@@ -308,7 +315,7 @@ export function Documents() {
                     <FileText size={18} />
                     <div>
                       <strong>{d.title}</strong>
-                      <span>{d.subcategory}</span>
+                      {d.subcategory && d.subcategory !== 'General' && <span>{d.subcategory}</span>}
                     </div>
                   </div>
                 </td>
@@ -357,7 +364,6 @@ export function Regulations() {
   return (
     <>
       <PageHeading
-        eyebrow="Claridad para tu empresa"
         title="Normativa y asesoría"
         description="Recursos, formación y orientación para afrontar los cambios con confianza."
       />
@@ -382,10 +388,9 @@ export function Regulations() {
       </div>
       <section className="detail-section">
         <SectionHeading
-          title="Para estar al día"
-          description="Documentación y referencias de consulta."
+          title="Referencias de normativa"
           href="/documentos"
-          label="Ver documentos"
+          label="Documentos institucionales"
         />
         <div className="legal-resources">
           {legalResources.map((resource) => (
@@ -406,10 +411,7 @@ export function Regulations() {
         </div>
       </section>
       <section className="detail-section">
-        <SectionHeading
-          title="Webinars de normativa recogidos"
-          description="Aprende con expertos y consulta los materiales de las sesiones."
-        />
+        <SectionHeading title="Webinars de normativa" />
         {store.activities
           .filter((a) => a.category === 'Normativa')
           .map((a) => (

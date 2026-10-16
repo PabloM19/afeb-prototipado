@@ -1,0 +1,118 @@
+{
+  "companies": [
+    {
+      "activity": "Industria y productos de consumo",
+      "brokenImages": [],
+      "name": "3M España",
+      "path": "/empresas-asociadas/3m",
+      "related": 3,
+      "shortActivity": "Industria y consumo"
+    },
+    {
+      "activity": "Pinturas y decoración",
+      "brokenImages": [],
+      "name": "Akzo Nobel Coatings",
+      "path": "/empresas-asociadas/akzo-nobel",
+      "related": 3,
+      "shortActivity": "Pinturas"
+    },
+    {
+      "activity": "Herramientas, construcción y jardín",
+      "brokenImages": [],
+      "name": "Bellota",
+      "path": "/empresas-asociadas/bellota",
+      "related": 3,
+      "shortActivity": "Herramientas"
+    },
+    {
+      "activity": "Herramientas eléctricas",
+      "brokenImages": [],
+      "name": "Bosch",
+      "path": "/empresas-asociadas/bosch",
+      "related": 3,
+      "shortActivity": "Herramientas eléctricas"
+    },
+    {
+      "activity": "Jardín y cuidado de plantas",
+      "brokenImages": [],
+      "name": "COMPO",
+      "path": "/empresas-asociadas/compo",
+      "related": 3,
+      "shortActivity": "Jardín"
+    },
+    {
+      "activity": "Herramientas para la colocación de cerámica",
+      "brokenImages": [],
+      "name": "RUBI",
+      "path": "/empresas-asociadas/rubi",
+      "related": 3,
+      "shortActivity": "Herramientas para cerámica"
+    },
+    {
+      "activity": "Herramientas y ferretería",
+      "brokenImages": [],
+      "name": "Stanley Black & Decker",
+      "path": "/empresas-asociadas/stanley-black-decker",
+      "related": 3,
+      "shortActivity": "Herramientas y ferretería"
+    },
+    {
+      "activity": "Ferretería y mantenimiento",
+      "brokenImages": [],
+      "name": "WD-40",
+      "path": "/empresas-asociadas/wd40",
+      "related": 3,
+      "shortActivity": "Mantenimiento"
+    }
+  ],
+  "providers": [
+    {
+      "brokenImages": 0,
+      "contacts": [
+        "tel:+34943309286",
+        "mailto:sales-es@nexmart.com",
+        "https://www.nexmart.com/es/"
+      ],
+      "name": "NEXMART",
+      "path": "/proveedores-recomendados/nexmart",
+      "related": 3,
+      "services": 5
+    },
+    {
+      "brokenImages": 0,
+      "contacts": [
+        "tel:+34916256238",
+        "mailto:info@dateriumsystem.com",
+        "https://www.dateriumsystem.com/"
+      ],
+      "name": "Daterium System",
+      "path": "/proveedores-recomendados/daterium-system",
+      "related": 3,
+      "services": 4
+    },
+    {
+      "brokenImages": 0,
+      "contacts": [
+        "tel:+34671080938",
+        "mailto:joaquim.lopez@es.dachser.com",
+        "https://www.dachser.es/es/diy-logistics-102"
+      ],
+      "name": "DACHSER DIY Logistics",
+      "path": "/proveedores-recomendados/dachser-diy-logistics",
+      "related": 3,
+      "services": 5
+    },
+    {
+      "brokenImages": 0,
+      "contacts": [
+        "tel:+34629266506",
+        "mailto:n.padros@slimstock.com",
+        "https://www.slimstock.com/es/"
+      ],
+      "name": "Slimstock",
+      "path": "/proveedores-recomendados/slimstock",
+      "related": 3,
+      "services": 4
+    }
+  ]
+}

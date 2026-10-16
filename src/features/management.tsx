@@ -202,7 +202,10 @@ export default function Management() {
                       <Status>{a.state}</Status>
                     </td>
                     <td>
-                      {displayValue(a.attendees)} / {displayValue(a.capacity)}
+                      <div className="registration-count">
+                        <span>Inscritos: {displayValue(a.attendees)}</span>
+                        <span>Cupo: {displayValue(a.capacity)}</span>
+                      </div>
                     </td>
                     <td>
                       <div className="table-actions">
@@ -263,10 +266,10 @@ export default function Management() {
         </TabsContent>
         <TabsContent value="editorial">
           <div className="content-panel">
-            <h2>La base para seguir construyendo</h2>
+            <h2>Catálogos y alcance editorial</h2>
             <p className="muted">
-              El panel editorial de informes, documentos y proveedores requiere backend y
-              almacenamiento privado.
+              Consulta los catálogos de informes, documentos y proveedores. La edición de estos
+              contenidos está pendiente.
             </p>
             <div className="quick-links editorial-links">
               <Link to="/informes">

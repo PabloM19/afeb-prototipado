@@ -29,6 +29,7 @@ import {
   findSearchResults,
   getSearchAreas,
   type SearchAreaId,
+  type SearchEntry,
 } from '@/lib/search'
 
 const icons = {
@@ -42,6 +43,25 @@ const icons = {
   groups: Layers,
   account: UserRound,
   management: Settings2,
+}
+
+// Only presentation changes: index, ranking, records and destinations stay intact.
+function searchResultCopy(item: SearchEntry) {
+  const title = item.title.trim()
+  const seen = new Set([title])
+  const meta = item.meta
+    .split(' · ')
+    .map((part) => part.trim())
+    .filter((part) => {
+      if (!part || seen.has(part)) return false
+      seen.add(part)
+      return true
+    })
+    .join(' · ')
+  const description = item.description.trim()
+  const repeatedDescription =
+    seen.has(description) || (description && title.endsWith(`: ${description}`))
+  return { meta, description: repeatedDescription ? '' : item.description }
 }
 
 export function GlobalSearch() {
@@ -157,8 +177,8 @@ export function GlobalSearch() {
           <div className="portal-search-header">
             <DialogHeader>
               <DialogTitle>Buscar en el portal</DialogTitle>
-              <DialogDescription>
-                Empresas, actividades, recursos y contactos en un solo lugar.
+              <DialogDescription className="sr-only">
+                Búsqueda general en el contenido disponible para tu vista.
               </DialogDescription>
             </DialogHeader>
             <div className="portal-search-input">
@@ -257,18 +277,23 @@ export function GlobalSearch() {
                       </Link>
                     </div>
                     <ul>
-                      {group.results.map((item) => (
-                        <li key={item.id}>
-                          <Link to={item.path} data-search-result onClick={() => setOpen(false)}>
-                            <div>
-                              <strong>{item.title}</strong>
-                              <span className="portal-search-meta">{item.meta}</span>
-                              <p>{item.description}</p>
-                            </div>
-                            <ArrowUpRight size={18} aria-hidden="true" />
-                          </Link>
-                        </li>
-                      ))}
+                      {group.results.map((item) => {
+                        const copy = searchResultCopy(item)
+                        return (
+                          <li key={item.id}>
+                            <Link to={item.path} data-search-result onClick={() => setOpen(false)}>
+                              <div>
+                                <strong>{item.title}</strong>
+                                {copy.meta && (
+                                  <span className="portal-search-meta">{copy.meta}</span>
+                                )}
+                                {copy.description && <p>{copy.description}</p>}
+                              </div>
+                              <ArrowUpRight size={18} aria-hidden="true" />
+                            </Link>
+                          </li>
+                        )
+                      })}
                     </ul>
                   </section>
                 )

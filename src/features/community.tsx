@@ -92,7 +92,6 @@ export function Companies() {
   return (
     <>
       <PageHeading
-        eyebrow="Una comunidad que suma"
         title="Empresas asociadas"
         description="Encuentra nuevos contactos, comparte experiencias y abre oportunidades."
         action={
@@ -106,11 +105,7 @@ export function Companies() {
       />
       <div className="directory-intro">
         <UsersRound size={22} />
-        <p>
-          Distintas especialidades. Una misma visión.
-          <br />
-          <strong>Conectamos a los profesionales que hacen avanzar el sector.</strong>
-        </p>
+        <p>Distintas especialidades. Una misma visión.</p>
         <span>{companies.length} empresas recogidas</span>
       </div>
       <div className="filter-bar">
@@ -165,11 +160,7 @@ export function Directory() {
   )
   return (
     <>
-      <PageHeading
-        eyebrow="Las personas detrás de las empresas"
-        title="Directorio"
-        description="Conecta con otros profesionales de nuestra comunidad."
-      />
+      <PageHeading eyebrow="Las personas detrás de las empresas" title="Directorio" />
       <div className="filter-bar">
         <SearchInput
           value={search}
@@ -203,7 +194,6 @@ export function Directory() {
               </a>
             )}
             <div className="person-card-footer">
-              <span>Contacto del mock</span>
               <Link className="text-link" to={`/detalles-equipo?id=${p.id}`}>
                 Ver contacto
                 <ArrowUpRight size={16} />
@@ -232,12 +222,20 @@ export function ContactDetail() {
     ? getDemoParticipations(store).find((p) => p.id === params.get('participation'))
     : getDemoContacts(store).find((p) => p.id === params.get('id'))
   if (!person) return <EmptyState title="Contacto no encontrado" />
+  const positionInDetails =
+    !params.get('participation') &&
+    getDemoContacts(store).some(
+      (contact) => contact.id === person.id && contact.position === person.position,
+    )
   return (
     <>
       <BackLink to="/directorio" label="Volver al directorio" />
       <div className="contact-detail">
         <Avatar initials={person.initials} size="large" />
-        <PageHeading eyebrow={person.company} title={person.name} description={person.position} />
+        <PageHeading
+          title={person.name}
+          description={positionInDetails ? undefined : person.position}
+        />
         <dl className="data-grid">
           <div>
             <dt>Departamento</dt>
@@ -296,6 +294,12 @@ export function ContactDetail() {
 }
 export function Profile() {
   const store = useStore()
+  const [profileParams, setProfileParams] = useSearchParams()
+  const profileTab = ['informacion', 'comunicaciones', 'actividad'].includes(
+    profileParams.get('tab') ?? '',
+  )
+    ? profileParams.get('tab')!
+    : 'informacion'
   const [edit, setEdit] = useState(false)
   const [prefs, setPrefs] = useState(store.preferences)
   useEffect(() => setPrefs(store.preferences), [store.preferences])
@@ -303,7 +307,6 @@ export function Profile() {
     <>
       <PageHeading
         title="Mi perfil"
-        description="Tu información, tus preferencias y tu participación en AFEB."
         action={
           <Button variant="outline" onClick={() => setEdit(true)}>
             <Pencil size={16} />
@@ -335,7 +338,20 @@ export function Profile() {
           <ArrowUpRight size={17} />
         </Link>
       </div>
-      <Tabs defaultValue="informacion">
+      <Tabs
+        value={profileTab}
+        onValueChange={(tab) => {
+          setProfileParams(
+            (params) => {
+              const next = new URLSearchParams(params)
+              if (tab === 'informacion') next.delete('tab')
+              else next.set('tab', tab)
+              return next
+            },
+            { replace: true },
+          )
+        }}
+      >
         <TabsList>
           <TabsTrigger value="informacion">Información personal</TabsTrigger>
           <TabsTrigger value="comunicaciones">Comunicaciones</TabsTrigger>
@@ -343,7 +359,7 @@ export function Profile() {
         </TabsList>
         <TabsContent value="informacion">
           <div className="content-panel">
-            <h2>Los datos que nos conectan</h2>
+            <h2>Datos personales</h2>
             <dl className="data-grid">
               {[
                 ['Email', store.person.email],
@@ -373,22 +389,17 @@ export function Profile() {
               Las selecciones originales no se pudieron comprobar. El estado indeterminado significa
               «no verificado»; los cambios se guardan solo en local.
             </p>
-            {mockDb.catalogs.communicationLabels
-              .map((title) => [title, 'Preferencia de comunicación'])
-              .map(([title, desc], i) => (
-                <label className="preference-row" key={title}>
-                  <div>
-                    <strong>{title}</strong>
-                    <span>{desc}</span>
-                  </div>
-                  <Checkbox
-                    checked={prefs[i] ?? 'indeterminate'}
-                    onCheckedChange={(v) =>
-                      setPrefs(prefs.map((p, j) => (j === i ? v === true : p)))
-                    }
-                  />
-                </label>
-              ))}
+            {mockDb.catalogs.communicationLabels.map((title, i) => (
+              <label className="preference-row" key={title}>
+                <div>
+                  <strong>{title}</strong>
+                </div>
+                <Checkbox
+                  checked={prefs[i] ?? 'indeterminate'}
+                  onCheckedChange={(v) => setPrefs(prefs.map((p, j) => (j === i ? v === true : p)))}
+                />
+              </label>
+            ))}
             <div className="form-actions">
               <Button variant="outline" onClick={() => setPrefs(store.preferences)}>
                 Cancelar
@@ -406,7 +417,7 @@ export function Profile() {
         </TabsContent>
         <TabsContent value="actividad">
           <div className="content-panel">
-            <h2>Tu agenda AFEB</h2>
+            <h2>Inscripciones</h2>
             {store.activities
               .filter((a) => store.registered.includes(a.id))
               .map((a) => (
@@ -470,9 +481,7 @@ export function CompanyDetail({ own = false }: { own?: boolean }) {
         eyebrow={own ? 'Tu espacio de empresa' : 'Empresa asociada'}
         title={name}
         description={
-          own
-            ? 'Mantén tu información al día y gestiona las personas de tu equipo.'
-            : company.description
+          own ? 'Mantén tu información al día y gestiona las personas de tu equipo.' : undefined
         }
         action={
           canEdit ? (
@@ -616,7 +625,6 @@ export function CompanyDetail({ own = false }: { own?: boolean }) {
             <div className="section-heading">
               <div>
                 <h2>Las personas de {name}</h2>
-                <p>Un equipo conectado con la comunidad.</p>
               </div>
               {canEdit && (
                 <Button variant="outline" onClick={() => setTeamOpen(true)}>
@@ -634,7 +642,8 @@ export function CompanyDetail({ own = false }: { own?: boolean }) {
                     <ArrowUpRight size={15} />
                   </Link>
                   <p>
-                    {displayValue(member.position)} · {member.company}
+                    {displayValue(member.position)}
+                    {member.company && member.company !== name && <> · {member.company}</>}
                   </p>
                   <p className="form-hint">{member.email || 'Email no verificado'}</p>
                 </div>
@@ -660,7 +669,6 @@ export function CompanyDetail({ own = false }: { own?: boolean }) {
         {own && (
           <TabsContent value="participacion">
             <div className="content-panel">
-              <h2>Tu empresa participa</h2>
               <ParticipationList companyId={company.id} />
               <Link className="text-link" to="/eventos">
                 Descubrir nuevas actividades

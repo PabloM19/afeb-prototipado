@@ -63,7 +63,7 @@ export default function ProvidersPage() {
       >
         <div className="providers-selection__heading">
           <div>
-            <Eyebrow>Proveedores de servicios recomendados</Eyebrow>
+            <Eyebrow>Esta selección</Eyebrow>
             <h2 id="providers-selection-title">
               Experiencia especializada.
               <br />

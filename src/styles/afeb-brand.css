@@ -221,9 +221,12 @@ p {
   width: 40px;
   height: 44px;
 }
-.notification-button span,
 .skip-link {
   background: var(--afeb-forest);
+}
+.notification-button span {
+  background: transparent;
+  border: 1px solid var(--afeb-muted);
 }
 .global-search-trigger {
   height: 48px;
@@ -911,7 +914,11 @@ p {
   margin-top: 32px;
 }
 [data-slot='checkbox'] {
-  border-color: #8fa185;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--afeb-white);
+  border-color: #6f8167;
   border-radius: 2px;
   width: 20px;
   height: 20px;
@@ -922,6 +929,20 @@ p {
   background: var(--afeb-forest);
   border-color: var(--afeb-forest);
   color: white;
+}
+[data-slot='checkbox-indicator'] {
+  display: grid;
+  place-content: center;
+  margin: 0;
+  line-height: 1;
+  color: inherit;
+}
+[data-slot='checkbox-mixed'],
+[data-slot='checkbox'][data-state='indeterminate'] [data-slot='checkbox-check'] {
+  display: none;
+}
+[data-slot='checkbox'][data-state='indeterminate'] [data-slot='checkbox-mixed'] {
+  display: block;
 }
 [data-slot='dialog-content'],
 [data-slot='sheet-content'],
@@ -1610,4 +1631,82 @@ tbody tr:hover {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
+}
+
+/* Microajustes de contexto y duplicados (M001, M008, M031). */
+.topbar-context {
+  grid-area: breadcrumb;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.feature-event-top {
+  justify-content: flex-end;
+}
+.featured-datetime {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.5;
+}
+.featured-datetime svg {
+  flex-shrink: 0;
+}
+.person-card-footer {
+  justify-content: flex-end;
+}
+
+/* Marca y navegación con una separación propia, sin otro rótulo. */
+.sidebar .brand,
+.mobile-sidebar .brand {
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.profile-menu-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.profile-menu-trigger:hover,
+.profile-menu-trigger[data-state='open'] {
+  outline: 2px solid var(--border);
+  outline-offset: 4px;
+}
+.profile-menu-content {
+  width: min(280px, calc(100vw - 32px));
+}
+.profile-company-label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 12px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.profile-company-label span {
+  color: var(--afeb-muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+.profile-company-label strong {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* La flecha conserva su posición tras retirar la numeración ornamental. */
+.report-card-top {
+  justify-content: flex-end;
+}
+
+.registration-count {
+  display: grid;
+  gap: 2px;
+  min-width: 140px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--afeb-muted);
 }

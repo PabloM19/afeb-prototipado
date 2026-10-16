@@ -89,21 +89,17 @@ export function Activities() {
       />
       <div className="activity-banner">
         <div>
-          <span className="eyebrow">Actividad del catálogo observado</span>
           <h2>{highlighted.title}</h2>
-          <p>
-            {highlighted.category} ·{' '}
-            {formatDate(highlighted.date, { day: 'numeric', month: 'long' })}
-          </p>
+          <p>{highlighted.category}</p>
           <Link className="text-link" to={`/detalles-evento?id=${highlighted.id}`}>
             Conocer la jornada
             <ArrowUpRight size={17} />
           </Link>
         </div>
-        <div className="banner-date" aria-hidden="true">
+        <time className="banner-date" dateTime={highlighted.date || undefined}>
           {new Date(highlighted.date).getDate()}
           <span>{formatDate(highlighted.date, { month: 'long', year: 'numeric' })}</span>
-        </div>
+        </time>
       </div>
       <div className="catalog-top">
         <Tabs value={tab} onValueChange={setTab}>
@@ -197,7 +193,6 @@ export function EventDetail() {
           <Status>{activity.state}</Status>
         </div>
         <h1>{activity.title}</h1>
-        <p className="source-excerpt">{displayValue(activity.description)}</p>
       </div>
       {activity.qualityNotes.map((note) => (
         <DemoNotice key={note}>{note}</DemoNotice>
@@ -243,7 +238,7 @@ export function EventDetail() {
             <div>
               {activity.mode === 'Webinar' ? <Monitor size={20} /> : <MapPin size={20} />}
               <span>
-                Formato<strong>{displayValue(activity.mode)}</strong>
+                Modalidad<strong>{displayValue(activity.mode)}</strong>
               </span>
             </div>
           </div>
@@ -505,7 +500,7 @@ export function Invite() {
   return (
     <>
       <BackLink to={`/detalles-evento?id=${activity.id}`} label="Volver a la actividad" />
-      <PageHeading title="Invita a una nueva conversación" description={activity.title} />
+      <PageHeading title="Invitar a una actividad" description={activity.title} />
       <div className="form-page">
         <h2>Persona invitada</h2>
         <label className="field">
@@ -571,10 +566,7 @@ export function Invite() {
           {selected === 'new' && (
             <label className="checkbox-label">
               <Checkbox checked={sameCompany} onCheckedChange={(v) => setSameCompany(v === true)} />
-              <span>
-                Pertenece a mi empresa en esta simulación. Si es externo, su empresa queda como
-                texto sin un ID inventado.
-              </span>
+              <span>Pertenece a mi empresa. Si es externa, indica su empresa.</span>
             </label>
           )}
           <label className="checkbox-label">

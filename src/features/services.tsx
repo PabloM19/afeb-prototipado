@@ -35,7 +35,6 @@ export function Providers() {
   return (
     <>
       <PageHeading
-        eyebrow="Ventajas de formar parte"
         title="Colaboradores y beneficios"
         description="Especialistas y condiciones que aportan valor a tu empresa."
       />
@@ -46,13 +45,16 @@ export function Providers() {
             <TabsTrigger value="Benefits">Beneficios para socios</TabsTrigger>
           </TabsList>
         </Tabs>
-        <span className="small-label">Catálogo observado</span>
       </div>
       <div className="filter-bar">
         <SearchInput
           value={search}
           onChange={setSearch}
-          placeholder="Buscar proveedor o especialidad…"
+          placeholder={
+            tab === 'Benefits'
+              ? 'Buscar beneficio o especialidad…'
+              : 'Buscar proveedor o especialidad…'
+          }
         />
       </div>
       <div className="providers-list">
@@ -106,7 +108,6 @@ export function Groups() {
   return (
     <>
       <PageHeading
-        eyebrow="Compartir para avanzar"
         title="Grupos de trabajo"
         description="Un espacio para trabajar juntos en los retos del sector."
       />
@@ -114,8 +115,8 @@ export function Groups() {
         <SearchInput value={search} onChange={setSearch} placeholder="Buscar grupo de trabajo…" />
       </div>
       <EmptyState
-        title="Aún no hay grupos en tu espacio"
-        description="Explora las actividades vinculadas a grupos de trabajo mientras preparamos este espacio."
+        title="Sin grupos en esta muestra"
+        description="Puedes consultar las actividades relacionadas con grupos de trabajo."
         action={
           <Button variant="outline" asChild>
             <Link to="/eventos">
@@ -126,7 +127,7 @@ export function Groups() {
         }
       />
       <DemoNotice>
-        La auditoría encontró una lista vacía. Está pendiente decidir si los grupos serán espacios
+        La muestra consultada no incluye grupos. Está pendiente decidir si serán espacios
         permanentes con miembros y documentos.
       </DemoNotice>
     </>
@@ -142,8 +143,7 @@ export function Cobranding() {
     <>
       <BackLink to="/eventos" label="Actividades y servicios" />
       <PageHeading
-        eyebrow="Mejor, juntos"
-        title="Conecta una nueva idea."
+        title="Proponer colaboración"
         description="Propón una colaboración con otras empresas de la comunidad AFEB."
       />
       <div className="service-form-grid">
@@ -169,7 +169,7 @@ export function Cobranding() {
         >
           {sent ? (
             <EmptyState
-              title="Tu idea ya tiene un punto de partida"
+              title="Propuesta registrada"
               description="Propuesta registrada localmente. No se ha enviado a ninguna empresa."
               action={
                 <Button
@@ -253,10 +253,7 @@ export function Cobranding() {
             De una idea
             <br />a una oportunidad.
           </h2>
-          <p>
-            Elige hasta cinco empresas y comparte una propuesta concreta. AFEB podrá revisar tu
-            solicitud y acompañar los siguientes pasos.
-          </p>
+          <p>AFEB podrá revisar tu solicitud y acompañar los siguientes pasos.</p>
           <span>
             La demo cubre la recepción de solicitudes. El matching automático queda fuera del
             alcance.
@@ -288,7 +285,7 @@ export function Tenders() {
       <PageHeading
         eyebrow="Nuevas oportunidades"
         title="Licitaciones"
-        description="Guarda tus intereses y recupera tus preferencias al volver."
+        description="Preferencias de información."
       />
       <div className="service-form-grid">
         <form
@@ -312,7 +309,6 @@ export function Tenders() {
           <label className="preference-row">
             <div>
               <strong>Newsletter general diaria</strong>
-              <span>Elección para la simulación local.</span>
             </div>
             <Checkbox
               checked={daily ?? 'indeterminate'}

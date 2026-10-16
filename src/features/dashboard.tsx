@@ -18,7 +18,7 @@ import { companies, reports, allReports, participations, formatDate } from '@/da
 import { referenceIds, simulationDate, displayValue } from '@/data/mock-db'
 
 export default function Dashboard() {
-  const { person, registered, activities, business, team, role } = useStore()
+  const { person, registered, activities, team, role } = useStore()
   const featured =
     activities.find(
       (a) =>
@@ -36,7 +36,6 @@ export default function Dashboard() {
             Hola, {person.name.split(' ')[0]}
             <span className="greeting-dot">.</span>
           </h1>
-          <p>Todo lo que necesitas para seguir avanzando, en un mismo lugar.</p>
         </div>
         <span className="today">
           <CalendarDays size={16} />
@@ -70,7 +69,7 @@ export default function Dashboard() {
         <Stat
           label="Tu equipo"
           value={String(team.length).padStart(2, '0')}
-          note={`${business.name} · Datos del mock`}
+          note="Personas de tu empresa"
           icon={<UsersRound size={18} />}
         />
       </div>
@@ -78,28 +77,22 @@ export default function Dashboard() {
         {featured ? (
           <section className="feature-event">
             <div className="feature-event-top">
-              <span>
-                <span className="live-dot" />
-                Actividad del catálogo
-              </span>
-              <span>
-                {formatDate(featured.date, { day: '2-digit', month: '2-digit', year: 'numeric' })}
-              </span>
+              <time className="featured-datetime" dateTime={featured.date || undefined}>
+                <CalendarDays size={15} aria-hidden="true" />
+                {formatDate(featured.date, {
+                  day: '2-digit',
+                  month: '2-digit',
+                  year: 'numeric',
+                  hour: '2-digit',
+                  minute: '2-digit',
+                })}
+              </time>
             </div>
             <div className="feature-event-content">
               <span className="feature-category">{displayValue(featured.category)}</span>
               <h2>{featured.title}</h2>
               <p className="source-excerpt">{displayValue(featured.description)}</p>
               <div className="feature-event-meta">
-                <span>
-                  <CalendarDays size={15} />
-                  {formatDate(featured.date, {
-                    day: 'numeric',
-                    month: 'long',
-                    hour: '2-digit',
-                    minute: '2-digit',
-                  })}
-                </span>
                 <span>
                   {displayValue(featured.place)} · {displayValue(featured.mode)}
                 </span>
@@ -162,9 +155,6 @@ export default function Dashboard() {
             Explorar el archivo
             <ArrowRight size={16} />
           </Link>
-          <span className="chart-disclaimer">
-            No se ha recogido una serie estadística para el gráfico.
-          </span>
         </section>
       </div>
       <div className="dashboard-bottom-grid">

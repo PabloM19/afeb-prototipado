@@ -1792,7 +1792,7 @@
   font-weight: 500;
   display: block;
 }
-.preference-row span {
+.preference-row > div > span {
   font-size: 15px;
   color: var(--muted-foreground);
   display: block;
@@ -2197,7 +2197,7 @@ td strong {
   font-weight: 500;
   display: block;
 }
-.company-picker span {
+.company-picker > label > div > span {
   font-size: 14px;
   color: var(--muted-foreground);
   display: block;
@@ -3189,7 +3189,7 @@ td strong {
   .preference-row strong {
     font-size: 15px;
   }
-  .preference-row span {
+  .preference-row > div > span {
     font-size: 15px;
     line-height: 1.7;
   }
@@ -3358,7 +3358,7 @@ td strong {
   .company-picker strong {
     font-size: 16px;
   }
-  .company-picker span {
+  .company-picker > label > div > span {
     font-size: 15px;
   }
   .category-checks {

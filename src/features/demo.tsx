@@ -185,15 +185,8 @@ export default function DemoCenter() {
             <Database size={15} />
             Base compartida
           </span>
-          <h2>
-            Datos conectados.
-            <br />
-            Una demo que responde.
-          </h2>
-          <p>
-            Los catálogos, las fichas, el buscador y tu perfil utilizan la misma base. Las acciones
-            se guardan en este navegador y se sincronizan entre sus pestañas.
-          </p>
+          <h2>Una misma base para toda la demo</h2>
+          <p>Los cambios se guardan en este navegador y se sincronizan entre sus pestañas.</p>
           <span className="demo-source-date">
             Muestra observada el {formatDate(mockDb.meta.observedAt)} · Datos desconocidos sin
             rellenar
@@ -325,10 +318,9 @@ export default function DemoCenter() {
         </TabsContent>
         <TabsContent value="requests">
           <div className="content-panel">
-            <h2>Del formulario a la gestión</h2>
+            <h2>Solicitudes de la demo</h2>
             <p className="muted">
-              Envía una asesoría, invitación o colaboración en el front. Aparecerá aquí y en Gestión
-              interna, con el mismo estado.
+              Las solicitudes creadas en la app aparecen aquí y en Gestión con el mismo estado.
             </p>
             <RequestList />
           </div>

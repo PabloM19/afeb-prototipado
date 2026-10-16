@@ -38,7 +38,7 @@ export function Hero() {
           </div>
           <a className="hero__scroll" href="#afeb">
             <ArrowDown size={16} aria-hidden="true" />
-            El valor de formar parte
+            Sigue explorando
           </a>
         </div>
         <div className="hero__visual">

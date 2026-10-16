@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { ArrowRight, Eye, EyeOff, ArrowLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -9,6 +9,10 @@ export default function Auth({ recovery = false }: { recovery?: boolean }) {
   const navigate = useNavigate()
   const [show, setShow] = useState(false)
   const [sent, setSent] = useState(false)
+  useEffect(() => {
+    setSent(false)
+    setShow(false)
+  }, [recovery])
   return (
     <div className="auth-layout">
       <section className="auth-story">
@@ -37,12 +41,11 @@ export default function Auth({ recovery = false }: { recovery?: boolean }) {
           Volver a la web
         </a>
         <div>
-          <span className="eyebrow">Tu espacio AFEB</span>
-          <h2>{recovery ? 'Recupera tu acceso.' : 'Qué bueno verte de nuevo.'}</h2>
+          <h2>{recovery ? 'Recupera tu acceso.' : 'Accede al portal'}</h2>
           <p>
             {recovery
-              ? 'Solicita las instrucciones para restablecer tu contraseña.'
-              : 'Accede a tu agenda, tu comunidad y toda la información del sector.'}
+              ? 'Introduce un email para ver la confirmación de recuperación.'
+              : 'Introduce un email y una contraseña de ejemplo para abrir la demo.'}
           </p>
           {sent ? (
             <div className="summary-box">
