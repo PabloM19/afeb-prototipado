@@ -12,7 +12,14 @@ import {
   Check,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { ActivityRow, Avatar, SectionHeading, Stat, EmptyState } from '@/components/shared'
+import {
+  ActivityRow,
+  Avatar,
+  CompanyLogo,
+  SectionHeading,
+  Stat,
+  EmptyState,
+} from '@/components/shared'
 import { useStore } from '@/lib/store'
 import { companies, reports, allReports, participations, formatDate } from '@/data/fixtures'
 import { referenceIds, simulationDate, displayValue } from '@/data/mock-db'
@@ -113,7 +120,7 @@ export default function Dashboard() {
             <div className="feature-event-footer">
               <div className="avatar-stack">
                 {sample.slice(0, 3).map((p) => (
-                  <Avatar key={p.id} initials={p.initials} size="small" />
+                  <Avatar key={p.id} personId={p.personId} initials={p.initials} size="small" />
                 ))}
               </div>
               <span>
@@ -196,7 +203,7 @@ export default function Dashboard() {
                 className="community-row"
                 key={company.id}
               >
-                <span className="company-logo">{company.initials}</span>
+                <CompanyLogo companyId={company.id} initials={company.initials} />
                 <div>
                   <strong>{company.name}</strong>
                   <p>

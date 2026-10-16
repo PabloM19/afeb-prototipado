@@ -1750,3 +1750,34 @@ tbody tr:hover {
     transition: none;
   }
 }
+
+/* Real, locally hosted identities; dimensions also reserve space while loading. */
+.avatar-photo {
+  overflow: hidden;
+}
+.avatar-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+}
+.company-logo.company-logo-image {
+  overflow: hidden;
+  background: #fff;
+  padding: 3px;
+}
+.company-logo-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.contact-help > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.directory-filters > .search-input {
+  max-width: none;
+  min-width: 0;
+}

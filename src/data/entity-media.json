@@ -1,0 +1,199 @@
+{
+  "observedAt": "2026-10-16",
+  "people": {
+    "afeb-marta-omedes": {
+      "name": "Marta Omedes",
+      "src": "/media/demo/people/afeb-marta-omedes.webp",
+      "sourcePage": "https://portal.brico-afeb.com/",
+      "originalUrl": "https://assets.softr-files.com/applications/13272ac9-4c13-4638-9a52-6606dc8831f4/assets/7547ca90-1e98-4bc0-bc91-f3dcc4198bd7.jpeg",
+      "width": 314,
+      "height": 320,
+      "sha256": "12041b14d7e65b8802ffde26c0b6f3636c2a70edd8446f48792f3725272fb9bf"
+    },
+    "afeb-maria-soler": {
+      "name": "Maria Soler",
+      "src": "/media/demo/people/afeb-maria-soler.webp",
+      "sourcePage": "https://portal.brico-afeb.com/",
+      "originalUrl": "https://assets.softr-files.com/applications/13272ac9-4c13-4638-9a52-6606dc8831f4/assets/913031e5-735d-43b2-9bfe-e6ccec5e6619.jpeg",
+      "width": 320,
+      "height": 320,
+      "sha256": "900356369aae05040d7c3d4b6a13efed2ad5219173ba2a4ac153dc7d9a4708b5"
+    },
+    "afeb-jordi-albaladejo": {
+      "name": "Jordi Albaladejo",
+      "src": "/media/demo/people/afeb-jordi-albaladejo.webp",
+      "sourcePage": "https://portal.brico-afeb.com/",
+      "originalUrl": "https://assets.softr-files.com/applications/13272ac9-4c13-4638-9a52-6606dc8831f4/assets/8e0f06ce-131c-4d3a-9b6d-c8dc8c5dadb5.png",
+      "width": 320,
+      "height": 282,
+      "sha256": "fec9b1aaa7c4c3dad10bb60fbe125a50633181e6771731a5473dd73bd6629086"
+    },
+    "afeb-marta-vinas": {
+      "name": "Marta Viñas",
+      "src": "/media/demo/people/afeb-marta-vinas.webp",
+      "sourcePage": "https://portal.brico-afeb.com/",
+      "originalUrl": "https://assets.softr-files.com/applications/13272ac9-4c13-4638-9a52-6606dc8831f4/assets/a12a2dc5-26db-43b4-bf2d-5a7d6e0ff0f6.jpeg",
+      "width": 314,
+      "height": 320,
+      "sha256": "3b053ab7d8526d392f61dd2321c0d7e5ebf1634e3997d3935d7f89ec6b3b8dd1"
+    },
+    "afeb-susana-velasco": {
+      "name": "Susana Velasco",
+      "src": "/media/demo/people/afeb-susana-velasco.webp",
+      "sourcePage": "https://portal.brico-afeb.com/",
+      "originalUrl": "https://assets.softr-files.com/applications/13272ac9-4c13-4638-9a52-6606dc8831f4/assets/24756dff-e62d-4e48-96c0-05343e96888c.jpeg",
+      "width": 314,
+      "height": 320,
+      "sha256": "e53202723c88cdf734aa0856a2765bfdfcf024a01f06a736e14984d300364ac7"
+    },
+    "afeb-mari-carmen-vilchez": {
+      "name": "Mari Carmen Vilchez",
+      "src": "/media/demo/people/afeb-mari-carmen-vilchez.webp",
+      "sourcePage": "https://portal.brico-afeb.com/",
+      "originalUrl": "https://assets.softr-files.com/applications/13272ac9-4c13-4638-9a52-6606dc8831f4/assets/15ec55e0-2af9-4335-8bc6-90bf3d867552.png",
+      "width": 316,
+      "height": 320,
+      "sha256": "6a04ebdc48192fe5517ef4519afd9d1084fda2588f9585eaa9156b6fc6df1640"
+    },
+    "afeb-pedro-palay": {
+      "name": "Pedro Palay",
+      "src": "/media/demo/people/afeb-pedro-palay.webp",
+      "sourcePage": "https://portal.brico-afeb.com/",
+      "originalUrl": "https://assets.softr-files.com/applications/13272ac9-4c13-4638-9a52-6606dc8831f4/assets/766a8a93-a19b-4c68-98af-d50362afceb8.png",
+      "width": 316,
+      "height": 320,
+      "sha256": "b58555a207608e47902ab81c8482482fc3074d95247622defb1957c4aa74f0fa"
+    },
+    "afeb-alejandro-casero": {
+      "name": "Alejandro Casero",
+      "src": "/media/demo/people/afeb-alejandro-casero.webp",
+      "sourcePage": "https://portal.brico-afeb.com/",
+      "originalUrl": "https://assets.softr-files.com/applications/13272ac9-4c13-4638-9a52-6606dc8831f4/assets/0ee95d97-43c5-4391-a09e-05e9beed4123.jpeg",
+      "width": 260,
+      "height": 320,
+      "sha256": "9877847828c6ce8b68e109d4fac3c55b0450c183b16082b68677fa934ddca745"
+    }
+  },
+  "companies": {
+    "recR9s8Enais4SXet": {
+      "name": "3M ESPAÑA, S.L.",
+      "src": "/media/demo/companies/recR9s8Enais4SXet.webp",
+      "sourcePage": "https://brico-afeb.com/empresas-asociadas/",
+      "originalUrl": "https://brico-afeb.com/wp-content/uploads/2023/08/3M_.png",
+      "width": 80,
+      "height": 80,
+      "sha256": "264c0a4bf7df4afe1c4bc1c7c5d9d517dd4865b0adb54df42b557d7bdc19186b"
+    },
+    "recGhfV9L4RCctCrd": {
+      "name": "AC MARCA ADHESIVES S.L.",
+      "src": "/media/demo/companies/recGhfV9L4RCctCrd.webp",
+      "sourcePage": "https://brico-afeb.com/empresas-asociadas/",
+      "originalUrl": "https://brico-afeb.com/wp-content/uploads/2024/12/acmarca.jpg",
+      "width": 80,
+      "height": 80,
+      "sha256": "e00c86665ead360686dccfaf07ea9e80e3c71dd99ca82887154ab0a591edb97a"
+    },
+    "recgE6o65hAJLAd1m": {
+      "name": "AGHASA TURIS, S.A",
+      "src": "/media/demo/companies/recgE6o65hAJLAd1m.webp",
+      "sourcePage": "https://brico-afeb.com/empresas-asociadas/",
+      "originalUrl": "https://brico-afeb.com/wp-content/uploads/2024/04/Agasha-Turis.jpg",
+      "width": 220,
+      "height": 220,
+      "sha256": "0dcbb4a03f060d67385393d0e77e7aba27f8b402a8c5db218a68985a0941a9b5"
+    },
+    "recjCrzA5r95OP3dQ": {
+      "name": "AKZO NOBEL COATINGS, S.L.",
+      "src": "/media/demo/companies/recjCrzA5r95OP3dQ.webp",
+      "sourcePage": "https://brico-afeb.com/empresas-asociadas/",
+      "originalUrl": "https://brico-afeb.com/wp-content/uploads/2026/03/akzonobel.jpg",
+      "width": 80,
+      "height": 80,
+      "sha256": "651548b3370f50110552c4615f433bcb0d403cc841d6a875e3f6cda6df31ce85"
+    },
+    "rec8asC1RCdSB1HVy": {
+      "name": "ALBERO FORTE COMOPOSITE, SLU (PLASTICFORTE)",
+      "src": "/media/demo/companies/rec8asC1RCdSB1HVy.webp",
+      "sourcePage": "https://brico-afeb.com/empresas-asociadas/",
+      "originalUrl": "https://brico-afeb.com/wp-content/uploads/2026/06/plasticforte-80-copia.png",
+      "width": 80,
+      "height": 80,
+      "sha256": "3e8d9727b72a588afd2ee8acd71a8ebd1c79a6ef7831a7a3bc72dc79a2800ac4"
+    },
+    "recl1DURKbROcnxKX": {
+      "name": "ALTADEX, S.A.U.",
+      "src": "/media/demo/companies/recl1DURKbROcnxKX.webp",
+      "sourcePage": "https://brico-afeb.com/empresas-asociadas/",
+      "originalUrl": "https://brico-afeb.com/wp-content/uploads/2023/05/altadex.jpg",
+      "width": 80,
+      "height": 80,
+      "sha256": "b3527a0a24e7258d08f21cbbd2c54f11aeb03ce82394ca963e19ab0163ec352e"
+    },
+    "rec7Mwiadmmppzvdn": {
+      "name": "ALTUNA HERMANOS, SA",
+      "src": "/media/demo/companies/rec7Mwiadmmppzvdn.webp",
+      "sourcePage": "https://brico-afeb.com/empresas-asociadas/",
+      "originalUrl": "https://brico-afeb.com/wp-content/uploads/2025/03/Altuna.jpg",
+      "width": 80,
+      "height": 80,
+      "sha256": "f5b2421ba9f3288bffb64eba7abe713789c68ab0db45109370f440e718973d95"
+    },
+    "recBws9SAiiKadF7m": {
+      "name": "ALYCO TOOLS, S.A",
+      "src": "/media/demo/companies/recBws9SAiiKadF7m.webp",
+      "sourcePage": "https://brico-afeb.com/empresas-asociadas/",
+      "originalUrl": "https://brico-afeb.com/wp-content/uploads/2015/10/alyco2.jpg",
+      "width": 80,
+      "height": 80,
+      "sha256": "6abd3908c8583b7138fe708384d55727d8e5608f7dcfd7f4a6e0a73734c8eda0"
+    },
+    "reciubrH8X2ccL2yw": {
+      "name": "AFEB",
+      "src": "/brand/afeb-logo.png",
+      "sourcePage": "https://brico-afeb.com/",
+      "note": "Reuses existing AFEB brand asset",
+      "width": 435,
+      "height": 365,
+      "sha256": "4eb05917d171cfa3c1d92ff0bb41b822149eafad347e1f15e306144ab1a4ac8e"
+    }
+  },
+  "brands": {
+    "recGhfV9L4RCctCrd-brand-1": {
+      "name": "Ceys",
+      "src": "/media/demo/brands/recGhfV9L4RCctCrd-brand-1.webp",
+      "sourcePage": "https://mundoceys.com/",
+      "originalUrl": "https://mundoceys.com/themes/mundoceys2022/assets/new-design/images/webp/logo.webp",
+      "width": 256,
+      "height": 121,
+      "sha256": "b6a75d22cd6b4ef12de8a1b62e4c893b032056bc608c0970e19435000e444256",
+      "background": "#003a70"
+    },
+    "recGhfV9L4RCctCrd-brand-2": {
+      "name": "Ceys Agua Stop",
+      "src": "/media/demo/brands/recGhfV9L4RCctCrd-brand-2.webp",
+      "sourcePage": "https://www.profesional.mundoceys.com/impermeabilizantes-aguastop",
+      "originalUrl": "https://www.profesional.mundoceys.com/themes/mundoceys_1_1/assets/landings/aquastop/images/logo.png",
+      "width": 216,
+      "height": 194,
+      "sha256": "ca9630e08c7c9243de84daf83a8bd6b390b8c2ad72ef542de3a7b1ec3af6455e"
+    },
+    "recGhfV9L4RCctCrd-brand-3": {
+      "name": "Paso Profesional",
+      "src": "/media/demo/brands/recGhfV9L4RCctCrd-brand-3.webp",
+      "sourcePage": "https://pasoprofesional.com/",
+      "originalUrl": "https://pasoprofesional.com/wp-content/themes/paso/dist/images/logo_a00c19a4.png",
+      "width": 256,
+      "height": 124,
+      "sha256": "635bb2013b268afccaa346d61e54488866632656dc1480b77c35783e5d0c5698"
+    },
+    "recGhfV9L4RCctCrd-brand-4": {
+      "name": "Paso Profesional",
+      "src": "/media/demo/brands/recGhfV9L4RCctCrd-brand-3.webp",
+      "sourcePage": "https://pasoprofesional.com/",
+      "originalUrl": "https://pasoprofesional.com/wp-content/themes/paso/dist/images/logo_a00c19a4.png",
+      "width": 256,
+      "height": 124,
+      "sha256": "635bb2013b268afccaa346d61e54488866632656dc1480b77c35783e5d0c5698"
+    }
+  }
+}

@@ -42,7 +42,7 @@ import { Avatar } from '@/components/shared'
 import { BrandMark } from '@/components/brand-mark'
 import { GlobalSearch } from '@/components/global-search'
 import { afebTeam, reports, activities } from '@/data/fixtures'
-import { initialsFor, referenceIds } from '@/data/mock-db'
+import { initialsFor, referenceIds, mockDb } from '@/data/mock-db'
 import { useStore } from '@/lib/store'
 const navigation = [
   { label: 'Inicio', path: '/portal', icon: LayoutDashboard },
@@ -172,7 +172,7 @@ export function AppShell() {
         </div>
         <DropdownMenu>
           <DropdownMenuTrigger className="user-switch">
-            <Avatar initials={initialsFor(store.person.name)} />
+            <Avatar personId={mockDb.account.personId} initials={initialsFor(store.person.name)} />
             <div>
               <strong>{store.person.name}</strong>
               <span>{store.role}</span>
@@ -287,7 +287,11 @@ export function AppShell() {
                   }
                 }}
               >
-                <Avatar initials={initialsFor(store.person.name)} size="small" />
+                <Avatar
+                  personId={mockDb.account.personId}
+                  initials={initialsFor(store.person.name)}
+                  size="small"
+                />
               </DropdownMenuTrigger>
               <DropdownMenuContent
                 align="end"
@@ -331,8 +335,9 @@ export function AppShell() {
             <DialogTitle>Contacto con AFEB</DialogTitle>
             <DialogDescription>Contactos de la muestra del portal AFEB.</DialogDescription>
           </DialogHeader>
-          {afebTeam.map(({ name: title, position: desc, email }) => (
-            <div className="contact-help" key={title}>
+          {afebTeam.map(({ id, initials, name: title, position: desc, email }) => (
+            <div className="contact-help" key={id}>
+              <Avatar personId={id} initials={initials} />
               <div>
                 <h3>{title}</h3>
                 <p>{desc}</p>

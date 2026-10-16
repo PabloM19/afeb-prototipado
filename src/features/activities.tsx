@@ -295,7 +295,7 @@ export function EventDetail() {
             <div className="attendees">
               {people.map((p) => (
                 <Link key={p.id} to={p.path}>
-                  <Avatar initials={p.initials} />
+                  <Avatar personId={p.personId} initials={p.initials} />
                   <div>
                     <strong>{p.name}</strong>
                     <p>{p.company}</p>

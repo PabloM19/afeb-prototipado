@@ -26,6 +26,7 @@ import {
   SearchInput,
   FilterSelect,
   Avatar,
+  CompanyLogo,
   EmptyState,
   BackLink,
   EditDialog,
@@ -35,6 +36,7 @@ import {
 } from '@/components/shared'
 import type { Field } from '@/components/shared'
 import { companies, allCompanies, companyCategories, contacts } from '@/data/fixtures'
+import { personImage } from '@/data/entity-media'
 import { getDemoContacts, getDemoParticipations, getCompanyTeam } from '@/lib/mock-selectors'
 import { ParticipationList } from '@/components/participation-list'
 import { localAction } from '@/lib/local-action'
@@ -120,7 +122,7 @@ export function Companies() {
         {items.map((company) => (
           <Link key={company.id} className="company-card" to={`/detalles-socio?id=${company.id}`}>
             <div className="company-card-top">
-              <span className="company-logo large">{company.initials}</span>
+              <CompanyLogo companyId={company.id} initials={company.initials} size="large" />
               <ArrowUpRight size={19} />
             </div>
             <span className="small-label">{company.category}</span>
@@ -153,15 +155,17 @@ export function Directory() {
   const store = useStore()
   const { role } = store
   const directoryContacts = getDemoContacts(store)
-  const items = directoryContacts.filter(
-    (p) =>
-      (department === 'Todos los departamentos' || department === p.department) &&
-      `${p.name} ${p.company} ${p.position}`.toLowerCase().includes(search.toLowerCase()),
-  )
+  const items = directoryContacts
+    .filter(
+      (p) =>
+        (department === 'Todos los departamentos' || department === p.department) &&
+        `${p.name} ${p.company} ${p.position}`.toLowerCase().includes(search.toLowerCase()),
+    )
+    .sort((a, b) => Number(Boolean(personImage(b.id))) - Number(Boolean(personImage(a.id))))
   return (
     <>
       <PageHeading eyebrow="Las personas detrás de las empresas" title="Directorio" />
-      <div className="filter-bar">
+      <div className="filter-bar directory-filters">
         <SearchInput
           value={search}
           onChange={setSearch}
@@ -181,7 +185,7 @@ export function Directory() {
         {items.map((p) => (
           <article className="person-card" key={p.id}>
             <div className="person-card-top">
-              <Avatar initials={p.initials} />
+              <Avatar personId={p.id} initials={p.initials} />
               <span className="small-label">{p.department}</span>
             </div>
             <h2>{p.name}</h2>
@@ -231,7 +235,11 @@ export function ContactDetail() {
     <>
       <BackLink to="/directorio" label="Volver al directorio" />
       <div className="contact-detail">
-        <Avatar initials={person.initials} size="large" />
+        <Avatar
+          personId={'personId' in person ? person.personId : person.id}
+          initials={person.initials}
+          size="large"
+        />
         <PageHeading
           title={person.name}
           description={positionInDetails ? undefined : person.position}
@@ -316,6 +324,7 @@ export function Profile() {
       />
       <div className="profile-hero">
         <Avatar
+          personId={mockDb.account.personId}
           initials={store.person.name
             .split(' ')
             .map((x) => x[0])
@@ -493,7 +502,7 @@ export function CompanyDetail({ own = false }: { own?: boolean }) {
         }
       />
       <div className="company-detail-header">
-        <span className="company-logo extra-large">{initialsFor(name)}</span>
+        <CompanyLogo companyId={company.id} initials={initialsFor(name)} size="extra-large" />
         <div>
           <span className="status">
             <span />
@@ -592,13 +601,10 @@ export function CompanyDetail({ own = false }: { own?: boolean }) {
             {(own ? store.brands : company.brands.map((b) => b.name ?? 'No verificado')).map(
               (brand, index) => (
                 <div className="brand-row" key={`${index}-${brand}`}>
-                  <span className="company-logo">
-                    {brand
-                      .split(' ')
-                      .map((x) => x[0])
-                      .slice(0, 2)
-                      .join('')}
-                  </span>
+                  <CompanyLogo
+                    brandId={own ? undefined : company.brands[index]?.id}
+                    initials={initialsFor(brand)}
+                  />
                   <strong>{brand}</strong>
                   {canEdit && (
                     <Button
@@ -635,7 +641,7 @@ export function CompanyDetail({ own = false }: { own?: boolean }) {
             </div>
             {getCompanyTeam(store, company.id).map((member) => (
               <div className="team-row" key={member.id}>
-                <Avatar initials={member.initials} />
+                <Avatar personId={member.id} initials={member.initials} />
                 <div>
                   <Link className="text-link" to={`/detalles-equipo?id=${member.id}`}>
                     {member.name}

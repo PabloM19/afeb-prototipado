@@ -21,6 +21,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { displayValue } from '@/data/mock-db'
+import { personImage, companyImage, brandImage, brandBackground } from '@/data/entity-media'
 import { formatDate } from '@/data/fixtures'
 import type { Activity } from '@/data/fixtures'
 export function PageHeading({
@@ -205,8 +206,52 @@ export function Stat({
     </div>
   )
 }
-export function Avatar({ initials, size = 'normal' }: { initials: string; size?: string }) {
-  return <span className={`avatar avatar-${size}`}>{initials}</span>
+function IdentityImage({ src, fallback }: { src: string; fallback: string }) {
+  const [failedSource, setFailedSource] = useState<string>()
+  return failedSource === src ? (
+    fallback
+  ) : (
+    <img src={src} alt="" loading="lazy" decoding="async" onError={() => setFailedSource(src)} />
+  )
+}
+export function Avatar({
+  initials,
+  size = 'normal',
+  personId,
+}: {
+  initials: string
+  size?: string
+  personId?: string | null
+}) {
+  const src = personImage(personId)
+  return (
+    <span className={`avatar avatar-${size}${src ? ' avatar-photo' : ''}`}>
+      {src ? <IdentityImage key={src} src={src} fallback={initials} /> : initials}
+    </span>
+  )
+}
+export function CompanyLogo({
+  initials,
+  companyId,
+  brandId,
+  size,
+}: {
+  initials: string
+  companyId?: string | null
+  brandId?: string
+  size?: 'large' | 'extra-large'
+}) {
+  const src = brandId ? brandImage(brandId) : companyImage(companyId)
+  return (
+    <span
+      className={`company-logo${size ? ` ${size}` : ''}${src ? ' company-logo-image' : ''}`}
+      style={
+        src && brandBackground(brandId) ? { backgroundColor: brandBackground(brandId) } : undefined
+      }
+    >
+      {src ? <IdentityImage key={src} src={src} fallback={initials} /> : initials}
+    </span>
+  )
 }
 export function BackLink({ to, label }: { to: string; label: string }) {
   return (
