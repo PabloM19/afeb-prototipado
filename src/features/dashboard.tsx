@@ -187,7 +187,7 @@ export default function Dashboard() {
             <ChevronRight size={18} />
           </Link>
         </section>
-        <section>
+        <section className="dashboard-community-panel">
           <SectionHeading title="Tu comunidad, más cerca" href="/socios" label="Explorar" />
           <div className="community-list">
             {companies.slice(0, 3).map((company) => (

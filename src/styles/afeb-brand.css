@@ -1710,3 +1710,27 @@ tbody tr:hover {
   line-height: 1.6;
   color: var(--afeb-muted);
 }
+
+/* Separate community discovery from the agenda without changing the grid. */
+.dashboard-community-panel {
+  align-self: start;
+  min-width: 0;
+  padding: 24px;
+  background: var(--afeb-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.dashboard-community-panel .section-heading {
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.dashboard-community-panel .community-row:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+@media (max-width: 760px) {
+  .dashboard-community-panel {
+    padding: 20px;
+  }
+}
